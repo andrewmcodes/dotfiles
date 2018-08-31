@@ -1,0 +1,76 @@
+{
+	"workbench.colorCustomizations":{
+				"editor.background": "#1a1c20",
+				"editorIndentGuide.activeBackground": "#b83957",
+				"tab.activeBorderTop": "#b83957",
+			},
+		"editor.fontSize": 12,
+		"editor.lineHeight": 20,
+		"editor.letterSpacing": 0.5,
+		"files.trimTrailingWhitespace": true,
+		"editor.fontWeight": "400",
+		"editor.cursorStyle": "line",
+		"editor.cursorWidth": 5,
+		"editor.cursorBlinking": "solid",
+		"editor.tabSize": 2,
+		"editor.renderWhitespace": "all",
+		"workbench.startupEditor": "newUntitledFile",
+		"explorer.confirmDragAndDrop": false,
+		"editor.minimap.enabled": false,
+		"window.zoomLevel": 0,
+		"files.autoSave": "onFocusChange",
+		"editor.rulers": [120],
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+		//   GIT
+		"git.enableSmartCommit": true,
+		"gitlens.hovers.currentLine.over": "line",
+		"gitlens.gitExplorer.files.layout": "auto",
+		"gitlens.advanced.messages": {
+				"suppressCommitHasNoPreviousCommitWarning": false,
+				"suppressCommitNotFoundWarning": false,
+				"suppressFileNotUnderSourceControlWarning": false,
+				"suppressGitVersionWarning": false,
+				"suppressLineUncommittedWarning": false,
+				"suppressNoRepositoryWarning": false,
+				"suppressResultsExplorerNotice": false,
+				"suppressShowKeyBindingsNotice": true
+		},
+		// Emmet
+		"emmet.syntaxProfiles": {
+				"javascript": "jsx",
+				"xml": {
+						"attr_quotes": "single"
+				}
+		},
+		// Spotify
+		"spotify.showToggleRepeatingButton": true,
+	  "spotify.showToggleShufflingButton": true,
+
+		// Ruby
+		// Time (ms) to wait after keypress before running enabled linters. Ensures
+		// linters are only run when typing has finished and not for every keypress
+		"ruby.lintDebounceTime": 500,
+		//advanced: set command line options for some linters:
+		"ruby.lint": {
+				"ruby": true,
+				"rubocop": {
+						"lint": true
+				}
+		},
+		"ruby.format": "rubocop",
+		"ruby.codeCompletion": "rcodetools",
+		"ruby.intellisense": "rubyLocate",
+		"ruby.useLanguageServer": true,
+		"workbench.iconTheme": "vscode-great-icons",
+		"git.autofetch": true,
+		"gitlens.historyExplorer.enabled": true,
+		"editor.autoIndent": false,
+		"liveServer.settings.donotShowInfoMsg": true,
+		"terminal.integrated.fontSize": 14,
+		"gitlens.currentLine.enabled": false,
+		"gitlens.codeLens.enabled": false,
+		"gitlens.keymap": "alternate",
+		"workbench.colorTheme": "One Dark Pro Vivid",
+		"eslint.autoFixOnSave": true,
+	}
