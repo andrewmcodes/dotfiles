@@ -1,0 +1,46 @@
+{
+  "activeProfileId": 2,
+  "profiles": {
+    "2": {
+      "id": 2,
+      "name": "Andrew",
+      "singleTabMode": true,
+      "vibrancy": "medium-light",
+      "allowTransparency": false,
+      "windowBackground": "rgb(37,42,48)",
+      "theme": {
+        "foreground": "rgb(255,255,255)",
+        "selection": "rgba(255,255,255,0.3)",
+        "background": "rgb(37,42,48)",
+        "magenta": "rgb(212,41,139)",
+        "brightBlue": "rgb(87,199,255)",
+        "blue": "rgb(87,199,255)",
+        "brightCyan": "rgb(7,237,255)",
+        "brightMagenta": "rgb(255,8,150)",
+        "cursorAccent": "rgb(0,0,0)",
+        "cursor": "rgb(255,255,255)"
+      },
+      "cursorStyle": "block",
+      "fontWeight": "300",
+      "fontWeightBold": "normal",
+      "fontFamily": "Fira Mono for Powerline,courier-new, courier, monospace",
+      "fontSize": "15",
+      "letterSpacing": ".2",
+      "experimentalCharAtlas": "static"
+    },
+    "4": {
+      "id": 4,
+      "fontFamily": "Fira Mono for Powerline,courier-new, courier, monospace",
+      "fontWeight": "300",
+      "fontWeightBold": "300",
+      "vibrancy": "medium-light",
+      "windowBackground": "rgb(37,42,48)",
+      "theme": {
+        "background": "rgb(37,42,48)"
+      },
+      "name": "Andrew Large",
+      "fontSize": "17"
+    }
+  },
+  "version": "2.3.2"
+}
