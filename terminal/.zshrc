@@ -78,8 +78,5 @@ PATH=/bin:/usr/bin:/usr/local/bin:${PATH}
 eval "$(rbenv init -)"
 eval "$(pyenv init -)"
 export PATH="/usr/local/sbin:$PATH"
-export GITHUB_TOKEN="c461ec8dfc1eb5f1b28533a9eecaaf5e20eba1ca"
-export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
-export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
 
 export PATH
