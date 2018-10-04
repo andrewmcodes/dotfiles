@@ -15,4 +15,4 @@
 ## 3rd Party
 
 1. Adobe Creative Cloud
-1. VMWare Horizing
+1. VMWare Horizon
