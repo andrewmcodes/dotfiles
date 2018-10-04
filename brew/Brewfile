@@ -52,6 +52,7 @@ brew "libidn2"
 brew "libsodium"
 brew "libyaml"
 brew "little-cms2"
+brew "mas"
 brew "mysql@5.7", restart_service: true, link: true
 brew "pkg-config"
 brew "postgresql", restart_service: true
@@ -65,6 +66,7 @@ brew "rbenv-gemset"
 brew "reattach-to-user-namespace"
 brew "redis", restart_service: true
 brew "tmux"
+brew "tree"
 brew "wget"
 brew "xpdf"
 brew "yarn"
@@ -74,13 +76,16 @@ brew "zsh-completions"
 cask "appcleaner"
 cask "cheatsheet"
 cask "chromedriver"
+cask "dash"
 cask "docker"
 cask "dropbox"
 cask "epubquicklook"
 cask "firefox"
 cask "firefox-nightly"
 cask "flux"
+cask "gitter"
 cask "google-chrome"
+cask "google-hangouts"
 cask "java8"
 cask "kitematic"
 cask "ngrok"
@@ -102,3 +107,8 @@ cask "vagrant"
 cask "valentina-studio"
 cask "vlc"
 cask "zoomus"
+mas "Keynote", id: 409183694
+mas "LastPass", id: 926036361
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Xcode", id: 497799835

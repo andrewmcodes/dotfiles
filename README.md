@@ -16,3 +16,4 @@ Just a simple collection of my .dot and settings files
 ## Resources
 1. [This](https://medium.com/@tretuna/macbook-pro-web-developer-setup-from-clean-slate-to-dev-machine-1befd4121ba8) Medium article
 1. [This](https://sourabhbajaj.com/mac-setup/) setup guide
+1. [Another](https://www.taniarascia.com/setting-up-a-brand-new-mac-for-development/) setup guide
