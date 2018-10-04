@@ -1,76 +1,113 @@
 {
-	"workbench.colorCustomizations":{
-				"editor.background": "#1a1c20",
-				"editorIndentGuide.activeBackground": "#b83957",
-				"tab.activeBorderTop": "#b83957",
-			},
-		"editor.fontSize": 12,
-		"editor.lineHeight": 20,
-		"editor.letterSpacing": 0.5,
-		"files.trimTrailingWhitespace": true,
-		"editor.fontWeight": "400",
-		"editor.cursorStyle": "line",
-		"editor.cursorWidth": 5,
-		"editor.cursorBlinking": "solid",
-		"editor.tabSize": 2,
-		"editor.renderWhitespace": "all",
-		"workbench.startupEditor": "newUntitledFile",
-		"explorer.confirmDragAndDrop": false,
-		"editor.minimap.enabled": false,
-		"window.zoomLevel": 0,
-		"files.autoSave": "onFocusChange",
-		"editor.rulers": [120],
-    "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true,
-		//   GIT
-		"git.enableSmartCommit": true,
-		"gitlens.hovers.currentLine.over": "line",
-		"gitlens.gitExplorer.files.layout": "auto",
-		"gitlens.advanced.messages": {
-				"suppressCommitHasNoPreviousCommitWarning": false,
-				"suppressCommitNotFoundWarning": false,
-				"suppressFileNotUnderSourceControlWarning": false,
-				"suppressGitVersionWarning": false,
-				"suppressLineUncommittedWarning": false,
-				"suppressNoRepositoryWarning": false,
-				"suppressResultsExplorerNotice": false,
-				"suppressShowKeyBindingsNotice": true
-		},
-		// Emmet
-		"emmet.syntaxProfiles": {
-				"javascript": "jsx",
-				"xml": {
-						"attr_quotes": "single"
-				}
-		},
-		// Spotify
-		"spotify.showToggleRepeatingButton": true,
-	  "spotify.showToggleShufflingButton": true,
-
-		// Ruby
-		// Time (ms) to wait after keypress before running enabled linters. Ensures
-		// linters are only run when typing has finished and not for every keypress
-		"ruby.lintDebounceTime": 500,
-		//advanced: set command line options for some linters:
-		"ruby.lint": {
-				"ruby": true,
-				"rubocop": {
-						"lint": true
-				}
-		},
-		"ruby.format": "rubocop",
-		"ruby.codeCompletion": "rcodetools",
-		"ruby.intellisense": "rubyLocate",
-		"ruby.useLanguageServer": true,
-		"workbench.iconTheme": "vscode-great-icons",
-		"git.autofetch": true,
-		"gitlens.historyExplorer.enabled": true,
-		"editor.autoIndent": false,
-		"liveServer.settings.donotShowInfoMsg": true,
-		"terminal.integrated.fontSize": 14,
-		"gitlens.currentLine.enabled": false,
-		"gitlens.codeLens.enabled": false,
-		"gitlens.keymap": "alternate",
-		"workbench.colorTheme": "One Dark Pro Vivid",
-		"eslint.autoFixOnSave": true,
-	}
+	"workbench.colorCustomizations": {
+		"editor.background": "#1a1c20",
+		"editorIndentGuide.activeBackground": "#b83957",
+		"tab.activeBorderTop": "#b83957"
+	},
+	"editor.fontSize": 12,
+	"editor.lineHeight": 20,
+	"editor.letterSpacing": 0.5,
+	"files.trimTrailingWhitespace": true,
+	"editor.fontWeight": "400",
+	"editor.cursorStyle": "line",
+	"editor.cursorWidth": 5,
+	"editor.cursorBlinking": "solid",
+	"editor.tabSize": 2,
+	"editor.renderWhitespace": "all",
+	"workbench.startupEditor": "newUntitledFile",
+	"explorer.confirmDragAndDrop": false,
+	"editor.minimap.enabled": false,
+	"window.zoomLevel": 0,
+	"files.autoSave": "onFocusChange",
+	"editor.rulers": [
+		120
+	],
+	"files.insertFinalNewline": true,
+	"files.trimFinalNewlines": true,
+	//   GIT
+	"git.enableSmartCommit": true,
+	"gitlens.hovers.currentLine.over": "line",
+	"gitlens.gitExplorer.files.layout": "auto",
+	"gitlens.advanced.messages": {
+		"suppressCommitHasNoPreviousCommitWarning": false,
+		"suppressCommitNotFoundWarning": false,
+		"suppressFileNotUnderSourceControlWarning": false,
+		"suppressGitVersionWarning": false,
+		"suppressLineUncommittedWarning": false,
+		"suppressNoRepositoryWarning": false,
+		"suppressResultsExplorerNotice": false,
+		"suppressShowKeyBindingsNotice": true
+	},
+	// Emmet
+	"emmet.syntaxProfiles": {
+		"javascript": "jsx",
+		"xml": {
+			"attr_quotes": "single"
+		}
+	},
+	// Spotify
+	"spotify.showToggleRepeatingButton": true,
+	"spotify.showToggleShufflingButton": true,
+	// Ruby
+	// Time (ms) to wait after keypress before running enabled linters. Ensures
+	// linters are only run when typing has finished and not for every keypress
+	"ruby.format": "rubocop",
+	"editor.formatOnSaveTimeout": 750,
+	//advanced: set command line options for some linters:
+	"ruby.lint": {
+		"ruby": true,
+		"rubocop": {
+			"rails": true,
+		}
+	},
+	"[sass]": {
+		"editor.formatOnSave": false,
+	},
+	"[yaml]": {
+		"editor.formatOnSave": false,
+	},
+	"[ruby]": {
+		"editor.formatOnSave": false,
+	},
+	"[json]": {
+		"editor.formatOnSave": false,
+	},
+	"[typescript]": {
+		"editor.formatOnSave": false,
+	},
+	"ruby.lintDebounceTime": 1500,
+	"ruby.codeCompletion": "rcodetools",
+	"ruby.intellisense": "rubyLocate",
+	"ruby.useLanguageServer": true,
+	"git.autofetch": true,
+	"gitlens.historyExplorer.enabled": true,
+	"liveServer.settings.donotShowInfoMsg": true,
+	"terminal.integrated.fontSize": 14,
+	"gitlens.currentLine.enabled": false,
+	"gitlens.codeLens.enabled": false,
+	"gitlens.keymap": "alternate",
+	"workbench.colorTheme": "One Dark Pro Vivid",
+	"editor.autoIndent": true,
+	"javascript.updateImportsOnFileMove.enabled": "always",
+	"workbench.editor.showTabs": false,
+	"breadcrumbs.enabled": true,
+	"editor.formatOnSave": true,
+	"eslint.validate": [
+		"javascript",
+		"javascriptreact",
+		"vue"
+	],
+	"yaml.format.enable": true,
+	"eslint.autoFixOnSave": true,
+	"prettier.eslintIntegration": true,
+	"prettier.stylelintIntegration": true,
+	"vscode_custom_css.imports": [
+		""
+	],
+	"vscode_custom_css.policy": true,
+	"diffEditor.ignoreTrimWhitespace": false,
+	"editor.formatOnPaste": true,
+	"editor.formatOnType": false,
+	"css.validate": false, // Disable css built-in lint
+	"stylelint.enable": true // Enable sytlelint
+}

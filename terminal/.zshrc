@@ -52,16 +52,24 @@ plugins=(
   z
 )
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+function code {
+    if [[ $# = 0 ]]
+    then
+        open -a "Visual Studio Code"
+    else
+        local argPath="$1"
+        [[ $1 = /* ]] && argPath="$1" || argPath="$PWD/${1#./}"
+        open -a "Visual Studio Code" "$argPath"
+    fi
+}
+
 source $ZSH/oh-my-zsh.sh
 
-alias zshconfig="code ~/.zshrc"
-alias ohmyzsh="code ~/.oh-my-zsh"
-alias mysql="/usr/local/mysql/bin/mysql"
-alias mysqladmin="/usr/local/mysql/bin/mysqladmin"
-alias dcrc="docker-compose run app bin/rails c"
-alias dcrr="docker-compose run app bin/rails"
-alias dcrt="docker-compose run app bin/rails test"
-alias dcab="docker-compose exec app bash"
+# Alias Here
 
 export PATH="/usr/local/opt/qt/bin:$PATH"
 export PATH="/usr/local/opt/sqlite/bin:$PATH"
@@ -78,5 +86,4 @@ PATH=/bin:/usr/bin:/usr/local/bin:${PATH}
 eval "$(rbenv init -)"
 eval "$(pyenv init -)"
 export PATH="/usr/local/sbin:$PATH"
-
 export PATH
