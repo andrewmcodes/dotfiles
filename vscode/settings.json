@@ -1,113 +1,147 @@
 {
-	"workbench.colorCustomizations": {
-		"editor.background": "#1a1c20",
-		"editorIndentGuide.activeBackground": "#b83957",
-		"tab.activeBorderTop": "#b83957"
-	},
-	"editor.fontSize": 12,
-	"editor.lineHeight": 20,
-	"editor.letterSpacing": 0.5,
-	"files.trimTrailingWhitespace": true,
-	"editor.fontWeight": "400",
-	"editor.cursorStyle": "line",
-	"editor.cursorWidth": 5,
-	"editor.cursorBlinking": "solid",
-	"editor.tabSize": 2,
-	"editor.renderWhitespace": "all",
-	"workbench.startupEditor": "newUntitledFile",
-	"explorer.confirmDragAndDrop": false,
-	"editor.minimap.enabled": false,
-	"window.zoomLevel": 0,
-	"files.autoSave": "onFocusChange",
-	"editor.rulers": [
-		120
-	],
-	"files.insertFinalNewline": true,
-	"files.trimFinalNewlines": true,
-	//   GIT
-	"git.enableSmartCommit": true,
-	"gitlens.hovers.currentLine.over": "line",
-	"gitlens.gitExplorer.files.layout": "auto",
-	"gitlens.advanced.messages": {
-		"suppressCommitHasNoPreviousCommitWarning": false,
-		"suppressCommitNotFoundWarning": false,
-		"suppressFileNotUnderSourceControlWarning": false,
-		"suppressGitVersionWarning": false,
-		"suppressLineUncommittedWarning": false,
-		"suppressNoRepositoryWarning": false,
-		"suppressResultsExplorerNotice": false,
-		"suppressShowKeyBindingsNotice": true
-	},
-	// Emmet
-	"emmet.syntaxProfiles": {
-		"javascript": "jsx",
-		"xml": {
-			"attr_quotes": "single"
-		}
-	},
-	// Spotify
-	"spotify.showToggleRepeatingButton": true,
-	"spotify.showToggleShufflingButton": true,
-	// Ruby
-	// Time (ms) to wait after keypress before running enabled linters. Ensures
-	// linters are only run when typing has finished and not for every keypress
-	"ruby.format": "rubocop",
-	"editor.formatOnSaveTimeout": 750,
-	//advanced: set command line options for some linters:
-	"ruby.lint": {
-		"ruby": true,
-		"rubocop": {
-			"rails": true,
-		}
-	},
-	"[sass]": {
-		"editor.formatOnSave": false,
-	},
-	"[yaml]": {
-		"editor.formatOnSave": false,
-	},
-	"[ruby]": {
-		"editor.formatOnSave": false,
-	},
-	"[json]": {
-		"editor.formatOnSave": false,
-	},
-	"[typescript]": {
-		"editor.formatOnSave": false,
-	},
-	"ruby.lintDebounceTime": 1500,
-	"ruby.codeCompletion": "rcodetools",
-	"ruby.intellisense": "rubyLocate",
-	"ruby.useLanguageServer": true,
-	"git.autofetch": true,
-	"gitlens.historyExplorer.enabled": true,
-	"liveServer.settings.donotShowInfoMsg": true,
-	"terminal.integrated.fontSize": 14,
-	"gitlens.currentLine.enabled": false,
-	"gitlens.codeLens.enabled": false,
-	"gitlens.keymap": "alternate",
-	"workbench.colorTheme": "One Dark Pro Vivid",
-	"editor.autoIndent": true,
-	"javascript.updateImportsOnFileMove.enabled": "always",
-	"workbench.editor.showTabs": false,
-	"breadcrumbs.enabled": true,
-	"editor.formatOnSave": true,
-	"eslint.validate": [
-		"javascript",
-		"javascriptreact",
-		"vue"
-	],
-	"yaml.format.enable": true,
-	"eslint.autoFixOnSave": true,
-	"prettier.eslintIntegration": true,
-	"prettier.stylelintIntegration": true,
-	"vscode_custom_css.imports": [
-		""
-	],
-	"vscode_custom_css.policy": true,
-	"diffEditor.ignoreTrimWhitespace": false,
-	"editor.formatOnPaste": true,
-	"editor.formatOnType": false,
-	"css.validate": false, // Disable css built-in lint
-	"stylelint.enable": true // Enable sytlelint
+  // Workbench
+  "workbench.editor.showTabs": true,
+  "workbench.colorTheme": "One Dark Pro Vivid",
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.colorCustomizations": {
+    "editor.background": "#1a1c20",
+    "editorIndentGuide.activeBackground": "#b83957",
+    "tab.activeBorderTop": "#b83957"
+  },
+  // Font
+  "editor.fontFamily": "Fira Code",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 13,
+  "editor.lineHeight": 20,
+  "editor.letterSpacing": 0.2,
+  "editor.fontWeight": "400",
+  // Cursor
+  "editor.cursorStyle": "line",
+  "editor.cursorWidth": 5,
+  "editor.cursorBlinking": "solid",
+  // Tabs & Spaces
+  "editor.tabSize": 2,
+  "editor.renderWhitespace": "all",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  // Rulers
+  "editor.rulers": [
+    120
+  ],
+  // VSCode Specific
+  "breadcrumbs.enabled": true,
+  "explorer.confirmDragAndDrop": false,
+  "editor.minimap.enabled": false,
+  // Terminal
+  "terminal.external.osxExec": "Archipelago.app",
+  "terminal.integrated.shell.osx": "zsh",
+  "terminal.integrated.fontSize": 14,
+  // Saving
+  "files.autoSave": "onFocusChange",
+  // Emmet
+  "emmet.includeLanguages": {
+    "html": "html",
+    "erb": "erb",
+    "javascript": "javascriptreact",
+    "vue": "html",
+    "ejs": "html",
+    "xml": {
+      "attr_quotes": "single"
+    }
+  },
+  // Spotify
+  "spotify.showToggleRepeatingButton": true,
+  "spotify.showToggleShufflingButton": true,
+  // Ruby
+  "ruby.lintDebounceTime": 1500,
+  "ruby.codeCompletion": "rcodetools",
+  "ruby.intellisense": "rubyLocate",
+  "ruby.useLanguageServer": true,
+  //   GIT
+  "git.enableSmartCommit": true,
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.gitExplorer.files.layout": "auto",
+  "gitlens.historyExplorer.enabled": true,
+  "gitlens.currentLine.enabled": false,
+  "gitlens.codeLens.enabled": false,
+  "gitlens.keymap": "alternate",
+  "gitlens.advanced.messages": {
+    "suppressCommitHasNoPreviousCommitWarning": false,
+    "suppressCommitNotFoundWarning": false,
+    "suppressFileNotUnderSourceControlWarning": false,
+    "suppressGitVersionWarning": false,
+    "suppressLineUncommittedWarning": false,
+    "suppressNoRepositoryWarning": false,
+    "suppressResultsExplorerNotice": false,
+    "suppressShowKeyBindingsNotice": true
+  },
+  "git.autofetch": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  // Live Server
+  "liveServer.settings.donotShowInfoMsg": true,
+  // JS
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  // Eslint
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "vue"
+  ],
+  "eslint.packageManager": "yarn",
+  "eslint.autoFixOnSave": true,
+  // Prettier
+  "prettier.eslintIntegration": true,
+  "prettier.stylelintIntegration": true,
+  // Format
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveTimeout": 750,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": false,
+  "editor.autoIndent": true,
+
+  "ruby.format": "rubocop",
+  "ruby.lint": {
+    "ruby": true,
+    "rubocop": {
+      "except": [
+        "vendor/**/*",
+        "db/schema.rb",
+        "db/seeds.rb",
+        "db/migrate/*",
+        "bin/**/*",
+        "log/**/*",
+        "node_modules/**/*",
+        "lib/capistrano/tasks/prodockerize.rake"
+      ],
+      "rails": true,
+    }
+  },
+  "[sass]": {
+    "editor.formatOnSave": false,
+  },
+  "[yaml]": {
+    "editor.formatOnSave": false,
+  },
+  "[ruby]": {
+    "editor.formatOnSave": false,
+  },
+  "[json]": {
+    "editor.formatOnSave": false,
+  },
+  "[typescript]": {
+    "editor.formatOnSave": false,
+  },
+  "[javascript]": {
+    "editor.formatOnSave": false,
+  },
+  "workbench.iconTheme": "vscode-great-icons",
+  "github.hosts": [{
+    "host": "https://github.com",
+    "username": "oauth",
+    "token": "system"
+  }],
+  // "css.validate": false, // Disable css built-in lint
+  // "stylelint.enable": true, // Enable sytlelint
+
 }
