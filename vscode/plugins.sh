@@ -1,5 +1,3 @@
-# VS Code Extensions
-
 code --install-extension aki77.rails-partial
 code --install-extension aki77.rails-routes
 code --install-extension Andreabbondanza.ignoregit
