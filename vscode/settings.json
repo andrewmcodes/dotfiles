@@ -58,6 +58,7 @@
   "ruby.codeCompletion": "rcodetools",
   "ruby.intellisense": "rubyLocate",
   "ruby.useLanguageServer": true,
+  "railsPartial.viewFileExtensions": ["html.haml", "html.slim", "html.erb"],
   //   GIT
   "git.enableSmartCommit": true,
   "gitlens.hovers.currentLine.over": "line",
@@ -104,16 +105,6 @@
   "ruby.lint": {
     "ruby": true,
     "rubocop": {
-      "except": [
-        "vendor/**/*",
-        "db/schema.rb",
-        "db/seeds.rb",
-        "db/migrate/*",
-        "bin/**/*",
-        "log/**/*",
-        "node_modules/**/*",
-        "lib/capistrano/tasks/prodockerize.rake"
-      ],
       "rails": true,
     }
   },
@@ -141,6 +132,7 @@
     "username": "oauth",
     "token": "system"
   }],
+  "window.zoomLevel": 0,
   // "css.validate": false, // Disable css built-in lint
   // "stylelint.enable": true, // Enable sytlelint
 
