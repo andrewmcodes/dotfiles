@@ -1,48 +1,61 @@
 # VS Code Extensions
 
-- code --install-extension Andreabbondanza.ignoregit
-- code --install-extension CraigMaslowski.erb
-- code --install-extension aki77.rails-routes
-- code --install-extension angryobject.react-pure-to-class-vscode
-- code --install-extension atipugin.rails-partial
-- code --install-extension austenc.tailwind-docs
-- code --install-extension bung87.rails
-- code --install-extension bung87.vscode-gemfile
-- code --install-extension castwide.solargraph
-- code --install-extension ChakrounAnas.turbo-console-log
-- code --install-extension cobeia.airbnb-react-snippets
-- code --install-extension DavidAnson.vscode-markdownlint
-- code --install-extension dbaeumer.vscode-eslint
-- code --install-extension DiegoMolina.css-minify
-- code --install-extension donjayamanne.githistory
-- code --install-extension eamodio.gitlens
-- code --install-extension emmanuelbeziat.vscode-great-icons
-- code --install-extension eriklynd.json-tools
-- code --install-extension formulahendry.code-runner
-- code --install-extension HookyQR.beautify
-- code --install-extension jeremyrajan.react-component
-- code --install-extension kaiwood.endwise
-- code --install-extension karunamurti.haml
-- code --install-extension Kosai106.ruby-syntax-replacer
-- code --install-extension liuji-jim.vue
-- code --install-extension miguel-savignano.ruby-symbols
-- code --install-extension mohsen1.prettify-json
-- code --install-extension mrmlnc.vscode-duplicate
-- code --install-extension ms-mssql.mssql
-- code --install-extension ms-python.python
-- code --install-extension ms-vsliveshare.vsliveshare
-- code --install-extension msjsdiag.debugger-for-chrome
-- code --install-extension octref.vetur
-- code --install-extension PeterJausovec.vscode-docker
-- code --install-extension rebornix.ruby
-- code --install-extension redhat.vscode-yaml
-- code --install-extension ritwickdey.live-sass
-- code --install-extension ritwickdey.LiveServer
-- code --install-extension robinbentley.sass-indented
-- code --install-extension Rubymaniac.vscode-paste-and-indent
-- code --install-extension shyykoserhiy.vscode-spotify
-- code --install-extension siliconsenthil.rufo-vscode
-- code --install-extension thisismanta.react-es6-class-migration
-- code --install-extension Vense.rails-snippets
-- code --install-extension xabikos.JavaScriptSnippets
-- code --install-extension zhuangtongfa.Material-theme
+code --install-extension aki77.rails-partial
+code --install-extension aki77.rails-routes
+code --install-extension Andreabbondanza.ignoregit
+code --install-extension anseki.vscode-color
+code --install-extension austenc.tailwind-docs
+code --install-extension bierner.markdown-emoji
+code --install-extension bung87.rails
+code --install-extension bung87.vscode-gemfile
+code --install-extension bungcip.better-toml
+code --install-extension castwide.solargraph
+code --install-extension ChakrounAnas.turbo-console-log
+code --install-extension christian-kohler.npm-intellisense
+code --install-extension christian-kohler.path-intellisense
+code --install-extension cobeia.airbnb-react-snippets
+code --install-extension CoenraadS.bracket-pair-colorizer
+code --install-extension cssho.vscode-svgviewer
+code --install-extension dariofuzinato.vue-peek
+code --install-extension DavidAnson.vscode-markdownlint
+code --install-extension dbaeumer.vscode-eslint
+code --install-extension DiegoMolina.css-minify
+code --install-extension donjayamanne.githistory
+code --install-extension dsznajder.es7-react-js-snippets
+code --install-extension eamodio.gitlens
+code --install-extension ecmel.vscode-html-css
+code --install-extension eg2.vscode-npm-script
+code --install-extension emmanuelbeziat.vscode-great-icons
+code --install-extension esbenp.prettier-vscode
+code --install-extension formulahendry.code-runner
+code --install-extension GitHub.vscode-pull-request-github
+code --install-extension HookyQR.beautify
+code --install-extension Hridoy.rails-snippets
+code --install-extension jemmyw.rails-fast-nav
+code --install-extension jpoissonnier.vscode-styled-components
+code --install-extension kaiwood.endwise
+code --install-extension karunamurti.haml
+code --install-extension mohsen1.prettify-json
+code --install-extension mrmlnc.vscode-duplicate
+code --install-extension ms-mssql.mssql
+code --install-extension ms-vsliveshare.vsliveshare
+code --install-extension msjsdiag.debugger-for-chrome
+code --install-extension octref.vetur
+code --install-extension patbenatar.advanced-new-file
+code --install-extension PeterJausovec.vscode-docker
+code --install-extension rebornix.ruby
+code --install-extension redhat.vscode-yaml
+code --install-extension ritwickdey.LiveServer
+code --install-extension robinbentley.sass-indented
+code --install-extension Rubymaniac.vscode-paste-and-indent
+code --install-extension shinnn.stylelint
+code --install-extension shyykoserhiy.vscode-spotify
+code --install-extension sianglim.slim
+code --install-extension siliconsenthil.rufo-vscode
+code --install-extension tmikoss.rails-latest-migration
+code --install-extension vayan.haml
+code --install-extension xabikos.JavaScriptSnippets
+code --install-extension yzhang.markdown-all-in-one
+code --install-extension zhuangtongfa.Material-theme
+code --install-extension Zignd.html-css-class-completion
+code --install-extension ziyasal.vscode-open-in-github
