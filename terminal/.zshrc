@@ -69,21 +69,33 @@ function code {
 
 source $ZSH/oh-my-zsh.sh
 
-# Alias Here
+alias zshconfig="code ~/.zshrc"
+alias ohmyzsh="code ~/.oh-my-zsh"
 
-export PATH="/usr/local/opt/qt/bin:$PATH"
-export PATH="/usr/local/opt/sqlite/bin:$PATH"
-export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-export PATH="/usr/local/opt/openssl/bin:$PATH"
-export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-export PATH="/usr/local/opt/qt@5.5/bin:$PATH"
-export PATH="/usr/local/opt/icu4c/bin:$PATH"
-export PATH="/usr/local/opt/icu4c/sbin:$PATH"
-export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
-PATH=/bin:/usr/bin:/usr/local/bin:${PATH}
+alias mysql="/usr/local/bin/mysql"
+alias mysqladmin="/usr/local/bin/mysqladmin"
+
+alias dcrc="docker-compose run app bin/rails c"
+alias dcrr="docker-compose run app bin/rails"
+alias dcrt="docker-compose run app bin/rails test"
+alias dcab="docker-compose exec app bash"
+
+alias b="bundle"
+
+# add Homebrew `/usr/local/bin` and User `~/bin` to the `$PATH`
+PATH=/usr/local/bin:$PATH
+PATH=$HOME/bin:$PATH
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
+export PATH="$(brew --prefix gnu-tar)/libexec/gnubin:/usr/local/bin:$PATH"
+export PATH="$(brew --prefix gnu-sed)/libexec/gnubin:/usr/local/bin:$PATH"
+
 eval "$(rbenv init -)"
 eval "$(pyenv init -)"
+export PATH="/usr/local/opt/qt@5.5/bin:$PATH"
+
+# added by travis gem
+[ -f /Users/andrew.mason/.travis/travis.sh ] && source /Users/andrew.mason/.travis/travis.sh
+export PATH="/usr/local/opt/openssl/bin:$PATH"
+export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
-export PATH
