@@ -1,5 +1,6 @@
 {
   // Workbench
+  "workbench.sideBar.location": "right",
   "workbench.editor.showTabs": true,
   "workbench.colorTheme": "One Dark Pro Vivid",
   "workbench.startupEditor": "newUntitledFile",
@@ -8,6 +9,8 @@
     "editorIndentGuide.activeBackground": "#b83957",
     "tab.activeBorderTop": "#b83957"
   },
+  "workbench.iconTheme": "vscode-great-icons",
+  "window.zoomLevel": 0,
   // Font
   "editor.fontFamily": "Fira Code",
   "editor.fontLigatures": true,
@@ -53,17 +56,12 @@
   // Spotify
   "spotify.showToggleRepeatingButton": true,
   "spotify.showToggleShufflingButton": true,
-  // Ruby
-  "ruby.lintDebounceTime": 1500,
-  "ruby.codeCompletion": "rcodetools",
-  "ruby.intellisense": "rubyLocate",
-  "ruby.useLanguageServer": true,
-  "railsPartial.viewFileExtensions": ["html.haml", "html.slim", "html.erb"],
   //   GIT
   "git.enableSmartCommit": true,
   "gitlens.hovers.currentLine.over": "line",
-  "gitlens.gitExplorer.files.layout": "auto",
-  "gitlens.historyExplorer.enabled": true,
+  "gitlens.views.repositories.files.layout": "auto",
+  "gitlens.views.fileHistory.enabled": true,
+  "gitlens.views.lineHistory.enabled": true,
   "gitlens.currentLine.enabled": false,
   "gitlens.codeLens.enabled": false,
   "gitlens.keymap": "alternate",
@@ -90,31 +88,21 @@
     "vue"
   ],
   "eslint.packageManager": "yarn",
-  "eslint.autoFixOnSave": true,
+  "eslint.autoFixOnSave": false,
   // Prettier
   "prettier.eslintIntegration": true,
   "prettier.stylelintIntegration": true,
   // Format
+  "pasteAndIndent.selectAfter": true,
   "editor.formatOnSave": true,
-  "editor.formatOnSaveTimeout": 750,
+  "editor.formatOnSaveTimeout": 1500,
   "editor.formatOnPaste": true,
   "editor.formatOnType": false,
   "editor.autoIndent": true,
-
-  "ruby.format": "rubocop",
-  "ruby.lint": {
-    "ruby": true,
-    "rubocop": {
-      "rails": true,
-    }
-  },
   "[sass]": {
     "editor.formatOnSave": false,
   },
   "[yaml]": {
-    "editor.formatOnSave": false,
-  },
-  "[ruby]": {
     "editor.formatOnSave": false,
   },
   "[json]": {
@@ -126,14 +114,31 @@
   "[javascript]": {
     "editor.formatOnSave": false,
   },
-  "workbench.iconTheme": "vscode-great-icons",
-  "github.hosts": [{
-    "host": "https://github.com",
-    "username": "oauth",
-    "token": "system"
-  }],
-  "window.zoomLevel": 0,
-  // "css.validate": false, // Disable css built-in lint
-  // "stylelint.enable": true, // Enable sytlelint
-
+  "[markdown]": {
+    "editor.detectIndentation": true,
+    "editor.insertSpaces": false,
+    "editor.tabSize": 2
+  },
+  // Markdown
+  "markdown.extension.toc.githubCompatibility": true,
+  // Ruby
+  "[ruby]": {
+    "editor.formatOnSave": true,
+  },
+  "ruby.format": "rubocop",
+  "ruby.lint": {
+    "ruby": true,
+    "rubocop": {
+      "rails": true,
+    }
+  },
+  "ruby.lintDebounceTime": 1500,
+  "ruby.codeCompletion": "rcodetools",
+  "ruby.intellisense": "rubyLocate",
+  "ruby.useLanguageServer": true,
+  "railsPartial.viewFileExtensions": [
+    "html.haml",
+    "html.slim",
+    "html.erb"
+  ],
 }
