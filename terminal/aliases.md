@@ -1,25 +1,3 @@
-# Alias
-
-## Personal
-
-```bash
-alias zshconfig="code ~/.zshrc"
-alias ohmyzsh="code ~/.oh-my-zsh"
-
-alias mysql="/usr/local/bin/mysql"
-alias mysqladmin="/usr/local/bin/mysqladmin"
-
-alias dcrc="docker-compose run app bin/rails c"
-alias dcrr="docker-compose run app bin/rails"
-alias dcrt="docker-compose run app bin/rails test"
-alias dcab="docker-compose exec app bash"
-
-alias b="bundle"
-```
-
-## ZSH
-
-```bash
 -='cd -'
 ...=../..
 ....=../../..
@@ -39,7 +17,10 @@ REP='RAILS_ENV=production'
 RET='RAILS_ENV=test'
 _=sudo
 afind='ack -il'
+b=bundle
+bwds=./bin/webpack-dev-server
 d='dirs -v | head -10'
+da='docker attach 4cd617784ef4'
 dcab='docker-compose exec app bash'
 dcb='docker-compose build'
 dcdn='docker-compose down'
@@ -57,6 +38,7 @@ dcrr='docker-compose run app bin/rails'
 dcrt='docker-compose run app bin/rails test'
 dcstart='docker-compose start'
 dcstop='docker-compose stop'
+dctb='docker-compose exec test bash'
 dcup='docker-compose up'
 dcupd='docker-compose up -d'
 devlog='tail -f log/development.log'
@@ -75,6 +57,7 @@ gbda='git branch --no-color --merged | command grep -vE "^(\*|\s*(master|develop
 gbl='git blame -b -w'
 gbnm='git branch --no-merged'
 gbr='git branch --remote'
+gbrd='git branch | grep -v master | xargs git branch -D'
 gbs='git bisect'
 gbsb='git bisect bad'
 gbsg='git bisect good'
@@ -114,9 +97,9 @@ gfa='git fetch --all --prune'
 gfo='git fetch origin'
 gg='git gui citool'
 gga='git gui citool --amend'
-ggpull='git pull origin $(git_current_branch)'
+ggpull='git pull origin "$(git_current_branch)"'
 ggpur=ggu
-ggpush='git push origin $(git_current_branch)'
+ggpush='git push origin "$(git_current_branch)"'
 ggsup='git branch --set-upstream-to=origin/$(git_current_branch)'
 ghh='git help'
 gignore='git update-index --assume-unchanged'
@@ -214,7 +197,6 @@ md='mkdir -p'
 mysql=/usr/local/bin/mysql
 mysqladmin=/usr/local/bin/mysqladmin
 ohmyzsh='code ~/.oh-my-zsh'
-please=sudo
 prodlog='tail -f log/production.log'
 rails=_rails_command
 rake=_rake_command
@@ -259,4 +241,3 @@ testlog='tail -f log/test.log'
 which-command=whence
 z='_z 2>&1'
 zshconfig='code ~/.zshrc'
-```
