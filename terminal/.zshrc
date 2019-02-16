@@ -23,11 +23,9 @@ SPACESHIP_PROMPT_ORDER=(
   php           # PHP section
   rust          # Rust section
   haskell       # Haskell Stack section
-  julia         # Julia section
   docker        # Docker section
   aws           # Amazon Web Services section
   venv          # virtualenv section
-  conda         # conda virtualenv section
   pyenv         # Pyenv section
   dotnet        # .NET section
   ember         # Ember.js section
@@ -52,10 +50,12 @@ plugins=(
   z
 )
 
+# NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# VS Code
 function code {
     if [[ $# = 0 ]]
     then
@@ -67,23 +67,51 @@ function code {
     fi
 }
 
+# VS Code is default editor
+export EDITOR="code -w"
+
+# Default ZSH
 source $ZSH/oh-my-zsh.sh
 
-# Alias Here
+# ENV vars
+export GITHUB_TOKEN=
+export MYSQL_ROOT_PASSWORD=
 
-export PATH="/usr/local/opt/qt/bin:$PATH"
-export PATH="/usr/local/opt/sqlite/bin:$PATH"
-export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-export PATH="/usr/local/opt/openssl/bin:$PATH"
-export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+# Alias
+alias zshconfig="code ~/.zshrc"
+alias ohmyzsh="code ~/.oh-my-zsh"
+alias mysql="/usr/local/bin/mysql"
+alias mysqladmin="/usr/local/bin/mysqladmin"
+alias dcrc="docker-compose run app bin/rails c"
+alias dcrr="docker-compose run app bin/rails"
+alias dcrt="docker-compose run app bin/rails test"
+alias dcab="docker-compose exec app bash"
+alias dctb="docker-compose exec test bash"
+alias b="bundle"
+alias bwds="./bin/webpack-dev-server"
+alias da="docker attach $(docker ps -a | grep app | awk '{print $1}')"
+alias gbrd="git branch | grep -v "master" | xargs git branch -D"
+alias add_dock_spacer="defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'; killall Dock"
+alias show_mysql_db="mysql -u root -p$MYSQL_ROOT_PASSWORD -e 'show databases;'"
+
+# add Homebrew `/usr/local/bin` and User `~/bin` to the `$PATH`
+PATH=/usr/local/bin:$PATH
+PATH=$HOME/bin:$PATH
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
+export PATH="$(brew --prefix gnu-tar)/libexec/gnubin:/usr/local/bin:$PATH"
+export PATH="$(brew --prefix gnu-sed)/libexec/gnubin:/usr/local/bin:$PATH"
 export PATH="/usr/local/opt/qt@5.5/bin:$PATH"
-export PATH="/usr/local/opt/icu4c/bin:$PATH"
-export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
-PATH=/bin:/usr/bin:/usr/local/bin:${PATH}
-eval "$(rbenv init -)"
-eval "$(pyenv init -)"
 export PATH="/usr/local/sbin:$PATH"
-export PATH
+export PATH="/usr/local/opt/llvm@6/bin:$PATH"
+
+# Rbenv
+eval "$(rbenv init -)"
+
+# Pyenv
+eval "$(pyenv init -)"
+
+# Added by travis gem
+[ -f /Users/andrew.mason/.travis/travis.sh ] && source /Users/andrew.mason/.travis/travis.sh

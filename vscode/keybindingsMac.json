@@ -1,0 +1,7 @@
+// Place your key bindings in this file to overwrite the defaultsauto[]
+[
+  {
+    "key": "alt+cmd+a",
+    "command": "extension.changeCase.camel"
+  }
+]
