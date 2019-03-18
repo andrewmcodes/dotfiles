@@ -1,5 +1,4 @@
-[
-  {
+[{
     "metadata": {
       "id": "2cbad5ee-b4ab-4de8-a1c7-77fede846155",
       "publisherId": "patbenatar.advanced-new-file",
@@ -27,7 +26,7 @@
     },
     "name": "beautify",
     "publisher": "HookyQR",
-    "version": "1.4.8"
+    "version": "1.4.9"
   },
   {
     "metadata": {
@@ -47,7 +46,7 @@
     },
     "name": "Bookmarks",
     "publisher": "alefragnani",
-    "version": "10.2.2"
+    "version": "10.3.0"
   },
   {
     "metadata": {
@@ -87,7 +86,7 @@
     },
     "name": "code-settings-sync",
     "publisher": "Shan",
-    "version": "3.2.5"
+    "version": "3.2.7"
   },
   {
     "metadata": {
@@ -107,7 +106,7 @@
     },
     "name": "debugger-for-chrome",
     "publisher": "msjsdiag",
-    "version": "4.11.2"
+    "version": "4.11.3"
   },
   {
     "metadata": {
@@ -137,7 +136,7 @@
     },
     "name": "es7-react-js-snippets",
     "publisher": "dsznajder",
-    "version": "2.0.1"
+    "version": "2.1.1"
   },
   {
     "metadata": {
@@ -237,7 +236,7 @@
     },
     "name": "markdown-all-in-one",
     "publisher": "yzhang",
-    "version": "2.0.1"
+    "version": "2.1.1"
   },
   {
     "metadata": {
@@ -257,7 +256,7 @@
     },
     "name": "Material-theme",
     "publisher": "zhuangtongfa",
-    "version": "2.18.2"
+    "version": "2.20.5"
   },
   {
     "metadata": {
@@ -268,16 +267,6 @@
     "name": "mssql",
     "publisher": "ms-mssql",
     "version": "1.4.0"
-  },
-  {
-    "metadata": {
-      "id": "a831e395-d150-46aa-8644-3027af1c5b36",
-      "publisherId": "dawhite.mustache",
-      "publisherDisplayName": "dawhite"
-    },
-    "name": "mustache",
-    "publisher": "dawhite",
-    "version": "1.1.1"
   },
   {
     "metadata": {
@@ -327,7 +316,7 @@
     },
     "name": "python",
     "publisher": "ms-python",
-    "version": "2019.1.0"
+    "version": "2019.2.5558"
   },
   {
     "metadata": {
@@ -337,7 +326,7 @@
     },
     "name": "rails",
     "publisher": "bung87",
-    "version": "0.8.7"
+    "version": "0.13.0"
   },
   {
     "metadata": {
@@ -407,7 +396,7 @@
     },
     "name": "ruby",
     "publisher": "rebornix",
-    "version": "0.21.1"
+    "version": "0.22.3"
   },
   {
     "metadata": {
@@ -471,6 +460,16 @@
   },
   {
     "metadata": {
+      "id": "f8b5562e-a2d9-49ab-9f91-e7da91998a92",
+      "publisherId": "shinnn.stylelint",
+      "publisherDisplayName": "shinnn"
+    },
+    "name": "stylelint",
+    "publisher": "shinnn",
+    "version": "0.48.0"
+  },
+  {
+    "metadata": {
       "id": "d7890502-5057-436e-904c-8d6639f316d7",
       "publisherId": "austenc.tailwind-docs",
       "publisherDisplayName": "austenc"
@@ -497,7 +496,7 @@
     },
     "name": "vetur",
     "publisher": "octref",
-    "version": "0.15.1"
+    "version": "0.16.2"
   },
   {
     "metadata": {
@@ -517,7 +516,7 @@
     },
     "name": "vscode-docker",
     "publisher": "PeterJausovec",
-    "version": "0.5.2"
+    "version": "0.6.0"
   },
   {
     "metadata": {
@@ -537,7 +536,7 @@
     },
     "name": "vscode-eslint",
     "publisher": "dbaeumer",
-    "version": "1.8.0"
+    "version": "1.8.2"
   },
   {
     "metadata": {
@@ -557,7 +556,7 @@
     },
     "name": "vscode-great-icons",
     "publisher": "emmanuelbeziat",
-    "version": "2.1.46"
+    "version": "2.1.47"
   },
   {
     "metadata": {
@@ -607,7 +606,7 @@
     },
     "name": "vscode-pull-request-github",
     "publisher": "GitHub",
-    "version": "0.4.0"
+    "version": "0.5.1"
   },
   {
     "metadata": {
@@ -657,7 +656,7 @@
     },
     "name": "vscode-svgviewer",
     "publisher": "cssho",
-    "version": "1.4.7"
+    "version": "2.0.0"
   },
   {
     "metadata": {
@@ -667,7 +666,7 @@
     },
     "name": "vscode-yaml",
     "publisher": "redhat",
-    "version": "0.2.1"
+    "version": "0.3.0"
   },
   {
     "metadata": {
@@ -677,27 +676,7 @@
     },
     "name": "vsliveshare",
     "publisher": "ms-vsliveshare",
-    "version": "0.3.1182"
-  },
-  {
-    "metadata": {
-      "id": "6f99be10-9aad-4b1c-8691-bcae8ae7b104",
-      "publisherId": "dariofuzinato.vue-peek",
-      "publisherDisplayName": "dariofuzinato"
-    },
-    "name": "vue-peek",
-    "publisher": "dariofuzinato",
-    "version": "1.0.2"
-  },
-  {
-    "metadata": {
-      "id": "3620b114-6fe8-459b-8c68-99943147069b",
-      "publisherId": "hollowtree.vue-snippets",
-      "publisherDisplayName": "hollowtree"
-    },
-    "name": "vue-snippets",
-    "publisher": "hollowtree",
-    "version": "0.1.11"
+    "version": "0.3.1326"
   },
   {
     "metadata": {

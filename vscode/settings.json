@@ -1,7 +1,6 @@
 {
 	// Workbench
 	"workbench.sideBar.location": "right",
-	"workbench.editor.showTabs": true,
 	"workbench.colorTheme": "One Dark Pro Vivid",
 	"workbench.startupEditor": "newUntitledFile",
 	"workbench.colorCustomizations": {
@@ -83,12 +82,9 @@
 	"eslint.validate": ["javascript", "javascriptreact", "vue"],
 	"eslint.packageManager": "yarn",
 	"eslint.autoFixOnSave": true,
-	// Prettier
-	"prettier.eslintIntegration": true,
-	"prettier.stylelintIntegration": true,
 	// Format
 	"pasteAndIndent.selectAfter": true,
-	"editor.formatOnSave": false,
+	"editor.formatOnSave": true,
 	"editor.formatOnSaveTimeout": 1500,
 	"editor.formatOnPaste": true,
 	"editor.formatOnType": false,
@@ -97,16 +93,16 @@
 		"editor.formatOnSave": false
 	},
 	"[yaml]": {
-		"editor.formatOnSave": false
+		"editor.formatOnSave": true
 	},
 	"[json]": {
-		"editor.formatOnSave": false
+		"editor.formatOnSave": true
 	},
 	"[typescript]": {
-		"editor.formatOnSave": false
+		"editor.formatOnSave": true
 	},
 	"[javascript]": {
-		"editor.formatOnSave": false
+		"editor.formatOnSave": true
 	},
 	"[markdown]": {
 		"editor.formatOnSave": false,
@@ -131,5 +127,13 @@
 	"ruby.codeCompletion": "rcodetools",
 	"ruby.intellisense": "rubyLocate",
 	"ruby.useLanguageServer": true,
-	"railsPartial.viewFileExtensions": ["html.haml", "html.slim", "html.erb"]
+	"railsPartial.viewFileExtensions": [
+		"html.haml",
+		"html.slim",
+		"html.erb"
+	],
+	"sync.gist": "a1e505131c4102f1c045830eb704989a",
+	"prettier.trailingComma": "es5",
+	"prettier.requireConfig": true,
+	"prettier.jsxBracketSameLine": true
 }
