@@ -85,12 +85,17 @@ alias drst="docker-compose exec app bin/rails test:system"
 alias dcab="docker-compose exec app bash"
 alias dctb="docker-compose exec test bash"
 alias b="bundle"
+alias dcbundle="docker-compose exec app bundle"
+alias dcyarn="docker-compose exec app yarn"
+alias drbundle="docker-compose run app bundle"
+alias dryarn="docker-compose run app yarn"
 alias bwds="./bin/webpack-dev-server"
 alias daid="docker-compose ps -q app"
 alias da="docker attach"
 alias gbrd="git branch | grep -v "master" | xargs git branch -D"
 alias add_dock_spacer="defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'; killall Dock"
 alias show_mysql_db="mysql -u root -p$MYSQL_ROOT_PASSWORD -e 'show databases;'"
+alias clean_branches="git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs git branch -d"
 
 # add Homebrew `/usr/local/bin` and User `~/bin` to the `$PATH`
 PATH=/usr/local/bin:$PATH
