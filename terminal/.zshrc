@@ -72,8 +72,12 @@ export EDITOR="code -w"
 # Default ZSH
 source $ZSH/oh-my-zsh.sh
 
-# Alias
-alias zshconfig="code ~/.zshrc"
+# Aliases
+dappbash() {
+  appLabel=$(docker ps | grep app | awk '{print $NF}')
+  docker exec -it $appLabel bash
+}
+alias zshconfig="code ~/.zshrc" # Alias
 alias ohmyzsh="code ~/.oh-my-zsh"
 alias mysql="/usr/local/bin/mysql"
 alias mysqladmin="/usr/local/bin/mysqladmin"
