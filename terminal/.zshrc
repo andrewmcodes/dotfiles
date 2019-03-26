@@ -42,7 +42,6 @@ SPACESHIP_PROMPT_ORDER=(
 COMPLETION_WAITING_DOTS="true"
 
 plugins=(
-  docker
   docker-compose
   git
   rails
