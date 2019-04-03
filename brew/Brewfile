@@ -27,6 +27,7 @@ brew "cmatrix"
 brew "coreutils"
 brew "libevent"
 brew "libyaml"
+brew "pkg-config"
 brew "crystal"
 brew "elasticsearch"
 brew "jpeg"
@@ -38,6 +39,7 @@ brew "exiftool"
 brew "findutils"
 brew "freetype"
 brew "fontconfig"
+brew "fswatch"
 brew "webp"
 brew "gd"
 brew "gettext"
@@ -45,8 +47,8 @@ brew "ghostscript"
 brew "pcre2"
 brew "git"
 brew "gnu-indent", args: ["with-default-names"]
-brew "gnu-sed", args: ["with-default-names"]
-brew "gnu-tar", args: ["with-default-names"]
+brew "gnu-sed"
+brew "gnu-tar"
 brew "gnu-which", args: ["with-default-names"]
 brew "libunistring"
 brew "gnupg"
@@ -54,6 +56,7 @@ brew "libtool"
 brew "graphviz"
 brew "hub"
 brew "icu4c"
+brew "little-cms2"
 brew "imagemagick", link: false
 brew "imagemagick@6", link: true
 brew "zookeeper"
@@ -62,12 +65,12 @@ brew "kibana"
 brew "libev"
 brew "libidn2"
 brew "libsodium"
-brew "little-cms2"
+brew "libxml2"
+brew "libxslt"
 brew "mas"
 brew "mysql@5.7", restart_service: true, link: true
 brew "node"
 brew "node@8"
-brew "pkg-config"
 brew "postgresql", restart_service: true
 brew "pyenv"
 brew "python@2"
@@ -78,11 +81,12 @@ brew "rbenv-default-gems"
 brew "rbenv-gemset"
 brew "rbspy"
 brew "reattach-to-user-namespace"
-brew "redis", restart_service: true
+brew "redis"
 brew "shellcheck"
 brew "shfmt"
 brew "tmux"
 brew "tree"
+brew "unison"
 brew "wget"
 brew "xpdf"
 brew "yarn"
@@ -127,13 +131,3 @@ cask "spotify"
 cask "tor-browser"
 cask "vagrant"
 cask "valentina-studio"
-cask "vlc"
-cask "wkhtmltopdf"
-cask "zoomus"
-mas "GIPHY CAPTURE", id: 668208984
-mas "Keynote", id: 409183694
-mas "LastPass", id: 926036361
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
-mas "The Unarchiver", id: 425424353
-mas "Xcode", id: 497799835
