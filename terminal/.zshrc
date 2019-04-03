@@ -1,5 +1,8 @@
 export ZSH=/Users/andrew.mason/.oh-my-zsh
 
+# ZSH auto-complete
+fpath=(/usr/local/share/zsh-completions $fpath)
+
 ZSH_THEME="spaceship"
 
 SPACESHIP_PROMPT_ADD_NEWLINE="true"
@@ -45,8 +48,10 @@ plugins=(
   docker-compose
   git
   rails
-  zsh-syntax-highlighting
+  vscode
   z
+  zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
 # NVM
@@ -71,6 +76,10 @@ export EDITOR="code -w"
 # Default ZSH
 source $ZSH/oh-my-zsh.sh
 
+# ENV vars
+export GITHUB_TOKEN="xxxxx"
+export MYSQL_ROOT_PASSWORD="xxxxx"
+
 # Aliases
 dappattach() {
   appId=$(docker ps | grep app | awk '{print $NF}')
@@ -86,6 +95,7 @@ alias drrt="docker-compose run app bin/rails test"
 alias drc="docker-compose exec app bin/rails c"
 alias drt="docker-compose exec app bin/rails test"
 alias drst="docker-compose exec app bin/rails test:system"
+alias dcm="docker-compose exec app bin/rails db:migrate"
 alias dcab="docker-compose exec app bash"
 alias dctb="docker-compose exec test bash"
 alias b="bundle"
@@ -114,12 +124,20 @@ export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/llvm@6/bin:$PATH"
+export PATH="/usr/local/opt/libxml2/bin:$PATH"
+export PATH="/usr/local/opt/libxslt/bin:$PATH"
+
+# GPG
+export GPG_TTY=$(tty)
 
 # Rbenv
 eval "$(rbenv init -)"
 
 # Pyenv
 eval "$(pyenv init -)"
+
+# libxml2
+# eval "$(brew --prefix libxml2)"
 
 # Added by travis gem
 [ -f /Users/andrew.mason/.travis/travis.sh ] && source /Users/andrew.mason/.travis/travis.sh
