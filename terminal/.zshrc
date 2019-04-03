@@ -136,8 +136,5 @@ eval "$(rbenv init -)"
 # Pyenv
 eval "$(pyenv init -)"
 
-# libxml2
-# eval "$(brew --prefix libxml2)"
-
 # Added by travis gem
 [ -f /Users/andrew.mason/.travis/travis.sh ] && source /Users/andrew.mason/.travis/travis.sh
