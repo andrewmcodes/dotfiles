@@ -32,3 +32,5 @@ gem install mysql2 -v '0.3.21' -- --with-ldflags=-L/usr/local/opt/openssl/lib --
 - `2.5.1`
 - `2.6.0`
 - `2.6.1`
+- `2.6.2`
+- `2.6.3`

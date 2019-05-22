@@ -1,139 +1,170 @@
 {
-	// Workbench
-	"workbench.sideBar.location": "right",
-	"workbench.colorTheme": "One Dark Pro Vivid",
-	"workbench.startupEditor": "newUntitledFile",
-	"workbench.colorCustomizations": {
-		"editor.background": "#1a1c20",
-		"editorIndentGuide.activeBackground": "#b83957",
-		"tab.activeBorderTop": "#b83957"
-	},
-	"workbench.iconTheme": "vscode-great-icons",
-	"window.zoomLevel": 0,
-	// Font
-	"editor.fontFamily": "Fira Code",
-	"editor.fontLigatures": true,
-	"editor.fontSize": 13,
-	"editor.lineHeight": 20,
-	"editor.letterSpacing": 0.2,
-	"editor.fontWeight": "400",
-	// Cursor
-	"editor.cursorStyle": "line",
-	"editor.cursorWidth": 5,
-	"editor.cursorBlinking": "solid",
-	// Tabs & Spaces
-	"editor.tabSize": 2,
-	"editor.renderWhitespace": "all",
-	"files.trimTrailingWhitespace": true,
-	"files.insertFinalNewline": true,
-	"files.trimFinalNewlines": true,
-	// Rulers
-	"editor.rulers": [120],
-	// VSCode Specific
-	"breadcrumbs.enabled": true,
-	"explorer.confirmDragAndDrop": false,
-	"editor.minimap.enabled": false,
-	// Terminal
-	"terminal.external.osxExec": "Archipelago.app",
-	"terminal.integrated.shell.osx": "zsh",
-	"terminal.integrated.fontSize": 14,
-	// Saving
-	"files.autoSave": "onFocusChange",
-	// Emmet
-	"emmet.includeLanguages": {
-		"html": "html",
-		"erb": "erb",
-		"javascript": "javascriptreact",
-		"vue": "html",
-		"ejs": "html",
-		"xml": {
-			"attr_quotes": "single"
-		}
-	},
-	// Spotify
-	"spotify.showToggleRepeatingButton": true,
-	"spotify.showToggleShufflingButton": true,
-	//   GIT
-	"git.enableSmartCommit": true,
-	"gitlens.hovers.currentLine.over": "line",
-	"gitlens.views.repositories.files.layout": "auto",
-	"gitlens.views.fileHistory.enabled": true,
-	"gitlens.views.lineHistory.enabled": true,
-	"gitlens.currentLine.enabled": false,
-	"gitlens.codeLens.enabled": false,
-	"gitlens.keymap": "alternate",
-	"gitlens.advanced.messages": {
-		"suppressCommitHasNoPreviousCommitWarning": false,
-		"suppressCommitNotFoundWarning": false,
-		"suppressFileNotUnderSourceControlWarning": false,
-		"suppressGitVersionWarning": false,
-		"suppressLineUncommittedWarning": false,
-		"suppressNoRepositoryWarning": false,
-		"suppressResultsExplorerNotice": false,
-		"suppressShowKeyBindingsNotice": true
-	},
-	"git.autofetch": true,
-	"diffEditor.ignoreTrimWhitespace": false,
-	// Live Server
-	"liveServer.settings.donotShowInfoMsg": true,
-	// JS
-	"javascript.updateImportsOnFileMove.enabled": "always",
-	// Eslint
-	"eslint.validate": ["javascript", "javascriptreact", "vue"],
-	"eslint.packageManager": "yarn",
-	"eslint.autoFixOnSave": true,
-	// Format
-	"pasteAndIndent.selectAfter": true,
-	"editor.formatOnSave": true,
-	"editor.formatOnSaveTimeout": 1500,
-	"editor.formatOnPaste": true,
-	"editor.formatOnType": false,
-	"editor.autoIndent": true,
-	"[sass]": {
-		"editor.formatOnSave": false
-	},
-	"[yaml]": {
-		"editor.formatOnSave": true
-	},
-	"[json]": {
-		"editor.formatOnSave": true
-	},
-	"[typescript]": {
-		"editor.formatOnSave": true
-	},
-	"[javascript]": {
-		"editor.formatOnSave": true
-	},
-	"[markdown]": {
-		"editor.formatOnSave": false,
-		"editor.detectIndentation": true,
-		"editor.insertSpaces": false,
-		"editor.tabSize": 2
-	},
-	// Markdown
-	"markdown.extension.toc.githubCompatibility": true,
-	// Ruby
-	"[ruby]": {
-		"editor.formatOnSave": true
-	},
-	"ruby.format": "rubocop",
-	"ruby.lint": {
-		"ruby": true,
-		"rubocop": {
-			"rails": true
-		}
-	},
-	"ruby.lintDebounceTime": 1500,
-	"ruby.codeCompletion": "rcodetools",
-	"ruby.intellisense": "rubyLocate",
-	"ruby.useLanguageServer": true,
-	"railsPartial.viewFileExtensions": [
-		"html.haml",
-		"html.slim",
-		"html.erb"
-	],
-	"sync.gist": "a1e505131c4102f1c045830eb704989a",
-	"prettier.trailingComma": "es5",
-	"prettier.requireConfig": true,
-	"prettier.jsxBracketSameLine": true
+  // Workbench
+  "workbench.sideBar.location": "right",
+  "workbench.colorTheme": "One Dark Pro Vivid",
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.colorCustomizations": {
+    "editor.background": "#1a1c20",
+    "editorIndentGuide.activeBackground": "#b83957",
+    "tab.activeBorderTop": "#b83957"
+  },
+  "workbench.iconTheme": "vscode-great-icons",
+  "window.zoomLevel": 0,
+  // Font
+  "editor.fontFamily": "Fira Code",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 13,
+  "editor.lineHeight": 20,
+  "editor.letterSpacing": 0.2,
+  "editor.fontWeight": "400",
+  // Cursor
+  "editor.cursorStyle": "line",
+  "editor.cursorWidth": 5,
+  "editor.cursorBlinking": "solid",
+  // Tabs & Spaces
+  "editor.tabSize": 2,
+  "editor.renderWhitespace": "all",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  // Rulers
+  "editor.rulers": [120],
+  // VSCode Specific
+  "breadcrumbs.enabled": true,
+  "explorer.confirmDragAndDrop": false,
+  "editor.minimap.enabled": false,
+  // Terminal
+  "terminal.external.osxExec": "Archipelago.app",
+  "terminal.integrated.shell.osx": "zsh",
+  "terminal.integrated.fontSize": 14,
+  // Saving
+  "files.autoSave": "onFocusChange",
+  // Emmet
+  "emmet.includeLanguages": {
+    "html": "html",
+    "erb": "erb",
+    "javascript": "javascriptreact",
+    "vue": "html",
+    "ejs": "html",
+    "xml": {
+      "attr_quotes": "single"
+    }
+  },
+  //   GIT
+  "git.enableSmartCommit": true,
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.views.repositories.files.layout": "auto",
+  "gitlens.views.fileHistory.enabled": true,
+  "gitlens.views.lineHistory.enabled": true,
+  "gitlens.currentLine.enabled": false,
+  "gitlens.codeLens.enabled": false,
+  "gitlens.keymap": "alternate",
+  "gitlens.advanced.messages": {
+    "suppressCommitHasNoPreviousCommitWarning": false,
+    "suppressCommitNotFoundWarning": false,
+    "suppressFileNotUnderSourceControlWarning": false,
+    "suppressGitVersionWarning": false,
+    "suppressLineUncommittedWarning": false,
+    "suppressNoRepositoryWarning": false,
+    "suppressResultsExplorerNotice": false,
+    "suppressShowKeyBindingsNotice": true
+  },
+  "git.autofetch": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  // Live Server
+  "liveServer.settings.donotShowInfoMsg": true,
+  // JS
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  // Eslint
+  "eslint.validate": ["javascript", "javascriptreact", "vue"],
+  "eslint.packageManager": "yarn",
+  "eslint.autoFixOnSave": true,
+  // Format
+  "pasteAndIndent.selectAfter": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveTimeout": 1500,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": false,
+  "editor.autoIndent": true,
+  "[sass]": {
+    "editor.formatOnSave": false
+  },
+  "[yaml]": {
+    "editor.formatOnSave": true
+  },
+  "[json]": {
+    "editor.formatOnSave": true
+  },
+  "[typescript]": {
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.formatOnSave": false,
+    "editor.detectIndentation": true,
+    "editor.insertSpaces": false,
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // Markdown
+  "markdown.extension.toc.githubCompatibility": true,
+  // Ruby
+  "[ruby]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "rebornix.ruby"
+  },
+  "ruby.format": "rubocop",
+  "ruby.lint": {
+    "ruby": true,
+    "rubocop": {
+      "rails": true
+    }
+  },
+  "ruby.lintDebounceTime": 1500,
+  "ruby.codeCompletion": "rcodetools",
+  "ruby.intellisense": "rubyLocate",
+  "ruby.useLanguageServer": true,
+  "railsPartial.viewFileExtensions": ["html.haml", "html.slim", "html.erb"],
+  "ctags": {
+    "executePath": "/Users/andrew.mason/.rbenv/shims/ripper-tags",
+    "options": "--tag-file=.tags --recursive --force --exclude=/assets/ --exclude=.bundle --exclude=.git/ --exclude=coverage/ --exclude=node-modules/ --exclude=log/ --exclude=tmp/ --exclude=bin/ --exclude=vendor/",
+    "fileName": ".tags"
+  },
+  "sync.gist": "XXXXXXX",
+  "workbench.editor.showTabs": true,
+  "cSpell.userWords": [
+    "Autoloading",
+    "Gemfile",
+    "Zeitwerk",
+    "antipattern",
+    "autoload",
+    "backports",
+    "bootcamps",
+    "interactor",
+    "serializers"
+  ],
+  "[dockerfile]": {
+    "editor.defaultFormatter": "PeterJausovec.vscode-docker"
+  },
+  "jira-plugin.baseUrl": "XXXXXXX",
+  "jira-plugin.username": "XXXXXXX",
+  "atlascode.jira.workingSite": {
+    "baseUrlSuffix": "atlassian.net"
+  },
+  "yaml.schemas": {
+    "file:///Users/andrew.mason/.vscode/extensions/atlassian.atlascode-1.4.0/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+  },
+  "atlascode.bitbucket.statusbar.enabled": false,
+  "atlascode.bitbucket.contextMenus.enabled": false,
+  "atlascode.bitbucket.issues.explorerEnabled": false,
+  "atlascode.bitbucket.explorer.enabled": false,
+  "atlascode.bitbucket.pipelines.explorerEnabled": false,
+  "atlascode.jira.workingProject": {
+    "id": "XXXXXXX",
+    "key": "XXXXXXX",
+    "name": "XXXXXXX"
+  }
 }
