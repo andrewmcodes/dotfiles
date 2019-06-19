@@ -79,6 +79,7 @@ source $ZSH/oh-my-zsh.sh
 # ENV vars
 export GITHUB_TOKEN="xxxxx"
 export MYSQL_ROOT_PASSWORD="xxxxx"
+export DISABLE_SPRING=1
 
 # Aliases
 dappattach() {
@@ -138,3 +139,4 @@ eval "$(pyenv init -)"
 
 # Added by travis gem
 [ -f /Users/andrew.mason/.travis/travis.sh ] && source /Users/andrew.mason/.travis/travis.sh
+export PATH="/usr/local/opt/node@10/bin:$PATH"

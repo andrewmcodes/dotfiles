@@ -22,9 +22,6 @@ Thumbs.db
 .vscode
 workspace.code-workspace
 .sass-cache
-*.byebug_history
-*.sql.gz
-*.rdb
 
 # Directories potentially created on remote AFP share
 .AppleDB
@@ -32,3 +29,4 @@ workspace.code-workspace
 Network Trash Folder
 Temporary Items
 .apdisk
+.tags
