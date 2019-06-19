@@ -127,6 +127,7 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/llvm@6/bin:$PATH"
 export PATH="/usr/local/opt/libxml2/bin:$PATH"
 export PATH="/usr/local/opt/libxslt/bin:$PATH"
+export PATH="/usr/local/opt/node@10/bin:$PATH"
 
 # GPG
 export GPG_TTY=$(tty)
@@ -139,4 +140,3 @@ eval "$(pyenv init -)"
 
 # Added by travis gem
 [ -f /Users/andrew.mason/.travis/travis.sh ] && source /Users/andrew.mason/.travis/travis.sh
-export PATH="/usr/local/opt/node@10/bin:$PATH"
