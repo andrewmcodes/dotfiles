@@ -77,8 +77,10 @@ export EDITOR="code -w"
 source $ZSH/oh-my-zsh.sh
 
 # ENV vars
-export GITHUB_TOKEN="xxxxx"
-export MYSQL_ROOT_PASSWORD="xxxxx"
+export GITHUB_TOKEN="xxxxxx"
+export MYSQL_ROOT_PASSWORD="xxxxxx"
+
+# Disable spring
 export DISABLE_SPRING=1
 
 # Aliases
@@ -111,7 +113,23 @@ alias da="docker attach"
 alias gbrd="git branch | grep -v "master" | xargs git branch -D"
 alias add_dock_spacer="defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'; killall Dock"
 alias show_mysql_db="mysql -u root -p$MYSQL_ROOT_PASSWORD -e 'show databases;'"
-alias clean_branches="git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs git branch -d"
+
+# open repository on GH
+alias ghps="open xxxxx"
+alias ghpm="open xxxxx"
+alias ghpt="open xxxxx"
+alias ghn2p="open xxxxx"
+alias ghds="open xxxxx"
+alias ghsf="open xxxxx"
+alias ghcp="open xxxxx"
+alias ghn2g="open xxxxx"
+alias ghhb="open xxxxx"
+alias ghnt="open xxxxx"
+alias ghn2d="open xxxxx"
+alias ghn2s="open xxxxx"
+alias ghn2q="open xxxxx"
+alias ghn2b="open xxxxx"
+alias lzd='lazydocker'
 
 # add Homebrew `/usr/local/bin` and User `~/bin` to the `$PATH`
 PATH=/usr/local/bin:$PATH
@@ -128,6 +146,10 @@ export PATH="/usr/local/opt/llvm@6/bin:$PATH"
 export PATH="/usr/local/opt/libxml2/bin:$PATH"
 export PATH="/usr/local/opt/libxslt/bin:$PATH"
 export PATH="/usr/local/opt/node@10/bin:$PATH"
+export GOPATH=$HOME/go-workspace # don't forget to change your path correctly!
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
 
 # GPG
 export GPG_TTY=$(tty)

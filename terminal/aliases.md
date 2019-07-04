@@ -207,6 +207,7 @@ la='ls -lAh'
 ll='ls -lh'
 ls='ls -G'
 lsa='ls -lah'
+lzd=lazydocker
 md='mkdir -p'
 mysql=/usr/local/bin/mysql
 mysqladmin=/usr/local/bin/mysqladmin
