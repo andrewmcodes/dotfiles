@@ -1,4 +1,5 @@
-[{
+[
+  {
     "metadata": {
       "id": "2cbad5ee-b4ab-4de8-a1c7-77fede846155",
       "publisherId": "patbenatar.advanced-new-file",
@@ -20,23 +21,23 @@
   },
   {
     "metadata": {
-      "id": "697255a9-3f36-44c8-b084-d3b91edfb23a",
-      "publisherId": "HookyQR.beautify",
-      "publisherDisplayName": "HookyQR"
+      "id": "ede0d8fe-2180-4cf5-85f5-075dc43d4b8f",
+      "publisherId": "atlassian.atlascode",
+      "publisherDisplayName": "atlassian"
     },
-    "name": "beautify",
-    "publisher": "HookyQR",
-    "version": "1.4.9"
+    "name": "atlascode",
+    "publisher": "atlassian",
+    "version": "1.4.2"
   },
   {
     "metadata": {
-      "id": "464f4ac7-af65-4aa9-9907-4ba7fa419085",
-      "publisherId": "bungcip.better-toml",
-      "publisherDisplayName": "bungcip"
+      "id": "968b335f-0c15-4e6a-86ad-d3da45dbad73",
+      "publisherId": "aliariff.auto-add-brackets",
+      "publisherDisplayName": "aliariff"
     },
-    "name": "better-toml",
-    "publisher": "bungcip",
-    "version": "0.3.2"
+    "name": "auto-add-brackets",
+    "publisher": "aliariff",
+    "version": "0.9.0"
   },
   {
     "metadata": {
@@ -46,7 +47,7 @@
     },
     "name": "Bookmarks",
     "publisher": "alefragnani",
-    "version": "10.3.0"
+    "version": "10.4.4"
   },
   {
     "metadata": {
@@ -76,7 +77,7 @@
     },
     "name": "code-runner",
     "publisher": "formulahendry",
-    "version": "0.9.7"
+    "version": "0.9.11"
   },
   {
     "metadata": {
@@ -86,27 +87,27 @@
     },
     "name": "code-settings-sync",
     "publisher": "Shan",
-    "version": "3.2.7"
+    "version": "3.3.1"
   },
   {
     "metadata": {
-      "id": "c06c54a1-b341-432a-8f19-fad4cb68f4bb",
-      "publisherId": "DiegoMolina.css-minify",
-      "publisherDisplayName": "DiegoMolina"
+      "id": "f6dbd813-b0a0-42c1-90ea-10dde9d925a7",
+      "publisherId": "streetsidesoftware.code-spell-checker",
+      "publisherDisplayName": "streetsidesoftware"
     },
-    "name": "css-minify",
-    "publisher": "DiegoMolina",
-    "version": "0.1.11"
+    "name": "code-spell-checker",
+    "publisher": "streetsidesoftware",
+    "version": "1.7.17"
   },
   {
     "metadata": {
-      "id": "1ec62ca5-d7f9-4ddb-a882-e8d018c0aefd",
-      "publisherId": "msjsdiag.debugger-for-chrome",
-      "publisherDisplayName": "msjsdiag"
+      "id": "25e38b8d-ff51-4c34-af36-b7b7961cf666",
+      "publisherId": "alexkrechik.cucumberautocomplete",
+      "publisherDisplayName": "alexkrechik"
     },
-    "name": "debugger-for-chrome",
-    "publisher": "msjsdiag",
-    "version": "4.11.3"
+    "name": "cucumberautocomplete",
+    "publisher": "alexkrechik",
+    "version": "2.14.1"
   },
   {
     "metadata": {
@@ -130,16 +131,6 @@
   },
   {
     "metadata": {
-      "id": "19804510-b475-4dae-b0f7-6ca08fd1af0c",
-      "publisherId": "dsznajder.es7-react-js-snippets",
-      "publisherDisplayName": "dsznajder"
-    },
-    "name": "es7-react-js-snippets",
-    "publisher": "dsznajder",
-    "version": "2.1.1"
-  },
-  {
-    "metadata": {
       "id": "5960f38e-0bbe-4644-8f9c-9c8824e82511",
       "publisherId": "donjayamanne.githistory",
       "publisherDisplayName": "donjayamanne"
@@ -156,17 +147,7 @@
     },
     "name": "gitlens",
     "publisher": "eamodio",
-    "version": "9.5.1"
-  },
-  {
-    "metadata": {
-      "id": "3d48b57c-1cf7-41d3-858c-2e6d926f2960",
-      "publisherId": "vayan.haml",
-      "publisherDisplayName": "vayan"
-    },
-    "name": "haml",
-    "publisher": "vayan",
-    "version": "1.0.1"
+    "version": "9.8.5"
   },
   {
     "metadata": {
@@ -176,7 +157,7 @@
     },
     "name": "haml",
     "publisher": "karunamurti",
-    "version": "1.1.0"
+    "version": "1.2.0"
   },
   {
     "metadata": {
@@ -196,7 +177,7 @@
     },
     "name": "html-css-class-completion",
     "publisher": "Zignd",
-    "version": "1.18.0"
+    "version": "1.19.0"
   },
   {
     "metadata": {
@@ -226,7 +207,7 @@
     },
     "name": "LiveServer",
     "publisher": "ritwickdey",
-    "version": "5.5.1"
+    "version": "5.6.1"
   },
   {
     "metadata": {
@@ -236,17 +217,7 @@
     },
     "name": "markdown-all-in-one",
     "publisher": "yzhang",
-    "version": "2.1.1"
-  },
-  {
-    "metadata": {
-      "id": "f595c9c1-28b5-415e-a55f-2deb4a8c3abd",
-      "publisherId": "bierner.markdown-emoji",
-      "publisherDisplayName": "bierner"
-    },
-    "name": "markdown-emoji",
-    "publisher": "bierner",
-    "version": "0.0.7"
+    "version": "2.4.0"
   },
   {
     "metadata": {
@@ -256,17 +227,7 @@
     },
     "name": "Material-theme",
     "publisher": "zhuangtongfa",
-    "version": "2.20.5"
-  },
-  {
-    "metadata": {
-      "id": "4bf45e86-a448-4531-8c01-ef33f4536306",
-      "publisherId": "ms-mssql.mssql",
-      "publisherDisplayName": "ms-mssql"
-    },
-    "name": "mssql",
-    "publisher": "ms-mssql",
-    "version": "1.4.0"
+    "version": "2.26.0"
   },
   {
     "metadata": {
@@ -296,27 +257,7 @@
     },
     "name": "prettier-vscode",
     "publisher": "esbenp",
-    "version": "1.8.1"
-  },
-  {
-    "metadata": {
-      "id": "67e66172-30c7-4478-8f5d-6eac4ae755dc",
-      "publisherId": "mohsen1.prettify-json",
-      "publisherDisplayName": "mohsen1"
-    },
-    "name": "prettify-json",
-    "publisher": "mohsen1",
-    "version": "0.0.3"
-  },
-  {
-    "metadata": {
-      "id": "f1f59ae4-9318-4f3c-a9b5-81b2eaa5f8a5",
-      "publisherId": "ms-python.python",
-      "publisherDisplayName": "ms-python"
-    },
-    "name": "python",
-    "publisher": "ms-python",
-    "version": "2019.2.5558"
+    "version": "1.9.0"
   },
   {
     "metadata": {
@@ -336,7 +277,27 @@
     },
     "name": "rails-fast-nav",
     "publisher": "jemmyw",
-    "version": "1.2.1"
+    "version": "1.3.0"
+  },
+  {
+    "metadata": {
+      "id": "2936afaf-54cb-44ac-b375-d6d1b1286cb8",
+      "publisherId": "bweave.rails-flip-flop",
+      "publisherDisplayName": "bweave"
+    },
+    "name": "rails-flip-flop",
+    "publisher": "bweave",
+    "version": "0.0.4"
+  },
+  {
+    "metadata": {
+      "id": "cb988e1e-0372-4a58-9cfe-3636e8b13ee3",
+      "publisherId": "shanehofstetter.rails-i18n",
+      "publisherDisplayName": "shanehofstetter"
+    },
+    "name": "rails-i18n",
+    "publisher": "shanehofstetter",
+    "version": "0.3.0"
   },
   {
     "metadata": {
@@ -346,26 +307,6 @@
     },
     "name": "rails-latest-migration",
     "publisher": "tmikoss",
-    "version": "0.0.1"
-  },
-  {
-    "metadata": {
-      "id": "ad9df2da-20b1-4ddc-85be-8923914a5b45",
-      "publisherId": "aki77.rails-partial",
-      "publisherDisplayName": "aki77"
-    },
-    "name": "rails-partial",
-    "publisher": "aki77",
-    "version": "0.1.0"
-  },
-  {
-    "metadata": {
-      "id": "2caebba9-a8ad-449e-bb68-85ac9637ebc8",
-      "publisherId": "aki77.rails-routes",
-      "publisherDisplayName": "aki77"
-    },
-    "name": "rails-routes",
-    "publisher": "aki77",
     "version": "0.0.1"
   },
   {
@@ -380,13 +321,43 @@
   },
   {
     "metadata": {
-      "id": "06a986d8-083a-4df6-8378-88fb4b5dedab",
-      "publisherId": "karunamurti.rspec-snippets",
-      "publisherDisplayName": "karunamurti"
+      "id": "93ce222b-5f6f-49b7-9ab1-a0463c6238df",
+      "publisherId": "ms-vscode-remote.remote-containers",
+      "publisherDisplayName": "ms-vscode-remote"
     },
-    "name": "rspec-snippets",
-    "publisher": "karunamurti",
-    "version": "0.0.4"
+    "name": "remote-containers",
+    "publisher": "ms-vscode-remote",
+    "version": "0.66.0"
+  },
+  {
+    "metadata": {
+      "id": "607fd052-be03-4363-b657-2bd62b83d28a",
+      "publisherId": "ms-vscode-remote.remote-ssh",
+      "publisherDisplayName": "ms-vscode-remote"
+    },
+    "name": "remote-ssh",
+    "publisher": "ms-vscode-remote",
+    "version": "0.44.2"
+  },
+  {
+    "metadata": {
+      "id": "bfeaf631-bcff-4908-93ed-fda4ef9a0c5c",
+      "publisherId": "ms-vscode-remote.remote-ssh-edit",
+      "publisherDisplayName": "ms-vscode-remote"
+    },
+    "name": "remote-ssh-edit",
+    "publisher": "ms-vscode-remote",
+    "version": "0.44.2"
+  },
+  {
+    "metadata": {
+      "id": "5d9b66c1-7da3-4004-8c92-2b0852ec0c9b",
+      "publisherId": "ms-vscode-remote.remote-ssh-explorer",
+      "publisherDisplayName": "ms-vscode-remote"
+    },
+    "name": "remote-ssh-explorer",
+    "publisher": "ms-vscode-remote",
+    "version": "0.44.2"
   },
   {
     "metadata": {
@@ -396,7 +367,7 @@
     },
     "name": "ruby",
     "publisher": "rebornix",
-    "version": "0.22.3"
+    "version": "0.24.1"
   },
   {
     "metadata": {
@@ -426,17 +397,7 @@
     },
     "name": "sass-lint",
     "publisher": "glen-84",
-    "version": "1.0.4"
-  },
-  {
-    "metadata": {
-      "id": "5fb19573-2183-4cf2-b53d-0fb869dae7ae",
-      "publisherId": "foxundermoon.shell-format",
-      "publisherDisplayName": "foxundermoon"
-    },
-    "name": "shell-format",
-    "publisher": "foxundermoon",
-    "version": "4.0.4"
+    "version": "1.0.5"
   },
   {
     "metadata": {
@@ -456,17 +417,7 @@
     },
     "name": "solargraph",
     "publisher": "castwide",
-    "version": "0.19.3"
-  },
-  {
-    "metadata": {
-      "id": "f8b5562e-a2d9-49ab-9f91-e7da91998a92",
-      "publisherId": "shinnn.stylelint",
-      "publisherDisplayName": "shinnn"
-    },
-    "name": "stylelint",
-    "publisher": "shinnn",
-    "version": "0.48.0"
+    "version": "0.20.0"
   },
   {
     "metadata": {
@@ -476,7 +427,7 @@
     },
     "name": "tailwind-docs",
     "publisher": "austenc",
-    "version": "1.0.1"
+    "version": "1.2.0"
   },
   {
     "metadata": {
@@ -486,17 +437,7 @@
     },
     "name": "turbo-console-log",
     "publisher": "ChakrounAnas",
-    "version": "1.2.13"
-  },
-  {
-    "metadata": {
-      "id": "2f5dd8cb-d251-4d70-abfe-ddebcb077483",
-      "publisherId": "octref.vetur",
-      "publisherDisplayName": "octref"
-    },
-    "name": "vetur",
-    "publisher": "octref",
-    "version": "0.16.2"
+    "version": "1.2.26"
   },
   {
     "metadata": {
@@ -511,12 +452,12 @@
   {
     "metadata": {
       "id": "0479fc1c-3d67-49f9-b087-fb9069afe48f",
-      "publisherId": "PeterJausovec.vscode-docker",
-      "publisherDisplayName": "PeterJausovec"
+      "publisherId": "ms-azuretools.vscode-docker",
+      "publisherDisplayName": "ms-azuretools"
     },
     "name": "vscode-docker",
-    "publisher": "PeterJausovec",
-    "version": "0.6.0"
+    "publisher": "ms-azuretools",
+    "version": "0.7.0"
   },
   {
     "metadata": {
@@ -536,7 +477,7 @@
     },
     "name": "vscode-eslint",
     "publisher": "dbaeumer",
-    "version": "1.8.2"
+    "version": "1.9.0"
   },
   {
     "metadata": {
@@ -570,13 +511,23 @@
   },
   {
     "metadata": {
+      "id": "daf8b44d-8aae-4da2-80c5-1f770219f643",
+      "publisherId": "DavidAnson.vscode-markdownlint",
+      "publisherDisplayName": "DavidAnson"
+    },
+    "name": "vscode-markdownlint",
+    "publisher": "DavidAnson",
+    "version": "0.28.0"
+  },
+  {
+    "metadata": {
       "id": "ae9e3eb0-3357-4cc0-90ee-598d2d384757",
       "publisherId": "eg2.vscode-npm-script",
       "publisherDisplayName": "eg2"
     },
     "name": "vscode-npm-script",
     "publisher": "eg2",
-    "version": "0.3.5"
+    "version": "0.3.8"
   },
   {
     "metadata": {
@@ -606,57 +557,27 @@
     },
     "name": "vscode-pull-request-github",
     "publisher": "GitHub",
-    "version": "0.5.1"
+    "version": "0.9.0"
   },
   {
     "metadata": {
-      "id": "80e61962-f4de-4e0e-b794-7b6796a6aebe",
-      "publisherId": "matthieumu.vscode-rubycommentdoc",
-      "publisherDisplayName": "matthieumu"
+      "id": "d0e102de-2b75-4be4-8dec-bfa9a429ba27",
+      "publisherId": "otoniel-isidoro.vscode-ruby-ctags",
+      "publisherDisplayName": "otoniel-isidoro"
     },
-    "name": "vscode-rubycommentdoc",
-    "publisher": "matthieumu",
-    "version": "1.0.1"
+    "name": "vscode-ruby-ctags",
+    "publisher": "otoniel-isidoro",
+    "version": "1.4.1"
   },
   {
     "metadata": {
-      "id": "6a6cd353-e54a-4af6-bba1-e89298b1ff3e",
-      "publisherId": "Thadeu.vscode-run-rspec-file",
-      "publisherDisplayName": "Thadeu"
+      "id": "90a37ca1-92a2-488a-b196-7a8c0b0127ea",
+      "publisherId": "ms-vscode.vscode-typescript-tslint-plugin",
+      "publisherDisplayName": "ms-vscode"
     },
-    "name": "vscode-run-rspec-file",
-    "publisher": "Thadeu",
-    "version": "0.5.1"
-  },
-  {
-    "metadata": {
-      "id": "4b0bb8e1-8f9a-42c4-b0dd-03691bdcc309",
-      "publisherId": "shyykoserhiy.vscode-spotify",
-      "publisherDisplayName": "shyykoserhiy"
-    },
-    "name": "vscode-spotify",
-    "publisher": "shyykoserhiy",
-    "version": "3.1.0"
-  },
-  {
-    "metadata": {
-      "id": "06cc3e44-aedb-41b8-a4ea-29ebf3c491fd",
-      "publisherId": "jpoissonnier.vscode-styled-components",
-      "publisherDisplayName": "jpoissonnier"
-    },
-    "name": "vscode-styled-components",
-    "publisher": "jpoissonnier",
-    "version": "0.0.25"
-  },
-  {
-    "metadata": {
-      "id": "6f5d4f30-67aa-4151-80c0-1bbe8ca5f9db",
-      "publisherId": "cssho.vscode-svgviewer",
-      "publisherDisplayName": "cssho"
-    },
-    "name": "vscode-svgviewer",
-    "publisher": "cssho",
-    "version": "2.0.0"
+    "name": "vscode-typescript-tslint-plugin",
+    "publisher": "ms-vscode",
+    "version": "1.2.2"
   },
   {
     "metadata": {
@@ -666,7 +587,7 @@
     },
     "name": "vscode-yaml",
     "publisher": "redhat",
-    "version": "0.3.0"
+    "version": "0.4.1"
   },
   {
     "metadata": {
@@ -676,17 +597,7 @@
     },
     "name": "vsliveshare",
     "publisher": "ms-vsliveshare",
-    "version": "0.3.1326"
-  },
-  {
-    "metadata": {
-      "id": "0cb81da2-1880-4755-9995-0ae9cc728e20",
-      "publisherId": "DotJoshJohnson.xml",
-      "publisherDisplayName": "DotJoshJohnson"
-    },
-    "name": "xml",
-    "publisher": "DotJoshJohnson",
-    "version": "2.4.0"
+    "version": "1.0.509"
   },
   {
     "metadata": {
@@ -696,6 +607,6 @@
     },
     "name": "yard",
     "publisher": "pavlitsky",
-    "version": "0.3.1"
+    "version": "0.3.2"
   }
 ]
