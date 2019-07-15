@@ -1,0 +1,7 @@
+bundler
+debase
+nokogiri
+pry
+rcodetools
+rubocop
+ruby-debug-ide

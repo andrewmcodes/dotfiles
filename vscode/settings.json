@@ -28,7 +28,9 @@
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   // Rulers
-  "editor.rulers": [120],
+  "editor.rulers": [
+    120
+  ],
   // VSCode Specific
   "breadcrumbs.enabled": true,
   "explorer.confirmDragAndDrop": false,
@@ -76,7 +78,11 @@
   // JS
   "javascript.updateImportsOnFileMove.enabled": "always",
   // Eslint
-  "eslint.validate": ["javascript", "javascriptreact", "vue"],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "vue"
+  ],
   "eslint.packageManager": "yarn",
   "eslint.autoFixOnSave": true,
   // Format
@@ -120,20 +126,24 @@
   "ruby.lint": {
     "ruby": true,
     "rubocop": {
-      "rails": true
+      "lint": true
     }
   },
   "ruby.lintDebounceTime": 1500,
   "ruby.codeCompletion": "rcodetools",
-  "ruby.intellisense": "rubyLocate",
+  "ruby.intellisense": false,
   "ruby.useLanguageServer": true,
-  "railsPartial.viewFileExtensions": ["html.haml", "html.slim", "html.erb"],
+  "railsPartial.viewFileExtensions": [
+    "html.haml",
+    "html.slim",
+    "html.erb"
+  ],
   "ctags": {
     "executePath": "/Users/andrew.mason/.rbenv/shims/ripper-tags",
     "options": "--tag-file=.tags --recursive --force --exclude=/assets/ --exclude=.bundle --exclude=.git/ --exclude=coverage/ --exclude=node-modules/ --exclude=log/ --exclude=tmp/ --exclude=bin/ --exclude=vendor/",
     "fileName": ".tags"
   },
-  "sync.gist": "XXXXXXX",
+  "sync.gist": "XXXXX",
   "workbench.editor.showTabs": true,
   "cSpell.userWords": [
     "Autoloading",
@@ -149,13 +159,13 @@
   "[dockerfile]": {
     "editor.defaultFormatter": "PeterJausovec.vscode-docker"
   },
-  "jira-plugin.baseUrl": "XXXXXXX",
-  "jira-plugin.username": "XXXXXXX",
+  "jira-plugin.baseUrl": "XXXXX",
+  "jira-plugin.username": "XXXXX",
   "atlascode.jira.workingSite": {
     "baseUrlSuffix": "atlassian.net"
   },
   "yaml.schemas": {
-    "file:///Users/andrew.mason/.vscode/extensions/atlassian.atlascode-1.4.0/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    "file:///Users/andrew.mason/.vscode/extensions/atlassian.atlascode-1.4.2/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
   },
   "atlascode.bitbucket.statusbar.enabled": false,
   "atlascode.bitbucket.contextMenus.enabled": false,
@@ -163,8 +173,9 @@
   "atlascode.bitbucket.explorer.enabled": false,
   "atlascode.bitbucket.pipelines.explorerEnabled": false,
   "atlascode.jira.workingProject": {
-    "id": "XXXXXXX",
-    "key": "XXXXXXX",
-    "name": "XXXXXXX"
-  }
+    "id": "XXXXX",
+    "name": "XXXXX",
+    "name": "XXXXX",
+    "key": "OPS"
+  },
 }
