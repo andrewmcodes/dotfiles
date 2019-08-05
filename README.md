@@ -1,6 +1,6 @@
 # My Dot and Settings Files
 
-Just a simple collection of my .dot and settings files
+Just a simple collection of my .dot files and application settings.
 
 ## Instructions
 
