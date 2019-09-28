@@ -11,9 +11,6 @@
   // EXPLORER
   // Controls whether the explorer should ask for confirmation to move files and folders via drag and drop.
   "explorer.confirmDragAndDrop": false,
-  // WORKBENCH
-  // Controls whether opened editors should show in tabs or not.
-  "workbench.editor.showTabs": true,
   // Controls whether a top border is drawn on modified (dirty) editor tabs or not.
   "workbench.editor.highlightModifiedTabs": true,
   // Controls the location of the sidebar. It can either show on the left or right of the workbench.
@@ -103,11 +100,17 @@
   // Time (ms) to wait after keypress before running enabled linters.
   "ruby.lintDebounceTime": 1500,
   // Method to use for intellisense (go to definition, etc.). Use `false` to disable or if another extension provides this feature.
-  "ruby.intellisense": false,
-  // Set individual ruby linters to use
+  // "ruby.intellisense": false,
+  //run non-lint commands with bundle exec
+  "ruby.useBundler": false,
   "ruby.lint": {
-    "rubocop": true
+    // enable rubocop via bundler
+    "rubocop": {
+      "useBundler": false
+    }
   },
+  // use rubocop for formatting
+  "ruby.format": "rubocop",
   // PLUGIN: Gitlens
   // When enabled, commits will automatically be fetched from the default remote of the current Git repository.
   "git.autofetch": true,
@@ -131,7 +134,7 @@
   "gitlens.codeLens.enabled": false,
   // PLUGIN: Settings Sync
   // Controls whether opened editors should show in tabs or not.
-  "sync.gist": "XXXXXX",
+  "sync.gist": "XXXXX",
   // PLUGIN: Jira and Bitbucket (Official)
   // Jira site for workspace
   "atlascode.jira.workingSite": {
@@ -169,18 +172,16 @@
     "vue"
   ],
   // PLUGIN: Prettier
-  // Use 'prettier-eslint' instead of 'prettier'. Other settings will only be fallbacks in case they could not be inferred from eslint rules.
-  "prettier.eslintIntegration": true,
   // Fit code within this line limit
-  "prettier.printWidth": 120,
+  // "prettier.printWidth": 120,
   // If true, will use single instead of double quotes
-  "prettier.singleQuote": true,
+  // "prettier.singleQuote": true,
   // Controls the printing of trailing commas wherever possible.
-  "prettier.trailingComma": "all",
+  // "prettier.trailingComma": "all",
   // Indent lines with tabs
-  "prettier.useTabs": false,
+  // "prettier.useTabs": false,
   // Number of spaces it should use per tab
-  "prettier.tabWidth": 2,
+  // "prettier.tabWidth": 2,
   // PLUGIN: Peacock
   // Colors for Peacock extension
   "peacock.favoriteColors": [

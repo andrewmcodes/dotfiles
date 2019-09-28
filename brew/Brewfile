@@ -70,6 +70,8 @@ brew "imagemagick@6", link: true
 brew "zookeeper"
 brew "kafka"
 brew "kibana"
+brew "python@2"
+brew "libdnet"
 brew "libev"
 brew "libgit2"
 brew "libidn2"
@@ -78,13 +80,13 @@ brew "libxml2"
 brew "libxslt"
 brew "mas"
 brew "maven"
-brew "mysql@5.7", restart_service: true, link: true
+brew "mysql@5.7", link: true
+brew "nmap"
 brew "node", link: false
 brew "node@10", link: true
 brew "node@8"
 brew "postgresql", restart_service: true
 brew "pyenv"
-brew "python@2"
 brew "qt"
 brew "ruby-build"
 brew "rbenv"
@@ -153,6 +155,7 @@ cask "wkhtmltopdf"
 cask "zoomus"
 mas "GhosteryLite", id: 1436953057
 mas "GIPHY CAPTURE", id: 668208984
+mas "Grammarly for Safari", id: 1462114288
 mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
