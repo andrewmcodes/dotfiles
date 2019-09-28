@@ -11,36 +11,6 @@
   },
   {
     "metadata": {
-      "id": "d3836729-9cc1-42c1-b2af-d50071f57d29",
-      "publisherId": "formulahendry.auto-close-tag",
-      "publisherDisplayName": "formulahendry"
-    },
-    "name": "auto-close-tag",
-    "publisher": "formulahendry",
-    "version": "0.5.6"
-  },
-  {
-    "metadata": {
-      "id": "6e440e71-8ed9-4f25-bb78-4b13096b8a03",
-      "publisherId": "formulahendry.auto-rename-tag",
-      "publisherDisplayName": "formulahendry"
-    },
-    "name": "auto-rename-tag",
-    "publisher": "formulahendry",
-    "version": "0.1.0"
-  },
-  {
-    "metadata": {
-      "id": "f583eafd-aa0d-4ccb-8f44-d1e610389660",
-      "publisherId": "CoenraadS.bracket-pair-colorizer",
-      "publisherDisplayName": "CoenraadS"
-    },
-    "name": "bracket-pair-colorizer",
-    "publisher": "CoenraadS",
-    "version": "1.0.61"
-  },
-  {
-    "metadata": {
       "id": "2aa040bf-c73a-455d-8946-5c6cc83b8019",
       "publisherId": "wmaurer.change-case",
       "publisherDisplayName": "wmaurer"
@@ -48,16 +18,6 @@
     "name": "change-case",
     "publisher": "wmaurer",
     "version": "1.0.0"
-  },
-  {
-    "metadata": {
-      "id": "a6a0c5b2-d078-4bf5-a9ee-4e37054414b3",
-      "publisherId": "formulahendry.code-runner",
-      "publisherDisplayName": "formulahendry"
-    },
-    "name": "code-runner",
-    "publisher": "formulahendry",
-    "version": "0.9.12"
   },
   {
     "metadata": {
@@ -87,7 +47,7 @@
     },
     "name": "gitlens",
     "publisher": "eamodio",
-    "version": "9.9.3"
+    "version": "9.9.2"
   },
   {
     "metadata": {
@@ -117,7 +77,7 @@
     },
     "name": "Material-theme",
     "publisher": "zhuangtongfa",
-    "version": "2.26.2"
+    "version": "2.26.1"
   },
   {
     "metadata": {
@@ -128,16 +88,6 @@
     "name": "prettier-vscode",
     "publisher": "esbenp",
     "version": "1.9.0"
-  },
-  {
-    "metadata": {
-      "id": "67e66172-30c7-4478-8f5d-6eac4ae755dc",
-      "publisherId": "mohsen1.prettify-json",
-      "publisherDisplayName": "mohsen1"
-    },
-    "name": "prettify-json",
-    "publisher": "mohsen1",
-    "version": "0.0.3"
   },
   {
     "metadata": {
@@ -217,7 +167,7 @@
     },
     "name": "remote-ssh",
     "publisher": "ms-vscode-remote",
-    "version": "0.45.2"
+    "version": "0.44.2"
   },
   {
     "metadata": {
@@ -227,7 +177,7 @@
     },
     "name": "remote-ssh-edit",
     "publisher": "ms-vscode-remote",
-    "version": "0.45.3"
+    "version": "0.44.2"
   },
   {
     "metadata": {
@@ -237,7 +187,7 @@
     },
     "name": "remote-ssh-explorer",
     "publisher": "ms-vscode-remote",
-    "version": "0.45.2"
+    "version": "0.44.2"
   },
   {
     "metadata": {
@@ -387,6 +337,6 @@
     },
     "name": "vsliveshare",
     "publisher": "ms-vsliveshare",
-    "version": "1.0.657"
+    "version": "1.0.614"
   }
 ]
