@@ -1,6 +1,11 @@
 // Place your key bindings in this file to override the defaults
 [
   {
+    "key": "shift+alt+e",
+    "command": "erb.toggleTags",
+    "when": "editorTextFocus && editorLangId == 'erb'"
+  },
+  {
     "key": "alt+f",
     "command": "extension.railsFlipFlop"
   }
