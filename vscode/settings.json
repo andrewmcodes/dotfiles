@@ -1,241 +1,213 @@
 {
-  // TELEMETRY
-  // Enable usage data and errors to be sent to a Microsoft online service.
-  "telemetry.enableTelemetry": false,
-  // WINDOW
-  // Adjust the zoom level of the window.
-  "window.zoomLevel": 0,
-  // BREADCRUMBS
-  // Enable/disable navigation breadcrumbs.
-  "breadcrumbs.enabled": true,
-  // EXPLORER
-  // Controls whether the explorer should ask for confirmation to move files and folders via drag and drop.
-  "explorer.confirmDragAndDrop": false,
-  // Controls whether a top border is drawn on modified (dirty) editor tabs or not.
-  "workbench.editor.highlightModifiedTabs": true,
-  // Controls the location of the sidebar. It can either show on the left or right of the workbench.
-  "workbench.sideBar.location": "right",
-  // Controls which editor is shown at startup, if none are restored from the previous session.
-  "workbench.startupEditor": "newUntitledFile",
-  // Specifies the icon theme used in the workbench or 'null' to not show any file icons.
-  "workbench.iconTheme": "vscode-great-icons",
-  // Specifies the color theme used in the workbench.
-  "workbench.colorTheme": "One Dark Pro Vivid",
-  // Overrides colors from the currently selected color theme.
-  "workbench.colorCustomizations": {
-    "editor.background": "#1a1c20",
-    "editorIndentGuide.activeBackground": "#b83957",
-    "tab.activeBorderTop": "#64676E"
-  },
-  // EDITOR
-  // Controls whether the editor should run in a mode where it is optimized for screen readers.
-  "editor.accessibilitySupport": "off",
-  // Controls the font family.
-  "editor.fontFamily": "Fira Code",
-  // Enables/Disables font ligatures.
-  "editor.fontLigatures": true,
-  // Controls the font size in pixels.
-  "editor.fontSize": 14,
-  // Controls the line height. Use 0 to compute the line height from the font size.
-  "editor.lineHeight": 20,
-  // Controls the letter spacing in pixels.
-  "editor.letterSpacing": 0.2,
-  // Controls the font weight.
-  "editor.fontWeight": "400",
-  // The number of spaces a tab is equal to.
-  "editor.tabSize": 2,
-  // Controls how the editor should render whitespace characters.
-  "editor.renderWhitespace": "all",
-  // Controls the cursor style.
-  "editor.cursorStyle": "line",
-  // Controls the width of the cursor when #editor.cursorStyle# is set to line.
-  "editor.cursorWidth": 5,
-  // Control the cursor animation style.
-  "editor.cursorBlinking": "solid",
-  // Render vertical rulers after a certain number of monospace characters. Use multiple values for multiple rulers.
-  "editor.rulers": [
-    120
-  ],
-  // Controls whether the minimap is shown.
-  "editor.minimap.enabled": false,
-  // Format a file on save.
-  "editor.formatOnSave": false,
-  // Timeout in milliseconds after which the formatting that is run on file save is cancelled.
-  "editor.formatOnSaveTimeout": 1500,
-  // Controls whether the editor should automatically format the pasted content.
-  "editor.formatOnPaste": true,
-  // Controls whether the editor should automatically format the line after typing.
-  "editor.formatOnType": false,
-  // Controls whether the editor should automatically adjust the indentation when users type, paste or move lines.
-  "editor.autoIndent": true,
-  // TERMINAL
-  // Customizes which terminal application to run on macOS.
-  "terminal.external.osxExec": "Archipelago.app",
-  // The path of the shell that the terminal uses on macOS
-  "terminal.integrated.shell.osx": "/bin/zsh",
-  // Controls the font size in pixels of the terminal.
-  "terminal.integrated.fontSize": 14,
-  // FILES
-  // When enabled, will trim trailing whitespace when saving a file.
-  "files.trimTrailingWhitespace": true,
-  // When enabled, insert a final new line at the end of the file when saving it.
-  "files.insertFinalNewline": true,
-  // When enabled, will trim all new lines after the final new line at the end of the file when saving it.
-  "files.trimFinalNewlines": true,
-  // Controls auto save of dirty files.
-  "files.autoSave": "onFocusChange",
-  // EMMET
-  // Enable Emmet abbreviations in languages that are not supported by default.
-  "emmet.includeLanguages": {
-    "html": "html",
-    "erb": "erb",
-    "javascript": "javascriptreact"
-  },
-  // LANG: Javascript
-  // Enable/disable automatic updating of import paths when you rename or move a file in VS Code.
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  // PLUGIN: Ruby
-  // Use built-in language server
-  "ruby.useLanguageServer": true,
-  // Time (ms) to wait after keypress before running enabled linters.
-  "ruby.lintDebounceTime": 1500,
-  // Method to use for intellisense (go to definition, etc.). Use `false` to disable or if another extension provides this feature.
-  // "ruby.intellisense": false,
-  //run non-lint commands with bundle exec
-  "ruby.useBundler": false,
-  "ruby.lint": {
-    // enable rubocop via bundler
-    "rubocop": {
-      "useBundler": false
-    }
-  },
-  // use rubocop for formatting
-  "ruby.format": "rubocop",
-  // PLUGIN: Gitlens
-  // When enabled, commits will automatically be fetched from the default remote of the current Git repository.
-  "git.autofetch": true,
-  // Commit all changes when there are no staged changes.
-  "git.enableSmartCommit": true,
-  // Specifies where to show the Repositories view
-  "gitlens.views.repositories.location": "gitlens",
-  // Specifies where to show the File History view
-  "gitlens.views.fileHistory.location": "gitlens",
-  // Specifies where to show the Line History view
-  "gitlens.views.lineHistory.location": "gitlens",
-  // Specifies where to show the Compare view
-  "gitlens.views.compare.location": "gitlens",
-  // Specifies where to show the Search Commits view
-  "gitlens.views.search.location": "gitlens",
-  // Specifies whether to provide an authors code lens, showing number of authors of the file or code block and the most prominent author (if there is more than one)
-  "gitlens.codeLens.authors.enabled": false,
-  // Specifies whether to provide a recent change code lens, showing the author and date of the most recent commit for the file or code block
-  "gitlens.codeLens.recentChange.enabled": false,
-  // Specifies whether to provide any Git code lens, by default.
-  "gitlens.codeLens.enabled": false,
-  // PLUGIN: Settings Sync
-  // Controls whether opened editors should show in tabs or not.
-  "sync.gist": "XXXXX",
-  // PLUGIN: Jira and Bitbucket (Official)
-  // Jira site for workspace
-  "atlascode.jira.workingSite": {
-    "baseUrlSuffix": "atlassian.net"
-  },
-  // Associate schemas to Yaml files in the current workspace (from Jira plugin)
-  "yaml.schemas": {
-    "file:///Users/andrew.mason/.vscode/extensions/atlassian.atlascode-1.4.3/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
-  },
-  // Enables/Disables the Bitbucket StatusBar Item
-  "atlascode.bitbucket.statusbar.enabled": false,
-  // Enables/Disables showing the welcome screen when a new version is installed
-  "atlascode.showWelcomeOnInstall": true,
-  // Enables/Disables Bitbucket context menu items in editor
-  "atlascode.bitbucket.contextMenus.enabled": false,
-  // Enables/Disables the Bitbucket Issues Explorer
-  "atlascode.bitbucket.issues.explorerEnabled": false,
-  // Enables/Disables the Bitbucket Pipelines Explorer
-  "atlascode.bitbucket.pipelines.explorerEnabled": false,
-  // Enables/Disables the Bitbucket Pull Request Explorer
-  "atlascode.bitbucket.explorer.enabled": false,
-  // Enables/Disables the create of Jira issues from TODO comments and similar
-  "atlascode.jira.todoIssues.enabled": false,
-  // Enables/Disables the Jira hover provider
-  "atlascode.jira.hover.enabled": false,
-  // PLUGIN: ESLint
-  // Turns auto fix on save on or off.
-  "eslint.autoFixOnSave": false,
-  // The package manager you use to install node modules.
-  "eslint.packageManager": "yarn",
-  // An array of language ids which should be validated by ESLint
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "vue"
-  ],
-  // PLUGIN: Prettier
-  // Fit code within this line limit
-  // "prettier.printWidth": 120,
-  // If true, will use single instead of double quotes
-  // "prettier.singleQuote": true,
-  // Controls the printing of trailing commas wherever possible.
-  // "prettier.trailingComma": "all",
-  // Indent lines with tabs
-  // "prettier.useTabs": false,
-  // Number of spaces it should use per tab
-  // "prettier.tabWidth": 2,
-  // PLUGIN: Peacock
-  // Colors for Peacock extension
-  "peacock.favoriteColors": [
-    {
-      "name": "Angular Red",
-      "value": "#b52e31"
+    // TELEMETRY
+    // Enable usage data and errors to be sent to a Microsoft online service.
+    "telemetry.enableTelemetry": false,
+    // WINDOW
+    // Adjust the zoom level of the window.
+    "window.zoomLevel": 0,
+    // BREADCRUMBS
+    // Enable/disable navigation breadcrumbs.
+    "breadcrumbs.enabled": true,
+    // EXPLORER
+    // Controls whether the explorer should ask for confirmation to move files and folders via drag and drop.
+    "explorer.confirmDragAndDrop": false,
+    // Controls whether a top border is drawn on modified (dirty) editor tabs or not.
+    "workbench.editor.highlightModifiedTabs": true,
+    // Controls the location of the sidebar. It can either show on the left or right of the workbench.
+    "workbench.sideBar.location": "right",
+    // Controls which editor is shown at startup, if none are restored from the previous session.
+    "workbench.startupEditor": "newUntitledFile",
+    // Specifies the icon theme used in the workbench or 'null' to not show any file icons.
+    "workbench.iconTheme": "vscode-great-icons",
+    // Specifies the color theme used in the workbench.
+    "workbench.colorTheme": "One Dark Pro Vivid",
+    // Overrides colors from the currently selected color theme.
+    "workbench.colorCustomizations": {
+      "editor.background": "#1a1c20",
+      "editorIndentGuide.activeBackground": "#b83957",
+      "tab.activeBorderTop": "#64676E"
     },
-    {
-      "name": "Auth0 Orange",
-      "value": "#eb5424"
+    // EDITOR
+    // Controls whether the editor should run in a mode where it is optimized for screen readers.
+    "editor.accessibilitySupport": "off",
+    // Controls the font family.
+    "editor.fontFamily": "Fira Code",
+    // Enables/Disables font ligatures.
+    "editor.fontLigatures": true,
+    // Controls the font size in pixels.
+    "editor.fontSize": 14,
+    // Controls the line height. Use 0 to compute the line height from the font size.
+    "editor.lineHeight": 20,
+    // Controls the letter spacing in pixels.
+    "editor.letterSpacing": 0.2,
+    // Controls the font weight.
+    "editor.fontWeight": "400",
+    // The number of spaces a tab is equal to.
+    "editor.tabSize": 2,
+    // Controls how the editor should render whitespace characters.
+    "editor.renderWhitespace": "all",
+    // Controls the cursor style.
+    "editor.cursorStyle": "line",
+    // Controls the width of the cursor when #editor.cursorStyle# is set to line.
+    "editor.cursorWidth": 5,
+    // Control the cursor animation style.
+    "editor.cursorBlinking": "solid",
+    // Render vertical rulers after a certain number of monospace characters. Use multiple values for multiple rulers.
+    "editor.rulers": [
+      120
+    ],
+    // Controls whether the minimap is shown.
+    "editor.minimap.enabled": false,
+    // Format a file on save.
+    "editor.formatOnSave": false,
+    // Timeout in milliseconds after which the formatting that is run on file save is cancelled.
+    "editor.formatOnSaveTimeout": 1500,
+    // Controls whether the editor should automatically format the pasted content.
+    "editor.formatOnPaste": true,
+    // Controls whether the editor should automatically format the line after typing.
+    "editor.formatOnType": false,
+    // Controls whether the editor should automatically adjust the indentation when users type, paste or move lines.
+    "editor.autoIndent": true,
+    // TERMINAL
+    // Customizes which terminal application to run on macOS.
+    "terminal.external.osxExec": "Archipelago.app",
+    // The path of the shell that the terminal uses on macOS
+    "terminal.integrated.shell.osx": "/bin/zsh",
+    // Controls the font size in pixels of the terminal.
+    "terminal.integrated.fontSize": 14,
+    // FILES
+    // When enabled, will trim trailing whitespace when saving a file.
+    "files.trimTrailingWhitespace": true,
+    // When enabled, insert a final new line at the end of the file when saving it.
+    "files.insertFinalNewline": true,
+    // When enabled, will trim all new lines after the final new line at the end of the file when saving it.
+    "files.trimFinalNewlines": true,
+    // Controls auto save of dirty files.
+    "files.autoSave": "onFocusChange",
+    // EMMET
+    // Enable Emmet abbreviations in languages that are not supported by default.
+    "emmet.includeLanguages": {
+      "html": "html",
+      "html.erb": "html",
+      "erb": "html",
+      "javascript": "javascriptreact"
     },
-    {
-      "name": "Azure Blue",
-      "value": "#007fff"
+    // LANG: Javascript
+    // Enable/disable automatic updating of import paths when you rename or move a file in VS Code.
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    // PLUGIN: Ruby
+    // Use built-in language server
+    "ruby.useLanguageServer": true,
+    // Time (ms) to wait after keypress before running enabled linters.
+    "ruby.lintDebounceTime": 1500,
+    // Method to use for intellisense (go to definition, etc.). Use `false` to disable or if another extension provides this feature.
+    // "ruby.intellisense": false,
+    //run non-lint commands with bundle exec
+    "ruby.useBundler": false,
+    // "ruby.lint": {
+    //   // enable rubocop via bundler
+    //   "rubocop": {
+    //     "useBundler": false
+    //   }
+    // },
+    // use rubocop for formatting
+    // "ruby.format": "rubocop",
+    // PLUGIN: Gitlens
+    // When enabled, commits will automatically be fetched from the default remote of the current Git repository.
+    "git.autofetch": true,
+    // Commit all changes when there are no staged changes.
+    "git.enableSmartCommit": true,
+    // Specifies where to show the Repositories view
+    "gitlens.views.repositories.location": "gitlens",
+    // Specifies where to show the File History view
+    "gitlens.views.fileHistory.location": "gitlens",
+    // Specifies where to show the Line History view
+    "gitlens.views.lineHistory.location": "gitlens",
+    // Specifies where to show the Compare view
+    "gitlens.views.compare.location": "gitlens",
+    // Specifies where to show the Search Commits view
+    "gitlens.views.search.location": "gitlens",
+    // Specifies whether to provide an authors code lens, showing number of authors of the file or code block and the most prominent author (if there is more than one)
+    "gitlens.codeLens.authors.enabled": false,
+    // Specifies whether to provide a recent change code lens, showing the author and date of the most recent commit for the file or code block
+    "gitlens.codeLens.recentChange.enabled": false,
+    // Specifies whether to provide any Git code lens, by default.
+    "gitlens.codeLens.enabled": false,
+    // PLUGIN: Settings Sync
+    // Controls whether opened editors should show in tabs or not.
+    "sync.gist": "a1e505131c4102f1c045830eb704989a",
+    // PLUGIN: Jira and Bitbucket (Official)
+    // PLUGIN: ESLint
+    // Turns auto fix on save on or off.
+    "eslint.autoFixOnSave": false,
+    // The package manager you use to install node modules.
+    "eslint.packageManager": "yarn",
+    // An array of language ids which should be validated by ESLint
+    "eslint.validate": [
+      "javascript",
+      "javascriptreact",
+      "vue"
+    ],
+
+    // PLUGIN: Peacock
+    // Colors for Peacock extension
+    "peacock.favoriteColors": [
+      {
+        "name": "Angular Red",
+        "value": "#b52e31"
+      },
+      {
+        "name": "Auth0 Orange",
+        "value": "#eb5424"
+      },
+      {
+        "name": "Azure Blue",
+        "value": "#007fff"
+      },
+      {
+        "name": "C# Purple",
+        "value": "#68217A"
+      },
+      {
+        "name": "Gatsby Purple",
+        "value": "#639"
+      },
+      {
+        "name": "Go Cyan",
+        "value": "#5dc9e2"
+      },
+      {
+        "name": "Java Blue-Gray",
+        "value": "#557c9b"
+      },
+      {
+        "name": "JavaScript Yellow",
+        "value": "#f9e64f"
+      },
+      {
+        "name": "Mandalorian Blue",
+        "value": "#1857a4"
+      },
+      {
+        "name": "Node Green",
+        "value": "#215732"
+      },
+      {
+        "name": "React Blue",
+        "value": "#00b3e6"
+      },
+      {
+        "name": "Something Different",
+        "value": "#832561"
+      },
+      {
+        "name": "Vue Green",
+        "value": "#42b883"
+      }
+    ],
+    "[javascript]": {
+      "editor.defaultFormatter": "numso.prettier-standard-vscode"
     },
-    {
-      "name": "C# Purple",
-      "value": "#68217A"
-    },
-    {
-      "name": "Gatsby Purple",
-      "value": "#639"
-    },
-    {
-      "name": "Go Cyan",
-      "value": "#5dc9e2"
-    },
-    {
-      "name": "Java Blue-Gray",
-      "value": "#557c9b"
-    },
-    {
-      "name": "JavaScript Yellow",
-      "value": "#f9e64f"
-    },
-    {
-      "name": "Mandalorian Blue",
-      "value": "#1857a4"
-    },
-    {
-      "name": "Node Green",
-      "value": "#215732"
-    },
-    {
-      "name": "React Blue",
-      "value": "#00b3e6"
-    },
-    {
-      "name": "Something Different",
-      "value": "#832561"
-    },
-    {
-      "name": "Vue Green",
-      "value": "#42b883"
-    }
-  ],
-}
+    "diffEditor.ignoreTrimWhitespace": false,
+    "git.enableCommitSigning": true
+  }

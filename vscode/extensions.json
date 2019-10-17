@@ -1,13 +1,43 @@
 [
   {
     "metadata": {
-      "id": "ede0d8fe-2180-4cf5-85f5-075dc43d4b8f",
-      "publisherId": "atlassian.atlascode",
-      "publisherDisplayName": "atlassian"
+      "id": "d3836729-9cc1-42c1-b2af-d50071f57d29",
+      "publisherId": "formulahendry.auto-close-tag",
+      "publisherDisplayName": "formulahendry"
     },
-    "name": "atlascode",
-    "publisher": "atlassian",
-    "version": "1.4.3"
+    "name": "auto-close-tag",
+    "publisher": "formulahendry",
+    "version": "0.5.6"
+  },
+  {
+    "metadata": {
+      "id": "6e440e71-8ed9-4f25-bb78-4b13096b8a03",
+      "publisherId": "formulahendry.auto-rename-tag",
+      "publisherDisplayName": "formulahendry"
+    },
+    "name": "auto-rename-tag",
+    "publisher": "formulahendry",
+    "version": "0.1.0"
+  },
+  {
+    "metadata": {
+      "id": "b689fcc8-d494-4dbf-a228-2c694a578afc",
+      "publisherId": "alefragnani.Bookmarks",
+      "publisherDisplayName": "alefragnani"
+    },
+    "name": "Bookmarks",
+    "publisher": "alefragnani",
+    "version": "10.5.0"
+  },
+  {
+    "metadata": {
+      "id": "f583eafd-aa0d-4ccb-8f44-d1e610389660",
+      "publisherId": "CoenraadS.bracket-pair-colorizer",
+      "publisherDisplayName": "CoenraadS"
+    },
+    "name": "bracket-pair-colorizer",
+    "publisher": "CoenraadS",
+    "version": "1.0.61"
   },
   {
     "metadata": {
@@ -21,13 +51,33 @@
   },
   {
     "metadata": {
+      "id": "39757d2a-1a37-40b9-b8b8-aa7ebd6e0cf9",
+      "publisherId": "karigari.chat",
+      "publisherDisplayName": "karigari"
+    },
+    "name": "chat",
+    "publisher": "karigari",
+    "version": "0.22.1"
+  },
+  {
+    "metadata": {
+      "id": "a6a0c5b2-d078-4bf5-a9ee-4e37054414b3",
+      "publisherId": "formulahendry.code-runner",
+      "publisherDisplayName": "formulahendry"
+    },
+    "name": "code-runner",
+    "publisher": "formulahendry",
+    "version": "0.9.14"
+  },
+  {
+    "metadata": {
       "id": "e337c67b-55c2-4fef-8949-eb260e7fb7fd",
       "publisherId": "Shan.code-settings-sync",
       "publisherDisplayName": "Shan"
     },
     "name": "code-settings-sync",
     "publisher": "Shan",
-    "version": "3.4.1"
+    "version": "3.4.3"
   },
   {
     "metadata": {
@@ -41,13 +91,43 @@
   },
   {
     "metadata": {
+      "id": "d23dc2c3-abed-47d8-9b22-7dd31c1f0ed9",
+      "publisherId": "donjayamanne.git-extension-pack",
+      "publisherDisplayName": "donjayamanne"
+    },
+    "name": "git-extension-pack",
+    "publisher": "donjayamanne",
+    "version": "0.1.3"
+  },
+  {
+    "metadata": {
+      "id": "5960f38e-0bbe-4644-8f9c-9c8824e82511",
+      "publisherId": "donjayamanne.githistory",
+      "publisherDisplayName": "donjayamanne"
+    },
+    "name": "githistory",
+    "publisher": "donjayamanne",
+    "version": "0.4.6"
+  },
+  {
+    "metadata": {
+      "id": "3e891cf9-53cb-49a3-8d01-8f0b1f0afb29",
+      "publisherId": "codezombiech.gitignore",
+      "publisherDisplayName": "codezombiech"
+    },
+    "name": "gitignore",
+    "publisher": "codezombiech",
+    "version": "0.6.0"
+  },
+  {
+    "metadata": {
       "id": "4de763bd-505d-4978-9575-2b7696ecf94e",
       "publisherId": "eamodio.gitlens",
       "publisherDisplayName": "eamodio"
     },
     "name": "gitlens",
     "publisher": "eamodio",
-    "version": "9.9.2"
+    "version": "10.1.1"
   },
   {
     "metadata": {
@@ -61,13 +141,13 @@
   },
   {
     "metadata": {
-      "id": "3bd616ef-9ffb-4d53-b797-59f5060eeaf7",
-      "publisherId": "aki77.haml-lint",
-      "publisherDisplayName": "aki77"
+      "id": "b63c44fd-0457-4696-99e9-dbfdf70d77de",
+      "publisherId": "ritwickdey.LiveServer",
+      "publisherDisplayName": "ritwickdey"
     },
-    "name": "haml-lint",
-    "publisher": "aki77",
-    "version": "0.0.3"
+    "name": "LiveServer",
+    "publisher": "ritwickdey",
+    "version": "5.6.1"
   },
   {
     "metadata": {
@@ -77,7 +157,17 @@
     },
     "name": "Material-theme",
     "publisher": "zhuangtongfa",
-    "version": "2.26.1"
+    "version": "2.28.2"
+  },
+  {
+    "metadata": {
+      "id": "945fe310-535c-4f65-b93d-b93d70401ab8",
+      "publisherId": "numso.prettier-standard-vscode",
+      "publisherDisplayName": "numso"
+    },
+    "name": "prettier-standard-vscode",
+    "publisher": "numso",
+    "version": "0.5.0"
   },
   {
     "metadata": {
@@ -87,7 +177,17 @@
     },
     "name": "prettier-vscode",
     "publisher": "esbenp",
-    "version": "1.9.0"
+    "version": "2.3.0"
+  },
+  {
+    "metadata": {
+      "id": "1b747f06-3789-4ebd-ac99-f1fe430c3347",
+      "publisherId": "alefragnani.project-manager",
+      "publisherDisplayName": "alefragnani"
+    },
+    "name": "project-manager",
+    "publisher": "alefragnani",
+    "version": "10.8.0"
   },
   {
     "metadata": {
@@ -97,17 +197,7 @@
     },
     "name": "rails",
     "publisher": "bung87",
-    "version": "0.13.0"
-  },
-  {
-    "metadata": {
-      "id": "325cbc42-73a0-4a15-a5ee-b59eba5ee4a9",
-      "publisherId": "wilson-freitas.rails-buddy",
-      "publisherDisplayName": "wilson-freitas"
-    },
-    "name": "rails-buddy",
-    "publisher": "wilson-freitas",
-    "version": "1.0.2"
+    "version": "0.13.1"
   },
   {
     "metadata": {
@@ -141,23 +231,13 @@
   },
   {
     "metadata": {
-      "id": "d879ccb5-cbdb-45a1-bd74-5641ad0062df",
-      "publisherId": "Hridoy.rails-snippets",
-      "publisherDisplayName": "Hridoy"
-    },
-    "name": "rails-snippets",
-    "publisher": "Hridoy",
-    "version": "1.0.8"
-  },
-  {
-    "metadata": {
       "id": "93ce222b-5f6f-49b7-9ab1-a0463c6238df",
       "publisherId": "ms-vscode-remote.remote-containers",
       "publisherDisplayName": "ms-vscode-remote"
     },
     "name": "remote-containers",
     "publisher": "ms-vscode-remote",
-    "version": "0.66.0"
+    "version": "0.81.0"
   },
   {
     "metadata": {
@@ -167,7 +247,7 @@
     },
     "name": "remote-ssh",
     "publisher": "ms-vscode-remote",
-    "version": "0.44.2"
+    "version": "0.47.1"
   },
   {
     "metadata": {
@@ -177,7 +257,7 @@
     },
     "name": "remote-ssh-edit",
     "publisher": "ms-vscode-remote",
-    "version": "0.44.2"
+    "version": "0.47.1"
   },
   {
     "metadata": {
@@ -187,7 +267,7 @@
     },
     "name": "remote-ssh-explorer",
     "publisher": "ms-vscode-remote",
-    "version": "0.44.2"
+    "version": "0.47.1"
   },
   {
     "metadata": {
@@ -197,7 +277,7 @@
     },
     "name": "remote-wsl",
     "publisher": "ms-vscode-remote",
-    "version": "0.38.10"
+    "version": "0.39.9"
   },
   {
     "metadata": {
@@ -207,7 +287,7 @@
     },
     "name": "ruby",
     "publisher": "rebornix",
-    "version": "0.24.2"
+    "version": "0.25.3"
   },
   {
     "metadata": {
@@ -217,7 +297,17 @@
     },
     "name": "sass-lint",
     "publisher": "glen-84",
-    "version": "1.0.5"
+    "version": "1.0.6"
+  },
+  {
+    "metadata": {
+      "id": "56a57ae2-56b7-4053-a3e0-897e198f0d03",
+      "publisherId": "vortizhe.simple-ruby-erb",
+      "publisherDisplayName": "vortizhe"
+    },
+    "name": "simple-ruby-erb",
+    "publisher": "vortizhe",
+    "version": "0.2.1"
   },
   {
     "metadata": {
@@ -237,7 +327,7 @@
     },
     "name": "solargraph",
     "publisher": "castwide",
-    "version": "0.20.0"
+    "version": "0.21.1"
   },
   {
     "metadata": {
@@ -247,7 +337,17 @@
     },
     "name": "vscode-docker",
     "publisher": "ms-azuretools",
-    "version": "0.7.0"
+    "version": "0.8.1"
+  },
+  {
+    "metadata": {
+      "id": "03944bdc-9bcb-4ac2-b9b3-fdb050dd43e4",
+      "publisherId": "mrmlnc.vscode-duplicate",
+      "publisherDisplayName": "mrmlnc"
+    },
+    "name": "vscode-duplicate",
+    "publisher": "mrmlnc",
+    "version": "1.2.1"
   },
   {
     "metadata": {
@@ -257,7 +357,17 @@
     },
     "name": "vscode-eslint",
     "publisher": "dbaeumer",
-    "version": "1.9.0"
+    "version": "1.9.1"
+  },
+  {
+    "metadata": {
+      "id": "83167da3-9d3e-4405-9b6f-977174762a6f",
+      "publisherId": "ninoseki.vscode-gem-lens",
+      "publisherDisplayName": "ninoseki"
+    },
+    "name": "vscode-gem-lens",
+    "publisher": "ninoseki",
+    "version": "0.3.0"
   },
   {
     "metadata": {
@@ -271,6 +381,16 @@
   },
   {
     "metadata": {
+      "id": "55ef6448-487b-49a0-a66e-4d2d9bb82229",
+      "publisherId": "Prisma.vscode-graphql",
+      "publisherDisplayName": "Prisma"
+    },
+    "name": "vscode-graphql",
+    "publisher": "Prisma",
+    "version": "0.2.2"
+  },
+  {
+    "metadata": {
       "id": "829a192d-496c-44ac-87f3-0a84ce36a853",
       "publisherId": "emmanuelbeziat.vscode-great-icons",
       "publisherDisplayName": "emmanuelbeziat"
@@ -281,13 +401,23 @@
   },
   {
     "metadata": {
-      "id": "daf8b44d-8aae-4da2-80c5-1f770219f643",
-      "publisherId": "DavidAnson.vscode-markdownlint",
-      "publisherDisplayName": "DavidAnson"
+      "id": "ae9e3eb0-3357-4cc0-90ee-598d2d384757",
+      "publisherId": "eg2.vscode-npm-script",
+      "publisherDisplayName": "eg2"
     },
-    "name": "vscode-markdownlint",
-    "publisher": "DavidAnson",
-    "version": "0.29.0"
+    "name": "vscode-npm-script",
+    "publisher": "eg2",
+    "version": "0.3.9"
+  },
+  {
+    "metadata": {
+      "id": "1d4d80c9-0d33-48a1-88a8-19ff80bc8e2a",
+      "publisherId": "ziyasal.vscode-open-in-github",
+      "publisherDisplayName": "ziyasal"
+    },
+    "name": "vscode-open-in-github",
+    "publisher": "ziyasal",
+    "version": "1.3.6"
   },
   {
     "metadata": {
@@ -297,7 +427,7 @@
     },
     "name": "vscode-peacock",
     "publisher": "johnpapa",
-    "version": "3.0.1"
+    "version": "3.1.5"
   },
   {
     "metadata": {
@@ -307,7 +437,17 @@
     },
     "name": "vscode-pull-request-github",
     "publisher": "GitHub",
-    "version": "0.9.2"
+    "version": "0.12.0"
+  },
+  {
+    "metadata": {
+      "id": "c4fac055-b854-41f0-9610-f8a9d62e9b89",
+      "publisherId": "dbankier.vscode-quick-select",
+      "publisherDisplayName": "dbankier"
+    },
+    "name": "vscode-quick-select",
+    "publisher": "dbankier",
+    "version": "0.2.8"
   },
   {
     "metadata": {
@@ -317,17 +457,37 @@
     },
     "name": "vscode-remote-extensionpack",
     "publisher": "ms-vscode-remote",
-    "version": "0.15.0"
+    "version": "0.17.0"
   },
   {
     "metadata": {
-      "id": "2061917f-f76a-458a-8da9-f162de22b97e",
-      "publisherId": "redhat.vscode-yaml",
-      "publisherDisplayName": "redhat"
+      "id": "246b8465-44fc-428c-9273-9020f8918e9c",
+      "publisherId": "connorshea.vscode-ruby-test-adapter",
+      "publisherDisplayName": "connorshea"
     },
-    "name": "vscode-yaml",
-    "publisher": "redhat",
-    "version": "0.4.1"
+    "name": "vscode-ruby-test-adapter",
+    "publisher": "connorshea",
+    "version": "0.6.0"
+  },
+  {
+    "metadata": {
+      "id": "6f5d4f30-67aa-4151-80c0-1bbe8ca5f9db",
+      "publisherId": "cssho.vscode-svgviewer",
+      "publisherDisplayName": "cssho"
+    },
+    "name": "vscode-svgviewer",
+    "publisher": "cssho",
+    "version": "2.0.0"
+  },
+  {
+    "metadata": {
+      "id": "ff96f1b4-a4b8-45ef-8ecf-c232c0cb75c8",
+      "publisherId": "hbenl.vscode-test-explorer",
+      "publisherDisplayName": "hbenl"
+    },
+    "name": "vscode-test-explorer",
+    "publisher": "hbenl",
+    "version": "2.14.6"
   },
   {
     "metadata": {
@@ -337,6 +497,26 @@
     },
     "name": "vsliveshare",
     "publisher": "ms-vsliveshare",
-    "version": "1.0.614"
+    "version": "1.0.988"
+  },
+  {
+    "metadata": {
+      "id": "f38fdd1c-7ee2-47b1-90b9-77ecc90d4bff",
+      "publisherId": "ms-vsliveshare.vsliveshare-audio",
+      "publisherDisplayName": "ms-vsliveshare"
+    },
+    "name": "vsliveshare-audio",
+    "publisher": "ms-vsliveshare",
+    "version": "0.1.66"
+  },
+  {
+    "metadata": {
+      "id": "87caf16b-d487-45c0-877d-573fe319b015",
+      "publisherId": "ms-vsliveshare.vsliveshare-pack",
+      "publisherDisplayName": "ms-vsliveshare"
+    },
+    "name": "vsliveshare-pack",
+    "publisher": "ms-vsliveshare",
+    "version": "0.3.3"
   }
 ]

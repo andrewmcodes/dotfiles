@@ -45,9 +45,10 @@ SPACESHIP_PROMPT_ORDER=(
 COMPLETION_WAITING_DOTS="true"
 
 plugins=(
+  ruby
+  rails
   docker-compose
   git
-  rails
   vscode
   z
   zsh-autosuggestions
@@ -56,8 +57,8 @@ plugins=(
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # VS Code
 function code() {
@@ -72,13 +73,11 @@ function code() {
 
 # VS Code is default editor
 export EDITOR="code -w"
-
+export GITHUB_TOKEN="XXXXX"
 # Default ZSH
 source $ZSH/oh-my-zsh.sh
 
 # ENV vars
-export GITHUB_TOKEN="XXXXX"
-export MYSQL_ROOT_PASSWORD="XXXXX"
 export DISABLE_SPRING=1
 
 # Aliases
@@ -113,26 +112,14 @@ alias add_dock_spacer="defaults write com.apple.dock persistent-apps -array-add 
 alias show_mysql_db="mysql -u root -p$MYSQL_ROOT_PASSWORD -e 'show databases;'"
 alias clean_branches="git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs git branch -d"
 alias lzd='lazydocker'
+alias besk='redis-cli flushall && bundle exec sidekiq -C config/sidekiq.yml'
 
 # add Homebrew `/usr/local/bin` and User `~/bin` to the `$PATH`
 PATH=/usr/local/bin:$PATH
 PATH=$HOME/bin:$PATH
-export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
-export PATH="$(brew --prefix gnu-tar)/libexec/gnubin:/usr/local/bin:$PATH"
-export PATH="$(brew --prefix gnu-sed)/libexec/gnubin:/usr/local/bin:$PATH"
-export PATH="/usr/local/opt/qt@5.5/bin:$PATH"
+
 export PATH="/usr/local/opt/openssl/bin:$PATH"
-export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
-export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/local/opt/llvm@6/bin:$PATH"
-export PATH="/usr/local/opt/libxml2/bin:$PATH"
-export PATH="/usr/local/opt/libxslt/bin:$PATH"
-export PATH="/usr/local/opt/node@10/bin:$PATH"
-export GOPATH=$HOME/go-workspace # don't forget to change your path correctly!
-export GOROOT=/usr/local/opt/go/libexec
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin
 
 # GPG
 export GPG_TTY=$(tty)
@@ -143,5 +130,5 @@ eval "$(rbenv init -)"
 # Pyenv
 eval "$(pyenv init -)"
 
-# Added by travis gem
-[ -f /Users/andrew.mason/.travis/travis.sh ] && source /Users/andrew.mason/.travis/travis.sh
+# thefuck
+eval $(thefuck --alias)
