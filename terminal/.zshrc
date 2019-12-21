@@ -73,7 +73,9 @@ function code() {
 
 # VS Code is default editor
 export EDITOR="code -w"
+export STACKBIT_API_KEY="XXXXX"
 export GITHUB_TOKEN="XXXXX"
+
 # Default ZSH
 source $ZSH/oh-my-zsh.sh
 
@@ -86,40 +88,50 @@ dappattach() {
   docker attach $appId
 }
 
-alias zshconfig="code ~/.zshrc" # Alias
+# System
+alias zshconfig="code ~/.zshrc"
 alias ohmyzsh="code ~/.oh-my-zsh"
-alias mysql="/usr/local/bin/mysql"
-alias mysqladmin="/usr/local/bin/mysqladmin"
-alias drrc="docker-compose run app bin/rails c"
-alias drrt="docker-compose run app bin/rails test"
-alias drc="docker-compose exec app bin/rails c"
-alias drt="docker-compose exec app bin/rails test"
-alias drst="docker-compose exec app bin/rails test:system"
-alias dcm="docker-compose exec app bin/rails db:migrate"
+alias add_dock_spacer="defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'; killall Dock"
+
+# Docker
+alias da="docker attach"
+alias daid="docker-compose ps -q app"
 alias dcab="docker-compose exec app bash"
-alias dctb="docker-compose exec test bash"
-alias b="bundle"
 alias dcbundle="docker-compose exec app bundle"
+alias dcm="docker-compose exec app bin/rails db:migrate"
+alias dctb="docker-compose exec test bash"
 alias dcyarn="docker-compose exec app yarn"
 alias drbundle="docker-compose run app bundle"
+alias drc="docker-compose exec app bin/rails c"
+alias drrc="docker-compose run app bin/rails c"
+alias drrt="docker-compose run app bin/rails test"
+alias drst="docker-compose exec app bin/rails test:system"
+alias drt="docker-compose exec app bin/rails test"
 alias dryarn="docker-compose run app yarn"
-alias bwds="./bin/webpack-dev-server"
-alias daid="docker-compose ps -q app"
 alias dtid="docker-compose ps -q test"
-alias da="docker attach"
-alias gbrd="git branch | grep -v "master" | xargs git branch -D"
-alias add_dock_spacer="defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'; killall Dock"
-alias show_mysql_db="mysql -u root -p$MYSQL_ROOT_PASSWORD -e 'show databases;'"
-alias clean_branches="git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs git branch -d"
 alias lzd='lazydocker'
+
+# Git
+alias gbrd="git branch | grep -v "master" | xargs git branch -D"
+alias clean_branches="ruby ~/binstubs/git-delete-merged-branches.rb"
+
+# Ruby
+alias b="bundle"
+alias be="bundle exec"
+alias bwds="./bin/webpack-dev-server"
 alias besk='redis-cli flushall && bundle exec sidekiq -C config/sidekiq.yml'
 
 # add Homebrew `/usr/local/bin` and User `~/bin` to the `$PATH`
 PATH=/usr/local/bin:$PATH
 PATH=$HOME/bin:$PATH
 
+# Path & Packages
+export PATH="/usr/local/opt/libxml2/bin:$PATH"
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 # GPG
 export GPG_TTY=$(tty)
