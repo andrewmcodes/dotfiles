@@ -20,7 +20,7 @@
     // Specifies the icon theme used in the workbench or 'null' to not show any file icons.
     "workbench.iconTheme": "vscode-great-icons",
     // Specifies the color theme used in the workbench.
-    "workbench.colorTheme": "One Dark Pro Vivid",
+    "workbench.colorTheme": "One Dark Pro",
     // Overrides colors from the currently selected color theme.
     "workbench.colorCustomizations": {
       "editor.background": "#1a1c20",
@@ -59,7 +59,12 @@
     // Controls whether the minimap is shown.
     "editor.minimap.enabled": false,
     // Format a file on save.
-    "editor.formatOnSave": false,
+    "[ruby]": {
+      "editor.formatOnSave": true
+    },
+    "[scss]": {
+      "editor.formatOnSave": true
+    },
     // Timeout in milliseconds after which the formatting that is run on file save is cancelled.
     "editor.formatOnSaveTimeout": 1500,
     // Controls whether the editor should automatically format the pasted content.
@@ -68,6 +73,9 @@
     "editor.formatOnType": false,
     // Controls whether the editor should automatically adjust the indentation when users type, paste or move lines.
     "editor.autoIndent": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": false
+    },
     // TERMINAL
     // Customizes which terminal application to run on macOS.
     "terminal.external.osxExec": "Archipelago.app",
@@ -84,11 +92,16 @@
     "files.trimFinalNewlines": true,
     // Controls auto save of dirty files.
     "files.autoSave": "onFocusChange",
+    "files.associations": {
+      "*.erb": "erb",
+      "Gemfile": "ruby"
+    },
     // EMMET
     // Enable Emmet abbreviations in languages that are not supported by default.
     "emmet.includeLanguages": {
       "html": "html",
       "html.erb": "html",
+      "html.inky": "html",
       "erb": "html",
       "javascript": "javascriptreact"
     },
@@ -100,18 +113,16 @@
     "ruby.useLanguageServer": true,
     // Time (ms) to wait after keypress before running enabled linters.
     "ruby.lintDebounceTime": 1500,
-    // Method to use for intellisense (go to definition, etc.). Use `false` to disable or if another extension provides this feature.
-    // "ruby.intellisense": false,
     //run non-lint commands with bundle exec
-    "ruby.useBundler": false,
-    // "ruby.lint": {
-    //   // enable rubocop via bundler
-    //   "rubocop": {
-    //     "useBundler": false
-    //   }
-    // },
-    // use rubocop for formatting
-    // "ruby.format": "rubocop",
+    "ruby.useBundler": true,
+    "ruby.lint": {
+      // enable standard via bundler
+      "standard": {
+        "useBundler": true
+      }
+    },
+    // ruby formatter
+    "ruby.format": "standard",
     // PLUGIN: Gitlens
     // When enabled, commits will automatically be fetched from the default remote of the current Git repository.
     "git.autofetch": true,
@@ -133,13 +144,12 @@
     "gitlens.codeLens.recentChange.enabled": false,
     // Specifies whether to provide any Git code lens, by default.
     "gitlens.codeLens.enabled": false,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "git.enableCommitSigning": true,
     // PLUGIN: Settings Sync
     // Controls whether opened editors should show in tabs or not.
-    "sync.gist": "a1e505131c4102f1c045830eb704989a",
-    // PLUGIN: Jira and Bitbucket (Official)
+    "sync.gist": "XXXXXX",
     // PLUGIN: ESLint
-    // Turns auto fix on save on or off.
-    "eslint.autoFixOnSave": false,
     // The package manager you use to install node modules.
     "eslint.packageManager": "yarn",
     // An array of language ids which should be validated by ESLint
@@ -148,7 +158,36 @@
       "javascriptreact",
       "vue"
     ],
-
+    "[javascript]": {
+      "editor.defaultFormatter": "numso.prettier-standard-vscode"
+    },
+    "[jsonc]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+      "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "yaml.schemas": {
+      "file:///Users/andrew.mason/.vscode/extensions/me-dutour-mathieu.vscode-github-actions-2.2.4/schemas/action.schema.json": "/action.yml"
+    },
+    "[markdown]": {
+      "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    },
+    "[yaml]": {
+      "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "fontAwesomeAutocomplete.patterns": [
+      "**/*.html",
+      "**/*.html.erb"
+    ],
+    "[json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    // PLUGIN: liveserver
+    "liveServer.settings.donotShowInfoMsg": true,
     // PLUGIN: Peacock
     // Colors for Peacock extension
     "peacock.favoriteColors": [
@@ -204,10 +243,5 @@
         "name": "Vue Green",
         "value": "#42b883"
       }
-    ],
-    "[javascript]": {
-      "editor.defaultFormatter": "numso.prettier-standard-vscode"
-    },
-    "diffEditor.ignoreTrimWhitespace": false,
-    "git.enableCommitSigning": true
+    ]
   }
