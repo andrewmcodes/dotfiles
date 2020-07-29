@@ -1,3 +1,4 @@
+// Place your key bindings in this file to override the defaultsauto[]
 [
   {
     "key": "shift+alt+e",
@@ -5,7 +6,74 @@
     "when": "editorTextFocus"
   },
   {
+    "key": "ctrl+shift+`",
+    "command": "-erb.toggleTags",
+    "when": "editorTextFocus && editorLangId == 'erb'"
+  },
+  {
     "key": "alt+f",
     "command": "extension.railsFlipFlop"
+  },
+  {
+    "key": "shift+cmd+l cmd+",
+    "command": "workbench.view.extensions"
+  },
+  {
+    "key": "shift+cmd+x",
+    "command": "-workbench.view.extensions"
+  },
+  {
+    "key": "shift+cmd+x",
+    "command": "workbench.view.explorer"
+  },
+  {
+    "key": "shift+cmd+e",
+    "command": "-workbench.view.explorer"
+  },
+  {
+    "key": "cmd+contextmenu a",
+    "command": "editor.action.sortLinesAscending"
+  },
+  {
+    "key": "cmd+contextmenu g",
+    "command": "workbench.view.scm"
+  },
+  {
+    "key": "ctrl+shift+g",
+    "command": "-workbench.view.scm"
+  },
+  {
+    "key": "cmd+contextmenu f",
+    "command": "editor.action.formatDocument",
+    "when": "editorHasDocumentFormattingProvider && editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "shift+alt+f",
+    "command": "-editor.action.formatDocument",
+    "when": "editorHasDocumentFormattingProvider && editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "cmd+contextmenu s",
+    "command": "editor.action.formatSelection",
+    "when": "editorHasDocumentSelectionFormattingProvider && editorHasDocumentSelectionFormattingProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "cmd+k cmd+f",
+    "command": "-editor.action.formatSelection",
+    "when": "editorHasDocumentSelectionFormattingProvider && editorHasDocumentSelectionFormattingProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "cmd+contextmenu p",
+    "command": "git.push"
+  },
+  {
+    "key": "cmd+contextmenu l",
+    "command": "liquid.formatDocument",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "shift+cmd+l",
+    "command": "-liquid.formatDocument",
+    "when": "editorTextFocus"
   }
 ]

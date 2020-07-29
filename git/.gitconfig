@@ -37,11 +37,20 @@
 	# Use `origin` as the default remote on the `master` branch in all cases
 	remote = origin
 	merge = refs/heads/master
+[branch "main"]
+	# Use `origin` as the default remote on the `main` branch in all cases
+	remote = origin
+	merge = refs/heads/main
 [credential]
 	helper = cache --timeout=86400
 [commit]
 	gpgsign = true
 [push]
 	default = simple
+	followTags = true
 [tag]
 	gpgsign = false
+[init]
+	defaultBranch = main
+[pull]
+	rebase = true
