@@ -1,3 +1,4 @@
+ZSH_DISABLE_COMPFIX=true
 export ZSH=/Users/andrew.mason/.oh-my-zsh
 
 # ZSH auto-complete
@@ -11,42 +12,41 @@ SPACESHIP_PROMPT_DEFAULT_PREFIX="$SPACESHIP_CHAR_SYMBOL"
 SPACESHIP_GIT_BRANCH_COLOR="yellow"
 SPACESHIP_GIT_STATUS_COLOR="yellow"
 SPACESHIP_PROMPT_ORDER=(
-  time # Time stampts section
-  user # Username section
-  dir # Current directory section
-  host # Hostname section
-  hg # Mercurial section (hg_branch  + hg_status)
-  package # Package version
-  node # Node.js section
-  ruby # Ruby section
-  elixir # Elixir section
-  xcode # Xcode section
-  swift # Swift section
-  golang # Go section
-  php # PHP section
-  rust # Rust section
-  haskell # Haskell Stack section
-  docker # Docker section
-  aws # Amazon Web Services section
-  venv # virtualenv section
-  pyenv # Pyenv section
-  dotnet # .NET section
-  ember # Ember.js section
+  time        # Time stampts section
+  user        # Username section
+  dir         # Current directory section
+  host        # Hostname section
+  hg          # Mercurial section (hg_branch  + hg_status)
+  package     # Package version
+  node        # Node.js section
+  ruby        # Ruby section
+  elixir      # Elixir section
+  xcode       # Xcode section
+  swift       # Swift section
+  golang      # Go section
+  php         # PHP section
+  rust        # Rust section
+  haskell     # Haskell Stack section
+  docker      # Docker section
+  aws         # Amazon Web Services section
+  venv        # virtualenv section
+  pyenv       # Pyenv section
+  dotnet      # .NET section
+  ember       # Ember.js section
   kubecontext # Kubectl context section
-  git # Git section (git_branch + git_status)
-  line_sep # Line break
-  battery # Battery level and status
-  vi_mode # Vi-mode indicator
-  jobs # Background jobs indicator
-  exit_code # Exit code section
-  char # Prompt character
+  git         # Git section (git_branch + git_status)
+  line_sep    # Line break
+  battery     # Battery level and status
+  vi_mode     # Vi-mode indicator
+  jobs        # Background jobs indicator
+  exit_code   # Exit code section
+  char        # Prompt character
 )
 
 COMPLETION_WAITING_DOTS="true"
 
 plugins=(
   ruby
-  rails
   docker-compose
   git
   vscode
@@ -57,8 +57,8 @@ plugins=(
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 # VS Code
 function code() {
@@ -73,8 +73,6 @@ function code() {
 
 # VS Code is default editor
 export EDITOR="code -w"
-export STACKBIT_API_KEY="XXXXX"
-export GITHUB_TOKEN="XXXXX"
 
 # Default ZSH
 source $ZSH/oh-my-zsh.sh
@@ -86,6 +84,14 @@ export DISABLE_SPRING=1
 dappattach() {
   appId=$(docker ps | grep app | awk '{print $NF}')
   docker attach $appId
+}
+
+notifyMe() {
+  if [ $? -eq 0 ]; then
+    osascript -e 'display notification "Tests passed" with title "✅ Success"'
+  else
+    osascript -e 'display notification "Tests failed" with title "❌ Failed"'
+  fi
 }
 
 # System
@@ -112,35 +118,22 @@ alias dtid="docker-compose ps -q test"
 alias lzd='lazydocker'
 
 # Git
-alias gbrd="git branch | grep -v "master" | xargs git branch -D"
+alias gbrd="git branch | grep -v 'master' | xargs git branch -D"
 alias clean_branches="ruby ~/binstubs/git-delete-merged-branches.rb"
 
 # Ruby
+function _rails_test_command() {
+  bin/rails test $@
+  notifyMe
+}
+
 alias b="bundle"
 alias be="bundle exec"
 alias bwds="./bin/webpack-dev-server"
 alias besk='redis-cli flushall && bundle exec sidekiq -C config/sidekiq.yml'
-
-# add Homebrew `/usr/local/bin` and User `~/bin` to the `$PATH`
-PATH=/usr/local/bin:$PATH
-PATH=$HOME/bin:$PATH
-
-# Path & Packages
-export PATH="/usr/local/opt/libxml2/bin:$PATH"
-export PATH="/usr/local/opt/openssl/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
-export LC_CTYPE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-
-# GPG
-export GPG_TTY=$(tty)
-
-# Rbenv
-eval "$(rbenv init -)"
-
-# Pyenv
-eval "$(pyenv init -)"
-
-# thefuck
-eval $(thefuck --alias)
+alias rs='bin/rails s'
+alias rc='bin/rails c'
+alias rdbm='bin/rails db:migrate'
+alias cdbm='bin/rails db:migrate && bin/generate_db_artifacts'
+alias rt='_rails_test_command'
+alias rts='bin/rails test:system; notifyMe'

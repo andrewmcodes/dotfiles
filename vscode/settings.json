@@ -1,247 +1,292 @@
 {
-    // TELEMETRY
-    // Enable usage data and errors to be sent to a Microsoft online service.
-    "telemetry.enableTelemetry": false,
-    // WINDOW
-    // Adjust the zoom level of the window.
-    "window.zoomLevel": 0,
-    // BREADCRUMBS
-    // Enable/disable navigation breadcrumbs.
-    "breadcrumbs.enabled": true,
-    // EXPLORER
-    // Controls whether the explorer should ask for confirmation to move files and folders via drag and drop.
-    "explorer.confirmDragAndDrop": false,
-    // Controls whether a top border is drawn on modified (dirty) editor tabs or not.
-    "workbench.editor.highlightModifiedTabs": true,
-    // Controls the location of the sidebar. It can either show on the left or right of the workbench.
-    "workbench.sideBar.location": "right",
-    // Controls which editor is shown at startup, if none are restored from the previous session.
-    "workbench.startupEditor": "newUntitledFile",
-    // Specifies the icon theme used in the workbench or 'null' to not show any file icons.
-    "workbench.iconTheme": "vscode-great-icons",
-    // Specifies the color theme used in the workbench.
-    "workbench.colorTheme": "One Dark Pro",
-    // Overrides colors from the currently selected color theme.
-    "workbench.colorCustomizations": {
-      "editor.background": "#1a1c20",
-      "editorIndentGuide.activeBackground": "#b83957",
-      "tab.activeBorderTop": "#64676E"
+  // TELEMETRY
+  // Enable usage data and errors to be sent to a Microsoft online service.
+  "telemetry.enableTelemetry": false,
+  // EXPLORER
+  // Controls whether the explorer should ask for confirmation to move files and folders via drag and drop.
+  "explorer.confirmDragAndDrop": false,
+  // WORKBENCH
+  // Specifies the file icon theme used in the workbench or 'null' to not show any file icons.
+  "workbench.iconTheme": "vscode-great-icons",
+  // Controls whether a top border is drawn on modified (dirty) editor tabs or not.
+  "workbench.editor.highlightModifiedTabs": true,
+  // Controls the location of the sidebar. It can either show on the left or right of the workbench.
+  "workbench.sideBar.location": "right",
+  // Controls which editor is shown at startup, if none are restored from the previous session.
+  "workbench.startupEditor": "newUntitledFile",
+  // Specifies the color theme used in the workbench.
+  "workbench.colorTheme": "One Dark Pro",
+  // Overrides colors from the currently selected color theme.
+  "workbench.colorCustomizations": {
+    "editor.background": "#1a1c20",
+    "editorIndentGuide.activeBackground": "#b83957",
+    "tab.activeBorderTop": "#64676E"
+  },
+  // EDITOR
+  // Controls the font family.
+  "editor.fontFamily": "JetBrains Mono, Fira Code",
+  // Enables/Disables font ligatures.
+  "editor.fontLigatures": true,
+  // Controls the font size in pixels.
+  "editor.fontSize": 14,
+  // Controls the line height. Use 0 to compute the line height from the font size.
+  "editor.lineHeight": 22,
+  // Controls the letter spacing in pixels.
+  // "editor.letterSpacing": 0.3,
+  // The number of spaces a tab is equal to.
+  "editor.tabSize": 2,
+  // Controls how the editor should render whitespace characters.
+  "editor.renderWhitespace": "all",
+  // Controls the cursor style.
+  "editor.cursorStyle": "line",
+  // Controls the width of the cursor when #editor.cursorStyle# is set to line.
+  "editor.cursorWidth": 3,
+  // Control the cursor animation style.
+  "editor.cursorBlinking": "solid",
+  // Render vertical rulers after a certain number of monospace characters. Use multiple values for multiple rulers.
+  "editor.rulers": [120],
+  // Controls whether suggestions should be accepted on Enter, in addition to Tab
+  "editor.acceptSuggestionOnEnter": "off",
+  // Determines whether indentation should be guessed based on file contents
+  "editor.detectIndentation": false,
+  // Controls whether the editor auto renames on type.
+  "editor.renameOnType": true,
+  // Controls how suggestions are pre-selected when showing the suggest list.
+  "editor.suggestSelection": "recentlyUsed",
+  // Controls whether the minimap is shown.
+  "editor.minimap.enabled": false,
+  // Format a file on save.
+  "editor.formatOnSave": true,
+  // Controls whether the editor should automatically format the line after typing.
+  "editor.formatOnType": false,
+  // // Controls whether the editor should automatically adjust the indentation when users type, paste or move lines.
+  "editor.autoIndent": "advanced",
+  // Controls whether snippets are shown with other suggestions and how they are sorted.
+  "editor.snippetSuggestions": "bottom",
+  // TERMINAL
+  // Customizes which terminal application to run on macOS.
+  "terminal.external.osxExec": "Archipelago.app",
+  // The path of the shell that the terminal uses on macOS
+  "terminal.integrated.shell.osx": "/bin/zsh",
+  // Controls the font size in pixels of the terminal.
+  "terminal.integrated.fontSize": 14,
+  // FILES
+  // When enabled, will trim trailing whitespace when saving a file.
+  "files.trimTrailingWhitespace": true,
+  // When enabled, insert a final new line at the end of the file when saving it.
+  "files.insertFinalNewline": true,
+  // When enabled, will trim all new lines after the final new line at the end of the file when saving it.
+  "files.trimFinalNewlines": true,
+  // Controls auto save of dirty files.
+  "files.autoSave": "onFocusChange",
+  // Configure file associations to languages (e.g. "*.extension": "html"). These have precedence over the default associations of the languages installed.
+  "files.associations": {
+    "*.html.erb": "erb",
+    "Gemfile": "ruby",
+    "*.css": "postcss"
+  },
+  // EMMET
+  // Enable Emmet abbreviations in languages that are not supported by default.
+  "emmet.includeLanguages": {
+    "postcss": "css",
+    "html": "html",
+    "html.erb": "html",
+    "html.inky": "html",
+    "erb": "html",
+    "*.erb": "html",
+    "js.erb": "javascript",
+    "javascript": "javascriptreact"
+  },
+  // Define profile for specified syntax or use your own profile with specific rules.
+  "emmet.syntaxProfiles": {
+    "postcss": "css"
+  },
+  // LANG: Javascript
+  // Enable/disable automatic updating of import paths when you rename or move a file in VS Code.
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  // Package manager used to run scripts
+  "npm.packageManager": "yarn",
+  // LANG: Typescript
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  // PLUGIN: Ruby
+  // Use built-in language server
+  "ruby.useLanguageServer": true,
+  // Time (ms) to wait after keypress before running enabled linters.
+  "ruby.lintDebounceTime": 1500,
+  //run non-lint commands with bundle exec
+  "ruby.useBundler": false,
+  // Set individual ruby linters to use
+  "ruby.lint": {
+    "standard": true,
+    "rubocop": false
+  },
+  // Which system to use for formatting. Use `false` to disable or if another extension provides this feature.
+  "ruby.format": "standard",
+  "[ruby]": {
+    "editor.defaultFormatter": "rebornix.ruby"
+  },
+  // PLUGIN: Solargraph
+  // Path to the solargraph command. Set this to an absolute path to select from multiple installed Ruby versions.
+  "solargraph.commandPath": "/Users/andrew.mason/.rbenv/shims/solargraph",
+  // Enable diagnostics
+  "solargraph.diagnostics": true,
+  // Level of debug info to log. `warn` is least and `debug` is most.
+  "solargraph.logLevel": "info",
+  // GIT
+  // When enabled, commits will automatically be fetched from the default remote of the current Git repository.
+  "git.autofetch": true,
+  // Commit all changes when there are no staged changes.
+  "git.enableSmartCommit": true,
+  // Enables commit signing with GPG.
+  "git.enableCommitSigning": true,
+  // Ignores the warning when there are too many changes in a repository.
+  "git.ignoreLimitWarning": true,
+  // DIFF EDITOR
+  // When enabled, the diff editor ignores changes in leading or trailing whitespace.
+  "diffEditor.ignoreTrimWhitespace": true,
+  // Controls whether the diff editor shows the diff side by side or inline.
+  "diffEditor.renderSideBySide": false,
+  // PLUGIN: Gitlens
+  // Specifies whether to enable GitLens telemetry
+  "gitlens.advanced.telemetry.enabled": false,
+  // Specifies whether to provide any Git code lens, by default
+  "gitlens.codeLens.enabled": false,
+  // Specifies whether to provide a blame annotation for the current line, by default.
+  "gitlens.currentLine.enabled": false,
+  // Specifies when to trigger hovers for the current line
+  "gitlens.hovers.currentLine.over": "line",
+  // Specifies whether to avoid clearing the previous blame information when changing lines to reduce status bar "flashing"
+  "gitlens.statusBar.reduceFlicker": true,
+  // Specifies where to show the Search Commits view
+  "gitlens.views.search.location": "scm", // Source Control side bar
+  // Specifies where to show the Compare view
+  "gitlens.views.compare.location": "scm", // Source Control side bar
+  // PLUGIN: Settings Sync
+  "sync.gist": "a1e505131c4102f1c045830eb704989a",
+  // PLUGIN: Peacock
+  // Colors for Peacock extension
+  "peacock.favoriteColors": [
+    {
+      "name": "Angular Red",
+      "value": "#b52e31"
     },
-    // EDITOR
-    // Controls whether the editor should run in a mode where it is optimized for screen readers.
-    "editor.accessibilitySupport": "off",
-    // Controls the font family.
-    "editor.fontFamily": "Fira Code",
-    // Enables/Disables font ligatures.
-    "editor.fontLigatures": true,
-    // Controls the font size in pixels.
-    "editor.fontSize": 14,
-    // Controls the line height. Use 0 to compute the line height from the font size.
-    "editor.lineHeight": 20,
-    // Controls the letter spacing in pixels.
-    "editor.letterSpacing": 0.2,
-    // Controls the font weight.
-    "editor.fontWeight": "400",
-    // The number of spaces a tab is equal to.
-    "editor.tabSize": 2,
-    // Controls how the editor should render whitespace characters.
-    "editor.renderWhitespace": "all",
-    // Controls the cursor style.
-    "editor.cursorStyle": "line",
-    // Controls the width of the cursor when #editor.cursorStyle# is set to line.
-    "editor.cursorWidth": 5,
-    // Control the cursor animation style.
-    "editor.cursorBlinking": "solid",
-    // Render vertical rulers after a certain number of monospace characters. Use multiple values for multiple rulers.
-    "editor.rulers": [
-      120
-    ],
-    // Controls whether the minimap is shown.
-    "editor.minimap.enabled": false,
-    // Format a file on save.
-    "[ruby]": {
-      "editor.formatOnSave": true
+    {
+      "name": "Auth0 Orange",
+      "value": "#eb5424"
     },
-    "[scss]": {
-      "editor.formatOnSave": true
+    {
+      "name": "Azure Blue",
+      "value": "#007fff"
     },
-    // Timeout in milliseconds after which the formatting that is run on file save is cancelled.
-    "editor.formatOnSaveTimeout": 1500,
-    // Controls whether the editor should automatically format the pasted content.
-    "editor.formatOnPaste": true,
-    // Controls whether the editor should automatically format the line after typing.
-    "editor.formatOnType": false,
-    // Controls whether the editor should automatically adjust the indentation when users type, paste or move lines.
-    "editor.autoIndent": true,
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": false
+    {
+      "name": "C# Purple",
+      "value": "#68217A"
     },
-    // TERMINAL
-    // Customizes which terminal application to run on macOS.
-    "terminal.external.osxExec": "Archipelago.app",
-    // The path of the shell that the terminal uses on macOS
-    "terminal.integrated.shell.osx": "/bin/zsh",
-    // Controls the font size in pixels of the terminal.
-    "terminal.integrated.fontSize": 14,
-    // FILES
-    // When enabled, will trim trailing whitespace when saving a file.
-    "files.trimTrailingWhitespace": true,
-    // When enabled, insert a final new line at the end of the file when saving it.
-    "files.insertFinalNewline": true,
-    // When enabled, will trim all new lines after the final new line at the end of the file when saving it.
-    "files.trimFinalNewlines": true,
-    // Controls auto save of dirty files.
-    "files.autoSave": "onFocusChange",
-    "files.associations": {
-      "*.erb": "erb",
-      "Gemfile": "ruby"
+    {
+      "name": "Gatsby Purple",
+      "value": "#639"
     },
-    // EMMET
-    // Enable Emmet abbreviations in languages that are not supported by default.
-    "emmet.includeLanguages": {
-      "html": "html",
-      "html.erb": "html",
-      "html.inky": "html",
-      "erb": "html",
-      "javascript": "javascriptreact"
+    {
+      "name": "Go Cyan",
+      "value": "#5dc9e2"
     },
-    // LANG: Javascript
-    // Enable/disable automatic updating of import paths when you rename or move a file in VS Code.
-    "javascript.updateImportsOnFileMove.enabled": "always",
-    // PLUGIN: Ruby
-    // Use built-in language server
-    "ruby.useLanguageServer": true,
-    // Time (ms) to wait after keypress before running enabled linters.
-    "ruby.lintDebounceTime": 1500,
-    //run non-lint commands with bundle exec
-    "ruby.useBundler": true,
-    "ruby.lint": {
-      // enable standard via bundler
-      "standard": {
-        "useBundler": true
-      }
+    {
+      "name": "Java Blue-Gray",
+      "value": "#557c9b"
     },
-    // ruby formatter
-    "ruby.format": "standard",
-    // PLUGIN: Gitlens
-    // When enabled, commits will automatically be fetched from the default remote of the current Git repository.
-    "git.autofetch": true,
-    // Commit all changes when there are no staged changes.
-    "git.enableSmartCommit": true,
-    // Specifies where to show the Repositories view
-    "gitlens.views.repositories.location": "gitlens",
-    // Specifies where to show the File History view
-    "gitlens.views.fileHistory.location": "gitlens",
-    // Specifies where to show the Line History view
-    "gitlens.views.lineHistory.location": "gitlens",
-    // Specifies where to show the Compare view
-    "gitlens.views.compare.location": "gitlens",
-    // Specifies where to show the Search Commits view
-    "gitlens.views.search.location": "gitlens",
-    // Specifies whether to provide an authors code lens, showing number of authors of the file or code block and the most prominent author (if there is more than one)
-    "gitlens.codeLens.authors.enabled": false,
-    // Specifies whether to provide a recent change code lens, showing the author and date of the most recent commit for the file or code block
-    "gitlens.codeLens.recentChange.enabled": false,
-    // Specifies whether to provide any Git code lens, by default.
-    "gitlens.codeLens.enabled": false,
-    "diffEditor.ignoreTrimWhitespace": false,
-    "git.enableCommitSigning": true,
-    // PLUGIN: Settings Sync
-    // Controls whether opened editors should show in tabs or not.
-    "sync.gist": "XXXXXX",
-    // PLUGIN: ESLint
-    // The package manager you use to install node modules.
-    "eslint.packageManager": "yarn",
-    // An array of language ids which should be validated by ESLint
-    "eslint.validate": [
-      "javascript",
-      "javascriptreact",
-      "vue"
-    ],
-    "[javascript]": {
-      "editor.defaultFormatter": "numso.prettier-standard-vscode"
+    {
+      "name": "JavaScript Yellow",
+      "value": "#f9e64f"
     },
-    "[jsonc]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    {
+      "name": "Mandalorian Blue",
+      "value": "#1857a4"
     },
-    "[html]": {
-      "editor.defaultFormatter": "vscode.html-language-features"
+    {
+      "name": "Node Green",
+      "value": "#215732"
     },
-    "yaml.schemas": {
-      "file:///Users/andrew.mason/.vscode/extensions/me-dutour-mathieu.vscode-github-actions-2.2.4/schemas/action.schema.json": "/action.yml"
+    {
+      "name": "React Blue",
+      "value": "#00b3e6"
     },
-    "[markdown]": {
-      "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    {
+      "name": "Something Different",
+      "value": "#832561"
     },
-    "[yaml]": {
-      "editor.defaultFormatter": "redhat.vscode-yaml"
-    },
-    "fontAwesomeAutocomplete.patterns": [
-      "**/*.html",
-      "**/*.html.erb"
-    ],
-    "[json]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescript]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    // PLUGIN: liveserver
-    "liveServer.settings.donotShowInfoMsg": true,
-    // PLUGIN: Peacock
-    // Colors for Peacock extension
-    "peacock.favoriteColors": [
-      {
-        "name": "Angular Red",
-        "value": "#b52e31"
-      },
-      {
-        "name": "Auth0 Orange",
-        "value": "#eb5424"
-      },
-      {
-        "name": "Azure Blue",
-        "value": "#007fff"
-      },
-      {
-        "name": "C# Purple",
-        "value": "#68217A"
-      },
-      {
-        "name": "Gatsby Purple",
-        "value": "#639"
-      },
-      {
-        "name": "Go Cyan",
-        "value": "#5dc9e2"
-      },
-      {
-        "name": "Java Blue-Gray",
-        "value": "#557c9b"
-      },
-      {
-        "name": "JavaScript Yellow",
-        "value": "#f9e64f"
-      },
-      {
-        "name": "Mandalorian Blue",
-        "value": "#1857a4"
-      },
-      {
-        "name": "Node Green",
-        "value": "#215732"
-      },
-      {
-        "name": "React Blue",
-        "value": "#00b3e6"
-      },
-      {
-        "name": "Something Different",
-        "value": "#832561"
-      },
-      {
-        "name": "Vue Green",
-        "value": "#42b883"
-      }
-    ]
-  }
+    {
+      "name": "Vue Green",
+      "value": "#42b883"
+    }
+  ],
+  // PLUGIN: cSpell
+  // Specify a list of file types to spell check
+  "cSpell.enabledLanguageIds": [
+    "css",
+    "git-commit",
+    "go",
+    "handlebars",
+    "html",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "jsonc",
+    "less",
+    "markdown",
+    "php",
+    "plaintext",
+    "pug",
+    "python",
+    "restructuredtext",
+    "rust",
+    "scss",
+    "text",
+    "typescript",
+    "typescriptreact",
+    "yaml",
+    "yml"
+  ],
+  // User words to add to dictionary. Should only be in the user settings.
+  "cSpell.userWords": [
+    "Gemfile",
+    "Swup",
+    "anonymize",
+    "endfor",
+    "endrendercontent",
+    "endwith",
+    "flatpickr",
+    "frontmatter",
+    "kickflip",
+    "morphdom",
+    "postgres",
+    "postgresql",
+    "rakefile",
+    "rendercontent",
+    "rubocop",
+    "sidekiq",
+    "solargraph",
+    "standardrb",
+    "tailwindcss",
+    "turbolinks",
+    "webpacker"
+  ],
+  // Specify paths/files to ignore.
+  "cSpell.ignorePaths": [
+    "node_modules",
+    "vscode-extension",
+    ".git",
+    "*.dll",
+    "**/*.dll",
+    "package.json",
+    "Gemfile",
+    "Gemfile.lock",
+    "yarn.lock"
+  ],
+  // PLUGIN: How I VSCode
+  // Your unique identification key
+  "howIVSCode.userIdentificationKey": "xxx",
+  // PLUGIN: Liquid
+  // Whether to enable/disable Liquid formatting.
+  "liquid.format": true,
+  "projectManager.git.baseFolders": ["~/work"]
+}
