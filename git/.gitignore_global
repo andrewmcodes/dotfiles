@@ -68,3 +68,25 @@ Network Trash Folder
 Temporary Items
 .apdisk
 .tags
+
+# Icon must end with two \r #
+######################
+Icon
+
+# Thumbnails #
+######################
+._*
+
+# Rails & Ruby #
+######################
+.generators
+.solargraph.yml
+rails.rb
+
+# ASDF #
+######################
+.tool-versions
+
+# Misc #
+######################
+Procfile.andrew
