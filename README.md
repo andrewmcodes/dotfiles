@@ -1,15 +1,29 @@
-# My Dot and Settings Files
+# andrewmcodes/dotfiles
 
-Just a simple collection of my .dot files and application settings.
+## Structure
 
-## Instructions
-
-1. `xcode-select --install`
-1. ` /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
-1. `cd brew && brew bundle`
-1. Place config files in appropriate area
-
-## Resources
-1. [This](https://medium.com/@tretuna/macbook-pro-web-developer-setup-from-clean-slate-to-dev-machine-1befd4121ba8) Medium article
-1. [This](https://sourabhbajaj.com/mac-setup/) setup guide
-1. [Another](https://www.taniarascia.com/setting-up-a-brand-new-mac-for-development/) setup guide
+```
+.
+|-- .tool-versions
+|-- README.md
+|-- docker
+|   `-- aliases.zsh
+|-- git
+|   |-- .gitconfig
+|   `-- .gitignore_global
+|-- homebrew
+|   `-- Brewfile
+|-- ruby
+|   |-- .gemrc
+|   `-- aliases.zsh
+|-- tmux
+|   |-- .tmux.conf
+|   |-- .tmux.conf.local
+|   `-- .tmux.conf.old
+`-- zsh
+    |-- .antigenrc
+    |-- .zshrc
+    |-- aliases.zsh
+    |-- environment.zsh
+    `-- functions.zsh
+```
