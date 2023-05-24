@@ -1,0 +1,23 @@
+accent: "#52a9ff" # blue11
+background: "#151718" # slate1
+details: "darker"
+foreground: "#ecedee" # slate12
+terminal_colors:
+  bright:
+    black: "#000000" # slateA1
+    blue: "#53acff" # blueA11
+    cyan: "#4cd1e0" # cyanA11
+    green: "#006b3b" # greenA11
+    magenta: "#cb81ff" # purpleA11
+    red: "#ff6495" # crimsonA11
+    white: "#fdfeff" # slateA12
+    yellow: "#ffcc00" # yellowA11
+  normal:
+    black: "#151718" # slate1
+    blue: "#52a9ff" # blue11
+    cyan: "#00c2d7" # cyan11
+    green: "#4cc38a" # green11
+    magenta: "#bf7af0" # purple11
+    red: "#f76190" # crimson11
+    white: "#ecedee" # slate12
+    yellow: "#f0c000" # yellow11
