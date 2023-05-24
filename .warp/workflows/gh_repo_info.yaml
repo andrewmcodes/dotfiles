@@ -1,0 +1,15 @@
+---
+name: GitHub Repo Info
+command: "gh repo view --json url,primaryLanguage,openGraphImageUrl,nameWithOwner,description {{repo}} | pbcopy"
+tags:
+  - github
+  - gh
+description: "Get specific repo info and copy to clipboard as JSON"
+arguments:
+  - name: repo
+    description: The repo to get the info for.
+    default_value: andrewmcodes/andrewmcodes
+source_url: ""
+author: andrewmcodes
+author_url: "https://andrewm.codes"
+shells: []

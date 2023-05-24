@@ -1,0 +1,10 @@
+---
+name: Format package.json
+command: "npx prettier-package-json --write package.json"
+tags:
+  - npm
+description: "Formats and outputs package.json using prettier-package-json"
+source_url: ""
+author: andrewmcodes
+author_url: "https://andrewm.codes"
+shells: []
