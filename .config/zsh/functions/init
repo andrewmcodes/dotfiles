@@ -1,0 +1,9 @@
+#!/usr/bin/env zsh
+
+function init() {
+  git add .
+  git commit -m "chore: initial commit"
+  git branch -M main
+  git remote add origin https://github.com/andrewmcodes/$1.git
+  git push -u origin main
+}

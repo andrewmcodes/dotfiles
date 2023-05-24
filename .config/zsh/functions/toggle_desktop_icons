@@ -1,0 +1,15 @@
+#!/usr/bin/env zsh
+
+function toggle_desktop_icons()
+{
+  if [ -z "$1" ]
+  then
+    echo "You must pass 'TRUE' or 'FALSE' to this function!"
+    echo "Try 'toggle_desktop_icons true' or 'toggle_desktop_icons false'"
+    echo ""
+    echo "Aborting!"
+    return 0
+  fi
+
+  defaults write com.apple.finder CreateDesktop $1; killall Finder
+}
