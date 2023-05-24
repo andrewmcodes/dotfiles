@@ -1,0 +1,16 @@
+---
+all: false
+all_notes: false
+copy: false
+editor: code-insiders
+extension: md
+highlight: true
+highlighter: skylight
+highlight_theme: monokai
+include_blockquotes: false
+interactive: true
+launchbar: false
+menus: gum
+name_only: false
+output: raw
+source: "/Users/andrew.mason/vaults/digital-brain/snippets"

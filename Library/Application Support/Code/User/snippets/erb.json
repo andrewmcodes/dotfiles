@@ -1,0 +1,28 @@
+{
+  "rc": {
+    "prefix": "vc",
+    "description": "Render Component",
+    "body": [
+      "<%= render $1Component.new %>$0",
+      ""
+    ]
+  },
+  "rcb": {
+    "prefix": "vcb",
+    "description": "",
+    "body": [
+      "<%= render $1Component.new($2) do %>",
+      "  $0",
+      "<% end %>",
+      ""
+    ]
+  },
+  "contentblock": {
+    "prefix": "vcc",
+    "description": "View Component with content",
+    "body": [
+      "<%= render $1.new${2:()}${3:.with_content($4)} %>",
+      ""
+    ]
+  }
+}
