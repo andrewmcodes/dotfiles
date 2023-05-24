@@ -1,0 +1,24 @@
+#!/usr/bin/env zsh
+
+function ghlabels() {
+  # Default label names
+  default_labels=(
+    bug
+    documentation
+    duplicate
+    enhancement
+    "good first issue"
+    "help wanted"
+    invalid
+    question
+    wontfix
+  )
+
+  # Delete all of the default labels first
+  for i in $default_labels; do
+    gh label delete $i --confirm
+  done
+
+  # Clone new labels from existing repo
+  gh label clone andrewmcodes/.github
+}

@@ -385,5 +385,6 @@
   "terminal.integrated.fontFamily": "'MesloLGM NF'",
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "diffEditor.diffAlgorithm": "advanced"
 }
