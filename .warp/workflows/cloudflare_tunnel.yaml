@@ -1,0 +1,14 @@
+---
+name: Start Cloudflare Tunnel
+command: "cloudflared tunnel run {{tunnel}}"
+tags:
+  - cloudflare
+description: "Proxy a local web server by running the given tunnel"
+arguments:
+  - name: tunnel
+    description: The name or UUID of the tunnel unless specified in the config
+    default_value:
+source_url: ""
+author: andrewmcodes
+author_url: "https://andrewm.codes"
+shells: []

@@ -1,0 +1,13 @@
+---
+name: Format the Clipboard with Prettier
+command: "pbpaste | npx prettier --parser={{parser}} | pbcopy"
+tags: ["prettier", "clipboard"]
+description: "Formats the clipboard with prettier"
+arguments:
+  - name: parser
+    description: The parser to use
+    default_value: json
+source_url: ""
+author: andrewmcodes
+author_url: "https://andrewm.codes"
+shells: []

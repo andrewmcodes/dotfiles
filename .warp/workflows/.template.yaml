@@ -1,0 +1,14 @@
+---
+name:
+command: "foo {{name}}"
+tags:
+  -
+description: ""
+arguments:
+  - name: name
+    description:
+    default_value: ~
+source_url: ""
+author: andrewmcodes
+author_url: "https://andrewm.codes"
+shells: []

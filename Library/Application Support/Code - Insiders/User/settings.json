@@ -1,0 +1,389 @@
+{
+  //
+  ////// File Watching and Search //////
+  //
+  "search.exclude": {
+    "**/.bridgetown-cache/**": true,
+    "**/.bridgetown-webpack/**": true,
+    "**/*.code-search": true,
+    "**/*.lock": true,
+    "**/bower_components": true,
+    "**/coverage": true,
+    "**/log": true,
+    "**/node_modules": true,
+    "**/tmp": true,
+    "**/vendor": true,
+    "CHANGELOG.md": true,
+    "rails.rb": true,
+    ".torchlight-cache": true,
+    "**/.vercel/**": true,
+    "**/.frontmatter/**": true
+  },
+  "files.exclude": {
+    "**/.bridgetown-cache/**": true,
+    "**/.bridgetown-webpack/**": true,
+    "rails.rb": true,
+    ".torchlight-cache": true,
+    "**/.vercel/**": true,
+    "**/.frontmatter/**": true
+  },
+
+  "files.watcherExclude": {
+    "**/.bridgetown-cache/**": true,
+    "**/.bridgetown-webpack/**": true,
+    "**/tmp/**": true,
+    "**/node_modules/**": true,
+    "build": true,
+    "deploy": true,
+    ".torchlight-cache": true
+  },
+  "files.associations": {
+    ".prettierignore": "ignore",
+    ".slugignore": "ignore",
+    "Procfile*": "procfile",
+    "Gemfile_next.lock": "ruby",
+    "Guardfile": "ruby",
+    "overcommit.gemfile.lock": "ruby"
+  },
+  // Editor
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": true,
+    "strings": true
+  },
+  "editor.guides.bracketPairs": "active",
+  "editor.accessibilitySupport": "off",
+  "editor.fontFamily": "'JetBrains Mono', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontLigatures": true,
+  "editor.inlineSuggest.enabled": true,
+  "editor.linkedEditing": true,
+  "editor.lineHeight": 1.875,
+  "editor.minimap.enabled": false,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.tabSize": 2,
+  "editor.rulers": [80, 120],
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": false,
+  "editor.formatOnSaveMode": "modificationsIfAvailable",
+  "editor.formatOnType": false,
+  "editor.lineNumbers": "relative",
+  // Emmet
+  "emmet.includeLanguages": {
+    "erb": "html"
+  },
+  "emmet.showSuggestionsAsSnippets": true,
+  // Explorer
+  "explorer.fileNesting.enabled": true,
+  "explorer.confirmDelete": false,
+  "explorer.fileNesting.patterns": {
+    "*.rb": "${capture}.*erb, ${capture}_controller.js",
+    "Gemfile": "Gemfile.lock, Gemfile_next.lock"
+  },
+  "explorer.confirmDragAndDrop": false,
+  //   Files
+  "files.insertFinalNewline": true,
+  "files.autoSave": "onFocusChange",
+  "files.trimTrailingWhitespace": true,
+  "files.trimFinalNewlines": true,
+  // Git
+  "git.enableSmartCommit": true,
+  "git.autofetch": true,
+  "git.pruneOnFetch": true,
+  "git.allowForcePush": true,
+  "git.autoStash": true,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+  "git.fetchOnPull": true,
+  "git.followTagsWhenSync": true,
+  // Tasks
+  "grunt.autoDetect": "off",
+  "gulp.autoDetect": "off",
+  "jake.autoDetect": "off",
+  // Window
+  "window.commandCenter": true,
+  "workbench.colorTheme": "One Dark Pro Darker",
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.pinnedTabSizing": "compact",
+  "workbench.fontAliasing": "auto",
+  "workbench.iconTheme": "vscode-great-icons",
+  "workbench.productIconTheme": "fluent-icons",
+  "workbench.settings.useSplitJSON": true,
+  "workbench.startupEditor": "none",
+  "workbench.tree.indent": 4,
+  "workbench.tree.renderIndentGuides": "always",
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.lineHeight": 1.125,
+  "terminal.integrated.altClickMovesCursor": false,
+  "terminal.integrated.copyOnSelection": true,
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.detectLocale": "on",
+  "terminal.integrated.macOptionClickForcesSelection": true,
+  "terminal.integrated.smoothScrolling": true,
+  // security
+  "security.workspace.trust.untrustedFiles": "open",
+  //
+  ////// Languages //////
+  //
+  // Ruby
+  "[ruby]": {
+    "editor.defaultFormatter": "rebornix.ruby"
+  },
+  "ruby.useLanguageServer": true,
+  "ruby.lint": {
+    "rubocop": false,
+    "standard": {
+      "useBundler": true
+    }
+  },
+  "ruby.format": "standard",
+  "ruby.useBundler": true,
+  "ruby.locate": {
+    "exclude": "{**/@(test|spec|tmp|.*),**/@(test|spec|tmp|.*)/**,**/*_spec.rb}",
+    "include": "**/*.rb"
+  },
+  // ERB
+  "[erb]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": "elia.erb-formatter"
+  },
+  // Markdown
+  "[markdown]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "markdown.validate.enabled": true,
+  "markdown.updateLinksOnFileMove.enabled": "prompt",
+  // JavaScript
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "javascript.inlayHints.variableTypes.enabled": true,
+  "javascript.referencesCodeLens.enabled": true,
+  "javascript.validate.enable": false,
+  // TypeScript
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "typescript.inlayHints.parameterTypes.enabled": true,
+  "typescript.inlayHints.variableTypes.enabled": true,
+  // JSON
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // Are all of these necessary or is VS Code smart enough to figure it out?
+  "json.schemas": [
+    {
+      "fileMatch": ["/.babelrc"],
+      "url": "https://json.schemastore.org/babelrc"
+    },
+    {
+      "fileMatch": ["/.prettierrc"],
+      "url": "https://json.schemastore.org/prettierrc"
+    },
+    {
+      "fileMatch": ["/vercel.json"],
+      "url": "https://openapi.vercel.sh/vercel.json"
+    },
+    {
+      "fileMatch": ["/jsconfig.json"],
+      "url": "https://json.schemastore.org/jsconfig"
+    },
+    {
+      "fileMatch": ["/.hintrc"],
+      "url": "https://json.schemastore.org/htmlhint.json"
+    }
+  ],
+  // JSONC
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // YAML
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // CSS
+  "css.validate": false,
+  // SCSS
+  "scss.validate": false,
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  //
+  ////// Extensions //////
+  //
+  // GitLens
+  "gitlens.currentLine.enabled": false,
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.codeLens.enabled": false,
+  // advancedNewFile
+  "advancedNewFile.exclude": {
+    "node_modules": true,
+    "node_modules_electron": true,
+    "tmp": true,
+    "dist": true,
+    "output": true,
+    ".bridgetown-cache": true,
+    ".torchlight-cache": true
+  },
+  "advancedNewFile.showInformationMessages": true,
+  "advancedNewFile.convenienceOptions": ["last", "current", "root"],
+  // CoPilot
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false,
+    "yaml": true
+  },
+  // Solargraph
+  "solargraph.bundlerPath": "/Users/andrew.mason/.asdf/shims/bundle",
+  "solargraph.commandPath": "/Users/andrew.mason/.asdf/shims/solargraph",
+  // Redhat Yaml
+  "redhat.telemetry.enabled": false,
+  // Vim
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "d"],
+      "after": ["d", "d"]
+    },
+    {
+      "before": ["<C-n>"],
+      "commands": [":nohl"]
+    },
+    {
+      "before": ["K"],
+      "commands": ["lineBreakInsert"],
+      "silent": true
+    }
+  ],
+  "vim.leader": "<space>",
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-e>": false,
+    "<C-f>": false
+  },
+  "vim.enableNeovim": true,
+  // Project Manager
+  "projectManager.git.baseFolders": ["~/git/projects"],
+  // Activitus Bar
+  "activitusbar.views": [
+    {
+      "name": "explorer",
+      "codicon": "explorer-view-icon"
+    },
+    {
+      "name": "scm",
+      "codicon": "source-control-view-icon"
+    },
+    {
+      "name": "debug",
+      "codicon": "run-view-icon"
+    },
+    {
+      "name": "extensions",
+      "codicon": "extensions-view-icon"
+    }
+  ],
+  "activitusbar.showSourceControlCounter": true,
+  "workbench.sideBar.location": "right",
+  "peacock.favoriteColors": [
+    {
+      "name": "Angular Red",
+      "value": "#dd0531"
+    },
+    {
+      "name": "Azure Blue",
+      "value": "#007fff"
+    },
+    {
+      "name": "JavaScript Yellow",
+      "value": "#f9e64f"
+    },
+    {
+      "name": "Mandalorian Blue",
+      "value": "#1857a4"
+    },
+    {
+      "name": "Node Green",
+      "value": "#215732"
+    },
+    {
+      "name": "React Blue",
+      "value": "#61dafb"
+    },
+    {
+      "name": "Something Different",
+      "value": "#832561"
+    },
+    {
+      "name": "Svelte Orange",
+      "value": "#ff3d00"
+    },
+    {
+      "name": "Vue Green",
+      "value": "#42b883"
+    }
+  ],
+  "npm.enableRunFromFolder": true,
+  "npm.fetchOnlinePackageInfo": false,
+  "javascript.inlayHints.enumMemberValues.enabled": true,
+  "javascript.inlayHints.parameterNames.enabled": "literals",
+  "editor.stickyScroll.enabled": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "gitlens.autolinks": [
+    {
+      "prefix": "BUG",
+      "url": "http://linear.app/podia/issue/TICKET-<num>",
+      "ignoreCase": true
+    },
+    {
+      "url": "http://linear.app/podia/issue/TICKET-<num>",
+      "prefix": "TECH"
+    }
+  ],
+  "gitlens.views.commitDetails.files.layout": "list",
+  "notebook.lineNumbers": "on",
+  "breadcrumbs.enabled": true,
+  "terminal.external.osxExec": "Warp.app",
+  "terminal.integrated.macOptionIsMeta": true,
+  "terminal.integrated.tabFocusMode": true,
+  "githubPullRequests.pullBranch": "never",
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "ngClass",
+    "class_name",
+    "class"
+  ],
+  "tailwindCSS.emmetCompletions": true,
+  "tailwindCSS.includeLanguages": {
+    "erb": "html",
+    "ruby": "html",
+    "markdown": "html"
+  },
+  "tailwind-fold.autoFold": false,
+  "tailwind-fold.foldStyle": "QUOTES",
+  "tailwind-fold.unfoldIfLineSelected": true,
+  "vim.useSystemClipboard": true,
+  "editor.fontSize": 13,
+  "rubyLsp.rubyVersionManager": "asdf",
+  "codeQL.telemetry.enableTelemetry": false,
+  "terminal.integrated.fontFamily": "'MesloLGM NF'",
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
