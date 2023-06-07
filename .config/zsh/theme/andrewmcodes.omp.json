@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
   "blocks": [
     {
-      "alignment": "right",
+      "alignment": "left",
       "segments": [
         {
           "background": "#2b2f31",
@@ -100,9 +100,9 @@
           "foreground": "#00c2d7",
           "leading_diamond": "\ue0b6",
           "style": "diamond",
-          "template": "{{ .Path }} \u276f",
+          "template": "\u276f",
           "trailing_diamond": "\ue0b4",
-          "type": "path"
+          "type": "text"
         }
       ],
       "type": "prompt"
