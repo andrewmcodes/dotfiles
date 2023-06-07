@@ -386,5 +386,41 @@
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "diffEditor.diffAlgorithm": "advanced"
+  "diffEditor.diffAlgorithm": "advanced",
+  "multiCommand.commands": [
+    {
+      "command": "multiCommand.makeRoom",
+      "sequence": [
+        "workbench.action.toggleSidebarVisibility",
+        "workbench.action.toggleActivityBarVisibility"
+      ]
+    }
+  ],
+  "breadcrumbs.showArrays": false,
+  "breadcrumbs.showBooleans": false,
+  "breadcrumbs.showClasses": false,
+  "breadcrumbs.showConstants": false,
+  "breadcrumbs.showConstructors": false,
+  "breadcrumbs.showEnumMembers": false,
+  "breadcrumbs.showEnums": false,
+  "breadcrumbs.showEvents": false,
+  "breadcrumbs.showFiles": false,
+  "breadcrumbs.showFields": false,
+  "breadcrumbs.showVariables": false,
+  "breadcrumbs.showStructs": false,
+  "breadcrumbs.showTypeParameters": false,
+  "breadcrumbs.showStrings": false,
+  "breadcrumbs.showProperties": false,
+  "breadcrumbs.showPackages": false,
+  "breadcrumbs.showOperators": false,
+  "breadcrumbs.showObjects": false,
+  "breadcrumbs.showNull": false,
+  "breadcrumbs.showNamespaces": false,
+  "breadcrumbs.showNumbers": false,
+  "breadcrumbs.showModules": false,
+  "breadcrumbs.showMethods": false,
+  "breadcrumbs.showKeys": false,
+  "breadcrumbs.showInterfaces": false,
+  "breadcrumbs.showFunctions": false,
+  "telemetry.telemetryLevel": "off"
 }

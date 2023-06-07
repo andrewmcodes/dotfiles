@@ -2,12 +2,12 @@
 {
 	"name": {
 		"prefix": [
-			"prefix1",
-			"prefix2"
+			"con",
+			"log"
 		],
 		"scope": "javascript,typescript",
 		"body": "console.log($0);",
-		"description": "description"
+		"description": "Adds console.log"
 	},
 	"pry": {
 		"prefix": [
@@ -19,7 +19,10 @@
 		"description": "Add"
 	},
 	"binding.pry": {
-		"prefix": "pry",
+		"prefix": [
+			"pry",
+			"binding"
+		],
 		"scope": "erb",
 		"body": "<% binding.pry %>",
 		"description": "Add"
