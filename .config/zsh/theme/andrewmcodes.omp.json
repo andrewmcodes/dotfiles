@@ -74,32 +74,6 @@
           "template": " \ue791{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}",
           "trailing_diamond": "\ue0b4",
           "type": "ruby"
-        },
-        {
-          "background": "#2b2f31",
-          "foreground": "#336791",
-          "leading_diamond": " \ue0b6",
-          "properties": {
-            "shell": "zsh",
-            "command": "pg_isready | psql --version | psql --version | awk '{print $3}'"
-          },
-          "style": "diamond",
-          "template": " \ue76e {{ .Output }}",
-          "trailing_diamond": "\ue0b4",
-          "type": "command"
-        },
-        {
-          "background": "#2b2f31",
-          "foreground": "#ff6369",
-          "leading_diamond": " \ue0b6",
-          "properties": {
-            "shell": "zsh",
-            "command": "redis-cli ping | grep -q PONG && redis-cli info | grep -m1 -o 'redis_version:[0-9]*\\.[0-9]*' | cut -d: -f2"
-          },
-          "style": "diamond",
-          "template": " \ue76d {{ .Output }}",
-          "trailing_diamond": "\ue0b4",
-          "type": "command"
         }
       ],
       "type": "prompt"

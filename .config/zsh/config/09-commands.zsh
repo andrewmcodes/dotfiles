@@ -85,8 +85,8 @@ function rails() {
     bin/rails $@
   elif [[ -f Gemfile && -f Gemfile.lock ]]; then
     bundle exec rails $@
-  elif [[ -f config/application.rb ]]; then
-    rails $@
+  elif [[ -n $(which rails) ]]; then
+    command rails $@
   else
     echo "Rails not found"
   fi
