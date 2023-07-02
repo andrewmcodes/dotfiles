@@ -1,17 +1,17 @@
-" vim-bootstrap 2022-12-30 14:59:30
+" vim-bootstrap 2023-07-02 00:01:37
 
 "*****************************************************************************
 "" Vim-Plug core
 "*****************************************************************************
-let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
+let vimplug_exists=expand('~/.vim/autoload/plug.vim')
 if has('win32')&&!has('win64')
   let curl_exists=expand('C:\Windows\Sysnative\curl.exe')
 else
   let curl_exists=expand('curl')
 endif
 
-let g:vim_bootstrap_langs = "html,javascript,ruby"
-let g:vim_bootstrap_editor = "nvim"				" nvim or vim
+let g:vim_bootstrap_langs = "html,javascript,ruby,typescript"
+let g:vim_bootstrap_editor = "vim"				" nvim or vim
 let g:vim_bootstrap_theme = "onedark"
 let g:vim_bootstrap_frams = ""
 
@@ -29,7 +29,7 @@ if !filereadable(vimplug_exists)
 endif
 
 " Required:
-call plug#begin(expand('~/.config/nvim/plugged'))
+call plug#begin(expand('~/.vim/plugged'))
 
 "*****************************************************************************
 "" Plug install packages
@@ -48,9 +48,9 @@ Plug 'majutsushi/tagbar'
 Plug 'dense-analysis/ale'
 Plug 'Yggdroot/indentLine'
 Plug 'editor-bootstrap/vim-bootstrap-updater'
-Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
+Plug 'tpope/vim-rhubarb' " required by fugitive to :GBrowse
 Plug 'joshdick/onedark.vim'
-
+Plug 'tribela/vim-transparent'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -97,12 +97,17 @@ Plug 'thoughtbot/vim-rspec'
 Plug 'ecomba/vim-ruby-refactoring', {'tag': 'main'}
 
 
+" typescript
+Plug 'leafgarland/typescript-vim'
+Plug 'HerringtonDarkholme/yats.vim'
+
+
 "*****************************************************************************
 "*****************************************************************************
 
 "" Include user's extra bundle
-if filereadable(expand("~/.config/nvim/local_bundles.vim"))
-  source ~/.config/nvim/local_bundles.vim
+if filereadable(expand("~/.vimrc.local.bundles"))
+  source ~/.vimrc.local.bundles
 endif
 
 call plug#end()
@@ -118,7 +123,7 @@ filetype plugin indent on
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
-
+set ttyfast
 
 "" Fix backspace indent
 set backspace=indent,eol,start
@@ -150,7 +155,7 @@ else
 endif
 
 " session management
-let g:session_directory = "~/.config/nvim/session"
+let g:session_directory = "~/.vim/session"
 let g:session_autoload = "no"
 let g:session_autosave = "no"
 let g:session_command_aliases = 1
@@ -192,15 +197,26 @@ else
   let g:indentLine_faster = 1
 
 
+  if $COLORTERM == 'gnome-terminal'
+    set term=gnome-256color
+  else
+    if $TERM == 'xterm'
+      set term=xterm-256color
+    endif
+  endif
+
 endif
 
+
+if &term =~ '256color'
+  set t_ut=
+endif
 
 
 "" Disable the blinking cursor.
 set gcr=a:blinkon0
 
-au TermEnter * setlocal scrolloff=0
-au TermLeave * setlocal scrolloff=3
+set scrolloff=3
 
 
 "" Status bar
@@ -359,6 +375,9 @@ noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
 let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
+":echo g:fzf_colors
+" transparent the gutter
+let $FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS .. ' --color=gutter:-1'
 
 " The Silver Searcher
 if executable('ag')
@@ -440,7 +459,7 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
 "" Open current line on GitHub
-nnoremap <Leader>o :.Gbrowse<CR>
+nnoremap <Leader>o :.GBrowse<CR>
 
 "*****************************************************************************
 "" Custom configs
@@ -508,13 +527,17 @@ vnoremap <leader>rriv :RRenameInstanceVariable<cr>
 vnoremap <leader>rem  :RExtractMethod<cr>
 
 
+" typescript
+let g:yats_host_keyword = 1
+
+
 
 "*****************************************************************************
 "*****************************************************************************
 
 "" Include user's local vim config
-if filereadable(expand("~/.config/nvim/local_init.vim"))
-  source ~/.config/nvim/local_init.vim
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
 endif
 
 "*****************************************************************************
