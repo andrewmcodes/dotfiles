@@ -1,4 +1,3 @@
-// Place your key bindings in this file to override the defaultsauto[]
 [
   {
     "key": "cmd+k cmd+x",
@@ -98,32 +97,6 @@
     "when": "editorTextFocus && editorLangId == 'erb'"
   },
   {
-    "key": "alt+cmd+n",
-    "command": "workbench.action.files.newUntitledFile"
-  },
-  {
-    "key": "cmd+n",
-    "command": "-workbench.action.files.newUntitledFile"
-  },
-  {
-    "key": "cmd+n",
-    "command": "extension.advancedNewFile"
-  },
-  {
-    "key": "alt+cmd+n",
-    "command": "-extension.advancedNewFile"
-  },
-  // {
-  //   "key": "tab",
-  //   "command": "tab",
-  //   "when": "editorTextFocus && !editorTabMovesFocus && !suggestWidgetVisible "
-  // },
-  // {
-  //   "key": "tab",
-  //   "command": "tab",
-  //   "when": "editorTextFocus && !editorTabMovesFocus"
-  // },
-  {
     "key": "shift+tab",
     "command": "outdent",
     "when": "editorTextFocus && !editorTabMovesFocus"
@@ -136,7 +109,6 @@
     "key": "cmd+k cmd+b",
     "command": "workbench.action.toggleAuxiliaryBar"
   },
-  // Traverse VSCode IntelliSense suggestions with vim keybindings.
   {
     "key": "cmd+j",
     "command": "selectNextSuggestion",
@@ -147,8 +119,6 @@
     "command": "selectPrevSuggestion",
     "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
   },
-
-  // Traverse VSCode quick open options with vim keybindings.
   {
     "key": "cmd+j",
     "command": "workbench.action.quickOpenSelectNext",
@@ -159,7 +129,6 @@
     "command": "workbench.action.quickOpenSelectPrevious",
     "when": "inQuickOpen"
   },
-  // Move to the previous/next editor.
   {
     "key": "cmd+j",
     "command": "workbench.action.nextEditor"
@@ -180,9 +149,28 @@
   {
     "key": "alt+cmd+tab",
     "command": "-workbench.action.showAllEditors"
+  },
+  {
+    "key": "alt+b",
+    "command": "-gitlens.toggleFileBlame",
+    "when": "editorTextFocus && config.gitlens.keymap == 'alternate' && gitlens:activeFileStatus =~ /blameable/"
+  },
+  {
+    "key": "cmd+b",
+    "command": "multiCommand.makeRoom"
+  },
+  {
+    "key": "cmd+b",
+    "command": "-workbench.action.toggleSidebarVisibility"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.terminal.clear",
+    "when": "terminalFocus && terminalHasBeenCreated && !accessibilityModeEnabled || terminalFocus && terminalProcessSupported && !accessibilityModeEnabled"
+  },
+  {
+    "key": "cmd+k",
+    "command": "-workbench.action.terminal.clear",
+    "when": "terminalFocus && terminalHasBeenCreated && !accessibilityModeEnabled || terminalFocus && terminalProcessSupported && !accessibilityModeEnabled"
   }
-  // {
-  //   "key": "cmd+h",
-  //   "command": "workbench.action.previousEditor"
-  // }
 ]

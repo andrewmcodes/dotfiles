@@ -114,6 +114,12 @@
     "Gemfile": "Gemfile.lock, Gemfile_next.lock"
   },
   "files.associations": {
+    "*.json.liquid": "json",
+    "*.yaml.liquid": "yaml",
+    "*.md.liquid": "markdown",
+    "*.js.liquid": "liquid-javascript",
+    "*.css.liquid": "liquid-css",
+    "*.scss.liquid": "liquid-scss",
     "*.zsh": "shellscript",
     ".envrc": "env",
     ".tool-versions": "properties",
@@ -121,6 +127,7 @@
     ".default-gems": "properties",
     ".default-npm-packages": "properties",
     "Procfile*": "procfile",
+    ".env*": "dotenv"
   },
   "files.autoSave": "onFocusChange",
   "files.defaultLanguage": "${activeEditorLanguage}",
@@ -293,10 +300,7 @@
   // OneDarkPro
   "oneDarkPro.bold": true,
   // Project Manager
-  "projectManager.git.baseFolders": [
-    "~/git",
-    "~/vaults"
-  ],
+  "projectManager.git.baseFolders": ["~/git", "~/vaults"],
   // Tailwind CSS
   "tailwindCSS.includeLanguages": {
     "erb": "html",
@@ -350,11 +354,7 @@
     ".frontmatter": true
   },
   "advancedNewFile.showInformationMessages": true,
-  "advancedNewFile.convenienceOptions": [
-    "last",
-    "current",
-    "root"
-  ],
+  "advancedNewFile.convenienceOptions": ["last", "current", "root"],
   "diffEditor.ignoreTrimWhitespace": false,
   "prettier.printWidth": 120,
   "shellformat.path": "/Users/andrew.mason/shfmt",
@@ -402,7 +402,8 @@
     "php",
     "markdown",
     "coffeescript"
-  ]
+  ],
+  "workbench.iconTheme": "file-icons"
   //
   //
   // UPDATES BELOW THIS LINE

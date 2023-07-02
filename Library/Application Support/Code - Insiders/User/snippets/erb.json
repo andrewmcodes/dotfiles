@@ -26,5 +26,55 @@
       "<% end %>"
     ],
     "description": "Renders a Podia UI Button Component with custom text, tag, href, color, scheme, and leading icon"
+  },
+  "ERB Tags": {
+    "prefix": "%",
+    "body": ["<% $1 %>"],
+    "description": "ERB Tags"
+  },
+  "ERB Output Tags": {
+    "prefix": "=",
+    "body": ["<%= $1 %>"],
+    "description": "ERB Output Tags"
+  },
+  "ERB Comment": {
+    "prefix": "#",
+    "body": ["<%# $1 %>"],
+    "description": "ERB Comment"
+  },
+  "ERB If Statement": {
+    "prefix": "if",
+    "body": ["<% if $1 %>", "\t$2", "<% end %>"],
+    "description": "ERB If Statement"
+  },
+  "ERB If Else Statement": {
+    "prefix": "ife",
+    "body": ["<% if $1 %>", "\t$2", "<% else %>", "\t$3", "<% end %>"],
+    "description": "ERB If Else Statement"
+  },
+  "ERB link_to": {
+    "prefix": "link",
+    "body": ["<%= link_to \"$1\", $2 %>"],
+    "description": "ERB link_to"
+  },
+  "ERB link_to with class": {
+    "prefix": "linkc",
+    "body": ["<%= link_to \"$1\", $2, class: \"$3\" %>"],
+    "description": "ERB link_to with class"
+  },
+  "ERB turbo_frame_tag": {
+    "prefix": "turbo",
+    "body": ["<%= turbo_frame_tag \"$1\" do %>", "\t$2", "<% end %>"],
+    "description": "ERB turbo_frame_tag"
+  },
+  "ERB render": {
+    "prefix": "render",
+    "body": ["<%= render \"$1\" %>"],
+    "description": "ERB render"
+  },
+  "ERB render with locals": {
+    "prefix": "renderl",
+    "body": ["<%= render \"$1\", $2 %>"],
+    "description": "ERB render with locals"
   }
 }
