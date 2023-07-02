@@ -50,7 +50,8 @@ autoload -Uz ghlabels
 
 # `znap eval <name> '<command>'` is like `eval "$( <command> )"` but with
 # caching and compilation of <command>'s output, making it ~10 times faster.
-znap eval zcolors "zcolors ${(q)LS_COLORS}"
+# znap eval zcolors "zcolors ${(q)LS_COLORS}"
+znap eval zcolors zcolors
 
 znap function _fuck fuck 'eval "$(thefuck --alias)"'
 compctl -K _fuck fuck
