@@ -1,426 +1,436 @@
 {
-    "[erb]": {
-      "editor.defaultFormatter": "elia.erb-formatter",
-      "editor.formatOnSave": false
-    },
-    "[html]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[javascript]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[json]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[jsonc]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[markdown]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode",
-      "editor.formatOnSave": false
-    },
-    "[ruby]": {
-      "editor.defaultFormatter": "testdouble.vscode-standard-ruby",
-      "editor.formatOnSave": true
-    },
-    "[scss]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescript]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[yaml]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    // Activitus Bar
-    "activitusbar.alignment": "Right",
-    "activitusbar.showSourceControlCounter": true,
-    "activitusbar.views": [
-      {
-        "codicon": "explorer-view-icon",
-        "name": "explorer"
-      },
-      {
-        "codicon": "source-control-view-icon",
-        "name": "scm"
-      },
-      {
-        "codicon": "run-view-icon",
-        "name": "debug"
-      },
-      {
-        "codicon": "extensions-view-icon",
-        "name": "extensions"
-      }
-    ],
-    // advancedNewFile
-    "advancedNewFile.convenienceOptions": ["last", "current", "root"],
-    "advancedNewFile.exclude": {
-      ".bridgetown-cache": true,
-      ".torchlight-cache": true,
-      "dist": true,
-      "node_modules": true,
-      "node_modules_electron": true,
-      "output": true,
-      "tmp": true
-    },
-    "advancedNewFile.showInformationMessages": true,
-    // breadcrumbs
-    "breadcrumbs.enabled": true,
-    "breadcrumbs.showArrays": false,
-    "breadcrumbs.showBooleans": false,
-    "breadcrumbs.showClasses": false,
-    "breadcrumbs.showConstants": false,
-    "breadcrumbs.showConstructors": false,
-    "breadcrumbs.showEnumMembers": false,
-    "breadcrumbs.showEnums": false,
-    "breadcrumbs.showEvents": false,
-    "breadcrumbs.showFields": false,
-    "breadcrumbs.showFiles": false,
-    "breadcrumbs.showFunctions": false,
-    "breadcrumbs.showInterfaces": false,
-    "breadcrumbs.showKeys": false,
-    "breadcrumbs.showMethods": false,
-    "breadcrumbs.showModules": false,
-    "breadcrumbs.showNamespaces": false,
-    "breadcrumbs.showNull": false,
-    "breadcrumbs.showNumbers": false,
-    "breadcrumbs.showObjects": false,
-    "breadcrumbs.showOperators": false,
-    "breadcrumbs.showPackages": false,
-    "breadcrumbs.showProperties": false,
-    "breadcrumbs.showStrings": false,
-    "breadcrumbs.showStructs": false,
-    "breadcrumbs.showTypeParameters": false,
-    "breadcrumbs.showVariables": false,
-    // CSS
-    "css.validate": false,
-    // Diff Editor
-    "diffEditor.diffAlgorithm": "advanced",
-    "diffEditor.ignoreTrimWhitespace": false,
-    // Editor
-    "editor.accessibilitySupport": "off",
-    "editor.fontFamily": "'JetBrains Mono', Menlo, Monaco, 'Courier New', monospace",
-    "editor.fontLigatures": true,
-    "editor.formatOnPaste": false,
-    "editor.formatOnSave": false,
-    "editor.formatOnSaveMode": "modificationsIfAvailable",
-    "editor.formatOnType": false,
-    "editor.guides.bracketPairs": "active",
-    "editor.inlineSuggest.enabled": true,
-    "editor.lineHeight": 1.875,
-    "editor.lineNumbers": "relative",
-    "editor.linkedEditing": true,
-    "editor.minimap.enabled": false,
-    "editor.multiCursorModifier": "ctrlCmd",
-    "editor.quickSuggestions": {
-      "comments": "on",
-      "other": "on",
-      "strings": "on"
-    },
-    "editor.rulers": [120],
-    "editor.semanticHighlighting.enabled": true,
-    "editor.snippetSuggestions": "top",
-    "editor.suggest.insertMode": "replace",
-    "editor.suggest.shareSuggestSelections": true,
-    "editor.suggestSelection": "recentlyUsed",
-    "editor.tabSize": 2,
-    "editor.wordWrapColumn": 120,
-    // Emmet
-    "emmet.includeLanguages": {
-      "erb": "html"
-    },
-    "emmet.showSuggestionsAsSnippets": true,
-    // ERB
-    "erb-formatter.commandPath": "erb-format",
-    // Explorer
-    "explorer.confirmDelete": false,
-    "explorer.confirmDragAndDrop": false,
-    "explorer.excludeGitIgnore": true,
-    "explorer.fileNesting.enabled": true,
-    "explorer.fileNesting.patterns": {
-      "*.rb": "${capture}.*erb, ${capture}_controller.js",
-      "Gemfile": "Gemfile.lock, Gemfile_next.lock"
-    },
-    // Files
-    "files.associations": {
-      ".prettierignore": "ignore",
-      ".slugignore": "ignore",
-      "Gemfile_next.lock": "ruby",
-      "Guardfile": "ruby",
-      "overcommit.gemfile.lock": "ruby",
-      "Procfile*": "procfile"
-    },
-    "files.autoSave": "onFocusChange",
-    "files.exclude": {
-      "**/.bridgetown-cache/**": true,
-      "**/.bridgetown-webpack/**": true,
-      "**/.frontmatter/**": true,
-      "**/.vercel/**": true,
-      ".torchlight-cache": true,
-      "rails.rb": true
-    },
-    "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true,
-    "files.trimTrailingWhitespace": true,
-    "files.watcherExclude": {
-      "**/.bridgetown-cache/**": true,
-      "**/.bridgetown-webpack/**": true,
-      "**/node_modules/**": true,
-      "**/tmp/**": true,
-      ".torchlight-cache": true,
-      "build": true,
-      "deploy": true
-    },
-    // Git
-    "git.allowForcePush": true,
-    "git.autofetch": true,
-    "git.autoStash": true,
-    "git.confirmSync": false,
-    "git.enableSmartCommit": true,
-    "git.fetchOnPull": true,
-    "git.followTagsWhenSync": true,
-    "git.pruneOnFetch": true,
-    // GitHub
-    "github.copilot-labs.showTestGenerationLenses": true,
-    "github.copilot.enable": {
-      "*": true,
-      "markdown": true,
-      "plaintext": true,
-      "scminput": true,
-      "shellscript": true,
-      "yaml": true
-    },
-    "githubPullRequests.pullBranch": "never",
-    // GitLens
-    "gitlens.codeLens.enabled": false,
-    "gitlens.currentLine.enabled": false,
-    "gitlens.hovers.currentLine.over": "line",
-    "gitlens.views.commitDetails.files.layout": "list",
-    "gitlens.autolinks": [
-      {
-        "ignoreCase": true,
-        "prefix": "PODIA",
-        "url": "http://linear.app/podia/issue/PODIA-<num>"
-      }
-    ],
-    // Grunt
-    "grunt.autoDetect": "off",
-    // Gulp
-    "gulp.autoDetect": "off",
-    // Jake
-    "jake.autoDetect": "off",
-    // JavaScript
-    "javascript.inlayHints.enumMemberValues.enabled": true,
-    "javascript.inlayHints.parameterNames.enabled": "literals",
-    "javascript.inlayHints.variableTypes.enabled": true,
-    "javascript.validate.enable": false,
-    "javascript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": false,
-    "javascript.referencesCodeLens.enabled": true,
-    "javascript.updateImportsOnFileMove.enabled": "always",
-    "json.schemas": [
-      {
-        "fileMatch": [
-          "/.babelrc"
-        ],
-        "url": "https://json.schemastore.org/babelrc"
-      },
-      {
-        "fileMatch": [
-          "/.prettierrc"
-        ],
-        "url": "https://json.schemastore.org/prettierrc"
-      },
-      {
-        "fileMatch": [
-          "/vercel.json"
-        ],
-        "url": "https://openapi.vercel.sh/vercel.json"
-      },
-      {
-        "fileMatch": [
-          "/jsconfig.json"
-        ],
-        "url": "https://json.schemastore.org/jsconfig"
-      },
-      {
-        "fileMatch": [
-          "/.hintrc"
-        ],
-        "url": "https://json.schemastore.org/htmlhint.json"
-      }
-    ],
-    // Markdown
-    "markdown.updateLinksOnFileMove.enabled": "prompt",
-    "markdown.validate.enabled": true,
-    // alt+b to toggle sidebar and activity bar
-    "multiCommand.commands": [
-      {
-        "command": "multiCommand.makeRoom",
-        "sequence": [
-          "workbench.action.toggleSidebarVisibility",
-          "workbench.action.toggleActivityBarVisibility"
-        ]
-      }
-    ],
-    // Notebook
-    "notebook.lineNumbers": "on",
-    // NPM
-    "npm.enableRunFromFolder": true,
-    // Peacock
-    "peacock.favoriteColors": [
-      {
-        "name": "Red",
-        "value": "#e5484d"
-      },
-      {
-        "name": "Blue",
-        "value": "#0090ff"
-      }
-    ],
-    // Project Manager
-    "projectManager.git.baseFolders": ["~/git"],
-    // Redhat Yaml
-    "redhat.telemetry.enabled": false,
-    // Ruby LSP
-    "rubyLsp.enabledFeatures": {
-      "codeActions": true,
-      "codeLens": false,
-      "completion": true,
-      "diagnostics": true,
-      "documentHighlights": true,
-      "documentLink": true,
-      "documentSymbols": true,
-      "foldingRanges": true,
-      "formatting": false,
-      "hover": true,
-      "inlayHint": true,
-      "onTypeFormatting": true,
-      "selectionRanges": true,
-      "semanticHighlighting": true
-    },
-    "rubyLsp.enableExperimentalFeatures": true,
-    "rubyLsp.formatter": "none",
-    "rubyLsp.yjit": false,
-    "rubyLsp.rubyVersionManager": "asdf",
-    // SCSS
-    "scss.validate": false,
-    // Search
-    "search.exclude": {
-      "**/*.code-search": true,
-      "**/.bridgetown-cache/**": true,
-      "**/.bridgetown-webpack/**": true,
-      "**/.frontmatter/**": true,
-      "**/.vercel/**": true,
-      "**/bower_components": true,
-      ".torchlight-cache": true,
-      "**/*.lock": true,
-      "**/coverage": true,
-      "**/log": true,
-      "**/node_modules": true,
-      "**/tmp": true,
-      "**/vendor": true,
-      "CHANGELOG.md": true,
-      "rails.rb": true
-    },
-    // Security
-    "security.workspace.trust.untrustedFiles": "open",
-    // Standard Ruby
-    "standardRuby.commandPath": "${userHome}/.asdf/shims/standardrb",
-    "standardRuby.mode": "enableUnconditionally",
-    // Tailwind
-    "tailwind-fold.autoFold": false,
-    "tailwind-fold.foldStyle": "QUOTES",
-    "tailwind-fold.unfoldIfLineSelected": true,
-    "tailwindCSS.classAttributes": [
-      "class",
-      "className",
-      "ngClass",
-      "class_name",
-      "class"
-    ],
-    "tailwindCSS.emmetCompletions": true,
-    "tailwindCSS.includeLanguages": {
-      "erb": "html",
-      "markdown": "html",
-      "ruby": "html"
-    },
-    // telemetry
-    "telemetry.telemetryLevel": "off",
-    // Terminal
-    "terminal.external.osxExec": "Warp.app",
-    "terminal.integrated.altClickMovesCursor": false,
-    "terminal.integrated.copyOnSelection": true,
-    "terminal.integrated.cursorBlinking": true,
-    "terminal.integrated.detectLocale": "on",
-    "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font'",
-    "terminal.integrated.fontSize": 12,
-    "terminal.integrated.lineHeight": 1.125,
-    "terminal.integrated.macOptionClickForcesSelection": true,
-    "terminal.integrated.macOptionIsMeta": true,
-    "terminal.integrated.smoothScrolling": true,
-    "terminal.integrated.tabFocusMode": false,
-    // TypeScript
-    "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
-    "typescript.inlayHints.parameterTypes.enabled": true,
-    "typescript.inlayHints.variableTypes.enabled": true,
-    "typescript.updateImportsOnFileMove.enabled": "always",
-    // Vim
-    "vim.easymotion": true,
-    "vim.enableNeovim": true,
-    "vim.handleKeys": {
-      "<C-a>": false,
-      "<C-e>": false,
-      "<C-f>": false
-    },
-    "vim.hlsearch": true,
-    "vim.incsearch": true,
-    "vim.insertModeKeyBindings": [
-      {
-        "after": ["<Esc>"],
-        "before": ["j", "j"]
-      }
-    ],
-    "vim.leader": "<space>",
-    "vim.normalModeKeyBindingsNonRecursive": [
-      {
-        "after": ["d", "d"],
-        "before": ["<leader>", "d"]
-      },
-      {
-        "before": ["<C-n>"],
-        "commands": [":nohl"]
-      },
-      {
-        "before": ["K"],
-        "commands": ["lineBreakInsert"],
-        "silent": true
-      }
-    ],
-    "vim.useCtrlKeys": true,
-    "vim.useSystemClipboard": true,
-    // Window
-    "window.commandCenter": true,
-    // Workbench
-    "workbench.colorTheme": "One Dark Pro Darker",
-    "workbench.editor.highlightModifiedTabs": true,
-    "workbench.editor.enablePreview": false,
-    "workbench.editor.pinnedTabSizing": "compact",
-    "workbench.editorAssociations": {
-      "*.plist": "default"
-    },
-    "workbench.experimental.cloudChanges.autoStore": "onShutdown",
-    "workbench.fontAliasing": "antialiased",
-    "workbench.productIconTheme": "fluent-icons",
-    "workbench.settings.useSplitJSON": true,
-    "workbench.startupEditor": "none",
-    "workbench.tree.indent": 4,
-    "workbench.tree.renderIndentGuides": "always",
+  "[erb]": {
+    "editor.defaultFormatter": "elia.erb-formatter",
+    "editor.formatOnSave": false
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "vscodeMarkdownNotes.allowPipedWikiLinks": true,
-    "vscodeMarkdownNotes.lowercaseNewNoteFilenames": false,
-    "vscodeMarkdownNotes.newNoteTemplate": "## ${noteName}",
-    "vscodeMarkdownNotes.slugifyCharacter": "NONE",
-    "markdown.validate.referenceLinks.enabled": "ignore",
-    "workbench.sideBar.location": "right"
+    "editor.formatOnSave": false
+  },
+  "[ruby]": {
+    "editor.defaultFormatter": "testdouble.vscode-standard-ruby",
+    "editor.formatOnSave": true
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // Activitus Bar
+  "activitusbar.alignment": "Right",
+  "activitusbar.showSourceControlCounter": true,
+  "activitusbar.views": [
+    {
+      "codicon": "explorer-view-icon",
+      "name": "explorer"
+    },
+    {
+      "codicon": "source-control-view-icon",
+      "name": "scm"
+    },
+    {
+      "codicon": "run-view-icon",
+      "name": "debug"
+    },
+    {
+      "codicon": "extensions-view-icon",
+      "name": "extensions"
+    }
+  ],
+  // advancedNewFile
+  "advancedNewFile.convenienceOptions": ["last", "current", "root"],
+  "advancedNewFile.exclude": {
+    ".bridgetown-cache": true,
+    ".torchlight-cache": true,
+    "dist": true,
+    "node_modules": true,
+    "node_modules_electron": true,
+    "output": true,
+    "tmp": true
+  },
+  "advancedNewFile.showInformationMessages": true,
+  // breadcrumbs
+  "breadcrumbs.enabled": true,
+  "breadcrumbs.showArrays": false,
+  "breadcrumbs.showBooleans": false,
+  "breadcrumbs.showClasses": false,
+  "breadcrumbs.showConstants": false,
+  "breadcrumbs.showConstructors": false,
+  "breadcrumbs.showEnumMembers": false,
+  "breadcrumbs.showEnums": false,
+  "breadcrumbs.showEvents": false,
+  "breadcrumbs.showFields": false,
+  "breadcrumbs.showFiles": false,
+  "breadcrumbs.showFunctions": false,
+  "breadcrumbs.showInterfaces": false,
+  "breadcrumbs.showKeys": false,
+  "breadcrumbs.showMethods": false,
+  "breadcrumbs.showModules": false,
+  "breadcrumbs.showNamespaces": false,
+  "breadcrumbs.showNull": false,
+  "breadcrumbs.showNumbers": false,
+  "breadcrumbs.showObjects": false,
+  "breadcrumbs.showOperators": false,
+  "breadcrumbs.showPackages": false,
+  "breadcrumbs.showProperties": false,
+  "breadcrumbs.showStrings": false,
+  "breadcrumbs.showStructs": false,
+  "breadcrumbs.showTypeParameters": false,
+  "breadcrumbs.showVariables": false,
+  // CSS
+  "css.validate": false,
+  // Diff Editor
+  "diffEditor.diffAlgorithm": "advanced",
+  "diffEditor.ignoreTrimWhitespace": false,
+  // Editor
+  "editor.accessibilitySupport": "off",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.fontFamily": "'JetBrains Mono', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontLigatures": true,
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": false,
+  "editor.formatOnSaveMode": "modificationsIfAvailable",
+  "editor.formatOnType": false,
+  "editor.guides.bracketPairs": "active",
+  "editor.inlineSuggest.enabled": true,
+  "editor.lineHeight": 1.875,
+  "editor.lineNumbers": "relative",
+  "editor.linkedEditing": true,
+  "editor.minimap.enabled": false,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.quickSuggestions": {
+    "comments": "on",
+    "other": "on",
+    "strings": "on"
+  },
+  "editor.rulers": [120],
+  "editor.semanticHighlighting.enabled": true,
+  "editor.snippetSuggestions": "top",
+  "editor.suggest.insertMode": "replace",
+  "editor.suggest.shareSuggestSelections": true,
+  "editor.suggestSelection": "recentlyUsed",
+  "editor.tabSize": 2,
+  "editor.wordWrapColumn": 120,
+  // Emmet
+  "emmet.includeLanguages": {
+    "erb": "html"
+  },
+  "emmet.showSuggestionsAsSnippets": true,
+  // ERB
+  "erb-formatter.commandPath": "erb-format",
+  // Explorer
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.excludeGitIgnore": true,
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "*.rb": "${capture}.*erb, ${capture}_controller.js",
+    "Gemfile": "Gemfile.lock, Gemfile_next.lock"
+  },
+  // Files
+  "files.associations": {
+    ".prettierignore": "ignore",
+    ".slugignore": "ignore",
+    "Gemfile_next.lock": "ruby",
+    "Guardfile": "ruby",
+    "overcommit.gemfile.lock": "ruby",
+    "Procfile*": "procfile"
+  },
+  "files.autoSave": "onFocusChange",
+  "files.exclude": {
+    "**/.bridgetown-cache/**": true,
+    "**/.bridgetown-webpack/**": true,
+    "**/.frontmatter/**": true,
+    "**/.vercel/**": true,
+    ".torchlight-cache": true,
+    "rails.rb": true
+  },
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "files.watcherExclude": {
+    "**/.bridgetown-cache/**": true,
+    "**/.bridgetown-webpack/**": true,
+    "**/node_modules/**": true,
+    "**/tmp/**": true,
+    ".torchlight-cache": true,
+    "build": true,
+    "deploy": true
+  },
+  // Git
+  "git.allowForcePush": true,
+  "git.autofetch": true,
+  "git.autoStash": true,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+  "git.fetchOnPull": true,
+  "git.followTagsWhenSync": true,
+  "git.pruneOnFetch": true,
+  // GitHub
+  "github.copilot-labs.showTestGenerationLenses": true,
+  "github.copilot.enable": {
+    "*": true,
+    "markdown": true,
+    "plaintext": true,
+    "scminput": true,
+    "shellscript": true,
+    "yaml": true
+  },
+  "githubPullRequests.pullBranch": "never",
+  "gitlens.autolinks": [
+    {
+      "ignoreCase": true,
+      "prefix": "PODIA",
+      "url": "http://linear.app/podia/issue/PODIA-<num>"
+    }
+  ],
+  // GitLens
+  "gitlens.codeLens.enabled": false,
+  "gitlens.currentLine.enabled": false,
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.views.commitDetails.files.layout": "list",
+  // Grunt
+  "grunt.autoDetect": "off",
+  // Gulp
+  "gulp.autoDetect": "off",
+  // Jake
+  "jake.autoDetect": "off",
+  // JavaScript
+  "javascript.inlayHints.enumMemberValues.enabled": true,
+  "javascript.inlayHints.parameterNames.enabled": "literals",
+  "javascript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": false,
+  "javascript.inlayHints.variableTypes.enabled": true,
+  "javascript.referencesCodeLens.enabled": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "javascript.validate.enable": false,
+  "json.schemas": [
+    {
+      "fileMatch": ["/.babelrc"],
+      "url": "https://json.schemastore.org/babelrc"
+    },
+    {
+      "fileMatch": ["/.prettierrc"],
+      "url": "https://json.schemastore.org/prettierrc"
+    },
+    {
+      "fileMatch": ["/vercel.json"],
+      "url": "https://openapi.vercel.sh/vercel.json"
+    },
+    {
+      "fileMatch": ["/jsconfig.json"],
+      "url": "https://json.schemastore.org/jsconfig"
+    },
+    {
+      "fileMatch": ["/.hintrc"],
+      "url": "https://json.schemastore.org/htmlhint.json"
+    }
+  ],
+  // Markdown
+  "markdown.updateLinksOnFileMove.enabled": "prompt",
+  "markdown.validate.enabled": true,
+  "markdown.validate.referenceLinks.enabled": "ignore",
+  // alt+b to toggle sidebar and activity bar
+  "multiCommand.commands": [
+    {
+      "command": "multiCommand.makeRoom",
+      "sequence": [
+        "workbench.action.toggleSidebarVisibility",
+        "workbench.action.toggleActivityBarVisibility"
+      ]
+    }
+  ],
+  // Notebook
+  "notebook.lineNumbers": "on",
+  // NPM
+  "npm.enableRunFromFolder": true,
+  // Peacock
+  "peacock.favoriteColors": [
+    {
+      "name": "Red",
+      "value": "#e5484d"
+    },
+    {
+      "name": "Blue",
+      "value": "#0090ff"
+    }
+  ],
+  // Project Manager
+  "projectManager.git.baseFolders": ["~/git"],
+  // Redhat Yaml
+  "redhat.telemetry.enabled": false,
+  // Ruby LSP
+  "rubyLsp.enabledFeatures": {
+    "codeActions": true,
+    "codeLens": false,
+    "completion": true,
+    "diagnostics": true,
+    "documentHighlights": true,
+    "documentLink": true,
+    "documentSymbols": true,
+    "foldingRanges": true,
+    "formatting": false,
+    "hover": true,
+    "inlayHint": true,
+    "onTypeFormatting": true,
+    "selectionRanges": true,
+    "semanticHighlighting": true
+  },
+  "rubyLsp.enableExperimentalFeatures": true,
+  "rubyLsp.formatter": "none",
+  "rubyLsp.rubyVersionManager": "asdf",
+  "rubyLsp.yjit": false,
+  // SCSS
+  "scss.validate": false,
+  // Search
+  "search.exclude": {
+    "**/*.code-search": true,
+    "**/*.lock": true,
+    "**/.bridgetown-cache/**": true,
+    "**/.bridgetown-webpack/**": true,
+    "**/.frontmatter/**": true,
+    "**/.vercel/**": true,
+    "**/bower_components": true,
+    "**/coverage": true,
+    "**/log": true,
+    "**/node_modules": true,
+    "**/tmp": true,
+    "**/vendor": true,
+    ".torchlight-cache": true,
+    "CHANGELOG.md": true,
+    "rails.rb": true
+  },
+  // Security
+  "security.workspace.trust.untrustedFiles": "open",
+  // Standard Ruby
+  "standardRuby.commandPath": "${userHome}/.asdf/shims/standardrb",
+  "standardRuby.mode": "enableUnconditionally",
+  // Tailwind
+  "tailwind-fold.autoFold": false,
+  "tailwind-fold.foldStyle": "QUOTES",
+  "tailwind-fold.unfoldIfLineSelected": true,
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "ngClass",
+    "class_name",
+    "class"
+  ],
+  "tailwindCSS.emmetCompletions": true,
+  "tailwindCSS.includeLanguages": {
+    "erb": "html",
+    "markdown": "html",
+    "ruby": "html"
+  },
+  // telemetry
+  "telemetry.telemetryLevel": "off",
+  // Terminal
+  "terminal.external.osxExec": "Warp.app",
+  "terminal.integrated.altClickMovesCursor": false,
+  "terminal.integrated.copyOnSelection": true,
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.detectLocale": "on",
+  "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font'",
+  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.lineHeight": 1.125,
+  "terminal.integrated.macOptionClickForcesSelection": true,
+  "terminal.integrated.macOptionIsMeta": true,
+  "terminal.integrated.smoothScrolling": true,
+  "terminal.integrated.tabFocusMode": false,
+  // TypeScript
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "typescript.inlayHints.parameterTypes.enabled": true,
+  "typescript.inlayHints.variableTypes.enabled": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  // Vim
+  "vim.easymotion": true,
+  "vim.enableNeovim": true,
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-e>": false,
+    "<C-f>": false
+  },
+  "vim.hlsearch": true,
+  "vim.incsearch": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "after": ["<Esc>"],
+      "before": ["j", "j"]
+    }
+  ],
+  "vim.leader": "<space>",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "after": ["d", "d"],
+      "before": ["<leader>", "d"]
+    },
+    {
+      "before": ["<C-n>"],
+      "commands": [":nohl"]
+    },
+    {
+      "before": ["K"],
+      "commands": ["lineBreakInsert"],
+      "silent": true
+    }
+  ],
+  "vim.statusBarColorControl": true,
+  "vim.statusBarColors.commandlineinprogress": "#007ACC",
+  "vim.statusBarColors.easymotioninputmode": "#007ACC",
+  "vim.statusBarColors.easymotionmode": "#007ACC",
+  "vim.statusBarColors.insert": "#BF616A",
+  "vim.statusBarColors.normal": ["#8FBCBB", "#434C5E"],
+  "vim.statusBarColors.replace": "#D08770",
+  "vim.statusBarColors.searchinprogressmode": "#007ACC",
+  "vim.statusBarColors.surroundinputmode": "#007ACC",
+  "vim.statusBarColors.visual": "#B48EAD",
+  "vim.statusBarColors.visualblock": "#A3BE8C",
+  "vim.statusBarColors.visualline": "#B48EAD",
+  "vim.useCtrlKeys": true,
+  "vim.useSystemClipboard": true,
+  // VSCode Markdown Notes
+  "vscodeMarkdownNotes.allowPipedWikiLinks": true,
+  "vscodeMarkdownNotes.lowercaseNewNoteFilenames": false,
+  "vscodeMarkdownNotes.newNoteTemplate": "## ${noteName}",
+  "vscodeMarkdownNotes.slugifyCharacter": "NONE",
+  // Window
+  "window.commandCenter": true,
+  // Workbench
+  "workbench.colorTheme": "One Dark Pro Darker",
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.highlightModifiedTabs": true,
+  "workbench.editor.pinnedTabSizing": "compact",
+  "workbench.editorAssociations": {
+    "*.plist": "default"
+  },
+  "workbench.experimental.cloudChanges.autoStore": "onShutdown",
+  "workbench.fontAliasing": "antialiased",
+  "workbench.productIconTheme": "fluent-icons",
+  "workbench.settings.useSplitJSON": true,
+  "workbench.sideBar.location": "right",
+  "workbench.startupEditor": "none",
+  "workbench.tree.indent": 4,
+  "workbench.tree.renderIndentGuides": "always",
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#8FBCBB",
+    "statusBar.noFolderBackground": "#8FBCBB",
+    "statusBar.debuggingBackground": "#8FBCBB",
+    "statusBar.foreground": "#434C5E",
+    "statusBar.debuggingForeground": "#434C5E"
   }
+}
