@@ -1,3 +1,4 @@
 ---
-"workspace:toggle_navigation_palette": cmd-p
 "workspace:toggle_command_palette": shift-cmd-P
+"workspace:open_warp_drive": none
+"workspace:toggle_navigation_palette": cmd-p
