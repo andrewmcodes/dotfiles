@@ -19,16 +19,22 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": false
   },
+  "[properties]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
   "[ruby]": {
     "editor.defaultFormatter": "Shopify.ruby-lsp",
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
-    "editor.tabSize": 2,
     "editor.insertSpaces": true,
-    "editor.semanticHighlighting.enabled": true
+    "editor.semanticHighlighting.enabled": true,
+    "editor.tabSize": 2
   },
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -186,13 +192,13 @@
     "**/.bridgetown-cache/**": true,
     "**/.bridgetown-webpack/**": true,
     "**/.frontmatter/**": true,
-    "**/.vercel/**": true,
-    ".torchlight-cache": true,
-    "rails.rb": true,
-    "**/.trunk/*out/": true,
     "**/.trunk/*actions/": true,
     "**/.trunk/*logs/": true,
-    "**/.trunk/*plugins/": true
+    "**/.trunk/*out/": true,
+    "**/.trunk/*plugins/": true,
+    "**/.vercel/**": true,
+    ".torchlight-cache": true,
+    "rails.rb": true
   },
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
@@ -200,15 +206,15 @@
   "files.watcherExclude": {
     "**/.bridgetown-cache/**": true,
     "**/.bridgetown-webpack/**": true,
+    "**/.trunk/*actions/": true,
+    "**/.trunk/*logs/": true,
+    "**/.trunk/*out/": true,
+    "**/.trunk/*plugins/": true,
     "**/node_modules/**": true,
     "**/tmp/**": true,
     ".torchlight-cache": true,
     "build": true,
-    "deploy": true,
-    "**/.trunk/*out/": true,
-    "**/.trunk/*actions/": true,
-    "**/.trunk/*logs/": true,
-    "**/.trunk/*plugins/": true
+    "deploy": true
   },
   // Git
   "git.allowForcePush": true,
@@ -238,6 +244,7 @@
     }
   ],
   // GitLens
+  "gitlens.blame.ignoreWhitespace": true,
   "gitlens.codeLens.enabled": false,
   "gitlens.currentLine.enabled": false,
   "gitlens.hovers.currentLine.over": "line",
@@ -315,6 +322,8 @@
   // Ruby LSP
   "rubyLsp.enabledFeatures": {
     "codeActions": false,
+    "codeLens": false,
+    "completion": true,
     "diagnostics": false,
     "documentHighlights": true,
     "documentLink": true,
@@ -325,14 +334,12 @@
     "inlayHint": true,
     "onTypeFormatting": true,
     "selectionRanges": true,
-    "semanticHighlighting": true,
-    "completion": true,
-    "codeLens": false
+    "semanticHighlighting": true
   },
   "rubyLsp.enableExperimentalFeatures": true,
+  "rubyLsp.formatter": "none",
   "rubyLsp.rubyVersionManager": "asdf",
   "rubyLsp.yjit": false,
-  "rubyLsp.formatter": "none",
   // SCSS
   "scss.validate": false,
   // Search
@@ -355,6 +362,8 @@
   },
   // Security
   "security.workspace.trust.untrustedFiles": "open",
+  // Shell Format
+  "shellformat.path": "/opt/homebrew/bin/shfmt",
   // Standard Ruby
   "standardRuby.commandPath": "${userHome}/.asdf/shims/standardrb",
   "standardRuby.mode": "enableUnconditionally",
