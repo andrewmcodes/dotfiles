@@ -30,24 +30,24 @@ function gg() {
 }
 
 alias g='git'
-alias gco='git checkout'
-alias gm='git checkout main'
-alias gl='git pull'
-alias gs='git status'
-alias gp='git push'
-alias gpf='git push --force-with-lease'
-alias gup='git pull --rebase'
-alias gc='git commit'
-alias gcm='git commit -m'
-alias gci='git commit -m "chore: initial commit"'
-alias gup='git pull --rebase'
-alias gupm='git pull --rebase origin main'
-alias grbc='git rebase --continue'
 alias gb9='git for-each-ref --sort=-committerdate --count=9 --format='\''%(refname:short)'\'' refs/heads/'
 alias gbd='git branch -d'
 alias gbl='git branch -l'
-alias gwip="git add -A; git commit -m 'chore(wip): save wip'"
+alias gc='git commit'
+alias gci='git commit -m "chore: initial commit"'
+alias gcm='git commit -m'
+alias gco='git checkout'
+alias gl='git pull'
+alias gm='git checkout main'
+alias gp='git push'
+alias gpf='git push --force-with-lease'
+alias grbc='git rebase --continue'
+alias gs='git status'
 alias gundo="git reset --soft HEAD~1"
+alias gup='git pull --rebase'
+alias gup='git pull --rebase'
+alias gupm='git pull --rebase origin main'
+alias gwip="git add -A; git commit -m 'chore(wip): save wip'"
 
 # VS Code
 alias c='code .'
