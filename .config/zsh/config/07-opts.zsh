@@ -25,3 +25,9 @@ setopt GLOB_STAR_SHORT
 
 # Sort numbers numerically, not lexicographically.
 setopt NUMERIC_GLOB_SORT
+
+# Disable mail checking
+setopt no_mailwarn
+
+# TODO: Disable automatic pushd when changing directories. This can improve performance when changing directories frequently, but I am not sure if I actually want this.
+# setopt no_auto_pushd

@@ -16,10 +16,10 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=( main brackets )
 # -a sets the variable's type to array.
 local -a plugins=(
   asdf-vm/asdf
+  marlonrichert/zcolors             # Colors for completions and Git
   marlonrichert/zsh-autocomplete    # Real-time type-ahead completion. https://github.com/marlonrichert/zsh-autocomplete
   agkozak/zsh-z                     # Quickly jump to previously visited directories.
   marlonrichert/zsh-hist            # Edit history from the command line.
-  marlonrichert/zcolors             # Colors for completions and Git
   zsh-users/zsh-autosuggestions     # Inline suggestions. https://github.com/zsh-users/zsh-autosuggestions
   zsh-users/zsh-syntax-highlighting # Command-line syntax highlighting
 )
@@ -39,23 +39,30 @@ for p in $plugins; do
   znap source $p
 done
 
-# znap source ~/.config/op/plugins.sh
-
+# Lazy load the functions that we use most often.
 autoload -Uz pg_switch
 autoload -Uz init
 autoload -Uz mkcd
 autoload -Uz toggle_desktop_icons
 autoload -Uz update_shell
 autoload -Uz ghlabels
+autoload -Uz os
+autoload -Uz gg
+autoload -Uz colormap
+autoload -Uz zsh-list-keybindings
+
+if [[ $VENDOR == apple ]]; then
+  autoload -Uz trash
+fi
 
 # `znap eval <name> '<command>'` is like `eval "$( <command> )"` but with
 # caching and compilation of <command>'s output, making it ~10 times faster.
 # znap eval zcolors "zcolors ${(q)LS_COLORS}"
-znap eval zcolors zcolors
+# znap eval zcolors zcolors
+znap eval zcolors "zcolors ${(q)LS_COLORS}"
 
 znap function _fuck fuck 'eval "$(thefuck --alias)"'
 compctl -K _fuck fuck
 
 znap eval direnv "asdf exec $(asdf which direnv) hook zsh"
-# Add GitHub CoPilot CLI Aliases
 znap eval github-copilot-cli 'github-copilot-cli alias -- zsh'
