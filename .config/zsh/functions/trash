@@ -1,0 +1,14 @@
+#!/usr/bin/env zsh
+
+function trash() {
+    local -aU items=( $^@(N) )
+    local -aU missing=( ${@:|items} )
+    (( $#missing )) &&
+        print -u2 "trash: no such file(s): $missing"
+    (( $#items )) ||
+        return 66
+    print Moving $( eval ls -d -- ${(q)items[@]%/} ) to Trash.
+    items=( '(POSIX file "'${^items[@]:a}'")' )
+    osascript -e 'tell application "Finder" to delete every item of {'${(j:, :)items}'}' \
+        > /dev/null
+  }

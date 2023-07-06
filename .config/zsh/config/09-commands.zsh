@@ -10,44 +10,37 @@
 # shell complaining about the pasted prompt symbol.
 alias %= \$=
 
-# Bat
-alias cat="bat"
+alias cat="bat"            # Use bat by default
+alias ls="exa"             # Use exa by default
+alias ll='exa -l'          # List files in long format
+alias la='exa -la'         # List all files, including hidden files
+alias lt='exa -lt'         # List files sorted by modification time
+alias lr='exa -lr'         # List files in reverse order
+alias tree='exa --tree'    # Display directory tree
 
-# Git
-
-# Stages all changes and creates a new commit in Git with the given message.
-# Usage: gg "Commit message"
-function gg() {
-  if ! git add .; then
-    echo "Failed to stage changes."
-    return 1
-  fi
-
-  if ! git commit -m "$1"; then
-    echo "Failed to create commit."
-    return 1
-  fi
-}
-
+# Aliases for Git commands
 alias g='git'
-alias gb9='git for-each-ref --sort=-committerdate --count=9 --format='\''%(refname:short)'\'' refs/heads/'
-alias gbd='git branch -d'
-alias gbl='git branch -l'
+alias ga='git add'
 alias gc='git commit'
-alias gci='git commit -m "chore: initial commit"'
 alias gcm='git commit -m'
 alias gco='git checkout'
-alias gl='git pull'
-alias gm='git checkout main'
+alias gd='git diff'
+alias gl='git log'
 alias gp='git push'
 alias gpf='git push --force-with-lease'
+alias gr='git rebase'
 alias grbc='git rebase --continue'
 alias gs='git status'
-alias gundo="git reset --soft HEAD~1"
-alias gup='git pull --rebase'
+alias gpl='git pull'
 alias gup='git pull --rebase'
 alias gupm='git pull --rebase origin main'
-alias gwip="git add -A; git commit -m 'chore(wip): save wip'"
+
+# Other Git aliases
+alias gb='git branch'
+alias gbd='git branch -d'
+alias gb9='git for-each-ref --sort=-committerdate --count=9 --format='\''%(refname:short)'\'' refs/heads/'
+alias gwip="git add -A; git commit -m 'WIP!'"
+alias gundo="git reset --soft HEAD~1"
 
 # VS Code
 alias c='code .'
@@ -67,16 +60,6 @@ alias ya='yarn add'
 alias redis_start='redis-server --daemonize yes'
 
 # Overmind
-# alias os="overmind start -f Procfile.andrew -D -p 3000 -P 1"
-# alias osf="overmind start -f Procfile.andrew -p 3000 -P 1"
-os() {
-  if [ -f Procfile.andrew ]; then
-    overmind start --any-can-die -f Procfile.andrew -D -p 3000 -P 1
-  else
-    overmind start --any-can-die -f Procfile.dev -D -p 3000 -P 1
-  fi
-}
-
 alias oc="overmind connect"
 alias ocw="overmind connect web"
 alias ok="overmind kill"
@@ -89,18 +72,6 @@ alias '..'='cd ..'
 alias '...'='cd cd ../..'
 alias '....'='cd ../../'
 
-# Rails
-function rails() {
-  if [[ -f bin/rails ]]; then
-    bin/rails $@
-  elif [[ -f Gemfile && -f Gemfile.lock ]]; then
-    bundle exec rails $@
-  elif [[ -n $(which rails) ]]; then
-    command rails $@
-  else
-    echo "Rails not found"
-  fi
-}
 
 alias r='rails'
 alias rc='rails console'
@@ -184,20 +155,7 @@ READNULLCMD=$PAGER
 
 # Safer alternatives to `rm`
 if [[ $VENDOR == apple ]]; then
-  trash() {
-    local -aU items=( $^@(N) )
-    local -aU missing=( ${@:|items} )
-    (( $#missing )) &&
-        print -u2 "trash: no such file(s): $missing"
-    (( $#items )) ||
-        return 66
-    print Moving $( eval ls -d -- ${(q)items[@]%/} ) to Trash.
-    items=( '(POSIX file "'${^items[@]:a}'")' )
-    osascript -e 'tell application "Finder" to delete every item of {'${(j:, :)items}'}' \
-        > /dev/null
-  }
+  alias rm='trash'
+else
+  alias rm='rm --preserve-root'
 fi
-
-function colormap() {
-  for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
-}
