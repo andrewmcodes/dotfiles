@@ -14,9 +14,19 @@ alias %= \$=
 alias cat="bat"
 
 # Git
+
+# Stages all changes and creates a new commit in Git with the given message.
+# Usage: gg "Commit message"
 function gg() {
-  git add .
-  git commit -m "$1"
+  if ! git add .; then
+    echo "Failed to stage changes."
+    return 1
+  fi
+
+  if ! git commit -m "$1"; then
+    echo "Failed to create commit."
+    return 1
+  fi
 }
 
 alias g='git'
@@ -36,7 +46,7 @@ alias grbc='git rebase --continue'
 alias gb9='git for-each-ref --sort=-committerdate --count=9 --format='\''%(refname:short)'\'' refs/heads/'
 alias gbd='git branch -d'
 alias gbl='git branch -l'
-alias gwip="git add -A; git commit -m 'WIP!'"
+alias gwip="git add -A; git commit -m 'chore(wip): save wip'"
 alias gundo="git reset --soft HEAD~1"
 
 # VS Code
