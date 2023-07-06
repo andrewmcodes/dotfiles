@@ -20,8 +20,12 @@
     "editor.formatOnSave": false
   },
   "[ruby]": {
-    "editor.defaultFormatter": "testdouble.vscode-standard-ruby",
-    "editor.formatOnSave": true
+    "editor.defaultFormatter": "Shopify.ruby-lsp",
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.semanticHighlighting.enabled": true
   },
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -51,6 +55,14 @@
     {
       "codicon": "extensions-view-icon",
       "name": "extensions"
+    },
+    {
+      "codicon": "github-alt",
+      "name": "github-pull-requests"
+    },
+    {
+      "codicon": "symbol-snippet",
+      "name": "pieces-explorer-activity-bar"
     }
   ],
   // advancedNewFile
@@ -66,50 +78,63 @@
   },
   "advancedNewFile.showInformationMessages": true,
   // breadcrumbs
-  "breadcrumbs.enabled": true,
-  "breadcrumbs.showArrays": false,
-  "breadcrumbs.showBooleans": false,
-  "breadcrumbs.showClasses": false,
-  "breadcrumbs.showConstants": false,
-  "breadcrumbs.showConstructors": false,
-  "breadcrumbs.showEnumMembers": false,
-  "breadcrumbs.showEnums": false,
-  "breadcrumbs.showEvents": false,
-  "breadcrumbs.showFields": false,
-  "breadcrumbs.showFiles": false,
-  "breadcrumbs.showFunctions": false,
-  "breadcrumbs.showInterfaces": false,
-  "breadcrumbs.showKeys": false,
-  "breadcrumbs.showMethods": false,
-  "breadcrumbs.showModules": false,
-  "breadcrumbs.showNamespaces": false,
-  "breadcrumbs.showNull": false,
-  "breadcrumbs.showNumbers": false,
-  "breadcrumbs.showObjects": false,
-  "breadcrumbs.showOperators": false,
-  "breadcrumbs.showPackages": false,
-  "breadcrumbs.showProperties": false,
-  "breadcrumbs.showStrings": false,
-  "breadcrumbs.showStructs": false,
-  "breadcrumbs.showTypeParameters": false,
-  "breadcrumbs.showVariables": false,
+  "breadcrumbs.enabled": false,
+  // Uncomment to disable on individual level
+  // "breadcrumbs.showArrays": false,
+  // "breadcrumbs.showBooleans": false,
+  // "breadcrumbs.showClasses": false,
+  // "breadcrumbs.showConstants": false,
+  // "breadcrumbs.showConstructors": false,
+  // "breadcrumbs.showEnumMembers": false,
+  // "breadcrumbs.showEnums": false,
+  // "breadcrumbs.showEvents": false,
+  // "breadcrumbs.showFields": false,
+  // "breadcrumbs.showFiles": false,
+  // "breadcrumbs.showFunctions": false,
+  // "breadcrumbs.showInterfaces": false,
+  // "breadcrumbs.showKeys": false,
+  // "breadcrumbs.showMethods": false,
+  // "breadcrumbs.showModules": false,
+  // "breadcrumbs.showNamespaces": false,
+  // "breadcrumbs.showNull": false,
+  // "breadcrumbs.showNumbers": false,
+  // "breadcrumbs.showObjects": false,
+  // "breadcrumbs.showOperators": false,
+  // "breadcrumbs.showPackages": false,
+  // "breadcrumbs.showProperties": false,
+  // "breadcrumbs.showStrings": false,
+  // "breadcrumbs.showStructs": false,
+  // "breadcrumbs.showTypeParameters": false,
+  // "breadcrumbs.showVariables": false,
   // CSS
   "css.validate": false,
   // Diff Editor
   "diffEditor.diffAlgorithm": "advanced",
   "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.renderSideBySide": false,
   // Editor
   "editor.accessibilitySupport": "off",
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "editor.copyWithSyntaxHighlighting": false,
+  "editor.defaultColorDecorators": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.emptySelectionClipboard": false,
   "editor.fontFamily": "'JetBrains Mono', Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
+  "editor.fontSize": 12,
   "editor.formatOnPaste": false,
   "editor.formatOnSave": false,
   "editor.formatOnSaveMode": "modificationsIfAvailable",
   "editor.formatOnType": false,
-  "editor.guides.bracketPairs": "active",
+  "editor.gotoLocation.multipleDeclarations": "goto",
+  "editor.gotoLocation.multipleDefinitions": "goto",
+  "editor.gotoLocation.multipleImplementations": "goto",
+  "editor.gotoLocation.multipleReferences": "goto",
+  "editor.gotoLocation.multipleTypeDefinitions": "goto",
+  "editor.guides.bracketPairs": true,
+  "editor.hideCursorInOverviewRuler": true,
   "editor.inlineSuggest.enabled": true,
-  "editor.lineHeight": 1.875,
+  "editor.lineHeight": 22,
   "editor.lineNumbers": "relative",
   "editor.linkedEditing": true,
   "editor.minimap.enabled": false,
@@ -119,6 +144,8 @@
     "other": "on",
     "strings": "on"
   },
+  "editor.renderControlCharacters": false,
+  "editor.renderLineHighlight": "none",
   "editor.rulers": [120],
   "editor.semanticHighlighting.enabled": true,
   "editor.snippetSuggestions": "top",
@@ -129,7 +156,8 @@
   "editor.wordWrapColumn": 120,
   // Emmet
   "emmet.includeLanguages": {
-    "erb": "html"
+    "erb": "html",
+    "html-erb": "html"
   },
   "emmet.showSuggestionsAsSnippets": true,
   // ERB
@@ -139,6 +167,7 @@
   "explorer.confirmDragAndDrop": false,
   "explorer.excludeGitIgnore": true,
   "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
     "*.rb": "${capture}.*erb, ${capture}_controller.js",
     "Gemfile": "Gemfile.lock, Gemfile_next.lock"
@@ -259,6 +288,7 @@
   "notebook.lineNumbers": "on",
   // NPM
   "npm.enableRunFromFolder": true,
+  "obsidianmd.vaultPath": "~/git/andrewmcodes/digital-brain",
   // Peacock
   "peacock.favoriteColors": [
     {
@@ -276,10 +306,8 @@
   "redhat.telemetry.enabled": false,
   // Ruby LSP
   "rubyLsp.enabledFeatures": {
-    "codeActions": true,
-    "codeLens": false,
-    "completion": true,
-    "diagnostics": true,
+    "codeActions": false,
+    "diagnostics": false,
     "documentHighlights": true,
     "documentLink": true,
     "documentSymbols": true,
@@ -289,12 +317,14 @@
     "inlayHint": true,
     "onTypeFormatting": true,
     "selectionRanges": true,
-    "semanticHighlighting": true
+    "semanticHighlighting": true,
+    "completion": true,
+    "codeLens": false
   },
   "rubyLsp.enableExperimentalFeatures": true,
-  "rubyLsp.formatter": "none",
   "rubyLsp.rubyVersionManager": "asdf",
   "rubyLsp.yjit": false,
+  "rubyLsp.formatter": "none",
   // SCSS
   "scss.validate": false,
   // Search
@@ -341,13 +371,13 @@
   "telemetry.telemetryLevel": "off",
   // Terminal
   "terminal.external.osxExec": "Warp.app",
-  "terminal.integrated.altClickMovesCursor": false,
   "terminal.integrated.copyOnSelection": true,
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.detectLocale": "on",
+  "terminal.integrated.enableBell": true,
   "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font'",
-  "terminal.integrated.fontSize": 12,
-  "terminal.integrated.lineHeight": 1.125,
+  "terminal.integrated.fontSize": 11,
+  "terminal.integrated.lineHeight": 1.2,
   "terminal.integrated.macOptionClickForcesSelection": true,
   "terminal.integrated.macOptionIsMeta": true,
   "terminal.integrated.smoothScrolling": true,
@@ -389,18 +419,6 @@
       "silent": true
     }
   ],
-  "vim.statusBarColorControl": true,
-  "vim.statusBarColors.commandlineinprogress": "#007ACC",
-  "vim.statusBarColors.easymotioninputmode": "#007ACC",
-  "vim.statusBarColors.easymotionmode": "#007ACC",
-  "vim.statusBarColors.insert": "#BF616A",
-  "vim.statusBarColors.normal": ["#8FBCBB", "#434C5E"],
-  "vim.statusBarColors.replace": "#D08770",
-  "vim.statusBarColors.searchinprogressmode": "#007ACC",
-  "vim.statusBarColors.surroundinputmode": "#007ACC",
-  "vim.statusBarColors.visual": "#B48EAD",
-  "vim.statusBarColors.visualblock": "#A3BE8C",
-  "vim.statusBarColors.visualline": "#B48EAD",
   "vim.useCtrlKeys": true,
   "vim.useSystemClipboard": true,
   // VSCode Markdown Notes
@@ -410,8 +428,8 @@
   "vscodeMarkdownNotes.slugifyCharacter": "NONE",
   // Window
   "window.commandCenter": true,
-  // Workbench
-  "workbench.colorTheme": "One Dark Pro Darker",
+  "window.newWindowDimensions": "inherit",
+  "workbench.colorTheme": "Spinel",
   "workbench.editor.enablePreview": false,
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.pinnedTabSizing": "compact",
@@ -419,18 +437,13 @@
     "*.plist": "default"
   },
   "workbench.experimental.cloudChanges.autoStore": "onShutdown",
-  "workbench.fontAliasing": "antialiased",
+  "workbench.fontAliasing": "auto",
+  "workbench.iconTheme": "file-icons",
   "workbench.productIconTheme": "fluent-icons",
-  "workbench.settings.useSplitJSON": true,
+  "workbench.settings.useSplitJSON": false,
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "none",
   "workbench.tree.indent": 4,
   "workbench.tree.renderIndentGuides": "always",
-  "workbench.colorCustomizations": {
-    "statusBar.background": "#8FBCBB",
-    "statusBar.noFolderBackground": "#8FBCBB",
-    "statusBar.debuggingBackground": "#8FBCBB",
-    "statusBar.foreground": "#434C5E",
-    "statusBar.debuggingForeground": "#434C5E"
-  }
+  "workbench.activityBar.visible": false
 }
