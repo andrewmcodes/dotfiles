@@ -108,6 +108,8 @@ alias rrg='rails routes -g'
 alias hk="heroku"
 alias hkc="heroku config"
 alias hrc=" heroku run rails c"
+## Courtesty of @wafflewitch
+alias hrrcap='heroku run rails c -a podia -- -- --noautocomplete'
 
 # LS
 alias la='ls -A'
