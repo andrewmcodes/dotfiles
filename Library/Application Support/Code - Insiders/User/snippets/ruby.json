@@ -1,0 +1,28 @@
+{
+  "component": {
+    "prefix": "component",
+    "description": "Create a ViewComponent",
+    "body": [
+      "class $1 < BaseComponent",
+      "  def after_init",
+      "    @$2 = @kwargs.fetch(:$2, $3)",
+      "  end",
+      "",
+      "  def call",
+      "    tag.div class: classes, \"data-$2\": $2 do",
+      "      yield",
+      "    end",
+      "  end",
+      "",
+      "  private",
+      "",
+      "  attr_reader :$2",
+      "",
+      "  def classes",
+      "    cx(\"data-[$2=$3]:h-3\")",
+      "  end",
+      "end",
+      ""
+    ]
+  }
+}
