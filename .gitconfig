@@ -3,9 +3,13 @@ name = Andrew Mason
 email = andrewmcodes@protonmail.com
 signingkey = EDF0D4B849DE7D4F
 
+[color]
+ui = auto
+
 [core]
 excludesfile = ~/.gitignore_global
 editor = code-insiders --wait
+pager = less -R
 
 [alias]
 tags = tag -l
@@ -15,57 +19,6 @@ hist = log --graph --pretty=format:'%Cred%h%Creset %s%C(yellow)%d%Creset %Cgreen
 c = commit
 s = status -s
 ch = checkout
-
-[color]
-	ui = auto
-# branch.current = 6 normal reverse
-# branch.local = 6 normal
-# branch.remote = 5 normal
-# branch.plain = 6 normal
-# branch.upstream = 5 normal
-# diff.meta = normal italic
-# diff.frag = normal dim
-# diff.old = 1 normal
-# diff.new = 10 normal
-# diff.commit = 3 normal
-# diff.newMoved = 11 normal
-# diff.oldMovedAlternativeDimmed = 4 normal dim
-# diff.oldMovedAlternative = 4 normal
-# diff.contextBold = normal bold
-# diff.newBold = 10 normal bold
-# diff.context = normal
-# diff.oldMoved = 3 normal
-# diff.oldBold = 1 normal bold
-# diff.newMovedDimmed = 11 normal dim
-# diff.func = 10 normal dim
-# diff.newDimmed = 10 normal dim
-# diff.newMovedAlternative = 12 normal
-# diff.newMovedAlternativeDimmed = 12 normal dim
-# diff.whitespace = normal 9
-# status.added = 10 normal
-# status.changed = 11 normal
-# status.untracked = normal dim
-# status.branch = 6 normal
-# status.updated = 10 normal
-# status.localbranch = 6 normal
-# status.header = normal
-# status.remotebranch = 5 normal
-# status.nobranch = 1 normal italic
-# status.unmerged = 9 normal
-# remote.hint = normal dim
-# remote.success = 2 normal
-# remote.error = 1 normal
-# remote.warning = 3 normal
-# interactive.header = normal dim bold
-# interactive.prompt = 15 4
-# interactive.help = normal dim
-# interactive.error = 1 normal italic
-# decorate.branch = 6 normal
-# decorate.tag = 3 normal
-# decorate.remotebranch = 5 normal
-# decorate.stash = normal dim
-# decorate.grafted = 1 normal italic
-# decorate.HEAD = 6 normal italic
 
 [push]
 default = simple
@@ -80,6 +33,9 @@ rebase = true
 
 [credential]
 helper = cache --timeout=86400
+
+[fetch]
+prune = true
 
 [maintenance]
 repo = /Users/andrew.mason/git/plugins/asdf
@@ -124,64 +80,3 @@ repo = /Users/andrew.mason/git/plugins/marlonrichert/zsh-hist
 repo = /Users/andrew.mason/git/plugins/sindresorhus/pure
 repo = /Users/andrew.mason/git/plugins/zsh-users/zsh-autosuggestions
 repo = /Users/andrew.mason/git/plugins/zsh-users/zsh-syntax-highlighting
-
-[fetch]
-prune = true
-[color "status"]
-	branch = 6 normal
-	added = 10 normal
-	updated = 10 normal
-	localbranch = 6 normal
-	changed = 11 normal
-	header = normal
-	remotebranch = 5 normal
-	nobranch = 1 normal italic
-	unmerged = 9 normal
-	untracked = normal dim
-[color "branch"]
-	plain = 6 normal
-	remote = 5 normal
-	current = 6 normal reverse
-	local = 6 normal
-	upstream = 5 normal
-[color "remote"]
-	hint = normal dim
-	success = 2 normal
-	error = 1 normal
-	warning = 3 normal
-[color "interactive"]
-	header = normal dim bold
-	prompt = 15 4
-	help = normal dim
-	error = 1 normal italic
-[color "diff"]
-	commit = 3 normal
-	newMoved = 11 normal
-	oldMovedAlternativeDimmed = 4 normal dim
-	frag = normal dim
-	oldMovedAlternative = 4 normal
-	contextBold = normal bold
-	newBold = 10 normal bold
-	context = normal
-	oldMoved = 3 normal
-	oldBold = 1 normal bold
-	newMovedDimmed = 11 normal dim
-	func = 10 normal dim
-	meta = normal italic
-	newDimmed = 10 normal dim
-	newMovedAlternative = 12 normal
-	new = 10 normal
-	newMovedAlternativeDimmed = 12 normal dim
-	whitespace = normal 9
-	oldMovedDimmed = 3 normal dim
-	oldDimmed = 1 normal dim
-	old = 1 normal
-[color "decorate"]
-	branch = 6 normal
-	tag = 3 normal
-	remotebranch = 5 normal
-	stash = normal dim
-	grafted = 1 normal italic
-	HEAD = 6 normal italic
-[diff]
-	colorMoved = zebra
