@@ -188,7 +188,11 @@
     "**/.frontmatter/**": true,
     "**/.vercel/**": true,
     ".torchlight-cache": true,
-    "rails.rb": true
+    "rails.rb": true,
+    "**/.trunk/*out/": true,
+    "**/.trunk/*actions/": true,
+    "**/.trunk/*logs/": true,
+    "**/.trunk/*plugins/": true
   },
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
@@ -200,7 +204,11 @@
     "**/tmp/**": true,
     ".torchlight-cache": true,
     "build": true,
-    "deploy": true
+    "deploy": true,
+    "**/.trunk/*out/": true,
+    "**/.trunk/*actions/": true,
+    "**/.trunk/*logs/": true,
+    "**/.trunk/*plugins/": true
   },
   // Git
   "git.allowForcePush": true,
@@ -444,6 +452,5 @@
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "none",
   "workbench.tree.indent": 4,
-  "workbench.tree.renderIndentGuides": "always",
-  "workbench.activityBar.visible": false
+  "workbench.tree.renderIndentGuides": "always"
 }
