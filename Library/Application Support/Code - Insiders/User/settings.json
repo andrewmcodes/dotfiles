@@ -83,9 +83,74 @@
     "tmp": true
   },
   "advancedNewFile.showInformationMessages": true,
+  "better-comments.tags": [
+    {
+      "backgroundColor": "transparent",
+      "bold": false,
+      "color": "#FF2D00",
+      "italic": false,
+      "strikethrough": false,
+      "tag": "!",
+      "underline": false
+    },
+    {
+      "backgroundColor": "transparent",
+      "bold": false,
+      "color": "#3498DB",
+      "italic": false,
+      "strikethrough": false,
+      "tag": "?",
+      "underline": false
+    },
+    {
+      "backgroundColor": "transparent",
+      "bold": false,
+      "color": "#474747",
+      "italic": false,
+      "strikethrough": true,
+      "tag": "~",
+      "underline": false
+    },
+    {
+      "backgroundColor": "transparent",
+      "bold": false,
+      "color": "#FF8C00",
+      "italic": false,
+      "strikethrough": false,
+      "tag": "todo",
+      "underline": false
+    },
+    {
+      "backgroundColor": "transparent",
+      "bold": false,
+      "color": "#98C379",
+      "italic": false,
+      "strikethrough": false,
+      "tag": "*",
+      "underline": false
+    },
+    {
+      "backgroundColor": "transparent",
+      "bold": false,
+      "color": "#f5d90a",
+      "italic": false,
+      "strikethrough": false,
+      "tag": "¬",
+      "underline": false
+    },
+    {
+      "backgroundColor": "transparent",
+      "bold": true,
+      "color": "#bf7af0",
+      "italic": false,
+      "strikethrough": false,
+      "tag": "#",
+      "underline": false
+    }
+  ],
   // breadcrumbs
-  "breadcrumbs.enabled": false,
-  // Uncomment to disable on individual level
+  // "breadcrumbs.enabled": false,
+  // // Uncomment to disable on individual level
   // "breadcrumbs.showArrays": false,
   // "breadcrumbs.showBooleans": false,
   // "breadcrumbs.showClasses": false,
