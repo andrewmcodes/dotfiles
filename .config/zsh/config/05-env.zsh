@@ -16,6 +16,8 @@ export DISABLE_SPRING=true
 [[ -f $HOME/.gemrc.local ]] && export GEMRC=$HOME/.gemrc.local
 ## Editor
 export EDITOR="code --wait"
+## Shell
+export SHELL="$HOMEBREW_PREFIX/bin/zsh"
 
 # Path
 export -U PATH path FPATH fpath MANPATH manpath # -U ensures each entry in these is Unique (that is, discards duplicates).
