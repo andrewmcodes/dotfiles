@@ -149,7 +149,7 @@
     }
   ],
   // breadcrumbs
-  // "breadcrumbs.enabled": false,
+  "breadcrumbs.enabled": false,
   // // Uncomment to disable on individual level
   // "breadcrumbs.showArrays": false,
   // "breadcrumbs.showBooleans": false,
