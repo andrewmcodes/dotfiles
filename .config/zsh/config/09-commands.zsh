@@ -16,9 +16,9 @@ autoload -Uz zsh-list-keybindings
 ## Vendor Specific
 if [[ $VENDOR == apple ]]; then
   autoload -Uz trash
-  alias rm="trash"
+  # alias rm="trash"
 else
-  alias rm="rm --preserve-root"
+  # alias rm="rm --preserve-root"
 fi
 
 ## Aliases
