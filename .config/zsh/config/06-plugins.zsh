@@ -39,7 +39,7 @@ done
 #? `znap eval <name> '<command>'` is like `eval "$( <command> )"` but with caching and compilation of <command>'s output
 
 # ¬ https://github.com/marlonrichert/zcolors/tree/main#installation
-znap eval zcolors "zcolors ${(q)LS_COLORS}" # eval zcolors zcolors
+# znap eval zcolors "zcolors ${(q)LS_COLORS}" # eval zcolors zcolors
 # ¬ https://github.com/nvbn/thefuck
 znap function _fuck fuck 'eval "$(thefuck --alias)"'
 compctl -K _fuck fuck
