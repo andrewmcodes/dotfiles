@@ -1,0 +1,24 @@
+acceptedOnly: false
+fallbackTitle: ''
+file: ~/Documents/Webclippings/%date Clipped Page.md
+html: false
+includeComments: false
+includeSource: true
+includeTitle: true
+inlineLinks: false
+metadata: true
+metadataYaml: false
+minUpvotes: 0
+nvAdd: false
+nvUrl: false
+nvuAdd: false
+nvuNotebook: ''
+nvuUrl: false
+paragraphLinks: true
+paste: false
+readability: true
+stdin: false
+titleOnly: false
+unicode: true
+urlOpen: false
+urlTemplate: ''
