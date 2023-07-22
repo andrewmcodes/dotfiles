@@ -24,5 +24,12 @@
       "end",
       ""
     ]
+  },
+  "ffe": {
+    "prefix": "ffe",
+    "description": "Flipper Feature Enabled",
+    "body": [
+      "Flipper.enabled?(:$1)",
+    ]
   }
 }
