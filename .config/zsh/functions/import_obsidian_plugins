@@ -1,0 +1,29 @@
+#!/bin/zsh
+
+PLUGIN_DIR="$HOME/git/andrewmcodes/digital-brain/.obsidian/plugins"
+
+for d in $PLUGIN_DIR/*; do
+  PLUGIN_PATH="$d"
+  MANIFEST_FILE="${PLUGIN_PATH}/manifest.json"
+  if [ -f "$MANIFEST_FILE" ]; then
+    ID=$(jq -r '.id' $MANIFEST_FILE)
+    NAME=$(jq -r '.name' $MANIFEST_FILE)
+    DESCRIPTION=$(jq -r '.description' $MANIFEST_FILE)
+    AUTHOR=$(jq -r '.author' $MANIFEST_FILE)
+    AUTHOR_URL=$(jq -r '.authorUrl' $MANIFEST_FILE)
+    MD_CONTENT="---
+tags: [is/plugin/obsidian, status/using]
+aliases: [""$NAME Obsidian Plugin""]
+---
+
+> [!meta]+
+> - **Name**:: $NAME
+> - **Description**:: $DESCRIPTION
+> - **Author**:: [[$AUTHOR]]
+> - **Link**:: [GitHub]($AUTHOR_URL/$ID)
+> - **Link**:: [Obsidian Plugin Stats](https://obsidian-plugin-stats.vercel.app/plugins/$ID)
+> - **Link**:: [Obsidian](obsidian://show-plugin?id=$ID)"
+
+    echo "$MD_CONTENT" > "$HOME/git/andrewmcodes/digital-brain/app.obsidian.plugin.$ID.md"
+  fi
+done

@@ -12,6 +12,7 @@ autoload -Uz os
 autoload -Uz gg
 autoload -Uz colormap
 autoload -Uz zsh-list-keybindings
+autoload -Uz import_obsidian_plugins
 
 ## Vendor Specific
 if [[ $VENDOR == apple ]]; then
