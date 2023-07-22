@@ -21,4 +21,4 @@ stdin: false
 titleOnly: false
 unicode: true
 urlOpen: true
-urlTemplate: obsidian://new?vault=digital-brain&name=+inbox/webclip.%filename&content=%text
+urlTemplate: obsidian://new?vault=digital-brain&file=%2Binbox%2Fwebclip.%filename&content=%text
