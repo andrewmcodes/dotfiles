@@ -13,7 +13,8 @@ export DISABLE_SPRING=true
 [[ -f $HOME/.gemrc.local ]] && export GEMRC=$HOME/.gemrc.local #? Use a local gemrc if it exists.
 export EDITOR="code --wait"
 export SHELL="$HOMEBREW_PREFIX/bin/zsh"
-
+#* Don’t clear the screen after quitting a manual page
+export MANPAGER="less -X"
 #* Path
 export -U PATH path FPATH fpath MANPATH manpath #? -U ensures each entry in these is Unique (that is, discards duplicates).
 export -UT INFOPATH infopath  #? -T creates a "tied" pair; see below.
