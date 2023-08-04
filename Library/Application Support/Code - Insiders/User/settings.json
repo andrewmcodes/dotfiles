@@ -216,7 +216,7 @@
     "strings": "on"
   },
   "editor.renderControlCharacters": false,
-  "editor.renderLineHighlight": "none",
+  "editor.renderLineHighlight": "gutter",
   "editor.rulers": [120],
   "editor.semanticHighlighting.enabled": true,
   "editor.snippetSuggestions": "top",
@@ -512,7 +512,7 @@
   "window.commandCenter": true,
   "window.newWindowDimensions": "inherit",
   "workbench.colorTheme": "Spinel",
-  "workbench.editor.enablePreview": false,
+  "workbench.editor.enablePreview": true,
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.pinnedTabSizing": "compact",
   "workbench.editorAssociations": {
@@ -526,5 +526,5 @@
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "none",
   "workbench.tree.indent": 4,
-  "workbench.tree.renderIndentGuides": "always"
+  "workbench.tree.renderIndentGuides": "onHover"
 }
