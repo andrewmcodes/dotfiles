@@ -381,7 +381,12 @@
     }
   ],
   // Project Manager
-  "projectManager.git.baseFolders": ["~/git"],
+  "projectManager.git.baseFolders": [
+    "~/git/andrewmcodes",
+    "~/git/work",
+    "~/git/experiments",
+    "~/git/backup"
+  ],
   // Redhat Yaml
   "redhat.telemetry.enabled": false,
   // Ruby LSP
@@ -519,12 +524,12 @@
   },
   "workbench.experimental.cloudChanges.autoStore": "onShutdown",
   "workbench.fontAliasing": "auto",
-  "workbench.iconTheme": "file-icons",
   "workbench.productIconTheme": "fluent-icons",
   "workbench.settings.useSplitJSON": false,
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "none",
   "workbench.tree.indent": 4,
   "workbench.tree.renderIndentGuides": "onHover",
-  "workbench.activityBar.visible": false
+  "workbench.iconTheme": "vscode-great-icons",
+  "workbench.colorTheme": "Andromeda"
 }
