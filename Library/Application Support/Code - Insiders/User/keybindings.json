@@ -181,5 +181,10 @@
   {
     "key": "alt+cmd+b",
     "command": "-workbench.action.toggleAuxiliaryBar"
+  },
+  {
+    "key": "cmd+e",
+    "command": "-editor.action.toggleScreenReaderAccessibilityMode",
+    "when": "accessibilityHelpIsShown"
   }
 ]

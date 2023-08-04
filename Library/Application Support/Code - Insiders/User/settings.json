@@ -511,7 +511,6 @@
   // Window
   "window.commandCenter": true,
   "window.newWindowDimensions": "inherit",
-  "workbench.colorTheme": "Spinel",
   "workbench.editor.enablePreview": true,
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.pinnedTabSizing": "compact",
@@ -526,5 +525,6 @@
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "none",
   "workbench.tree.indent": 4,
-  "workbench.tree.renderIndentGuides": "onHover"
+  "workbench.tree.renderIndentGuides": "onHover",
+  "workbench.activityBar.visible": false
 }
