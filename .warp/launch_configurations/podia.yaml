@@ -5,12 +5,12 @@
 # Open the launch configuration palette to access and open any launch configuration
 #
 # This file defines your launch configuration
-# More on how to do so here: 
+# More on how to do so here:
 # https://docs.warp.dev/features/session-management/launch-configurations
 #
 # All launch configurations are stored under ~/.warp/launch_configurations/
 # Edit them anytime!
-# 
+#
 # You can also add commands that run on-start for your launch configurations like so:
 # ---
 # name: Example with Command
@@ -25,5 +25,19 @@
 name: Podia
 windows:
   - tabs:
-      - layout:
+      - title: Console
+        layout:
+          split_direction: horizontal
+          panes:
+            - cwd: /Users/andrew.mason/git/work/podia
+              commands:
+                - exec: rc
+            - cwd: /Users/andrew.mason/git/work/podia
+              commands:
+                - exec: ci . && gh repo view --web podia/podia
+      - title: Logs
+        layout:
           cwd: /Users/andrew.mason/git/work/podia
+          commands:
+            - exec: "[ -f ./.overmind.sock ] && ocw || (os & sleep 5 && ocw)"
+        color: cyan
