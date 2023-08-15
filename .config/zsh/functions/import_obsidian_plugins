@@ -1,29 +1,49 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
+# This script generates Obsidian plugin metadata files for all plugins in a directory.
+import_obsidian_plugins() {
+
+# Define the directory containing the plugins.
 PLUGIN_DIR="$HOME/git/andrewmcodes/digital-brain/.obsidian/plugins"
 
-for d in $PLUGIN_DIR/*; do
-  PLUGIN_PATH="$d"
-  MANIFEST_FILE="${PLUGIN_PATH}/manifest.json"
-  if [ -f "$MANIFEST_FILE" ]; then
-    ID=$(jq -r '.id' $MANIFEST_FILE)
-    NAME=$(jq -r '.name' $MANIFEST_FILE)
-    DESCRIPTION=$(jq -r '.description' $MANIFEST_FILE)
-    AUTHOR=$(jq -r '.author' $MANIFEST_FILE)
-    AUTHOR_URL=$(jq -r '.authorUrl' $MANIFEST_FILE)
-    MD_CONTENT="---
-tags: [is/plugin/obsidian, status/using]
-aliases: [""$NAME Obsidian Plugin""]
----
+# Loop through each plugin directory.
+for plugin_dir in "$PLUGIN_DIR"/*; do
+  # Get the path to the manifest file.
+  manifest_file="$plugin_dir/manifest.json"
 
-> [!meta]+
-> - **Name**:: $NAME
-> - **Description**:: $DESCRIPTION
-> - **Author**:: [[$AUTHOR]]
-> - **Link**:: [GitHub]($AUTHOR_URL/$ID)
-> - **Link**:: [Obsidian Plugin Stats](https://obsidian-plugin-stats.vercel.app/plugins/$ID)
-> - **Link**:: [Obsidian](obsidian://show-plugin?id=$ID)"
-
-    echo "$MD_CONTENT" > "$HOME/git/andrewmcodes/digital-brain/app.obsidian.plugin.$ID.md"
+  # Check if the manifest file exists.
+  if [ ! -f "$manifest_file" ]; then
+    echo "Manifest file not found: $manifest_file"
+    continue
   fi
+
+  # Parse the manifest file to get the plugin metadata.
+  id=$(jq -r '.id' "$manifest_file")
+  clean_id=${id#obsidian-}
+  name=$(jq -r '.name' "$manifest_file")
+  description=$(jq -r '.description' "$manifest_file")
+  author=$(jq -r '.author' "$manifest_file")
+  author_url=$(jq -r '.authorUrl' "$manifest_file")
+
+  # Generate the metadata file content.
+  md_content=$(printf -- '---
+tags: [is/plugin/obsidian, status/using]
+aliases: ["Obsidian %s Plugin"]
+name: "%s"
+description: "%s"
+author:
+  - "[[%s]]"
+link:
+  - %s/%s
+  - https://obsidian-plugin-stats.vercel.app/plugins/%s
+  - obsidian://show-plugin?id=%s
+---
+' "$name" "$name" "$description" "$author" "$author_url" "$id" "$id")
+
+  # Write the metadata file.
+  md_file="$HOME/git/andrewmcodes/digital-brain/app.obsidian.plugin.$clean_id.md"
+  echo "Creating $md_file"
+  echo "$md_content" >| "$md_file"
 done
+
+}
