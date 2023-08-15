@@ -516,6 +516,7 @@
   // Window
   "window.commandCenter": true,
   "window.newWindowDimensions": "inherit",
+  "workbench.activityBar.visible": false,
   "workbench.editor.enablePreview": true,
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.pinnedTabSizing": "compact",
@@ -524,12 +525,9 @@
   },
   "workbench.experimental.cloudChanges.autoStore": "onShutdown",
   "workbench.fontAliasing": "auto",
+  "workbench.iconTheme": "vs-minimal",
   "workbench.productIconTheme": "fluent-icons",
   "workbench.settings.useSplitJSON": false,
   "workbench.sideBar.location": "right",
-  "workbench.startupEditor": "none",
-  "workbench.tree.indent": 4,
-  "workbench.tree.renderIndentGuides": "onHover",
-  "workbench.iconTheme": "vscode-great-icons",
-  "workbench.colorTheme": "Andromeda"
+  "workbench.startupEditor": "none"
 }
