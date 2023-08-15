@@ -27,14 +27,15 @@
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
     "editor.insertSpaces": true,
+    "editor.rulers": [120],
     "editor.semanticHighlighting.enabled": true,
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true
   },
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[shellscript]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -61,96 +62,9 @@
     {
       "codicon": "extensions-view-icon",
       "name": "extensions"
-    },
-    {
-      "codicon": "github-alt",
-      "name": "github-pull-requests"
-    },
-    {
-      "codicon": "symbol-snippet",
-      "name": "pieces-explorer-activity-bar"
     }
   ],
-  // advancedNewFile
-  "advancedNewFile.convenienceOptions": ["last", "current", "root"],
-  "advancedNewFile.exclude": {
-    ".bridgetown-cache": true,
-    ".torchlight-cache": true,
-    "dist": true,
-    "node_modules": true,
-    "node_modules_electron": true,
-    "output": true,
-    "tmp": true
-  },
-  "advancedNewFile.showInformationMessages": true,
-  "better-comments.tags": [
-    {
-      "backgroundColor": "transparent",
-      "bold": false,
-      "color": "#FF2D00",
-      "italic": false,
-      "strikethrough": false,
-      "tag": "!",
-      "underline": false
-    },
-    {
-      "backgroundColor": "transparent",
-      "bold": false,
-      "color": "#3498DB",
-      "italic": false,
-      "strikethrough": false,
-      "tag": "?",
-      "underline": false
-    },
-    {
-      "backgroundColor": "transparent",
-      "bold": false,
-      "color": "#474747",
-      "italic": false,
-      "strikethrough": true,
-      "tag": "~",
-      "underline": false
-    },
-    {
-      "backgroundColor": "transparent",
-      "bold": false,
-      "color": "#FF8C00",
-      "italic": false,
-      "strikethrough": false,
-      "tag": "todo",
-      "underline": false
-    },
-    {
-      "backgroundColor": "transparent",
-      "bold": false,
-      "color": "#98C379",
-      "italic": false,
-      "strikethrough": false,
-      "tag": "*",
-      "underline": false
-    },
-    {
-      "backgroundColor": "transparent",
-      "bold": false,
-      "color": "#0099ff",
-      "italic": false,
-      "strikethrough": false,
-      "tag": "¬",
-      "underline": false
-    },
-    {
-      "backgroundColor": "transparent",
-      "bold": true,
-      "color": "#bf7af0",
-      "italic": false,
-      "strikethrough": false,
-      "tag": "#",
-      "underline": false
-    }
-  ],
-  // breadcrumbs
   "breadcrumbs.enabled": false,
-  // // Uncomment to disable on individual level
   // "breadcrumbs.showArrays": false,
   // "breadcrumbs.showBooleans": false,
   // "breadcrumbs.showClasses": false,
@@ -182,17 +96,13 @@
   // Diff Editor
   "diffEditor.diffAlgorithm": "advanced",
   "diffEditor.ignoreTrimWhitespace": false,
-  "diffEditor.renderSideBySide": false,
   // Editor
   "editor.accessibilitySupport": "off",
-  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
   "editor.copyWithSyntaxHighlighting": false,
-  "editor.defaultColorDecorators": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.emptySelectionClipboard": false,
   "editor.fontFamily": "'JetBrains Mono', Menlo, Monaco, 'Courier New', monospace",
-  "editor.fontLigatures": true,
   "editor.fontSize": 12,
+  "editor.fontVariations": true,
   "editor.formatOnPaste": false,
   "editor.formatOnSave": false,
   "editor.formatOnSaveMode": "modificationsIfAvailable",
@@ -205,7 +115,7 @@
   "editor.guides.bracketPairs": true,
   "editor.hideCursorInOverviewRuler": true,
   "editor.inlineSuggest.enabled": true,
-  "editor.lineHeight": 22,
+  "editor.lineHeight": 20,
   "editor.lineNumbers": "relative",
   "editor.linkedEditing": true,
   "editor.minimap.enabled": false,
@@ -216,9 +126,8 @@
     "strings": "on"
   },
   "editor.renderControlCharacters": false,
-  "editor.renderLineHighlight": "gutter",
+  "editor.renderLineHighlightOnlyWhenFocus": true,
   "editor.rulers": [120],
-  "editor.semanticHighlighting.enabled": true,
   "editor.snippetSuggestions": "top",
   "editor.suggest.insertMode": "replace",
   "editor.suggest.shareSuggestSelections": true,
@@ -235,10 +144,9 @@
   "erb-formatter.commandPath": "erb-format",
   // Explorer
   "explorer.confirmDelete": false,
-  "explorer.confirmDragAndDrop": false,
-  "explorer.excludeGitIgnore": true,
+  "explorer.confirmDragAndDrop": true,
+  "explorer.excludeGitIgnore": false,
   "explorer.fileNesting.enabled": true,
-  "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
     "*.rb": "${capture}.*erb, ${capture}_controller.js",
     "Gemfile": "Gemfile.lock, Gemfile_next.lock"
@@ -257,13 +165,11 @@
     "**/.bridgetown-cache/**": true,
     "**/.bridgetown-webpack/**": true,
     "**/.frontmatter/**": true,
-    "**/.trunk/*actions/": true,
-    "**/.trunk/*logs/": true,
-    "**/.trunk/*out/": true,
-    "**/.trunk/*plugins/": true,
     "**/.vercel/**": true,
+    "**/app/assets/builds/**": true,
     ".torchlight-cache": true,
-    "rails.rb": true
+    "rails.rb": true,
+    "spec/cassettes": true
   },
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
@@ -271,10 +177,6 @@
   "files.watcherExclude": {
     "**/.bridgetown-cache/**": true,
     "**/.bridgetown-webpack/**": true,
-    "**/.trunk/*actions/": true,
-    "**/.trunk/*logs/": true,
-    "**/.trunk/*out/": true,
-    "**/.trunk/*plugins/": true,
     "**/node_modules/**": true,
     "**/tmp/**": true,
     ".torchlight-cache": true,
@@ -368,7 +270,8 @@
   "notebook.lineNumbers": "on",
   // NPM
   "npm.enableRunFromFolder": true,
-  "obsidianmd.vaultPath": "~/git/andrewmcodes/digital-brain",
+  // Obsidian
+  "obsidianmd.vaultPath": "${userHome}/git/andrewmcodes/digital-brain",
   // Peacock
   "peacock.favoriteColors": [
     {
@@ -381,20 +284,15 @@
     }
   ],
   // Project Manager
-  "projectManager.git.baseFolders": [
-    "~/git/andrewmcodes",
-    "~/git/work",
-    "~/git/experiments",
-    "~/git/backup"
-  ],
+  "projectManager.git.baseFolders": ["${userHome}/git"],
   // Redhat Yaml
   "redhat.telemetry.enabled": false,
   // Ruby LSP
   "rubyLsp.enabledFeatures": {
-    "codeActions": false,
+    "codeActions": true,
     "codeLens": false,
     "completion": true,
-    "diagnostics": false,
+    "diagnostics": true,
     "documentHighlights": true,
     "documentLink": true,
     "documentSymbols": true,
@@ -427,20 +325,16 @@
     "**/tmp": true,
     "**/vendor": true,
     ".torchlight-cache": true,
+    "app/assets/builds": true,
     "CHANGELOG.md": true,
     "rails.rb": true
   },
   // Security
   "security.workspace.trust.untrustedFiles": "open",
-  // Shell Format
-  "shellformat.path": "/opt/homebrew/bin/shfmt",
   // Standard Ruby
   "standardRuby.commandPath": "${userHome}/.asdf/shims/standardrb",
   "standardRuby.mode": "enableUnconditionally",
   // Tailwind
-  "tailwind-fold.autoFold": false,
-  "tailwind-fold.foldStyle": "QUOTES",
-  "tailwind-fold.unfoldIfLineSelected": true,
   "tailwindCSS.classAttributes": [
     "class",
     "className",
@@ -463,12 +357,12 @@
   "terminal.integrated.detectLocale": "on",
   "terminal.integrated.enableBell": true,
   "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font'",
-  "terminal.integrated.fontSize": 11,
   "terminal.integrated.lineHeight": 1.2,
   "terminal.integrated.macOptionClickForcesSelection": true,
   "terminal.integrated.macOptionIsMeta": true,
   "terminal.integrated.smoothScrolling": true,
   "terminal.integrated.tabFocusMode": false,
+  "testExplorer.useNativeTesting": true,
   // TypeScript
   "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
   "typescript.inlayHints.parameterTypes.enabled": true,
@@ -517,17 +411,16 @@
   "window.commandCenter": true,
   "window.newWindowDimensions": "inherit",
   "workbench.activityBar.visible": false,
-  "workbench.editor.enablePreview": true,
+  "workbench.colorTheme": "Spinel",
   "workbench.editor.highlightModifiedTabs": true,
-  "workbench.editor.pinnedTabSizing": "compact",
-  "workbench.editorAssociations": {
-    "*.plist": "default"
-  },
+  "workbench.editor.pinnedTabSizing": "shrink",
   "workbench.experimental.cloudChanges.autoStore": "onShutdown",
+  "workbench.experimental.share.enabled": true,
   "workbench.fontAliasing": "auto",
-  "workbench.iconTheme": "vs-minimal",
+  "workbench.iconTheme": "file-icons",
   "workbench.productIconTheme": "fluent-icons",
-  "workbench.settings.useSplitJSON": false,
+  "workbench.settings.useSplitJSON": true,
   "workbench.sideBar.location": "right",
-  "workbench.startupEditor": "none"
+  "workbench.startupEditor": "none",
+  "workbench.tree.renderIndentGuides": "always"
 }
