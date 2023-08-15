@@ -3,7 +3,6 @@
 ## Environment variables
 
 export OP_BIOMETRIC_UNLOCK_ENABLED=true
-export HOMEBREW_CASK_OPTS="--appdir=/Applications --fontdir=/Library/Fonts --no-quarantine"
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_INSECURE_REDIRECT=1
 export HOMEBREW_COLOR=1
