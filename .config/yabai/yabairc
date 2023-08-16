@@ -34,3 +34,4 @@ yabai -m rule --add app="^BetterTouchTool$" manage=off
 yabai -m rule --add app="^zoom.us$" manage=off
 yabai -m rule --add app="^QuickGPT$" sticky=on
 yabai -m rule --add app="^Shortcuts$" manage=off
+yabai -m rule --add app="^Gems beta$" manage=off
