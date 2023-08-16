@@ -114,6 +114,8 @@
 # open mpv
 # cmd - m : open -na /Applications/mpv.app $(pbpaste)
 
+# Open Podia's Github in Safari
+ctrl + alt - g : open https://github.com/podia/podia/pulls
 # -- Changing Window Focus --
 
 # change window focus within space
