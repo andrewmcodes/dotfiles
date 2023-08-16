@@ -1,9 +1,11 @@
+
 # https://github.com/koekeishiya/yabai/wiki/Configuration#layout
+sudo yabai --load-sa
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
 # Default layout
 # Options: bsp, stack, float
 yabai -m config layout bsp
-
 # Window Placement: New window spawns to the right if vertical split, or bottom if horizontal
 yabai -m config window_placement second_child
 # Config: padding
@@ -11,8 +13,9 @@ yabai -m config top_padding 12
 yabai -m config bottom_padding 12
 yabai -m config left_padding 12
 yabai -m config right_padding 12
+# Window
+yabai -m config window_opacity on
 yabai -m config window_gap 12
-
 # Mouse: Center on window with focus
 yabai -m config mouse_follows_focus on
 # Mouse: modifier for clicking and dragging
@@ -21,7 +24,7 @@ yabai -m config mouse_modifier alt
 yabai -m config mouse_action1 move
 # Mouse: set modifier + right-click drag to resize window
 yabai -m config mouse_action2 resize
-# Mouse: when window is dropped in center of another window, swap them (on edges it will split it)
+# Mouse: when window is dropped in center of another window, swap them
 yabai -m mouse_drop_action swap
 
 # Rules
@@ -29,4 +32,5 @@ yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^BetterTouchTool$" manage=off
 yabai -m rule --add app="^zoom.us$" manage=off
-yabai -m rule --add app="^QuickGPT$" manage=off
+yabai -m rule --add app="^QuickGPT$" sticky=on
+yabai -m rule --add app="^Shortcuts$" manage=off
