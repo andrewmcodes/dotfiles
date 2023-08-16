@@ -284,7 +284,11 @@
     }
   ],
   // Project Manager
-  "projectManager.git.baseFolders": ["${userHome}/git"],
+  "projectManager.git.baseFolders": [
+    "~/git/andrewmcodes",
+    "~/git/podia",
+    "~/git/backup"
+  ],
   // Redhat Yaml
   "redhat.telemetry.enabled": false,
   // Ruby LSP
@@ -410,11 +414,9 @@
   // Window
   "window.commandCenter": true,
   "window.newWindowDimensions": "inherit",
-  "workbench.activityBar.visible": false,
   "workbench.colorTheme": "Spinel",
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.pinnedTabSizing": "shrink",
-  "workbench.experimental.cloudChanges.autoStore": "onShutdown",
   "workbench.experimental.share.enabled": true,
   "workbench.fontAliasing": "auto",
   "workbench.iconTheme": "file-icons",
