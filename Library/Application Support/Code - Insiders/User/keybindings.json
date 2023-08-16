@@ -191,5 +191,10 @@
   {
     "key": "cmd+k cmd+p",
     "command": "workbench.view.extension.project-manager"
+  },
+  {
+    "key": "ctrl+alt+g",
+    "command": "-workbench.action.terminal.sendSequence",
+    "when": "terminalFocus"
   }
 ]
