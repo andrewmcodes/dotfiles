@@ -101,7 +101,7 @@
   "editor.copyWithSyntaxHighlighting": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.fontFamily": "'JetBrains Mono', Menlo, Monaco, 'Courier New', monospace",
-  "editor.fontSize": 12,
+  "editor.fontSize": 13,
   "editor.fontVariations": true,
   "editor.formatOnPaste": false,
   "editor.formatOnSave": false,
@@ -283,6 +283,7 @@
       "value": "#0090ff"
     }
   ],
+  "pieces.setCopilotLocation": true,
   // Project Manager
   "projectManager.git.baseFolders": [
     "~/git/andrewmcodes",
@@ -312,6 +313,8 @@
   "rubyLsp.formatter": "none",
   "rubyLsp.rubyVersionManager": "asdf",
   "rubyLsp.yjit": false,
+  // "rubyTestExplorer.rspecCommand": "bin/rspec",
+  // "rubyTestExplorer.testFramework": "rspec",
   // SCSS
   "scss.validate": false,
   // Search
@@ -360,6 +363,7 @@
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.detectLocale": "on",
   "terminal.integrated.enableBell": true,
+  "terminal.integrated.enableMultiLinePasteWarning": false,
   "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font'",
   "terminal.integrated.lineHeight": 1.2,
   "terminal.integrated.macOptionClickForcesSelection": true,
@@ -414,6 +418,7 @@
   // Window
   "window.commandCenter": true,
   "window.newWindowDimensions": "inherit",
+  "workbench.activityBar.visible": false,
   "workbench.colorTheme": "Spinel",
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.pinnedTabSizing": "shrink",
