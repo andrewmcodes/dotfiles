@@ -7,8 +7,9 @@
 [core]
   excludesfile = ~/.gitignore_global
   editor = code-insiders --wait
-  pager = less -R
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [alias]
+  tree = log --graph --decorate --oneline --all
   tags = tag -l
   branches = branch -a
   remotes = remote -v
@@ -28,6 +29,13 @@
   helper = cache --timeout=86400
 [fetch]
   prune = true
+[diff]
+	colorMoved = zebra
+[interactive]
+	diffFilter = diff-so-fancy --patch
+[diff-so-fancy]
+  changeHunkIndicators = false
+  stripLeadingSymbols = true
 [maintenance]
   repo = /Users/andrew.mason/git/plugins/asdf
   repo = /Users/andrew.mason/git/plugins/pure
@@ -127,5 +135,3 @@
 	stash = normal dim
 	grafted = 1 normal italic
 	HEAD = 6 normal italic
-[diff]
-	colorMoved = zebra
