@@ -1,7 +1,7 @@
 [user]
 	name = Andrew Mason
 	email = andrewmcodes@protonmail.com
-	signingkey = EDF0D4B849DE7D4F
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDzCYLsayENxnddKRVeb1kV/15Vvfq1eyVQB4hmHpESQ
 [color]
   ui = auto
 [core]
@@ -135,3 +135,9 @@
 	stash = normal dim
 	grafted = 1 normal italic
 	HEAD = 6 normal italic
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[commit]
+	gpgsign = true
