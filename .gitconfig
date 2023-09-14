@@ -1,7 +1,7 @@
 [user]
 	name = Andrew Mason
 	email = andrewmcodes@protonmail.com
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDzCYLsayENxnddKRVeb1kV/15Vvfq1eyVQB4hmHpESQ
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPHiAEZ+l5KoTBi3n4uX9k4/rmqdPqC5cGC4aZE8yVNZ
 [color]
   ui = auto
 [core]
