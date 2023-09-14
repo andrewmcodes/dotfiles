@@ -15,7 +15,7 @@
   remotes = remote -v
   hist = log --graph --pretty=format:'%Cred%h%Creset %s%C(yellow)%d%Creset %Cgreen(%cr)%Creset [%an]'
   c = commit
-  s = status -s
+  s = status -sb
   ch = checkout
 [push]
   default = simple
