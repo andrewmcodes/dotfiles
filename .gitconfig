@@ -2,9 +2,8 @@
 	name = Andrew Mason
 	email = andrewmcodes@protonmail.com
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPHiAEZ+l5KoTBi3n4uX9k4/rmqdPqC5cGC4aZE8yVNZ
-[color]
-  ui = auto
 [core]
+  ui = auto
   excludesfile = ~/.gitignore_global
   editor = code-insiders --wait
 	pager = diff-so-fancy | less --tabs=4 -RFX

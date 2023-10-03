@@ -27,21 +27,22 @@ for plugin_dir in "$PLUGIN_DIR"/*; do
 
   # Generate the metadata file content.
   md_content=$(printf -- '---
-tags: [is/plugin/obsidian, status/using]
-aliases: ["Obsidian %s Plugin"]
+schema: ext
 name: "%s"
 description: "%s"
 author:
   - "[[%s]]"
-link:
-  - %s/%s
-  - https://obsidian-plugin-stats.vercel.app/plugins/%s
-  - obsidian://show-plugin?id=%s
+category:
+tags: is/ext/obsidian
+links:
+  - "%s"
+  - "https://obsidian-plugin-stats.vercel.app/plugins/%s"
+  - "obsidian://show-plugin?id=%s"
 ---
-' "$name" "$name" "$description" "$author" "$author_url" "$id" "$id")
+' "$name" "$description" "$author" "$author_url" "$id" "$id")
 
   # Write the metadata file.
-  md_file="$HOME/git/andrewmcodes/digital-brain/app.obsidian.plugin.$clean_id.md"
+  md_file="$HOME/git/andrewmcodes/digital-brain/app.obsidian.ext.$clean_id.md"
   echo "Creating $md_file"
   echo "$md_content" >| "$md_file"
 done
