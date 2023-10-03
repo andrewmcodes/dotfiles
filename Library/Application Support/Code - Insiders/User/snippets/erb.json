@@ -76,5 +76,10 @@
     "prefix": "renderl",
     "body": ["<%= render \"$1\", $2 %>"],
     "description": "ERB render with locals"
+  },
+  "ERB locals comment": {
+    "prefix": "pc",
+    "body": ["<%# locals: ($1) %>"],
+    "description": "ERB locals comment"
   }
 }

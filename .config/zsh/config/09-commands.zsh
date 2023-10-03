@@ -2,33 +2,29 @@
 
 ## Functions
 #? Lazy load the functions that we use most often.
-autoload -Uz pg_switch
-autoload -Uz init
-autoload -Uz mkcd
-autoload -Uz toggle_desktop_icons
-autoload -Uz update_shell
-autoload -Uz ghlabels
-autoload -Uz os
-autoload -Uz gg
-autoload -Uz colormap
-autoload -Uz zsh-list-keybindings
-autoload -Uz import_obsidian_plugins
-autoload -Uz tldrf
-
+autoload -Uz \
+  pg_switch \
+  init \
+  mkcd \
+  toggle_desktop_icons \
+  update_shell \
+  ghlabels \
+  os \
+  gg \
+  colormap \
+  zsh-list-keybindings \
+  import_obsidian_plugins \
+  tldrf \
+  fdiff
 
 function pg_stop {
   local currently_running_version=$(psql --no-psqlrc -t -c 'show server_version;' postgres | xargs)
-  $HOME/.asdf/installs/postgres/$currently_running_version/bin/pg_ctl \
-    -D $HOME/.asdf/installs/postgres/$currently_running_version/data \
-    stop
+  $HOME/.asdf/installs/postgres/$currently_running_version/bin/pg_ctl -D $HOME/.asdf/installs/postgres/$currently_running_version/data stop
 }
 
 function pg_start {
   local version_to_run=$(asdf which postgres | awk -F/ '{print $7}')
-
-  $HOME/.asdf/installs/postgres/$version_to_run/bin/pg_ctl \
-    -D $HOME/.asdf/installs/postgres/$version_to_run/data \
-    start
+  $HOME/.asdf/installs/postgres/$version_to_run/bin/pg_ctl -D $HOME/.asdf/installs/postgres/$version_to_run/data start
 }
 
 ## Vendor Specific
@@ -121,6 +117,8 @@ alias y="yarn"
 alias ya="yarn add"
 alias yad="yarn add -D"
 alias zr="znap restart"
+# Depends on
+alias rcf="rails -T | awk '{print $2}' | fzf --preview 'rails {1} --help' | xargs -I {} rails {}"
 
 #* Stop Zsh from evaluating the value of our $expansion as a command.
 #? `:` is a builtin command that does nothing.
