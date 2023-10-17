@@ -1,4 +1,3 @@
-
 # https://github.com/koekeishiya/yabai/wiki/Configuration#layout
 sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
@@ -6,16 +5,20 @@ yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 # Default layout
 # Options: bsp, stack, float
 yabai -m config layout bsp
+
 # Window Placement: New window spawns to the right if vertical split, or bottom if horizontal
 yabai -m config window_placement second_child
-# Config: padding
-yabai -m config top_padding 12
-yabai -m config bottom_padding 12
-yabai -m config left_padding 12
-yabai -m config right_padding 12
-# Window
+yabai -m config window_topmost off
+yabai -m config auto_balance off
+yabai -m config split_ratio                  0.50
+
+yabai -m config top_padding 8
+yabai -m config bottom_padding 8
+yabai -m config left_padding 8
+yabai -m config right_padding 8
+# Window: https://github.com/koekeishiya/yabai/wiki/Configuration#window-modifications
 yabai -m config window_opacity on
-yabai -m config window_gap 12
+yabai -m config window_gap 8
 # Mouse: Center on window with focus
 yabai -m config mouse_follows_focus on
 # Mouse: modifier for clicking and dragging
@@ -28,13 +31,31 @@ yabai -m config mouse_action2 resize
 yabai -m mouse_drop_action swap
 
 # Rules
-yabai -m rule --add app="^System Settings$" manage=off
-yabai -m rule --add app="^Calculator$" manage=off
-yabai -m rule --add app="^BetterTouchTool$" manage=off
-yabai -m rule --add app="^zoom.us$" manage=off
-yabai -m rule --add app="^QuickGPT$" manage=off
-yabai -m rule --add app="^Shortcuts$" manage=off
-yabai -m rule --add app="^Gems beta$" manage=off
-yabai -m rule --add app="^CleanShot X$" manage=off
-yabai -m rule --add app="^Finder$" manage=off
-yabai -m rule --add app="^1Password$" manage=off
+yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
+yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
+yabai -m rule --add label="System Settings" app="^System Settings$" title=".*" manage=off
+yabai -m rule --add label="App Store" app="^App Store$" manage=off
+yabai -m rule --add label="Activity Monitor" app="^Activity Monitor$" manage=off
+yabai -m rule --add label="Calculator" app="^Calculator$" manage=off
+yabai -m rule --add label="Dictionary" app="^Dictionary$" manage=off
+yabai -m rule --add label="Software Update" title="Software Update" manage=off
+yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
+yabai -m rule --add label="Shortcuts" app="^Shortcuts$" title=".*" manage=off
+yabai -m rule --add label="QuickGPT" app="^QuickGPT$" manage=off
+yabai -m rule --add label="CleanMyMac X" app="^CleanMyMac" title=".*" manage=off
+yabai -m rule --add label="CleanShot X" app="^CleanShot" title=".*" manage=off
+yabai -m rule --add label="Gems beta" app="^Gems" manage=off
+yabai -m rule --add label="1Password" app="^1Password$" manage=off space="3"
+yabai -m rule --add app="^Figma$" manage=on space="4"
+yabai -m rule --add app="^zoom.us" manage=off space="3"
+yabai -m rule --add app="^Spark Mail$" manage=on space="2"
+
+# BitBar Plugin Settings
+yabai -m signal --add event=space_changed \
+  action="open -g \"bitbar://refreshPlugin?name=yabai.*?.sh\""
+yabai -m signal --add event=window_resized \
+  action="open -g \"bitbar://refreshPlugin?name=yabai.*?.sh\""
+yabai -m signal --add event=window_focused \
+  action="open -g \"bitbar://refreshPlugin?name=yabai.*?.sh\""
+yabai -m signal --add event=application_activated \
+  action="open -g \"bitbar://refreshPlugin?name=yabai.*?.sh\""
