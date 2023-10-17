@@ -1,8 +1,11 @@
 #!/usr/bin/env zsh
 
 function tldrf() {
+  echo "here"
   # If argument does not begin with a dash, it is a part of the name input
-  tldr_output=$(tldr "$1" | sed 's/\x1b\[[0-9;]*m//g') # Strip shell formatting
+  name=$(echo "$1")
+  name=$(echo "$name" | sed 's/^cli\.//g' | sed 's/\.md$//g')
+  tldr_output=$(tldr "$name" | sed 's/\x1b\[[0-9;]*m//g') # Strip shell formatting
 
   #? If the first line contains "This page doesn't exist yet", exit
   if [[ $(echo "$tldr_output" | head -n 1) == *"This page doesn't exist yet"* ]]; then
