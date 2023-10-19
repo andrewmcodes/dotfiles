@@ -27,9 +27,7 @@
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
     "editor.insertSpaces": true,
-    "editor.rulers": [
-      120
-    ],
+    "editor.rulers": [120],
     "editor.semanticHighlighting.enabled": true,
     "editor.tabSize": 2,
     "files.insertFinalNewline": true,
@@ -38,6 +36,9 @@
   },
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -48,6 +49,7 @@
   "accessibility.dimUnfocused.enabled": true,
   "accessibility.dimUnfocused.opacity": 0.8,
   // Activitus Bar
+  "activitusbar.activeColour": "#615F61",
   "activitusbar.alignment": "Right",
   "activitusbar.showSourceControlCounter": true,
   "activitusbar.views": [
@@ -105,12 +107,12 @@
   "editor.copyWithSyntaxHighlighting": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.fontFamily": "'JetBrains Mono', Menlo, Monaco, 'Courier New', monospace",
-  "editor.fontSize": 14,
   "editor.fontVariations": true,
   "editor.formatOnPaste": false,
   "editor.formatOnSave": false,
   "editor.formatOnSaveMode": "modificationsIfAvailable",
   "editor.formatOnType": false,
+  "editor.fontSize": 14,
   "editor.gotoLocation.multipleDeclarations": "goto",
   "editor.gotoLocation.multipleDefinitions": "goto",
   "editor.gotoLocation.multipleImplementations": "goto",
@@ -132,6 +134,7 @@
   "editor.renderLineHighlightOnlyWhenFocus": true,
   "editor.rulers": [120],
   "editor.snippetSuggestions": "top",
+  "editor.stickyScroll.enabled": true,
   "editor.stickyScroll.scrollWithEditor": true,
   "editor.suggest.insertMode": "replace",
   "editor.suggest.shareSuggestSelections": true,
@@ -149,6 +152,7 @@
   "erb-formatter.commandPath": "erb-format",
   // Explorer
   "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.patterns": {
     "*.rb": "${capture}.*erb, ${capture}_controller.js",
@@ -253,16 +257,6 @@
   "markdown.updateLinksOnFileMove.enabled": "prompt",
   "markdown.validate.enabled": true,
   "markdown.validate.referenceLinks.enabled": "ignore",
-  // multiCommand
-  "multiCommand.commands": [
-    {
-      "command": "multiCommand.makeRoom",
-      "sequence": [
-        "workbench.action.toggleSidebarVisibility",
-        "workbench.action.toggleActivityBarVisibility"
-      ]
-    }
-  ],
   // Notebook
   "notebook.lineNumbers": "on",
   // NPM
@@ -290,6 +284,7 @@
     "$home/git/work"
   ],
   "projectManager.sortList": "Recent",
+  "projectManager.treeview.visible": false,
   // Redhat Yaml
   "redhat.telemetry.enabled": false,
   // Ruby LSP
@@ -315,6 +310,7 @@
   "rubyLsp.yjit": false,
   // SCSS
   "scss.validate": false,
+  "search.actionsPosition": "auto",
   // Search
   "search.exclude": {
     "**/*.code-search": true,
@@ -389,6 +385,10 @@
   "vim.leader": "<space>",
   "vim.normalModeKeyBindings": [
     {
+      "before": ["<C-n>"],
+      "commands": [":nohl"]
+    },
+    {
       "before": ["<leader>", "g", "g"],
       "commands": ["workbench.view.scm"]
     },
@@ -397,16 +397,29 @@
       "commands": ["editor.action.revealDefinitionAside"]
     },
     {
-      "before": ["<leader>", "a"],
+      "before": ["<leader>", "h", "a"],
       "commands": ["vscode-harpoon.addEditor"]
     },
     {
-      "before": ["<leader>", "e"],
+      "before": ["<leader>", "h", "e"],
       "commands": ["vscode-harpoon.editEditors"]
     },
     {
       "before": ["<leader>", "p", "e"],
       "commands": ["vscode-harpoon.editorQuickPick"]
+    },
+    {
+      "before": ["<leader>", "p", "p"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      "before": ["<leader>", "p", "r"],
+      "commands": ["quickOpenRails.open"]
+    },
+    {
+      "before": [":"],
+      "commands": ["workbench.action.showCommands"],
+      "silent": true
     },
     {
       "before": ["<leader>", "1"],
@@ -419,25 +432,21 @@
       "before": ["<leader>", "d"]
     },
     {
-      "before": ["<C-n>"],
-      "commands": [":nohl"]
-    },
-    {
       "before": ["K"],
       "commands": ["lineBreakInsert"],
       "silent": true
     },
     {
-      "before": ["s"],
-      "after": ["<leader>", "<leader>", "2", "s"]
+      "after": ["<leader>", "<leader>", "2", "s"],
+      "before": ["s"]
     },
     {
-      "before": ["<C-j>"],
-      "after": ["<leader>", "<leader>", "j"]
+      "after": ["<leader>", "<leader>", "j"],
+      "before": ["<C-j>"]
     },
     {
-      "before": ["<C-k>"],
-      "after": ["<leader>", "<leader>", "k"]
+      "after": ["<leader>", "<leader>", "k"],
+      "before": ["<C-k>"]
     },
     {
       "before": ["leader", "r"],
@@ -488,22 +497,33 @@
   // Window
   "window.commandCenter": true,
   "window.newWindowDimensions": "inherit",
-  "workbench.colorTheme": "Spinel",
+  "workbench.activityBar.location": "top",
+  "workbench.colorTheme": "MacOS Modern Dark - Xcode Modern",
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.pinnedTabSizing": "shrink",
+  "workbench.editor.showIcons": false,
+  "workbench.editor.tabCloseButton": "off",
   "workbench.experimental.share.enabled": true,
-  "workbench.productIconTheme": "fluent-icons",
+  "workbench.iconTheme": "symbols",
+  "workbench.productIconTheme": "macos-modern",
   "workbench.settings.useSplitJSON": true,
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "none",
   "workbench.tree.renderIndentGuides": "always",
-  "workbench.iconTheme": "vs-seti",
-  "explorer.confirmDragAndDrop": false,
-  "search.actionsPosition": "auto",
-  "workbench.editor.tabCloseButton": "off",
-  "workbench.activityBar.location": "top",
-  "editor.stickyScroll.enabled": true,
-  "[shellscript]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
+  "workbench.fontAliasing": "auto",
+  "symbols.hidesExplorerArrows": false,
+  "symbols.files.associations": {
+    "Procfile": "gear",
+    "yabairc": "shell",
+    ".vimrc": "shell",
+    "^\\..+rc$": "gear"
+  },
+  "symbols.folders.associations": {
+    "app": "folder-app",
+    "assets": "folder-assets",
+    "controllers": "folder-red-code",
+    "javascript": "js",
+    "views": "folder-templates",
+    "models": "database"
   }
 }

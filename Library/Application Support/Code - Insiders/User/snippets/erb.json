@@ -78,7 +78,7 @@
     "description": "ERB render with locals"
   },
   "ERB locals comment": {
-    "prefix": "pc",
+    "prefix": "lc",
     "body": ["<%# locals: ($1) %>"],
     "description": "ERB locals comment"
   }
