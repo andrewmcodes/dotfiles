@@ -15,7 +15,8 @@ autoload -Uz \
   zsh-list-keybindings \
   import_obsidian_plugins \
   tldrf \
-  fdiff
+  fdiff \
+  vscedoc \
 
 function pg_stop {
   local currently_running_version=$(psql --no-psqlrc -t -c 'show server_version;' postgres | xargs)
