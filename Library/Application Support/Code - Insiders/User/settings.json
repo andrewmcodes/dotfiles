@@ -405,7 +405,7 @@
       "commands": ["vscode-harpoon.editEditors"]
     },
     {
-      "before": ["<leader>", "p", "e"],
+      "before": ["<leader>", "h", "p"],
       "commands": ["vscode-harpoon.editorQuickPick"]
     },
     {
