@@ -15,7 +15,7 @@ unsetopt FLOW_CONTROL
 #?   automatically on the next command line.
 #? - On the continuation prompt: Move all entered lines to the main prompt, so
 #?   you can edit the previous lines.
-bindkey '^[q' push-line-or-edit
+# bindkey '^[q' push-line-or-edit
 
 #* Alt-H: Get help on your current command.
 () {
@@ -32,4 +32,4 @@ bindkey '^[q' push-line-or-edit
 } run-help
 
 #* Alt-V: Show the next key combo's terminal code and state what it does.
-bindkey '^[v' describe-key-briefly
+# bindkey '^[v' describe-key-briefly
