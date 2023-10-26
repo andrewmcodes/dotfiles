@@ -3,18 +3,20 @@
 ## Environment variables
 
 export OP_BIOMETRIC_UNLOCK_ENABLED=true
+
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_INSECURE_REDIRECT=1
 export HOMEBREW_COLOR=1
 export HOMEBREW_BAT=1
+
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$HOMEBREW_PREFIX/opt/openssl@1.1"
 export DISABLE_SPRING=true
 [[ -f $HOME/.gemrc.local ]] && export GEMRC=$HOME/.gemrc.local #? Use a local gemrc if it exists.
+
 export EDITOR="code --wait"
 export SHELL="$HOMEBREW_PREFIX/bin/zsh"
-#* Don’t clear the screen after quitting a manual page
-export MANPAGER="less -X"
-#* Path
+export MANPAGER="less -X" #* Don’t clear the screen after quitting a manual page
+
 export -U PATH path FPATH fpath MANPATH manpath #? -U ensures each entry in these is Unique (that is, discards duplicates).
 export -UT INFOPATH infopath  #? -T creates a "tied" pair; see below.
 
@@ -23,6 +25,7 @@ export -UT INFOPATH infopath  #? -T creates a "tied" pair; see below.
 path=(
     /home/linuxbrew/.linuxbrew/bin(N)	# (N): null if file doesn't exist
     $HOMEBREW_PREFIX/opt/curl/bin
+    $HOMEBREW_PREFIX/opt/fzf/bin
     $path
     ~/.local/bin
 )

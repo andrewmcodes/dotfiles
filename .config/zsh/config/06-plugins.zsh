@@ -36,6 +36,11 @@ for p in $plugins; do
   znap source $p
 done
 
+# FZF Auto-completion
+source "$HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh"
+# FZF Key bindings
+source "$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh"
+
 #? `znap eval <name> '<command>'` is like `eval "$( <command> )"` but with caching and compilation of <command>'s output
 
 # ¬ https://github.com/marlonrichert/zcolors/tree/main#installation
