@@ -17,6 +17,7 @@ autoload -Uz \
   tldrf \
   fdiff \
   vscedoc \
+  autosort \
 
 function pg_stop {
   local currently_running_version=$(psql --no-psqlrc -t -c 'show server_version;' postgres | xargs)
