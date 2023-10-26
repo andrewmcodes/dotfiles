@@ -1,0 +1,30 @@
+#!/usr/bin/env zsh
+
+# Sort files in Downloads and Documents into folders based on their tags
+# Requires tag
+function autosort() {
+  local -a files=($(tag -f "autosort" Downloads/ Documents/ | tr -d ' ' | tr '\n' '\0'))
+  # local -a files=("${files[@]}")
+
+  for file in $files; do
+    if [[ $file == *.sh || $file == *.py || $file == *.c || $file == *.cpp || $file == *.h || $file == *.hpp || $file == *.js || $file == *.ts || $file == *.html || $file == *.css || $file == *.json || $file == *.xml || $file == *.md || $file == *.txt || $file == *.rtf || $file == *.csv || $file == *.yml ]]; then
+      tag -r "autosort" $file
+      mv "$file" $HOME/Documents/Code
+    elif [[ $file == *.png || $file == *.jpg || $file == *.jpeg || $file == *.gif || $file == *.svg ]]; then
+      tag -r "autosort" $file
+      mv "$file" "$HOME/Documents/Resources"
+    elif [[ $file == *.pdf ]]; then
+      tag -r "autosort" $file
+      mv "$file" $HOME/Documents/PDFs
+    elif [[ $file == *.zip || $file == *.tar || $file == *.gz || $file == *.rar || $file == *.7z ]]; then
+      tag -r "autosort" $file
+      mv "$file" $HOME/Documents/Archive
+    fi
+  done
+
+  local -a files=($(tag -f "is/backup" Downloads/ Documents/ | tr -d ' ' | tr '\n' '\0'))
+
+  for file in $files; do
+    mv "$file" "$HOME/Library/Mobile\ Documents/com~apple~CloudDocs/Backup"
+  done
+}
