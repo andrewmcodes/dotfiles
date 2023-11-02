@@ -37,6 +37,16 @@ else
   # alias rm="rm --preserve-root"
 fi
 
+function find_schemes {
+  apps=$(find /Applications -name "*.app" -type d)
+  chosen_app=$(echo "$apps" | fzf)
+  info_plist_path="$chosen_app/Contents/Info.plist"
+  info_json=$(plutil -convert json -o - "$info_plist_path")
+  echo "$info_json | jq -r '.'"
+  echo "$info_json" | jq -r '.CFBundleURLTypes[]?.CFBundleURLSchemes[]?'
+  # echo "$info_json" | jq -r '.CFBundleURLTypes[]?.CFBundleURLSchemes[]?' > schemes.txt
+}
+
 ## Aliases
 #! Always set aliases _last,_ so they don"t class with function definitions.
 alias "...."="cd ../../"
