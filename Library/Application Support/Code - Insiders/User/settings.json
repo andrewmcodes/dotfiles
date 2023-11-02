@@ -34,6 +34,9 @@
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true
   },
+  "[sass]": {
+    "editor.defaultFormatter": "syler.sass-indented"
+  },
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -107,12 +110,12 @@
   "editor.copyWithSyntaxHighlighting": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.fontFamily": "'JetBrains Mono', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontSize": 14,
   "editor.fontVariations": true,
   "editor.formatOnPaste": false,
   "editor.formatOnSave": false,
   "editor.formatOnSaveMode": "modificationsIfAvailable",
   "editor.formatOnType": false,
-  "editor.fontSize": 14,
   "editor.gotoLocation.multipleDeclarations": "goto",
   "editor.gotoLocation.multipleDefinitions": "goto",
   "editor.gotoLocation.multipleImplementations": "goto",
@@ -335,6 +338,21 @@
   // Standard Ruby
   "standardRuby.commandPath": "${userHome}/.asdf/shims/standardrb",
   "standardRuby.mode": "enableUnconditionally",
+  "symbols.files.associations": {
+    ".vimrc": "shell",
+    "^\\..+rc$": "gear",
+    "Procfile": "gear",
+    "yabairc": "shell"
+  },
+  "symbols.folders.associations": {
+    "app": "folder-app",
+    "assets": "folder-assets",
+    "controllers": "folder-red-code",
+    "javascript": "js",
+    "models": "database",
+    "views": "folder-templates"
+  },
+  "symbols.hidesExplorerArrows": false,
   // Tailwind
   "tailwindCSS.classAttributes": [
     "class",
@@ -502,28 +520,14 @@
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.pinnedTabSizing": "shrink",
   "workbench.editor.showIcons": false,
+  "workbench.editor.tabActionCloseVisibility": false,
   "workbench.editor.tabCloseButton": "off",
   "workbench.experimental.share.enabled": true,
+  "workbench.fontAliasing": "auto",
   "workbench.iconTheme": "symbols",
   "workbench.productIconTheme": "macos-modern",
   "workbench.settings.useSplitJSON": true,
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "none",
-  "workbench.tree.renderIndentGuides": "always",
-  "workbench.fontAliasing": "auto",
-  "symbols.hidesExplorerArrows": false,
-  "symbols.files.associations": {
-    "Procfile": "gear",
-    "yabairc": "shell",
-    ".vimrc": "shell",
-    "^\\..+rc$": "gear"
-  },
-  "symbols.folders.associations": {
-    "app": "folder-app",
-    "assets": "folder-assets",
-    "controllers": "folder-red-code",
-    "javascript": "js",
-    "views": "folder-templates",
-    "models": "database"
-  }
+  "workbench.tree.renderIndentGuides": "always"
 }
