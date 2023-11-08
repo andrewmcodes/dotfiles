@@ -51,8 +51,6 @@
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "accessibility.dimUnfocused.enabled": true,
-  "accessibility.dimUnfocused.opacity": 0.8,
   // Activitus Bar
   "activitusbar.activeColour": "#615F61",
   "activitusbar.alignment": "Right",
@@ -137,7 +135,9 @@
   },
   "editor.renderControlCharacters": false,
   "editor.renderLineHighlightOnlyWhenFocus": true,
-  "editor.rulers": [120],
+  "editor.rulers": [
+    120
+  ],
   "editor.snippetSuggestions": "top",
   "editor.stickyScroll.enabled": true,
   "editor.stickyScroll.scrollWithEditor": true,
@@ -238,23 +238,33 @@
   "javascript.validate.enable": false,
   "json.schemas": [
     {
-      "fileMatch": ["/.babelrc"],
+      "fileMatch": [
+        "/.babelrc"
+      ],
       "url": "https://json.schemastore.org/babelrc"
     },
     {
-      "fileMatch": ["/.prettierrc"],
+      "fileMatch": [
+        "/.prettierrc"
+      ],
       "url": "https://json.schemastore.org/prettierrc"
     },
     {
-      "fileMatch": ["/vercel.json"],
+      "fileMatch": [
+        "/vercel.json"
+      ],
       "url": "https://openapi.vercel.sh/vercel.json"
     },
     {
-      "fileMatch": ["/jsconfig.json"],
+      "fileMatch": [
+        "/jsconfig.json"
+      ],
       "url": "https://json.schemastore.org/jsconfig"
     },
     {
-      "fileMatch": ["/.hintrc"],
+      "fileMatch": [
+        "/.hintrc"
+      ],
       "url": "https://json.schemastore.org/htmlhint.json"
     }
   ],
@@ -398,119 +408,263 @@
   "vim.incsearch": true,
   "vim.insertModeKeyBindings": [
     {
-      "after": ["<Esc>"],
-      "before": ["j", "j"]
+      "after": [
+        "<Esc>"
+      ],
+      "before": [
+        "j",
+        "j"
+      ]
     }
   ],
   "vim.leader": "<space>",
   "vim.normalModeKeyBindings": [
     {
-      "before": ["<C-n>"],
-      "commands": [":nohl"]
+      "before": [
+        "<C-n>"
+      ],
+      "commands": [
+        ":nohl"
+      ]
     },
     {
-      "before": ["<leader>", "g", "g"],
-      "commands": ["workbench.view.scm"]
+      "before": [
+        "<leader>",
+        "g",
+        "g"
+      ],
+      "commands": [
+        "workbench.view.scm"
+      ]
     },
     {
-      "before": ["g", "D"],
-      "commands": ["editor.action.revealDefinitionAside"]
+      "before": [
+        "g",
+        "D"
+      ],
+      "commands": [
+        "editor.action.revealDefinitionAside"
+      ]
     },
     {
-      "before": ["<leader>", "h", "a"],
-      "commands": ["vscode-harpoon.addEditor"]
+      "before": [
+        "<leader>",
+        "h",
+        "a"
+      ],
+      "commands": [
+        "vscode-harpoon.addEditor"
+      ]
     },
     {
-      "before": ["<leader>", "h", "e"],
-      "commands": ["vscode-harpoon.editEditors"]
+      "before": [
+        "<leader>",
+        "h",
+        "e"
+      ],
+      "commands": [
+        "vscode-harpoon.editEditors"
+      ]
     },
     {
-      "before": ["<leader>", "h", "p"],
-      "commands": ["vscode-harpoon.editorQuickPick"]
+      "before": [
+        "<leader>",
+        "h",
+        "p"
+      ],
+      "commands": [
+        "vscode-harpoon.editorQuickPick"
+      ]
     },
     {
-      "before": ["<leader>", "p", "p"],
-      "commands": ["workbench.action.quickOpen"]
+      "before": [
+        "<leader>",
+        "p",
+        "p"
+      ],
+      "commands": [
+        "workbench.action.quickOpen"
+      ]
     },
     {
-      "before": ["<leader>", "p", "r"],
-      "commands": ["quickOpenRails.open"]
+      "before": [
+        "<leader>",
+        "p",
+        "r"
+      ],
+      "commands": [
+        "quickOpenRails.open"
+      ]
     },
     {
-      "before": [":"],
-      "commands": ["workbench.action.showCommands"],
+      "before": [
+        ":"
+      ],
+      "commands": [
+        "workbench.action.showCommands"
+      ],
       "silent": true
     },
     {
-      "before": ["<leader>", "1"],
-      "commands": ["vscode-harpoon.gotoEditor1"]
+      "before": [
+        "<leader>",
+        "1"
+      ],
+      "commands": [
+        "vscode-harpoon.gotoEditor1"
+      ]
     }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "after": ["d", "d"],
-      "before": ["<leader>", "d"]
+      "after": [
+        "d",
+        "d"
+      ],
+      "before": [
+        "<leader>",
+        "d"
+      ]
     },
     {
-      "before": ["K"],
-      "commands": ["lineBreakInsert"],
+      "before": [
+        "K"
+      ],
+      "commands": [
+        "lineBreakInsert"
+      ],
       "silent": true
     },
     {
-      "after": ["<leader>", "<leader>", "2", "s"],
-      "before": ["s"]
+      "after": [
+        "<leader>",
+        "<leader>",
+        "2",
+        "s"
+      ],
+      "before": [
+        "s"
+      ]
     },
     {
-      "after": ["<leader>", "<leader>", "j"],
-      "before": ["<C-j>"]
+      "after": [
+        "<leader>",
+        "<leader>",
+        "j"
+      ],
+      "before": [
+        "<C-j>"
+      ]
     },
     {
-      "after": ["<leader>", "<leader>", "k"],
-      "before": ["<C-k>"]
+      "after": [
+        "<leader>",
+        "<leader>",
+        "k"
+      ],
+      "before": [
+        "<C-k>"
+      ]
     },
     {
-      "before": ["leader", "r"],
-      "commands": ["editor.action.rename"]
+      "before": [
+        "leader",
+        "r"
+      ],
+      "commands": [
+        "editor.action.rename"
+      ]
     },
     {
-      "before": ["leader", "w"],
-      "commands": [":w!"]
+      "before": [
+        "leader",
+        "w"
+      ],
+      "commands": [
+        ":w!"
+      ]
     },
     {
-      "before": ["leader", "q"],
-      "commands": [":q!"]
+      "before": [
+        "leader",
+        "q"
+      ],
+      "commands": [
+        ":q!"
+      ]
     },
     {
-      "before": ["leader", "x"],
-      "commands": [":x!"]
+      "before": [
+        "leader",
+        "x"
+      ],
+      "commands": [
+        ":x!"
+      ]
     },
     {
-      "after": ["g", "g", "V", "G"],
-      "before": ["<c-a>"]
+      "after": [
+        "g",
+        "g",
+        "V",
+        "G"
+      ],
+      "before": [
+        "<c-a>"
+      ]
     },
     {
-      "before": ["<leader>", "k"],
-      "commands": ["editor.action.showHover"]
+      "before": [
+        "<leader>",
+        "k"
+      ],
+      "commands": [
+        "editor.action.showHover"
+      ]
     },
     {
-      "before": ["[", "d"],
-      "commands": ["editor.action.marker.prev"]
+      "before": [
+        "[",
+        "d"
+      ],
+      "commands": [
+        "editor.action.marker.prev"
+      ]
     },
     {
-      "before": ["]", "d"],
-      "commands": ["editor.action.marker.next"]
+      "before": [
+        "]",
+        "d"
+      ],
+      "commands": [
+        "editor.action.marker.next"
+      ]
     },
     {
-      "before": ["<leader>", "c", "a"],
-      "commands": ["editor.action.quickFix"]
+      "before": [
+        "<leader>",
+        "c",
+        "a"
+      ],
+      "commands": [
+        "editor.action.quickFix"
+      ]
     },
     {
-      "after": ["^"],
-      "before": ["H"]
+      "after": [
+        "^"
+      ],
+      "before": [
+        "H"
+      ]
     },
     {
-      "after": ["$"],
-      "before": ["L"]
+      "after": [
+        "$"
+      ],
+      "before": [
+        "L"
+      ]
     }
   ],
   "vim.useSystemClipboard": true,
