@@ -1,7 +1,6 @@
 #!/usr/bin/env zsh
 
 ## Plugin manager
-
 if [[ ! -f $HOME/.config/zsh/.zi/bin/zi.zsh ]]; then
   print -P "%F{33}▓▒░ %F{160}Installing (%F{33}z-shell/zi%F{160})…%f"
   command mkdir -p "$HOME/.config/zsh/.zi" && command chmod go-rwX "$HOME/.config/zsh/.zi"
