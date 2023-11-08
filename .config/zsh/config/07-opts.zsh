@@ -4,13 +4,7 @@
 #! Set these after sourcing plugins, because those might set options, too.
 
 #? Don't let > overwrite files. To overwrite, use >| instead.
-setopt NO_CLOBBER
-
-#? Allow comments to be pasted into the command line.
-setopt INTERACTIVE_COMMENTS
-
-#? Don't treat non-executable files in your $path as commands.
-setopt HASH_EXECUTABLES_ONLY
+# setopt NO_CLOBBER
 
 #? Enable additional glob operators. (Globbing = pattern matching)
 #¬ https://zsh.sourceforge.io/Doc/Release/Expansion.html#Filename-Generation
@@ -26,5 +20,13 @@ setopt NUMERIC_GLOB_SORT
 #? Disable mail checking
 setopt no_mailwarn
 
-# TODO: Disable automatic pushd when changing directories. This can improve performance when changing directories frequently, but I am not sure if I actually want this.
-# setopt no_auto_pushd
+setopt auto_cd              # Use cd by typing directory name if it's not a command.
+setopt auto_list            # Automatically list choices on ambiguous completion.
+setopt auto_pushd           # Make cd push the old directory onto the directory stack.
+setopt bang_hist            # Treat the '!' character, especially during Expansion.
+setopt interactive_comments # Comments even in interactive shells.
+setopt multios              # Implicit tees or cats when multiple redirections are attempted.
+setopt no_beep              # Don't beep on error.
+setopt prompt_subst         # Substitution of parameters inside the prompt each time the prompt is drawn.
+setopt pushd_ignore_dups    # Don't push multiple copies directory onto the directory stack.
+setopt pushd_minus          # Swap the meaning of cd +1 and cd -1 to the opposite.

@@ -6,7 +6,7 @@
   ui = auto
   excludesfile = ~/.gitignore_global
   editor = code-insiders --wait
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	pager = diff-so-fancy | less --tabs=4 -RFXS
 [alias]
   tree = log --graph --decorate --oneline --all
   tags = tag -l

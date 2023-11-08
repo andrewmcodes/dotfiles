@@ -5,50 +5,51 @@
 #* zsh-users/zsh-autosuggestions
 # ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=()
 # ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS+=( forward-char forward-word end-of-line )
-ZSH_AUTOSUGGEST_STRATEGY=( history )
-ZSH_AUTOSUGGEST_HISTORY_IGNORE=$'(*\n*|?(#c80,)|*\\#:hist:push-line:)'
+# ZSH_AUTOSUGGEST_STRATEGY=( history )
+# ZSH_AUTOSUGGEST_HISTORY_IGNORE=$'(*\n*|?(#c80,)|*\\#:hist:push-line:)'
 
-ZSH_HIGHLIGHT_HIGHLIGHTERS=( main brackets )
+zi ice as'null' sbin'bin/*'
+zi light z-shell/zsh-diff-so-fancy
 
-#? Add the plugins you want to use here. -a sets the variable's type to array.
-local -a plugins=(
-  asdf-vm/asdf
-  marlonrichert/zcolors             # Colors for completions and Git
-  marlonrichert/zsh-autocomplete    # Real-time type-ahead completion. https://github.com/marlonrichert/zsh-autocomplete
-  agkozak/zsh-z                     # Quickly jump to previously visited directories.
-  marlonrichert/zsh-hist            # Edit history from the command line.
-  zsh-users/zsh-autosuggestions     # Inline suggestions. https://github.com/zsh-users/zsh-autosuggestions
-  zsh-users/zsh-syntax-highlighting # Command-line syntax highlighting
-)
+zi pack"bgn+keys" for fzf
+zi pack for ls_colors
+zi wait pack atload=+"zicompinit; zicdreplay" for brew-completions
 
-#? Auto-installed by Brew, but far worse than the one supplied by Zsh
-rm -f $HOMEBREW_PREFIX/share/zsh/site-functions/_git{,.zwc}
+zi load asdf-vm/asdf
+
+# https://wiki.zshell.dev/ecosystem/plugins/zbrowse
+zi load z-shell/zui
+zi load z-shell/zbrowse
+
+zi load z-shell/zi-console
+zi light z-shell/zzcomplete
+
+zi light-mode for \
+  marlonrichert/zsh-autocomplete \
+  agkozak/zsh-z \
+  marlonrichert/zsh-hist \
+
+zi wait lucid for \
+  atinit"ZI[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+    z-shell/F-Sy-H \
+  blockf \
+    zsh-users/zsh-completions \
+  atload"!_zsh_autosuggest_start" \
+    zsh-users/zsh-autosuggestions
+
 
 # ¬ https://github.com/marlonrichert/zsh-autocomplete/blob/main/.zshrc
 zstyle ':autocomplete:*' min-input 3
 
-#? Speed up the first startup by cloning all plugins in parallel, except the plugins that we already have.
-znap clone $plugins
+zi ice as'program' from'gh-r' mv'direnv* -> direnv'
+zi light direnv/direnv
 
-#? Load each plugin, one at a time.
-local p=
-for p in $plugins; do
-  znap source $p
-done
-
-# FZF Auto-completion
-source "$HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh"
-# FZF Key bindings
-source "$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh"
-
-#? `znap eval <name> '<command>'` is like `eval "$( <command> )"` but with caching and compilation of <command>'s output
-
-# ¬ https://github.com/marlonrichert/zcolors/tree/main#installation
-# znap eval zcolors "zcolors ${(q)LS_COLORS}" # eval zcolors zcolors
-# ¬ https://github.com/nvbn/thefuck
-znap function _fuck fuck 'eval "$(thefuck --alias)"'
-compctl -K _fuck fuck
-# ¬ https://github.com/asdf-community/asdf-direnv
-znap eval direnv "asdf exec $(asdf which direnv) hook zsh"
+zi ice from'gh-r' as'program' mv'fd* fd' sbin'**/fd(.exe|) -> fd'
+zi light @sharkdp/fd
 # ¬ https://www.npmjs.com/package/@githubnext/github-copilot-cli && https://githubnext.com/projects/copilot-cli
-znap eval github-copilot-cli 'github-copilot-cli alias -- zsh'
+# znap eval github-copilot-cli 'github-copilot-cli alias -- zsh'
+
+# autoload -Uz compinit
+# compinit
+zi cdreplay -q # <- execute compdefs provided by rest of plugins
+zi cdlist # look at gathered compdefs
