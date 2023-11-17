@@ -109,8 +109,8 @@
   "editor.accessibilitySupport": "off",
   "editor.copyWithSyntaxHighlighting": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.fontFamily": "'JetBrains Mono', Menlo, Monaco, 'Courier New', monospace",
-  "editor.fontSize": 14,
+  "editor.fontFamily": "'Monaspace Neon', 'JetBrains Mono', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontSize": 15,
   "editor.fontVariations": true,
   "editor.formatOnPaste": false,
   "editor.formatOnSave": false,
@@ -685,5 +685,8 @@
   "workbench.settings.useSplitJSON": true,
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "none",
-  "workbench.tree.renderIndentGuides": "always"
+  "workbench.tree.renderIndentGuides": "always",
+  "editor.fontLigatures": "'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'calt', 'dlig'",
+  "editor.fontWeight": "300",
+  "security.promptForLocalFileProtocolHandling": false,
 }
