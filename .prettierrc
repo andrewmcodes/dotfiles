@@ -1,1 +1,3 @@
-"@andrewmcodes/prettier-config"
+{
+  "printWidth": 120
+}
