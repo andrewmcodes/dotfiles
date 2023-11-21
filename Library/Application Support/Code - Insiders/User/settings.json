@@ -1,105 +1,38 @@
 {
   "[erb]": {
-    "editor.defaultFormatter": "elia.erb-formatter",
-    "editor.formatOnSave": false
+    "editor.defaultFormatter": "elia.erb-formatter"
   },
-  "[html]": {
+  "[markdown][typescript][yaml][html][javascript][json][jsonc][javascriptreact][scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": false
-  },
-  "[properties]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
   },
   "[ruby]": {
     "editor.defaultFormatter": "Shopify.ruby-lsp",
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
-    "editor.insertSpaces": true,
-    "editor.rulers": [
-      120
-    ],
-    "editor.semanticHighlighting.enabled": true,
-    "editor.tabSize": 2,
-    "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true,
-    "files.trimTrailingWhitespace": true
+    "editor.insertSpaces": true
   },
   "[sass]": {
     "editor.defaultFormatter": "syler.sass-indented"
   },
-  "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[shellscript]": {
+  "[shellscript][properties]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[yaml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  // Activitus Bar
-  "activitusbar.activeColour": "#615F61",
-  "activitusbar.alignment": "Right",
-  "activitusbar.showSourceControlCounter": true,
-  "activitusbar.views": [
-    {
-      "codicon": "explorer-view-icon",
-      "name": "explorer"
-    },
-    {
-      "codicon": "source-control-view-icon",
-      "name": "scm"
-    },
-    {
-      "codicon": "run-view-icon",
-      "name": "debug"
-    },
-    {
-      "codicon": "extensions-view-icon",
-      "name": "extensions"
+  "[markdown]": {
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "editor.unicodeHighlight.invisibleCharacters": false,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+      "comments": "on",
+      "strings": "on",
+      "other": "on"
     }
-  ],
+  },
+  "editor.semanticHighlighting.enabled": true,
   "breadcrumbs.enabled": true,
-  "breadcrumbs.showArrays": false,
-  "breadcrumbs.showBooleans": false,
-  "breadcrumbs.showClasses": false,
-  "breadcrumbs.showConstants": false,
-  "breadcrumbs.showConstructors": false,
-  "breadcrumbs.showEnumMembers": false,
-  "breadcrumbs.showEnums": false,
-  "breadcrumbs.showEvents": false,
-  "breadcrumbs.showFields": false,
-  "breadcrumbs.showFiles": true,
-  "breadcrumbs.showFunctions": false,
-  "breadcrumbs.showInterfaces": false,
-  "breadcrumbs.showKeys": false,
-  "breadcrumbs.showMethods": false,
-  "breadcrumbs.showModules": false,
-  "breadcrumbs.showNamespaces": false,
-  "breadcrumbs.showNull": false,
-  "breadcrumbs.showNumbers": false,
-  "breadcrumbs.showObjects": false,
-  "breadcrumbs.showOperators": false,
-  "breadcrumbs.showPackages": false,
-  "breadcrumbs.showProperties": false,
-  "breadcrumbs.showStrings": false,
-  "breadcrumbs.showStructs": false,
-  "breadcrumbs.showTypeParameters": false,
-  "breadcrumbs.showVariables": false,
+  "breadcrumbs.filePath": "last",
+  "breadcrumbs.symbolPath": "last",
+
   // CSS
   "css.validate": false,
   // Diff Editor
@@ -109,11 +42,11 @@
   "editor.accessibilitySupport": "off",
   "editor.copyWithSyntaxHighlighting": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.fontFamily": "'Monaspace Neon', 'JetBrains Mono', Menlo, Monaco, 'Courier New', monospace",
-  "editor.fontSize": 15,
+  "editor.fontFamily": "'Monaspace Neon Var', monospace",
+  "editor.fontSize": 14,
   "editor.fontVariations": true,
   "editor.formatOnPaste": false,
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   "editor.formatOnSaveMode": "modificationsIfAvailable",
   "editor.formatOnType": false,
   "editor.gotoLocation.multipleDeclarations": "goto",
@@ -135,9 +68,8 @@
   },
   "editor.renderControlCharacters": false,
   "editor.renderLineHighlightOnlyWhenFocus": true,
-  "editor.rulers": [
-    120
-  ],
+  "editor.rulers": [120],
+  "editor.lineHeight": 20,
   "editor.snippetSuggestions": "top",
   "editor.stickyScroll.enabled": true,
   "editor.stickyScroll.scrollWithEditor": true,
@@ -151,7 +83,6 @@
     "erb": "html",
     "html-erb": "html"
   },
-  "emmet.showSuggestionsAsSnippets": false,
   "emmet.triggerExpansionOnTab": true,
   // ERB
   "erb-formatter.commandPath": "erb-format",
@@ -238,33 +169,23 @@
   "javascript.validate.enable": false,
   "json.schemas": [
     {
-      "fileMatch": [
-        "/.babelrc"
-      ],
+      "fileMatch": ["/.babelrc"],
       "url": "https://json.schemastore.org/babelrc"
     },
     {
-      "fileMatch": [
-        "/.prettierrc"
-      ],
+      "fileMatch": ["/.prettierrc"],
       "url": "https://json.schemastore.org/prettierrc"
     },
     {
-      "fileMatch": [
-        "/vercel.json"
-      ],
+      "fileMatch": ["/vercel.json"],
       "url": "https://openapi.vercel.sh/vercel.json"
     },
     {
-      "fileMatch": [
-        "/jsconfig.json"
-      ],
+      "fileMatch": ["/jsconfig.json"],
       "url": "https://json.schemastore.org/jsconfig"
     },
     {
-      "fileMatch": [
-        "/.hintrc"
-      ],
+      "fileMatch": ["/.hintrc"],
       "url": "https://json.schemastore.org/htmlhint.json"
     }
   ],
@@ -299,7 +220,6 @@
     "$home/git/work"
   ],
   "projectManager.sortList": "Recent",
-  "projectManager.treeview.visible": false,
   // Redhat Yaml
   "redhat.telemetry.enabled": false,
   // Ruby LSP
@@ -343,8 +263,10 @@
     ".torchlight-cache": true,
     "app/assets/builds": true,
     "CHANGELOG.md": true,
-    "rails.rb": true
+    "rails.rb": true,
+    "**/.ruby-lsp": true
   },
+  "search.collapseResults": "auto",
   // Security
   "security.workspace.trust.untrustedFiles": "open",
   // Standard Ruby
@@ -366,13 +288,7 @@
   },
   "symbols.hidesExplorerArrows": false,
   // Tailwind
-  "tailwindCSS.classAttributes": [
-    "class",
-    "className",
-    "ngClass",
-    "class_name",
-    "class"
-  ],
+  "tailwindCSS.classAttributes": ["class", "className", "ngClass", "class_name", "class"],
   "tailwindCSS.emmetCompletions": true,
   "tailwindCSS.includeLanguages": {
     "erb": "html",
@@ -385,18 +301,16 @@
   "terminal.external.osxExec": "Warp.app",
   "terminal.integrated.copyOnSelection": true,
   "terminal.integrated.cursorBlinking": true,
-  "terminal.integrated.detectLocale": "on",
   "terminal.integrated.enableBell": true,
   "terminal.integrated.enableMultiLinePasteWarning": false,
-  "terminal.integrated.fontFamily": "'SFMono Nerd Font', 'JetBrainsMono Nerd Font'",
+  "terminal.integrated.fontFamily": "'Monaspace Neon','JetBrainsMono Nerd Font'",
   "terminal.integrated.fontSize": 13,
   "terminal.integrated.macOptionClickForcesSelection": true,
-  "terminal.integrated.smoothScrolling": true,
-  "testExplorer.useNativeTesting": true,
+  // "terminal.integrated.smoothScrolling": true,
   // TypeScript
-  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
-  "typescript.inlayHints.parameterTypes.enabled": true,
-  "typescript.inlayHints.variableTypes.enabled": true,
+  // "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  // "typescript.inlayHints.parameterTypes.enabled": true,
+  // "typescript.inlayHints.variableTypes.enabled": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
   // Vim
   "vim.easymotion": true,
@@ -408,285 +322,187 @@
   "vim.incsearch": true,
   "vim.insertModeKeyBindings": [
     {
-      "after": [
-        "<Esc>"
-      ],
-      "before": [
-        "j",
-        "j"
-      ]
+      "after": ["<Esc>"],
+      "before": ["j", "j"]
     }
   ],
   "vim.leader": "<space>",
   "vim.normalModeKeyBindings": [
     {
-      "before": [
-        "<C-n>"
-      ],
-      "commands": [
-        ":nohl"
-      ]
+      "before": ["<C-n>"],
+      "commands": [":nohl"]
     },
     {
-      "before": [
-        "<leader>",
-        "g",
-        "g"
-      ],
-      "commands": [
-        "workbench.view.scm"
-      ]
+      "before": ["<leader>", "g", "g"],
+      "commands": ["workbench.view.scm"]
     },
     {
-      "before": [
-        "g",
-        "D"
-      ],
-      "commands": [
-        "editor.action.revealDefinitionAside"
-      ]
+      "before": ["g", "D"],
+      "commands": ["editor.action.revealDefinitionAside"]
     },
     {
-      "before": [
-        "<leader>",
-        "h",
-        "a"
-      ],
-      "commands": [
-        "vscode-harpoon.addEditor"
-      ]
+      "before": ["<leader>", "h", "a"],
+      "commands": ["vscode-harpoon.addEditor"]
     },
     {
-      "before": [
-        "<leader>",
-        "h",
-        "e"
-      ],
-      "commands": [
-        "vscode-harpoon.editEditors"
-      ]
+      "before": ["<leader>", "h", "e"],
+      "commands": ["vscode-harpoon.editEditors"]
     },
     {
-      "before": [
-        "<leader>",
-        "h",
-        "p"
-      ],
-      "commands": [
-        "vscode-harpoon.editorQuickPick"
-      ]
+      "before": ["<leader>", "h", "p"],
+      "commands": ["vscode-harpoon.editorQuickPick"]
     },
     {
-      "before": [
-        "<leader>",
-        "p",
-        "p"
-      ],
-      "commands": [
-        "workbench.action.quickOpen"
-      ]
+      "before": ["<leader>", "p", "p"],
+      "commands": ["workbench.action.quickOpen"]
     },
     {
-      "before": [
-        "<leader>",
-        "p",
-        "r"
-      ],
-      "commands": [
-        "quickOpenRails.open"
-      ]
+      "before": ["<leader>", "p", "r"],
+      "commands": ["quickOpenRails.open"]
     },
     {
-      "before": [
-        ":"
-      ],
-      "commands": [
-        "workbench.action.showCommands"
-      ],
+      "before": [":"],
+      "commands": ["workbench.action.showCommands"],
       "silent": true
     },
     {
-      "before": [
-        "<leader>",
-        "1"
-      ],
-      "commands": [
-        "vscode-harpoon.gotoEditor1"
-      ]
+      "before": ["<leader>", "1"],
+      "commands": ["vscode-harpoon.gotoEditor1"]
     }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "after": [
-        "d",
-        "d"
-      ],
-      "before": [
-        "<leader>",
-        "d"
-      ]
+      "after": ["d", "d"],
+      "before": ["<leader>", "d"]
     },
     {
-      "before": [
-        "K"
-      ],
-      "commands": [
-        "lineBreakInsert"
-      ],
+      "before": ["K"],
+      "commands": ["lineBreakInsert"],
       "silent": true
     },
     {
-      "after": [
-        "<leader>",
-        "<leader>",
-        "2",
-        "s"
-      ],
-      "before": [
-        "s"
-      ]
+      "after": ["<leader>", "<leader>", "2", "s"],
+      "before": ["s"]
     },
     {
-      "after": [
-        "<leader>",
-        "<leader>",
-        "j"
-      ],
-      "before": [
-        "<C-j>"
-      ]
+      "after": ["<leader>", "<leader>", "j"],
+      "before": ["<C-j>"]
     },
     {
-      "after": [
-        "<leader>",
-        "<leader>",
-        "k"
-      ],
-      "before": [
-        "<C-k>"
-      ]
+      "after": ["<leader>", "<leader>", "k"],
+      "before": ["<C-k>"]
     },
     {
-      "before": [
-        "leader",
-        "r"
-      ],
-      "commands": [
-        "editor.action.rename"
-      ]
+      "before": ["leader", "r"],
+      "commands": ["editor.action.rename"]
     },
     {
-      "before": [
-        "leader",
-        "w"
-      ],
-      "commands": [
-        ":w!"
-      ]
+      "before": ["leader", "w"],
+      "commands": [":w!"]
     },
     {
-      "before": [
-        "leader",
-        "q"
-      ],
-      "commands": [
-        ":q!"
-      ]
+      "before": ["leader", "q"],
+      "commands": [":q!"]
     },
     {
-      "before": [
-        "leader",
-        "x"
-      ],
-      "commands": [
-        ":x!"
-      ]
+      "before": ["leader", "x"],
+      "commands": [":x!"]
     },
     {
-      "after": [
-        "g",
-        "g",
-        "V",
-        "G"
-      ],
-      "before": [
-        "<c-a>"
-      ]
+      "after": ["g", "g", "V", "G"],
+      "before": ["<c-a>"]
     },
     {
-      "before": [
-        "<leader>",
-        "k"
-      ],
-      "commands": [
-        "editor.action.showHover"
-      ]
+      "before": ["<leader>", "k"],
+      "commands": ["editor.action.showHover"]
     },
     {
-      "before": [
-        "[",
-        "d"
-      ],
-      "commands": [
-        "editor.action.marker.prev"
-      ]
+      "before": ["[", "d"],
+      "commands": ["editor.action.marker.prev"]
     },
     {
-      "before": [
-        "]",
-        "d"
-      ],
-      "commands": [
-        "editor.action.marker.next"
-      ]
+      "before": ["]", "d"],
+      "commands": ["editor.action.marker.next"]
     },
     {
-      "before": [
-        "<leader>",
-        "c",
-        "a"
-      ],
-      "commands": [
-        "editor.action.quickFix"
-      ]
+      "before": ["<leader>", "c", "a"],
+      "commands": ["editor.action.quickFix"]
     },
     {
-      "after": [
-        "^"
-      ],
-      "before": [
-        "H"
-      ]
+      "after": ["^"],
+      "before": ["H"]
     },
     {
-      "after": [
-        "$"
-      ],
-      "before": [
-        "L"
-      ]
+      "after": ["$"],
+      "before": ["L"]
     }
   ],
   "vim.useSystemClipboard": true,
+  "vim.statusBarColorControl": true,
+  "vim.statusBarColors.commandlineinprogress": ["#0090ff", "#c2e6ff"],
+
+  // Status bar color when in EasyMotionInput mode.
+  "vim.statusBarColors.easymotioninputmode": ["#0090ff", "#c2e6ff"],
+
+  // Status bar color when in EasyMotion mode.
+  "vim.statusBarColors.easymotionmode": ["#0090ff", "#c2e6ff"],
+
+  // Status bar color when in Insert mode.
+  "vim.statusBarColors.insert": ["#132d21", "#b1f1cb"],
+
+  // Status bar color when in Normal mode.
+  "vim.statusBarColors.normal": ["#111111", "#eeeeee"],
+
+  // Status bar color when in Replace mode.
+  "vim.statusBarColors.replace": ["#111111", "#c2e6ff"],
+
+  // Status bar color when in SearchInProgress mode.
+  "vim.statusBarColors.searchinprogressmode": ["#0090ff", "#c2e6ff"],
+
+  // Status bar color when in SurroundInput mode.
+  "vim.statusBarColors.surroundinputmode": ["#0090ff", "#c2e6ff"],
+
+  // Status bar color when in Visual mode.
+  "vim.statusBarColors.visual": ["#8e4ec6", "#ecd9fa"],
+
+  // Status bar color when in VisualBlock mode.
+  "vim.statusBarColors.visualblock": ["#86592d", "#c2e6ff"],
+
+  // Status bar color when in VisualLine mode.
+  "vim.statusBarColors.visualline": ["#005f5f", "#c2e6ff"],
   // Window
   "window.commandCenter": true,
   "window.newWindowDimensions": "inherit",
   "workbench.activityBar.location": "top",
-  "workbench.colorTheme": "MacOS Modern Dark - Xcode Modern",
+  "workbench.colorTheme": "Ruby Midnight",
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.pinnedTabSizing": "shrink",
-  "workbench.editor.showIcons": false,
+  "workbench.editor.showIcons": true,
   "workbench.editor.tabActionCloseVisibility": false,
-  "workbench.editor.tabCloseButton": "off",
   "workbench.experimental.share.enabled": true,
   "workbench.fontAliasing": "auto",
   "workbench.iconTheme": "file-icons",
   "workbench.productIconTheme": "fluent-icons",
   "workbench.settings.useSplitJSON": true,
-  "workbench.sideBar.location": "right",
-  "workbench.startupEditor": "none",
+  "workbench.startupEditor": "readme",
   "workbench.tree.renderIndentGuides": "always",
-  "editor.fontLigatures": "'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'calt', 'dlig'",
+  "workbench.tree.indent": 4,
+  "editor.fontLigatures": "'calt', 'liga', 'dlig', 'ss01', 'ss02', 'ss03', 'ss04', 'ss06', 'ss07', 'ss08'",
   "editor.fontWeight": "300",
   "security.promptForLocalFileProtocolHandling": false,
+  "terminal.integrated.splitCwd": "workspaceRoot",
+  "terminal.integrated.macOptionIsMeta": true,
+  "workbench.colorCustomizations": {
+    "editor.background": "#191919",
+    "editor.foreground": "#b4b4b4",
+    "statusBar.background": "#111111",
+    "statusBar.noFolderBackground": "#111111",
+    "statusBar.debuggingBackground": "#111111",
+    "statusBar.foreground": "#eeeeee",
+    "statusBar.debuggingForeground": "#eeeeee"
+  },
+  "workbench.sideBar.location": "right",
+  "testExplorer.useNativeTesting": true,
+  "rubyTestExplorer.logpanel": true,
+  "rubyTestExplorer.testFramework": "rspec"
 }
