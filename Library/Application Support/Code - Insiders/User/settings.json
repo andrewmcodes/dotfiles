@@ -9,7 +9,13 @@
     "editor.defaultFormatter": "Shopify.ruby-lsp",
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
-    "editor.insertSpaces": true
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "editor.rulers": [120],
+    "editor.semanticHighlighting.enabled": true
   },
   "[sass]": {
     "editor.defaultFormatter": "syler.sass-indented"
@@ -30,8 +36,6 @@
   },
   "editor.semanticHighlighting.enabled": true,
   "breadcrumbs.enabled": true,
-  "breadcrumbs.filePath": "last",
-  "breadcrumbs.symbolPath": "last",
 
   // CSS
   "css.validate": false,
@@ -477,10 +481,9 @@
   "workbench.colorTheme": "Ruby Midnight",
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.pinnedTabSizing": "shrink",
-  "workbench.editor.showIcons": true,
+  "workbench.editor.showIcons": false,
   "workbench.editor.tabActionCloseVisibility": false,
   "workbench.experimental.share.enabled": true,
-  "workbench.fontAliasing": "auto",
   "workbench.iconTheme": "file-icons",
   "workbench.productIconTheme": "fluent-icons",
   "workbench.settings.useSplitJSON": true,
@@ -504,5 +507,6 @@
   "workbench.sideBar.location": "right",
   "testExplorer.useNativeTesting": true,
   "rubyTestExplorer.logpanel": true,
-  "rubyTestExplorer.testFramework": "rspec"
+  "rubyTestExplorer.testFramework": "rspec",
+  "breadcrumbs.symbolPath": "last"
 }
