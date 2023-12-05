@@ -27,16 +27,15 @@ zi light z-shell/zzcomplete
 zi light-mode for \
   marlonrichert/zsh-autocomplete \
   agkozak/zsh-z \
-  marlonrichert/zsh-hist \
+  marlonrichert/zsh-hist
 
 zi wait lucid for \
   atinit"ZI[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
-    z-shell/F-Sy-H \
+  z-shell/F-Sy-H \
   blockf \
-    zsh-users/zsh-completions \
+  zsh-users/zsh-completions \
   atload"!_zsh_autosuggest_start" \
-    zsh-users/zsh-autosuggestions
-
+  zsh-users/zsh-autosuggestions
 
 # ¬ https://github.com/marlonrichert/zsh-autocomplete/blob/main/.zshrc
 zstyle ':autocomplete:*' min-input 3
@@ -52,4 +51,4 @@ zi light @sharkdp/fd
 # autoload -Uz compinit
 # compinit
 zi cdreplay -q # <- execute compdefs provided by rest of plugins
-zi cdlist # look at gathered compdefs
+zi cdlist      # look at gathered compdefs
