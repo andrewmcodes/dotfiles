@@ -7,15 +7,15 @@ yabai -m config layout bsp # Options: bsp, stack, float
 yabai -m config window_placement first_child
 yabai -m config window_topmost off
 yabai -m config auto_balance off
-yabai -m config split_ratio 0.75
+yabai -m config split_ratio 0.5
 yabai -m config top_padding 8
 yabai -m config bottom_padding 8
-yabai -m config left_padding 4
-yabai -m config right_padding 4
+yabai -m config left_padding 16
+yabai -m config right_padding 16
 
 # Window: https://github.com/koekeishiya/yabai/wiki/Configuration#window-modifications
 yabai -m config window_opacity on
-yabai -m config window_gap 4
+yabai -m config window_gap 8
 # Mouse: Center on window with focus
 yabai -m config mouse_follows_focus on
 # Mouse: modifier for clicking and dragging
