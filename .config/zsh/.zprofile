@@ -3,6 +3,5 @@
 # that is sourced when Zsh starts up, and it's loaded only once.
 #
 
-
 # If M1 Mac, eval brew shellenv
 [[ $(uname -m) == arm64 ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
