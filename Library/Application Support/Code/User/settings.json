@@ -38,5 +38,6 @@
                 }
             }
         ]
-    }
+    },
+    "editor.accessibilitySupport": "off"
 }
