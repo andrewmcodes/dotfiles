@@ -1,54 +1,5 @@
 #!/usr/bin/env zsh
 
-## Functions
-#? Lazy load the functions that we use most often.
-autoload -Uz \
-  pg_switch \
-  init \
-  mkcd \
-  toggle_desktop_icons \
-  update_shell \
-  ghlabels \
-  os \
-  gg \
-  colormap \
-  zsh-list-keybindings \
-  import_obsidian_plugins \
-  tldrf \
-  fdiff \
-  vscedoc \
-  autosort \
-
-function pg_stop {
-  local currently_running_version=$(psql --no-psqlrc -t -c 'show server_version;' postgres | xargs)
-  $HOME/.asdf/installs/postgres/$currently_running_version/bin/pg_ctl -D $HOME/.asdf/installs/postgres/$currently_running_version/data stop
-}
-
-function pg_start {
-  local version_to_run=$(asdf which postgres | awk -F/ '{print $7}')
-  $HOME/.asdf/installs/postgres/$version_to_run/bin/pg_ctl -D $HOME/.asdf/installs/postgres/$version_to_run/data start
-}
-
-## Vendor Specific
-if [[ $VENDOR == apple ]]; then
-  autoload -Uz trash
-  # alias rm="trash"
-else
-  # alias rm="rm --preserve-root"
-fi
-
-function find_schemes {
-  apps=$(find /Applications -name "*.app" -type d)
-  chosen_app=$(echo "$apps" | fzf)
-  info_plist_path="$chosen_app/Contents/Info.plist"
-  info_json=$(plutil -convert json -o - "$info_plist_path")
-  echo "$info_json | jq -r '.'"
-  echo "$info_json" | jq -r '.CFBundleURLTypes[]?.CFBundleURLSchemes[]?'
-  # echo "$info_json" | jq -r '.CFBundleURLTypes[]?.CFBundleURLSchemes[]?' > schemes.txt
-}
-
-## Aliases
-#! Always set aliases _last,_ so they don"t class with function definitions.
 alias "...."="cd ../../"
 alias "..."="cd cd ../.."
 alias ".."="cd .."
@@ -84,7 +35,6 @@ alias gpf="git push --force-with-lease"
 alias gpl="git pull"
 alias gr="git rebase"
 alias grbc="git rebase --continue"
-alias grep="grep --color"
 alias gs="git status"
 alias gundo="git reset --soft HEAD~1"
 alias gup="git pull --rebase"
@@ -110,6 +60,7 @@ alias podia="code-insiders ~/git/work/podia"
 alias r="rails"
 alias rc="rails console"
 alias rcd="rails dbconsole"
+alias rcf="rails -T | awk '{print $2}' | fzf --preview 'rails {1} --help' | xargs -I {} rails {}"
 alias rdb="rails db"
 alias rdbm="rails db:migrate"
 alias redis_start="redis-server --daemonize yes"
@@ -128,20 +79,3 @@ alias up="git pull && bundle check || bundle && yarn && rails db:migrate"
 alias y="yarn"
 alias ya="yarn add"
 alias yad="yarn add -D"
-alias zr="znap restart"
-# Depends on
-alias rcf="rails -T | awk '{print $2}' | fzf --preview 'rails {1} --help' | xargs -I {} rails {}"
-
-#* Stop Zsh from evaluating the value of our $expansion as a command.
-#? `:` is a builtin command that does nothing.
-: ${PAGER:="code-insiders --wait"}
-
-#* Associate file .extensions with programs.
-#? This lets you open a file just by typing its name and pressing enter.
-#? Note that the dot is implicit. So, `gz` below stands for files ending in .gz
-alias -s {css,gradle,html,js,json,md,patch,properties,txt,xml,yml}=$PAGER
-alias -s gz="gzip -l"
-alias -s {log,out}="tail -F"
-
-#* Use `< file` to quickly view the contents of any file.
-READNULLCMD=$PAGER

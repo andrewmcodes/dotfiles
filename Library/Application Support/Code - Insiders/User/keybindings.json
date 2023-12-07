@@ -266,5 +266,15 @@
     "command": "deleteFile",
     "key": "d",
     "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "shift+cmd+v",
+    "command": "-pieces-vscode.saveToPieces",
+    "when": "editorHasMultipleSelections || editorHasSelection || editorTextFocus"
+  },
+  {
+    "key": "shift+cmd+v",
+    "command": "-markdown.showPreview",
+    "when": "!notebookEditorFocused && editorLangId == 'markdown'"
   }
 ]

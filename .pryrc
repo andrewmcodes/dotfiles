@@ -1,5 +1,5 @@
 # Editor
-Pry.editor = "code"
+Pry.editor = "code-insiders --wait"
 
 # Config
 Pry.config.ls.separator = "\n" # new lines between methods

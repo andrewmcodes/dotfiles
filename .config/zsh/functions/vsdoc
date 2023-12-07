@@ -1,9 +1,9 @@
 #!/usr/bin/env zsh
 
-# name: vscedoc
-# usage: vscedoc <extension-id>
+# name: vsdoc
+# usage: vsdoc <extension-id>
 # description: Get the documentation for a VSCode extension and save it to a file
-function vscedoc() {
+function vsdoc() {
   local extension_id=$1
   # Optional second argument -F to force overwrite
   if [[ $2 == "-F" ]]; then
@@ -32,27 +32,29 @@ function vscedoc() {
   done
 
   # Template for the markdown file
-  local template=$(cat << EOF
+  local template=$(
+    cat <<EOF
 ---
-schema: ext
+type: extension
 id: "$extension_id"
-name: "$display_name"
+aliases:
+  - "$display_name"
 description: "$extension_description"
+category:
 author:
   - "[[$extension_authors]]"
-category: "$extension_category"
-tags:
-  - is/ext/vscode
 links:
   - "https://marketplace.visualstudio.com/items?itemName=$extension_id"
+collection:
+  - "[[VSCode Extensions]]"
 ---
 
 $tag_output
 EOF
-)
+  )
 
   # Output the template to the file
-  echo -e "$template" > "$file_name"
+  echo -e "$template" >"$file_name"
 
   if [[ $? == 0 ]]; then
     osascript -e 'display notification "VS Code extension saved to file" with title "vscedoc"'

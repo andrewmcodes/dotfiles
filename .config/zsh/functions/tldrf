@@ -17,9 +17,9 @@ function tldrf() {
   # The link will always start with `More information`.
   link=$(echo "$tldr_output" | awk '/^More information/ {print}')
   # Save the new note in a variable, starting with the description and the link
-  note="---\nschema: doc\n---\n$description\n- [b] $link\n\n## Recipes\n"
+  note="---\ntype: pages\ncollection:\n  - \"[[Docs]]\"\n---\n$description\n- [b] $link\n\n## Recipes\n"
 
-  while IFS= read -r line; do #* Iterate over the tldr output, starting from line 6
+  while IFS= read -r line; do  #* Iterate over the tldr output, starting from line 6
     if [[ $line == -* ]]; then #? If the line starts with a -, it's a command description
       note="$note\n### ${line:2}\n"
     elif [[ -z "$line" ]]; then #? If the line is empty, skip it
@@ -36,7 +36,7 @@ function tldrf() {
     osascript -e 'display notification "TLDR copied to clipboard" with title "tldrformat"'
   else
     file_name=$(echo "$1" | tr ' ' '.')
-    echo -e "$note" > "$HOME/git/andrewmcodes/digital-brain/cli.$file_name.md"
+    echo -e "$note" >"$HOME/git/andrewmcodes/digital-brain/objects/Pages/cli.$file_name.md"
     if [[ $? == 0 ]]; then
       osascript -e 'display notification "TLDR saved to file" with title "tldrformat"'
     else
