@@ -508,5 +508,8 @@
   "testExplorer.useNativeTesting": true,
   "rubyTestExplorer.logpanel": true,
   "rubyTestExplorer.testFramework": "rspec",
-  "breadcrumbs.symbolPath": "last"
+  "breadcrumbs.symbolPath": "last",
+  "[ignore]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  }
 }
