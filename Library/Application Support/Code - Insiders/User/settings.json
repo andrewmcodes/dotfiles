@@ -376,6 +376,10 @@
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
+      "before": ["<space>"],
+      "commands": ["whichkey.show"]
+    },
+    {
       "after": ["d", "d"],
       "before": ["<leader>", "d"]
     },
@@ -439,6 +443,12 @@
     {
       "after": ["$"],
       "before": ["L"]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<space>"],
+      "commands": ["whichkey.show"]
     }
   ],
   "vim.useSystemClipboard": true,
@@ -511,5 +521,6 @@
   "breadcrumbs.symbolPath": "last",
   "[ignore]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
-  }
+  },
+  "githubPullRequests.fileListLayout": "flat"
 }

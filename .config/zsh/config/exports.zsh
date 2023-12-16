@@ -18,3 +18,7 @@ export DISABLE_SPRING=true
 export EDITOR="code --wait"
 export SHELL="$(which zsh)"
 export MANPAGER="less -X"
+
+# FZF
+export FZF_DEFAULT_OPTS="--history=$HOME/.fzf-history --ansi --height 50% --layout=reverse --preview-window=right:60% --preview 'bat --color=always --style=header,grid --line-range :500 {}' --color=fg:#fbf1c7,bg:#282828,hl:#83a598 --inline-info --prompt='FZF > '"
+# export FZF_DEFAULT_OPTS="--history=$HOME/.fzf-history --height=40% --layout=reverse --ansi --preview-window=right:60% --color=fg:#fbf1c7,bg:#282828,hl:#83a598 --inline-info --prompt='FZF > '"
