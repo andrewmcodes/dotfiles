@@ -212,17 +212,16 @@ zinit wait lucid light-mode for \
       OMZ::plugins/1password/1password.plugin.zsh \
       agkozak/zsh-z \
   atinit"zicompinit; zicdreplay" \
-        zdharma/fast-syntax-highlighting \
+        zdharma-continuum/fast-syntax-highlighting \
       OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh \
       OMZ::plugins/command-not-found/command-not-found.plugin.zsh \
   atload"_zsh_autosuggest_start" \
       zsh-users/zsh-autosuggestions \
+  blockf atpull'zinit creinstall -q .' \
+      zsh-users/zsh-completions \
   as"completion" \
       OMZ::plugins/thefuck/thefuck.plugin.zsh \
 
-# Recommended Be Loaded Last.
-zinit ice wait blockf lucid atpull'zinit creinstall -q .'
-zinit load zsh-users/zsh-completions
 zinit load asdf-vm/asdf
 
 # Semi-graphical .zshrc editor for zinit commands
