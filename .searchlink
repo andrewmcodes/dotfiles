@@ -47,17 +47,6 @@ validate_links: true
 #      "%url%" => "twitter.com/ttscoff"
 social_template: "%service%/%user%"
 
-# append affiliate link info to iTunes urls, empty quotes for none
-# example:
-# itunes_affiliate = "&at=10l4tL&ct=searchlink"
-
-# to create Amazon affiliate links, set amazon_partner to:
-# [tag, camp, creative]
-# Use the amazon link tool to create any affiliate link and examine
-# to find the needed parts. Set to false to return regular amazon links
-# example:
-#    amazon_partner: ["bretttercom-20","1789","390957"]
-
 # To create custom abbreviations for DuckDuckGo Site Searches,
 # add to (or replace) the hash below.
 # "abbreviation" => "site.url",
@@ -82,10 +71,13 @@ social_template: "%service%/%user%"
 custom_site_searches:
   amc: andrewm.codes
   ms: macstories.net
-  man: http://man.cx/$term
+  man: http://man.cx/$termd
   rails: api.rubyonrails.org/?q=$term
-  obs: obsidian.md
-  # dev: developer.apple.com
+  gh: github.com
+  alfp: https://alfred.app/search/?q=$term
+  alfh: https://alfredapp.com/search/?q=$term
+  obsp: https://obsidian.md/plugins?search=$term
+
 
 # Remove or comment (with #) history searches you don't want
 # performed by `!h`. You can force-enable them per search, e.g.
@@ -97,5 +89,5 @@ history_types:
 - safari_history
 # - chrome_history
 # - chrome_bookmarks
-#- firefox_bookmarks
-#- firefox_history
+# - firefox_bookmarks
+# - firefox_history
