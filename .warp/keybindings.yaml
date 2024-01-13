@@ -1,3 +1,5 @@
 ---
+"editor_view:insert_autosuggestion": tab
 "workspace:toggle_command_palette": shift-cmd-P
 "workspace:toggle_navigation_palette": cmd-p
+"input:open_completion_suggestions": ctrl-space
