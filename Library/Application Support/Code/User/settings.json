@@ -39,5 +39,7 @@
             }
         ]
     },
-    "editor.accessibilitySupport": "off"
+    "editor.accessibilitySupport": "off",
+    "workbench.colorTheme": "Orion",
+    "orion-vscode.accentColor": "blue"
 }
