@@ -46,7 +46,7 @@
   "editor.accessibilitySupport": "off",
   "editor.copyWithSyntaxHighlighting": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.fontFamily": "'Monaspace Neon Var', monospace",
+  "editor.fontFamily": "'JetBrains Mono', 'Monaspace Neon Var', monospace",
   "editor.fontSize": 14,
   "editor.fontVariations": true,
   "editor.formatOnPaste": false,
@@ -292,7 +292,13 @@
   },
   "symbols.hidesExplorerArrows": false,
   // Tailwind
-  "tailwindCSS.classAttributes": ["class", "className", "ngClass", "class_name", "class"],
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "ngClass",
+    "class_name",
+    "class"
+  ],
   "tailwindCSS.emmetCompletions": true,
   "tailwindCSS.includeLanguages": {
     "erb": "html",
@@ -505,15 +511,15 @@
   "security.promptForLocalFileProtocolHandling": false,
   "terminal.integrated.splitCwd": "workspaceRoot",
   "terminal.integrated.macOptionIsMeta": true,
-  "workbench.colorCustomizations": {
-    "editor.background": "#191919",
-    "editor.foreground": "#b4b4b4",
-    "statusBar.background": "#111111",
-    "statusBar.noFolderBackground": "#111111",
-    "statusBar.debuggingBackground": "#111111",
-    "statusBar.foreground": "#eeeeee",
-    "statusBar.debuggingForeground": "#eeeeee"
-  },
+  // "workbench.colorCustomizations": {
+  //   "editor.background": "#191919",
+  //   "editor.foreground": "#b4b4b4",
+  //   "statusBar.background": "#8e4ec6",
+  //   "statusBar.noFolderBackground": "#8e4ec6",
+  //   "statusBar.debuggingBackground": "#8e4ec6",
+  //   "statusBar.foreground": "#ecd9fa",
+  //   "statusBar.debuggingForeground": "#ecd9fa"
+  // },
   "workbench.sideBar.location": "right",
   "testExplorer.useNativeTesting": true,
   "rubyTestExplorer.logpanel": true,
@@ -522,5 +528,21 @@
   "[ignore]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
-  "githubPullRequests.fileListLayout": "flat"
+  "githubPullRequests.fileListLayout": "flat",
+  "window.titleBarStyle": "custom",
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#111111",
+    "statusBar.noFolderBackground": "#111111",
+    "statusBar.debuggingBackground": "#111111",
+    "statusBar.foreground": "#eeeeee",
+    "statusBar.debuggingForeground": "#eeeeee"
+  },
+  "orion-vscode.accentColor": "blue",
+  "github.copilot.chat.localeOverride": "en",
+  "github.copilot.chat.welcomeMessage": "never",
+  "logViewer.watch": ["${workspaceFolder}/log/development.log"],
+  "logViewer.windows.allowBackslashAsPathSeparator": false,
+  "logViewer.options": {
+    "encoding": "ascii"
+  }
 }
