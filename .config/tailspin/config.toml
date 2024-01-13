@@ -1,0 +1,63 @@
+# Tailspin Configuration File for Ruby on Rails Development Log
+
+[date]
+style = { fg = "magenta" }
+# To shorten the date, uncomment the line below
+# shorten = { to = "␣", style = { fg = "magenta" } }
+
+[time]
+time = { fg = "blue" }
+zone = { fg = "red" }
+# To shorten the time, uncomment the line below
+# shorten = { to = "␣", style = { fg = "blue" } }
+
+# Highlight Rails' severity levels like INFO, DEBUG, ERROR, WARN, FATAL
+[[keywords]]
+words = ['INFO', 'DEBUG', 'ERROR', 'WARN', 'FATAL']
+style = { fg = "red", bold = true }
+
+# Highlight typical Rails logging tags such as [ActiveRecord] or [ActiveJob]
+[[keywords]]
+words = ['ActiveRecord', 'ActiveJob', 'ActionController', 'ActionMailer']
+style = { fg = "blue", underline = true }
+
+# Highlight Request IDs for correlating logs
+[[keywords]]
+words = ['Request ID:']
+style = { fg = "magenta", italic = true }
+
+# Highlight IP addresses
+[ip]
+style = { fg = "cyan" }
+
+# Highlight SQL verbs in ActiveRecord logs
+[[keywords]]
+words = ['SELECT', 'INSERT', 'UPDATE', 'DELETE']
+style = { fg = "green", bold = true }
+
+# Customize the path highlighting for file paths in the log
+[path]
+style = { fg = "grey", italic = false }
+separator = { fg = "dark-grey" }
+
+# Highlight controller processing lines
+[[keywords]]
+words = ['Processing by']
+style = { fg = "blue", bold = true }
+
+[[keywords]]
+words = ['as HTML', 'as JSON', 'as XML']
+style = { fg = "magenta", italic = true }
+
+[url]
+http = { faint = true }
+https = { bold = true }
+host = { fg = "blue", faint = true }
+path = { fg = "blue" }
+query_params_key = { fg = "magenta" }
+query_params_value = { fg = "cyan" }
+symbols = { fg = "red" }
+
+[quotes]
+style = { fg = "yellow" }
+token = '"'
