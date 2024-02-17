@@ -101,3 +101,4 @@ Procfile.andrew
 .obsidian/cache
 .warp/workflows
 /.ruby-lsp/
+/.tours/
