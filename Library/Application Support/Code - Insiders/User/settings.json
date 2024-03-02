@@ -47,12 +47,11 @@
   "editor.copyWithSyntaxHighlighting": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.fontFamily": "'JetBrains Mono', 'Monaspace Neon Var', monospace",
-  "editor.fontSize": 14,
   "editor.fontVariations": true,
-  "editor.formatOnPaste": false,
+  "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.formatOnSaveMode": "modificationsIfAvailable",
-  "editor.formatOnType": false,
+  "editor.formatOnType": true,
   "editor.gotoLocation.multipleDeclarations": "goto",
   "editor.gotoLocation.multipleDefinitions": "goto",
   "editor.gotoLocation.multipleImplementations": "goto",
@@ -202,7 +201,7 @@
   // NPM
   "npm.enableRunFromFolder": true,
   // Obsidian
-  "obsidianmd.vaultPath": "${userHome}/git/andrewmcodes/digital-brain",
+  "obsidianmd.vaultPath": "~/git/andrewmcodes/digital-brain",
   // Peacock
   "peacock.favoriteColors": [
     {
@@ -311,7 +310,6 @@
   "terminal.external.osxExec": "Warp.app",
   "terminal.integrated.copyOnSelection": true,
   "terminal.integrated.cursorBlinking": true,
-  "terminal.integrated.enableBell": true,
   "terminal.integrated.enableMultiLinePasteWarning": false,
   "terminal.integrated.fontFamily": "'Monaspace Neon','JetBrainsMono Nerd Font'",
   "terminal.integrated.fontSize": 13,
@@ -351,6 +349,21 @@
       "commands": ["editor.action.revealDefinitionAside"]
     },
     {
+      "before": ["<leader>", "p", "p"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    // {
+    //   "before": [":"],
+    //   "commands": ["workbench.action.showCommands"],
+    //   "silent": true
+    // },
+    // Rails: Switch to Test
+    {
+      "before": ["<leader>", "s", "t"],
+      "commands": ["rails.switchToTest"]
+    },
+    // Harpoon Add
+    {
       "before": ["<leader>", "h", "a"],
       "commands": ["vscode-harpoon.addEditor"]
     },
@@ -359,25 +372,16 @@
       "commands": ["vscode-harpoon.editEditors"]
     },
     {
-      "before": ["<leader>", "h", "p"],
+      "before": ["<C-b>"],
       "commands": ["vscode-harpoon.editorQuickPick"]
-    },
-    {
-      "before": ["<leader>", "p", "p"],
-      "commands": ["workbench.action.quickOpen"]
-    },
-    {
-      "before": ["<leader>", "p", "r"],
-      "commands": ["quickOpenRails.open"]
-    },
-    {
-      "before": [":"],
-      "commands": ["workbench.action.showCommands"],
-      "silent": true
     },
     {
       "before": ["<leader>", "1"],
       "commands": ["vscode-harpoon.gotoEditor1"]
+    },
+    {
+      "before": ["<leader>", "2"],
+      "commands": ["vscode-harpoon.gotoEditor2"]
     }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
@@ -407,7 +411,7 @@
       "before": ["<C-k>"]
     },
     {
-      "before": ["leader", "r"],
+      "before": ["leader", "R"],
       "commands": ["editor.action.rename"]
     },
     {
@@ -494,13 +498,12 @@
   "window.commandCenter": true,
   "window.newWindowDimensions": "inherit",
   "workbench.activityBar.location": "top",
-  "workbench.colorTheme": "Ruby Midnight",
+  "workbench.colorTheme": "Orion",
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.pinnedTabSizing": "shrink",
   "workbench.editor.showIcons": false,
   "workbench.editor.tabActionCloseVisibility": false,
   "workbench.experimental.share.enabled": true,
-  "workbench.iconTheme": "file-icons",
   "workbench.productIconTheme": "fluent-icons",
   "workbench.settings.useSplitJSON": true,
   "workbench.startupEditor": "readme",
@@ -544,5 +547,35 @@
   "logViewer.windows.allowBackslashAsPathSeparator": false,
   "logViewer.options": {
     "encoding": "ascii"
-  }
+  },
+  "workbench.iconTheme": "file-icons",
+  "editor.fontSize": 13,
+  "editor.tokenColorCustomizations": {
+    "[*Light*]": {
+      "textMateRules": [
+        {
+          "scope": "ref.matchtext",
+          "settings": {
+            "foreground": "#000"
+          }
+        }
+      ]
+    },
+    "[*Dark*]": {
+      "textMateRules": [
+        {
+          "scope": "ref.matchtext",
+          "settings": {
+            "foreground": "#fff"
+          }
+        }
+      ]
+    }
+  },
+  "accessibility.signals.terminalBell": {
+    "sound": "on"
+  },
+  "terminal.integrated.enableVisualBell": true,
+  "pieces.code-lens": false,
+  "npm-intellisense.scanDevDependencies": true
 }
