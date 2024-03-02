@@ -20,13 +20,15 @@ yabai -m config window_gap 8
 # Mouse: Center on window with focus
 yabai -m config mouse_follows_focus on
 # Mouse: modifier for clicking and dragging
-yabai -m config mouse_modifier alt
+yabai -m config mouse_modifier fn
 # Mouse: set modifier + left-click drag to move window
 yabai -m config mouse_action1 move
 # Mouse: set modifier + right-click drag to resize window
 yabai -m config mouse_action2 resize
 # Mouse: when window is dropped in center of another window, swap them
 yabai -m mouse_drop_action swap
+# set focus follows mouse mode (default: off, options: off, autoraise, autofocus)
+yabai -m config focus_follows_mouse autoraise
 
 # Rules
 ## Manage Rules
