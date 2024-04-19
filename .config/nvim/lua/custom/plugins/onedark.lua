@@ -5,7 +5,7 @@ return {
     config = function()
       require("onedarkpro").setup({
         colors = {
-          red = "#FF0000"
+          -- red = "#FF0000"
         }
       })
 
