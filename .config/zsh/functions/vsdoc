@@ -35,7 +35,7 @@ function vsdoc() {
   local template=$(
     cat <<EOF
 ---
-type: extension
+type: tool
 id: "$extension_id"
 aliases:
   - "$display_name"
@@ -43,10 +43,8 @@ description: "$extension_description"
 category:
 author:
   - "[[$extension_authors]]"
-links:
-  - "https://marketplace.visualstudio.com/items?itemName=$extension_id"
-collection:
-  - "[[VSCode Extensions]]"
+url: "https://marketplace.visualstudio.com/items?itemName=$extension_id"
+up: "[[VSCode Extensions]]"
 ---
 
 $tag_output

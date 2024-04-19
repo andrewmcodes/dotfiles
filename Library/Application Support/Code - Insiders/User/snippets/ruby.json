@@ -53,5 +53,10 @@
     "body": [
       "Flipper.enabled?(:$1)",
     ]
-  }
+  },
+	"Add debug breakpoint": {
+		"prefix": "pry",
+		"description": "Add a debug breakpoint with the debug gem",
+		"body": "binding.irb"
+	}
 }
