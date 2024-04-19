@@ -29,7 +29,8 @@
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "editor.rulers": [120],
-    "editor.semanticHighlighting.enabled": true
+    "editor.semanticHighlighting.enabled": true,
+    "editor.formatOnSaveMode": "file"
   },
   "[sass]": {
     "editor.defaultFormatter": "syler.sass-indented"
@@ -39,9 +40,6 @@
   },
   "editor.semanticHighlighting.enabled": true,
   "breadcrumbs.enabled": true,
-
-  // CSS
-  "css.validate": false,
   // Diff Editor
   "diffEditor.diffAlgorithm": "advanced",
   "diffEditor.ignoreTrimWhitespace": false,
@@ -247,7 +245,9 @@
   },
   "rubyLsp.enableExperimentalFeatures": true,
   "rubyLsp.formatter": "none", // ! TURN THIS OFF
-  "rubyLsp.rubyVersionManager": "asdf",
+  "rubyLsp.rubyVersionManager": {
+    "identifier": "asdf"
+  },
   "rubyLsp.yjit": false,
   // SCSS
   "scss.validate": false,
@@ -314,7 +314,7 @@
   "terminal.integrated.copyOnSelection": true,
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.enableMultiLinePasteWarning": false,
-  "terminal.integrated.fontFamily": "'Monaspace Neon','JetBrainsMono Nerd Font'",
+  "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font'",
   "terminal.integrated.fontSize": 13,
   "terminal.integrated.macOptionClickForcesSelection": true,
   // "terminal.integrated.smoothScrolling": true,
@@ -501,7 +501,7 @@
   "window.commandCenter": true,
   "window.newWindowDimensions": "inherit",
   "workbench.activityBar.location": "top",
-  "workbench.colorTheme": "Orion",
+  "workbench.colorTheme": "Ruby Midnight",
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.pinnedTabSizing": "shrink",
   "workbench.editor.showIcons": false,
@@ -537,11 +537,11 @@
   "githubPullRequests.fileListLayout": "flat",
   "window.titleBarStyle": "custom",
   "workbench.colorCustomizations": {
-    "statusBar.background": "#132d21",
-    "statusBar.noFolderBackground": "#132d21",
-    "statusBar.debuggingBackground": "#132d21",
-    "statusBar.foreground": "#b1f1cb",
-    "statusBar.debuggingForeground": "#b1f1cb"
+    "statusBar.background": "#111111",
+    "statusBar.noFolderBackground": "#111111",
+    "statusBar.debuggingBackground": "#111111",
+    "statusBar.foreground": "#eeeeee",
+    "statusBar.debuggingForeground": "#eeeeee"
   },
   "orion-vscode.accentColor": "blue",
   "github.copilot.chat.localeOverride": "en",
@@ -580,5 +580,10 @@
   },
   "terminal.integrated.enableVisualBell": true,
   "pieces.code-lens": false,
-  "npm-intellisense.scanDevDependencies": true
+  "npm-intellisense.scanDevDependencies": true,
+  "css.lint.duplicateProperties": "warning",
+  "css.validate": false,
+  "accessibility.voice.keywordActivation": "chatInContext",
+  "window.title": "${activeEditorShort}${separator}${rootName}${separator}${activeRepositoryName}/${activeRepositoryBranchName}",
+  "testing.openTesting": "openOnTestFailure"
 }

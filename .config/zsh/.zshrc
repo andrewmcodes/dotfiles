@@ -246,6 +246,8 @@ foreach piece (
     . $ZDOTDIR/config/$piece
 }
 
+# Java Support for asdf
+. ~/.asdf/plugins/java/set-java-home.zsh
 
 # - - - - - - - - - - - - - - - - - - - -
 # cdr, persistent cd

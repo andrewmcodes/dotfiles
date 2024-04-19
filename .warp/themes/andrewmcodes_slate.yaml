@@ -1,0 +1,24 @@
+name: andrewmcodes_slate
+accent: "#0090ff"
+background: "#111113"
+details: darker
+foreground: "#edeef0"
+terminal_colors:
+  bright:
+    black: "#b4b4b4"
+    blue: "#75c7f0"
+    cyan: "#4ccce6"
+    green: "#1fd8a4"
+    magenta: "#9eb1ff"
+    red: "#ff9592"
+    white: "#ffffff"
+    yellow: "#ffca16"
+  normal:
+    black: "#191919"
+    blue: "#70b8ff"
+    cyan: "#4ccce6"
+    green: "#1fd8a4"
+    magenta: "#9eb1ff"
+    red: "#ff9592"
+    white: "#ffffff"
+    yellow: "#ffa057"
