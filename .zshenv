@@ -8,6 +8,7 @@ export LC_ALL=en_US.UTF-8
 export XDG_CONFIG_HOME XDG_CACHE_HOME XDG_DATA_HOME XDG_STATE_HOME
 
 ZDOTDIR=$XDG_CONFIG_HOME/zsh
+ZIM_HOME=$XDG_CONFIG_HOME/zim
 
 # These are used in /etc/zshrc
 case $VENDOR in

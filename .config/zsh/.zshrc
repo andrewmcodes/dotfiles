@@ -1,5 +1,3 @@
-#!/usr/bin/env zsh
-
 # - - - - - - - - - - - - - - - - - - - -
 # Profiling Tools
 # - - - - - - - - - - - - - - - - - - - -
@@ -25,50 +23,20 @@ export PATH="$HOME/bin:/usr/local/bin:$PATH"
 # Homebrew Requires This.
 export PATH="/usr/local/sbin:$PATH"
 
-# - - - - - - - - - - - - - - - - - - - -
-# ZSH Settings
-# - - - - - - - - - - - - - - - - - - - -
+# Start configuration added by Zim install {{{
+#
+# User configuration sourced by interactive shells
+#
 
-autoload -U colors && colors    # Load Colors.
-unsetopt case_glob              # Use Case-Insensitve Globbing.
-setopt globdots                 # Glob Dotfiles As Well.
-setopt extendedglob             # Use Extended Globbing.
-setopt autocd                   # Automatically Change Directory If A Directory Is Entered.
+# -----------------
+# Zsh configuration
+# -----------------
 
-# Smart URLs.
-autoload -Uz url-quote-magic
-zle -N self-insert url-quote-magic
+#
+# History
+#
 
-# General.
-setopt brace_ccl                # Allow Brace Character Class List Expansion.
-setopt combining_chars          # Combine Zero-Length Punctuation Characters ( Accents ) With The Base Character.
-setopt rc_quotes                # Allow 'Henry''s Garage' instead of 'Henry'\''s Garage'.
-unsetopt mail_warning           # Don't Print A Warning Message If A Mail File Has Been Accessed.
-setopt interactive_comments     # Comments even in interactive shells.
-# Jobs.
-setopt long_list_jobs           # List Jobs In The Long Format By Default.
-setopt auto_resume              # Attempt To Resume Existing Job Before Creating A New Process.
-setopt notify                   # Report Status Of Background Jobs Immediately.
-unsetopt bg_nice                # Don't Run All Background Jobs At A Lower Priority.
-unsetopt hup                    # Don't Kill Jobs On Shell Exit.
-unsetopt check_jobs             # Don't Report On Jobs When Shell Exit.
-
-setopt correct                  # Turn On Corrections
-
-# Completion Options.
-setopt complete_in_word         # Complete From Both Ends Of A Word.
-setopt always_to_end            # Move Cursor To The End Of A Completed Word.
-setopt path_dirs                # Perform Path Search Even On Command Names With Slashes.
-setopt auto_menu                # Show Completion Menu On A Successive Tab Press.
-setopt auto_list                # Automatically List Choices On Ambiguous Completion.
-setopt auto_param_slash         # If Completed Parameter Is A Directory, Add A Trailing Slash.
-setopt no_complete_aliases
-
-setopt menu_complete            # Do Not Autoselect The First Completion Entry.
-unsetopt flow_control           # Disable Start/Stop Characters In Shell Editor.
-
-
-# History.
+# Remove older command from the history if a duplicate is to be added.
 if [[ $VENDOR == apple ]]; then
   HISTFILE=~/Library/Mobile\ Documents/com\~apple\~CloudDocs/zsh_history
   setopt extendedglob
@@ -95,13 +63,143 @@ setopt hist_ignore_space        # Do Not Record An Event Starting With A Space.
 setopt hist_save_no_dups        # Do Not Write A Duplicate Event To The History File.
 setopt hist_verify              # Do Not Execute Immediately Upon History Expansion.
 setopt extended_history         # Show Timestamp In History.
-setopt hist_reduce_blanks     # Remove superfluous blanks from history items.
+setopt hist_reduce_blanks     # Remove superfluous blanks from history items.if [[ $VENDOR == apple ]]; then
 
-# - - - - - - - - - - - - - - - - - - - -
-# User Configuration
-# - - - - - - - - - - - - - - - - - - - -
+#
+# Input/output
+#
 
+# Set editor default keymap to emacs (`-e`) or vi (`-v`)
+bindkey -v
+
+autoload -U colors && colors    # Load Colors.
+unsetopt case_glob              # Use Case-Insensitve Globbing.
+setopt globdots                 # Glob Dotfiles As Well.
+setopt extendedglob             # Use Extended Globbing.
+setopt autocd                   # Automatically Change Directory If A Directory Is Entered.
+
+# General.
+setopt brace_ccl                # Allow Brace Character Class List Expansion.
+setopt combining_chars          # Combine Zero-Length Punctuation Characters ( Accents ) With The Base Character.
+setopt rc_quotes                # Allow 'Henry''s Garage' instead of 'Henry'\''s Garage'.
+unsetopt mail_warning           # Don't Print A Warning Message If A Mail File Has Been Accessed.
+setopt interactive_comments     # Comments even in interactive shells.
+# Jobs.
+setopt long_list_jobs           # List Jobs In The Long Format By Default.
+setopt auto_resume              # Attempt To Resume Existing Job Before Creating A New Process.
+setopt notify                   # Report Status Of Background Jobs Immediately.
+unsetopt bg_nice                # Don't Run All Background Jobs At A Lower Priority.
+unsetopt hup                    # Don't Kill Jobs On Shell Exit.
+unsetopt check_jobs             # Don't Report On Jobs When Shell Exit.
 setopt no_beep # Don't beep on error.
+
+# Prompt for spelling correction of commands.
+setopt CORRECT
+
+# Customize spelling correction prompt.
+SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
+
+# Remove path separator from WORDCHARS.
+WORDCHARS=${WORDCHARS//[\/]}
+
+# -----------------
+# Zim configuration
+# -----------------
+
+# Use degit instead of git as the default tool to install and update modules.
+#zstyle ':zim:zmodule' use 'degit'
+
+# --------------------
+# Module configuration
+# --------------------
+
+#
+# git
+#
+
+# Set a custom prefix for the generated aliases. The default prefix is 'G'.
+#zstyle ':zim:git' aliases-prefix 'g'
+
+#
+# input
+#
+
+# Append `../` to your input for each `.` you type after an initial `..`
+#zstyle ':zim:input' double-dot-expand yes
+
+#
+# termtitle
+#
+
+# Set a custom terminal title format using prompt expansion escape sequences.
+# See http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Simple-Prompt-Escapes
+# If none is provided, the default '%n@%m: %~' is used.
+#zstyle ':zim:termtitle' format '%1~'
+
+#
+# zsh-autosuggestions
+#
+
+# Disable automatic widget re-binding on each precmd. This can be set when
+# zsh-users/zsh-autosuggestions is the last module in your ~/.zimrc.
+ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+
+# Customize the style that the suggestions are shown with.
+# See https://github.com/zsh-users/zsh-autosuggestions/blob/master/README.md#suggestion-highlight-style
+#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'
+
+#
+# zsh-syntax-highlighting
+#
+
+# Set what highlighters will be used.
+# See https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters.md
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
+
+# Customize the main highlighter styles.
+# See https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters/main.md#how-to-tweak-it
+#typeset -A ZSH_HIGHLIGHT_STYLES
+#ZSH_HIGHLIGHT_STYLES[comment]='fg=242'
+
+# ------------------
+# Initialize modules
+# ------------------
+
+ZIM_HOME=/Users/andrew.mason/.config/zim
+# Download zimfw plugin manager if missing.
+if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
+  if (( ${+commands[curl]} )); then
+    curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
+        https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+  else
+    mkdir -p ${ZIM_HOME} && wget -nv -O ${ZIM_HOME}/zimfw.zsh \
+        https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+  fi
+fi
+# Install missing modules, and update ${ZIM_HOME}/init.zsh if missing or outdated.
+if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
+  source ${ZIM_HOME}/zimfw.zsh init -q
+fi
+# Initialize modules.
+source ${ZIM_HOME}/init.zsh
+
+# ------------------------------
+# Post-init module configuration
+# ------------------------------
+
+#
+# zsh-history-substring-search
+#
+
+zmodload -F zsh/terminfo +p:terminfo
+# Bind ^[[A/^[[B manually so up/down works both before and after zle-line-init
+for key ('^[[A' '^P' ${terminfo[kcuu1]}) bindkey ${key} history-substring-search-up
+for key ('^[[B' '^N' ${terminfo[kcud1]}) bindkey ${key} history-substring-search-down
+for key ('k') bindkey -M vicmd ${key} history-substring-search-up
+for key ('j') bindkey -M vicmd ${key} history-substring-search-down
+unset key
+# }}} End configuration added by Zim install
+
 
 # Local Config
 # [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
