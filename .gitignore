@@ -3,4 +3,8 @@
 .config/nvim/.luarc.json
 .config/nvim/nvim
 .config/nvim/lazy-lock.json
-.config/zim/
+.config/zim/init.zsh
+.config/zim/init.zsh.old
+.config/zim/login_init.zsh
+.config/zim/login_init.zsh.old
+.config/zim/zimfw.zsh
