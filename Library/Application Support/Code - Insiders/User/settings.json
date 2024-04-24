@@ -537,11 +537,11 @@
   "githubPullRequests.fileListLayout": "flat",
   "window.titleBarStyle": "custom",
   "workbench.colorCustomizations": {
-    "statusBar.background": "#132d21",
-    "statusBar.noFolderBackground": "#132d21",
-    "statusBar.debuggingBackground": "#132d21",
-    "statusBar.foreground": "#b1f1cb",
-    "statusBar.debuggingForeground": "#b1f1cb"
+    "statusBar.background": "#111111",
+    "statusBar.noFolderBackground": "#111111",
+    "statusBar.debuggingBackground": "#111111",
+    "statusBar.foreground": "#eeeeee",
+    "statusBar.debuggingForeground": "#eeeeee"
   },
   "orion-vscode.accentColor": "blue",
   "github.copilot.chat.localeOverride": "en",
