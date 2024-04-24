@@ -3,3 +3,4 @@
 .config/nvim/.luarc.json
 .config/nvim/nvim
 .config/nvim/lazy-lock.json
+.config/zim
