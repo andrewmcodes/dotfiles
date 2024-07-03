@@ -158,7 +158,7 @@ return {
         -- tsserver = {},
         --
         -- Ruby
-        ruby_ls = {
+        ruby_lsp = {
           -- cmd = { "bundle", "exec", "ruby-lsp" }
           -- cmd = {...},
           -- filetypes = { ...},
