@@ -1,25 +1,5 @@
 --[[
 
-=====================================================================
-==================== READ THIS BEFORE CONTINUING ====================
-=====================================================================
-========                                    .-----.          ========
-========         .----------------------.   | === |          ========
-========         |.-""""""""""""""""""-.|   |-----|          ========
-========         ||                    ||   | === |          ========
-========         ||   KICKSTART.NVIM   ||   |-----|          ========
-========         ||                    ||   | === |          ========
-========         ||                    ||   |-----|          ========
-========         ||:Tutor              ||   |:::::|          ========
-========         |'-..................-'|   |____o|          ========
-========         `"")----------------(""`   ___________      ========
-========        /::::::::::|  |::::::::::\  \ no mouse \     ========
-========       /:::========|  |==hjkl==:::\  \ required \    ========
-========      '""""""""""""'  '""""""""""""'  '""""""""""'   ========
-========                                                     ========
-=====================================================================
-=====================================================================
-
 What is Kickstart?
 
   Kickstart.nvim is *not* a distribution.
@@ -89,21 +69,15 @@ P.S. You can delete this when you're done too. It's your config now! :)
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
--- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = true
--- [[ Install `lazy.nvim` plugin manager ]]
-require "lazy-bootstrap"
--- [[ Configure and install plugins ]]
-require "lazy-plugins"
+require "lazy-bootstrap" -- [[ Install `lazy.nvim` plugin manager ]]
+require "lazy-plugins"   -- [[ Configure and install plugins ]]
 
 if vim.g.vscode then
   require "vscode_options"
 else
+  vim.g.have_nerd_font = true -- Set to true if you have a Nerd Font installed and selected in the terminal
   vim.g.auto_format_enabled = true
   vim.g.inlay_hints_enabled = false
-  -- require('firenvim')
-  -- require 'options'
-  -- require 'keymaps'
   require "options"
   require "keymaps"
 end
