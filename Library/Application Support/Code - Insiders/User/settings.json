@@ -110,12 +110,11 @@
   },
   "files.autoSave": "onFocusChange",
   "files.exclude": {
+    ".torchlight-cache": true,
     "**/.bridgetown-cache/**": true,
     "**/.bridgetown-webpack/**": true,
     "**/.frontmatter/**": true,
     "**/.vercel/**": true,
-    "**/app/assets/builds/**": true,
-    ".torchlight-cache": true,
     "rails.rb": true,
     "spec/cassettes": true
   },
@@ -315,7 +314,6 @@
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.enableMultiLinePasteWarning": false,
   "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font'",
-  "terminal.integrated.fontSize": 13,
   "terminal.integrated.macOptionClickForcesSelection": true,
   // "terminal.integrated.smoothScrolling": true,
   // TypeScript
@@ -464,7 +462,6 @@
       "commands": ["whichkey.show"]
     }
   ],
-  "vim.useSystemClipboard": true,
   "vim.statusBarColorControl": true,
   "vim.statusBarColors.commandlineinprogress": ["#0090ff", "#c2e6ff"],
 
@@ -501,7 +498,7 @@
   "window.commandCenter": true,
   "window.newWindowDimensions": "inherit",
   "workbench.activityBar.location": "top",
-  "workbench.colorTheme": "Ruby Midnight",
+  "workbench.colorTheme": "Spinel",
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.pinnedTabSizing": "shrink",
   "workbench.editor.showIcons": false,
@@ -536,13 +533,6 @@
   },
   "githubPullRequests.fileListLayout": "flat",
   "window.titleBarStyle": "custom",
-  "workbench.colorCustomizations": {
-    "statusBar.background": "#132d21",
-    "statusBar.noFolderBackground": "#132d21",
-    "statusBar.debuggingBackground": "#132d21",
-    "statusBar.foreground": "#b1f1cb",
-    "statusBar.debuggingForeground": "#b1f1cb"
-  },
   "orion-vscode.accentColor": "blue",
   "github.copilot.chat.localeOverride": "en",
   "github.copilot.chat.welcomeMessage": "never",
@@ -551,30 +541,8 @@
   "logViewer.options": {
     "encoding": "ascii"
   },
-  "workbench.iconTheme": "file-icons",
+  "workbench.iconTheme": "vscode-great-icons",
   "editor.fontSize": 13,
-  "editor.tokenColorCustomizations": {
-    "[*Light*]": {
-      "textMateRules": [
-        {
-          "scope": "ref.matchtext",
-          "settings": {
-            "foreground": "#000"
-          }
-        }
-      ]
-    },
-    "[*Dark*]": {
-      "textMateRules": [
-        {
-          "scope": "ref.matchtext",
-          "settings": {
-            "foreground": "#fff"
-          }
-        }
-      ]
-    }
-  },
   "accessibility.signals.terminalBell": {
     "sound": "on"
   },
@@ -585,5 +553,31 @@
   "css.validate": false,
   "accessibility.voice.keywordActivation": "chatInContext",
   "window.title": "${activeEditorShort}${separator}${rootName}${separator}${activeRepositoryName}/${activeRepositoryBranchName}",
-  "testing.openTesting": "openOnTestFailure"
+  "testing.openTesting": "openOnTestFailure",
+  "settingsSync.ignoredSettings": [],
+  "vslook.palette.colors": {
+    "base": {
+      "slate6": "#363a3f",
+      "slate12": "#edeef0",
+      "slate1": "#111113",
+      "slate2": "#18191b",
+      "slatea6": "hsla(218, 100%, 92%, 0.19)",
+      "slate7": "#43484e",
+      "slate11": "#b0b4ba",
+      "slate10": "#777b84",
+      "blue11": "#6bc1ff"
+    }
+  },
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#111111",
+    "statusBar.noFolderBackground": "#111111",
+    "statusBar.debuggingBackground": "#111111",
+    "statusBar.foreground": "#eeeeee",
+    "statusBar.debuggingForeground": "#eeeeee"
+  },
+  "github.copilot.editor.enableAutoCompletions": true,
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "workbench.accounts.experimental.showEntitlements": true
 }
