@@ -87,23 +87,25 @@ P.S. You can delete this when you're done too. It's your config now! :)
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
-
--- [[ Setting options ]]
-require 'options'
-
--- [[ Basic Keymaps ]]
-require 'keymaps'
-
+vim.g.have_nerd_font = true
 -- [[ Install `lazy.nvim` plugin manager ]]
-require 'lazy-bootstrap'
-
+require "lazy-bootstrap"
 -- [[ Configure and install plugins ]]
-require 'lazy-plugins'
+require "lazy-plugins"
 
+if vim.g.vscode then
+  require "vscode_options"
+else
+  vim.g.auto_format_enabled = true
+  vim.g.inlay_hints_enabled = false
+  -- require('firenvim')
+  -- require 'options'
+  -- require 'keymaps'
+  require "options"
+  require "keymaps"
+end
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
