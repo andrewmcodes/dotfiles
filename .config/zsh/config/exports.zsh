@@ -15,7 +15,7 @@ export DISABLE_SPRING=true
 [[ -f $HOME/.gemrc.local ]] && export GEMRC=$HOME/.gemrc.local #? Use a local gemrc if it exists.
 
 # Shell
-export EDITOR="code --wait"
+export EDITOR="code-insiders --wait"
 export SHELL="$(which zsh)"
 export MANPAGER="less -X"
 
