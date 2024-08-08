@@ -2,7 +2,7 @@ name: Nightshade
 accent: '#0090ff'
 background: '#111111'
 details: darker
-foreground: '#b4b4b4'
+foreground: '#eeeeee'
 
 terminal_colors:
   bright:
