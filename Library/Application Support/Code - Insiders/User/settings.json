@@ -20,7 +20,6 @@
     }
   },
   "[ruby]": {
-    "editor.defaultFormatter": "Shopify.ruby-lsp",
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
     "editor.insertSpaces": true,
@@ -47,12 +46,12 @@
   "editor.accessibilitySupport": "off",
   "editor.copyWithSyntaxHighlighting": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.fontFamily": "'JetBrains Mono', 'Monaspace Neon Var', monospace",
+  "editor.fontFamily": "'JetBrainsMono Nerd Font Mono', 'JetBrains Mono', 'Monaspace Neon Var', monospace",
   "editor.fontVariations": true,
-  "editor.formatOnPaste": true,
-  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": false,
   "editor.formatOnSaveMode": "modificationsIfAvailable",
-  "editor.formatOnType": true,
+  "editor.formatOnType": false,
   "editor.gotoLocation.multipleDeclarations": "goto",
   "editor.gotoLocation.multipleDefinitions": "goto",
   "editor.gotoLocation.multipleImplementations": "goto",
@@ -73,10 +72,9 @@
   "editor.renderControlCharacters": false,
   "editor.renderLineHighlightOnlyWhenFocus": true,
   "editor.rulers": [120],
-  "editor.lineHeight": 20,
+  "editor.lineHeight": 1.4,
   "editor.snippetSuggestions": "top",
   "editor.stickyScroll.enabled": true,
-  "editor.stickyScroll.scrollWithEditor": true,
   "editor.suggest.insertMode": "replace",
   "editor.suggest.shareSuggestSelections": true,
   "editor.suggestSelection": "recentlyUsed",
@@ -106,10 +104,12 @@
     "Guardfile": "ruby",
     "overcommit.gemfile.lock": "ruby",
     "Procfile*": "procfile",
-    "yabairc": "shellscript"
+    "yabairc": "shellscript",
+    ".zimrc": "shellscript"
   },
   "files.autoSave": "onFocusChange",
   "files.exclude": {
+    ".overmind.sock": true,
     ".torchlight-cache": true,
     "**/.bridgetown-cache/**": true,
     "**/.bridgetown-webpack/**": true,
@@ -162,11 +162,6 @@
   "gulp.autoDetect": "off",
   // Jake
   "jake.autoDetect": "off",
-  // JavaScript
-  "javascript.inlayHints.enumMemberValues.enabled": true,
-  "javascript.inlayHints.parameterNames.enabled": "literals",
-  "javascript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": false,
-  "javascript.inlayHints.variableTypes.enabled": true,
   "javascript.referencesCodeLens.enabled": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "javascript.validate.enable": false,
@@ -235,7 +230,7 @@
     "documentLink": true,
     "documentSymbols": true,
     "foldingRanges": true,
-    "formatting": false, // ! TURN THIS OFF
+    "formatting": true, // ! TURN THIS OFF
     "hover": true,
     "inlayHint": true,
     "onTypeFormatting": true,
@@ -243,11 +238,10 @@
     "semanticHighlighting": true
   },
   "rubyLsp.enableExperimentalFeatures": true,
-  "rubyLsp.formatter": "none", // ! TURN THIS OFF
+  "rubyLsp.formatter": "standard", // ! TURN THIS OFF
   "rubyLsp.rubyVersionManager": {
     "identifier": "asdf"
   },
-  "rubyLsp.yjit": false,
   // SCSS
   "scss.validate": false,
   "search.actionsPosition": "auto",
@@ -498,7 +492,6 @@
   "window.commandCenter": true,
   "window.newWindowDimensions": "inherit",
   "workbench.activityBar.location": "top",
-  "workbench.colorTheme": "Spinel",
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.pinnedTabSizing": "shrink",
   "workbench.editor.showIcons": false,
@@ -552,7 +545,7 @@
   "css.lint.duplicateProperties": "warning",
   "css.validate": false,
   "accessibility.voice.keywordActivation": "chatInContext",
-  "window.title": "${activeEditorShort}${separator}${rootName}${separator}${activeRepositoryName}/${activeRepositoryBranchName}",
+  "window.title": "${activeRepositoryName}${separator}${activeRepositoryBranchName}${seperator}${activeEditorShort}",
   "testing.openTesting": "openOnTestFailure",
   "settingsSync.ignoredSettings": [],
   "vslook.palette.colors": {
@@ -579,5 +572,16 @@
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
   },
-  "workbench.accounts.experimental.showEntitlements": true
+  "workbench.accounts.experimental.showEntitlements": true,
+  "vscode-neovim.logOutputToConsole": true,
+  "remote.extensionKind": {
+    "asvetliakov.vscode-neovim": ["workspace"]
+  },
+  "editor.renderWhitespace": "all",
+  "terminal.integrated.lineHeight": 1.2,
+  "workbench.colorTheme": "Spinel",
+  "eslint.codeActionsOnSave.mode": "problems",
+  "[toml]": {
+    "editor.defaultFormatter": "tamasfe.even-better-toml"
+  }
 }
