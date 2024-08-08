@@ -10,7 +10,6 @@ if [[ "$PROFILE_STARTUP" == true ]]; then
     setopt xtrace prompt_subst
 fi
 
-
 # - - - - - - - - - - - - - - - - - - - -
 # Homebrew Configuration
 # - - - - - - - - - - - - - - - - - - - -
@@ -18,20 +17,23 @@ export PATH="$HOME/bin:/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 EDITOR=${EDITOR:-code-insiders -w}
 
-foreach piece (
-    history.zsh
-    input.zsh
-    plugins.zsh
-    exports.zsh
-    aliases.zsh
-    functions.zsh
-) {
-    . $ZDOTDIR/config/$piece
-}
+CONFIG_FILES=(
+    "history"
+    "named_dirs"
+    "input"
+    "plugins"
+    "exports"
+    "aliases"
+    "functions"
+)
+#───────────────────────────────────────────────────────────────────────────────
+
+for filename in "${CONFIG_FILES[@]}"; do
+    # shellcheck disable=1090
+    source "$ZDOTDIR/config/$filename.zsh"
+done
 
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
-# Java Support for asdf
-. ~/.asdf/plugins/java/set-java-home.zsh
 
 # - - - - - - - - - - - - - - - - - - - -
 # End Profiling Script
@@ -39,5 +41,5 @@ foreach piece (
 if [[ "$PROFILE_STARTUP" == true ]]; then
     unsetopt xtrace
     exec 2>&3 3>&-
-    zprof > ~/zshprofile$(date +'%s')
+    zprof >"${DATA_DIR}/zshprofile$(date +'%s')"
 fi

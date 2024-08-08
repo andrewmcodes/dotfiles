@@ -57,3 +57,9 @@ function rails() {
     echo "Rails not found"
   fi
 }
+
+#* Backs up the configuration files using mackup
+function mackup_backup() {
+  mackup -v -f backup
+  mackup uninstall -f
+}

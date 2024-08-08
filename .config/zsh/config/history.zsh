@@ -4,7 +4,7 @@
 
 # Remove older command from the history if a duplicate is to be added.
 if [[ $VENDOR == apple ]]; then
-  HISTFILE=~/Library/Mobile\ Documents/com\~apple\~CloudDocs/zsh_history
+  HISTFILE=$DATA_DIR/zsh_history
   setopt extendedglob
   # Sometimes when the histfile is kept in iCloud, it is empty when Zsh starts up.
   [[ -z $HISTFILE(#qL+0N) && -r "$HISTFILE 2" ]] && mv "$HISTFILE 2" "$HISTFILE"
