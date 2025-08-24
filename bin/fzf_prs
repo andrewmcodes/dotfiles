@@ -1,0 +1,27 @@
+#!/usr/bin/env zsh
+#
+# This script uses GitHub CLI (gh) and fzf to interactively list and manage GitHub pull requests.
+#
+# Usage:
+#   Run the script to display a list of pull requests in an interactive fzf interface.
+#
+# Key Bindings:
+#   [ENTER] - Open the selected pull request in the default web browser.
+#   [CTRL-E] - Checkout the selected pull request locally.
+#   [CTRL-T] - Reload the list to include both open and closed pull requests.
+#   [CTRL-Y] - Preview the status checks of the selected pull request.
+#   [CTRL-V] - Preview the comments of the selected pull request.
+#
+# Options:
+#   --delimiter "\t" - Sets the delimiter for fzf to tab.
+#   --reverse - Displays the list in reverse order.
+#   --header - Adds a header with key bindings information.
+#   --preview - Shows a preview of the pull request comments.
+#   --bind - Binds keys to specific actions within fzf.
+gh pr list |
+  fzf \
+    --delimiter "\t" \
+    --reverse \
+    --header="[ENTER] Open in GitHub [CTRL-E] Checkout PR locally [CTRL-V] Preview PR [CTRL-Y] Preview checks [CTRL-T] Reload with open+closed PRs" \
+    --preview="GH_FORCE_TTY=true CLICOLOR_FORCE=1 gh pr view --comments {1}" \
+    --bind="enter:become(gh pr view -w {1}),ctrl-e:become(gh pr checkout {1}),ctrl-t:reload(gh pr list --state=all --limit=10000),ctrl-y:change-preview(GH_FORCE_TTY=true CLICOLOR_FORCE=1 gh pr checks --watch {1}),ctrl-v:change-preview(GH_FORCE_TTY=true CLICOLOR_FORCE=1 gh pr view --comments {1})"

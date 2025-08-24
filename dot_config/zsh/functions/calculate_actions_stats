@@ -1,0 +1,16 @@
+#!/bin/zsh
+
+main() {
+   awk '{
+    a[NR] = $1; sum+=$1
+  }
+  END {
+    PROCINFO["sorted_in"] = "@ind_num_asc"
+    n = NR
+    avg = sum/n
+    med = (n%2 ? a[int(n/2)+1] : (a[n/2]+a[n/2+1])/2)
+    printf "avg=%.1f\nmedian=%.1f\n", avg, med
+  }'
+}
+
+main "$@"

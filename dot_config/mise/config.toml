@@ -1,0 +1,19 @@
+# https://mise.jdx.dev/configuration.html
+[tools]
+ruby = "latest"
+nodejs = "20.9.0"
+yarn = "1.22.19"
+python = "3.11"
+rust = "1.75.0"
+postgres = "15.4"
+go = "1.23.1"
+redis = "7.2.3"
+node = "22.11.0"
+"npm:prettier" = "latest"
+"npm:markdownlint-cli" = "latest"
+
+[env]
+
+[settings]
+idiomatic_version_file_enable_tools = ["ruby"]
+# _.python.venv = "{{env.PWD}}/.venv"
