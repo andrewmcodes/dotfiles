@@ -1,0 +1,13 @@
+#!/bin/zsh
+# Start the Overmind process manager with the appropriate Procfile
+#
+# If a Procfile.andrew file exists in the current directory, use that file.
+# Otherwise, use the default Procfile.dev file.
+#
+# Usage: os [flags]
+
+if [ -f Procfile.andrew ]; then
+  overmind start "$@" -f Procfile.andrew -D -p 3000 -P 1
+else
+  overmind start "$@" -f Procfile.dev -D -p 3000 -P 1
+fi
