@@ -1,0 +1,12 @@
+#!/bin/zsh
+
+main() {
+  local branches branch
+  branches=$(git branch --sort=-committerdate \
+    --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]') && \
+  branch=$(echo "$branches" | fzf --ansi) && \
+  branch=$(echo "$branch" | awk '{print $1}' | tr -d '*') && \
+  git checkout "$branch"
+}
+
+main "$@"

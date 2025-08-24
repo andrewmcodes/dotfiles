@@ -1,5 +1,8 @@
-# Dotfiles
+## Chezmoi
 
-This repository contains the configuration files (dotfiles) for various tools and software used in my development environment.
+### Change File Attributes
 
-This is constantly evolving as I learn new things and try new tools.
+```shell
+# Remove private
+chezmoi chattr -- -p <file>
+```

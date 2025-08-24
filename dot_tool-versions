@@ -1,0 +1,6 @@
+ruby 3.2.2
+nodejs 20.9.0
+postgres 15.4
+yarn 1.22.19
+redis 6.2.6
+python 3.9.16
