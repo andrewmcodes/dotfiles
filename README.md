@@ -32,7 +32,7 @@ Executable helpers live in `bin/`. Archived or inactive configs reside in `archi
    ```
    Run `brew bundle` if a Brewfile is present.
 
-## Common ChezMoi Commands
+## Common chezmoi Commands
 
 - Edit and apply a file in one step: `chezmoi edit --apply <path>`
 - Review pending changes: `chezmoi diff`
