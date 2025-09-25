@@ -1,0 +1,5 @@
+[externals]
+  [externals."dot_config/zsh"]
+    type = "git"
+    url = "https://github.com/andrewmcodes/zdotdir.git"
+    refreshPeriod = "168h"
