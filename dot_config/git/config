@@ -5,7 +5,7 @@ signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPHiAEZ+l5KoTBi3n4uX9k4/rmqdPqC
 
 [core]
 ui = auto
-excludesfile = ~/.gitignore_global
+excludesfile = ~/.config/git/ignore
 editor = code-insiders --wait
 pager = diff-so-fancy | less --tabs=4 -RFXS
 
