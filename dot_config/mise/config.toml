@@ -11,9 +11,10 @@ redis = "7.2.3"
 node = "22.11.0"
 "npm:prettier" = "latest"
 "npm:markdownlint-cli" = "latest"
+uv = "latest"
 
 [env]
 
 [settings]
 idiomatic_version_file_enable_tools = ["ruby"]
-# _.python.venv = "{{env.PWD}}/.venv"
+python.uv_venv_auto = true
