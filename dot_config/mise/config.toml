@@ -12,6 +12,7 @@ node = "22.11.0"
 "npm:prettier" = "latest"
 "npm:markdownlint-cli" = "latest"
 uv = "latest"
+usage = "latest"
 
 [env]
 
