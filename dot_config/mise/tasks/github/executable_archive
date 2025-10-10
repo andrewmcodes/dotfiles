@@ -1,0 +1,37 @@
+#!/usr/bin/env zsh
+set -e
+
+# mise run github:archive reponame
+#USAGE flag "-o --owner <owner>" help="Repository owner (defaults to $OWNER or 'andrewmcodes')"
+#USAGE flag "-t --target-org <org>" help="Organization to transfer to (defaults to $TARGET_ORG or 'andrewmcodes-archive')"
+#USAGE arg "<repo>" help="The repository name to archive and transfer (e.g., my-repo)"
+
+# Resolve inputs with sensible defaults matching the example style
+OWNER="${usage_owner:-${OWNER:-andrewmcodes}}"
+TARGET_ORG="${usage_target_org:-${TARGET_ORG:-andrewmcodes-archive}}"
+REPO="${usage_repo:?Usage: mise run archive <repo>}"
+
+# Ensure GitHub CLI is available
+if ! command -v gh >/dev/null 2>&1; then
+  echo "gh CLI required" >&2
+  exit 1
+fi
+
+echo "Hardening settings on $OWNER/$REPO…"
+gh repo edit "$OWNER/$REPO" \
+  --enable-issues=false \
+  --enable-wiki=false \
+  --delete-branch-on-merge=true \
+  --accept-visibility-change-consequences \
+  --visibility=private
+
+echo "Disabling GitHub Actions…"
+gh api "repos/$OWNER/$REPO/actions/permissions" -X PUT -F enabled=false
+
+echo "Archiving repository…"
+gh repo archive "$OWNER/$REPO" -y
+
+echo "Transferring to $TARGET_ORG…"
+gh api "repos/$OWNER/$REPO/transfer" -X POST -f new_owner="$TARGET_ORG"
+
+echo "Done: $OWNER/$REPO → $TARGET_ORG"
