@@ -13,6 +13,7 @@ node = "22.11.0"
 "npm:markdownlint-cli" = "latest"
 uv = "latest"
 usage = "latest"
+"npm:@github/copilot" = "latest"
 
 [env]
 
