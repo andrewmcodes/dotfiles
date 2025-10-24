@@ -1,0 +1,71 @@
+#
+# .zsh_plugins.txt - antidote plugins file
+#
+
+#
+# Init
+#
+
+mattmc3/zsh_custom path:lib
+mattmc3/zsh_custom path:plugins/xdg
+mattmc3/zsh_custom path:plugins/history
+mattmc3/zsh_custom path:plugins/environment
+mattmc3/zsh_custom path:plugins/homebrew conditional:is-macos
+
+#
+# Completions
+#
+
+mattmc3/ez-compinit
+zsh-users/zsh-completions kind:fpath path:src
+
+#
+# Editor
+#
+
+mattmc3/zsh_custom path:plugins/editor
+
+#
+# Prompts
+#
+
+# Use starship prompt
+# starship is configured via ~/.config/starship.toml
+
+#
+# Custom
+#
+
+mattmc3/zsh_custom path:plugins/color
+mattmc3/zsh_custom path:plugins/common-aliases
+mattmc3/zsh_custom path:plugins/common-functions
+mattmc3/zsh_custom path:plugins/directory
+mattmc3/zsh_custom path:plugins/dotfiles
+mattmc3/zsh_custom path:plugins/git
+mattmc3/zsh_custom path:plugins/utility
+mattmc3/zsh_custom path:plugins/zfunctions
+mattmc3/zsh_custom path:plugins/zoxide
+
+#
+# OMZ
+#
+
+ohmyzsh/ohmyzsh path:plugins/direnv
+ohmyzsh/ohmyzsh path:plugins/extract
+
+#
+# macOS
+#
+
+mattmc3/zsh_custom path:plugins/macos conditional:is-macos
+
+#
+# Final
+#
+
+mattmc3/zsh_custom path:plugins/fast-syntax-highlighting
+mattmc3/zsh_custom path:plugins/autosuggestions
+mattmc3/zsh_custom path:plugins/history-substring-search
+mattmc3/zsh_custom path:plugins/zshrcd
+
+# vi: ft=properties

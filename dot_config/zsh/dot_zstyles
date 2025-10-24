@@ -1,0 +1,31 @@
+#!/bin/zsh
+#
+# .zstyles - zstyle settings for features/plugins that need them.
+#
+
+#
+# Completions
+#
+
+zstyle ':zsh_custom:plugin:*' 'use-cache' no
+zstyle ':zsh_custom:plugin:completion' compstyle zshzoo
+
+#
+# Editor
+#
+
+# Set the key mapping style to 'emacs' or 'vi'.
+zstyle ':zsh_custom:plugin:editor' key-bindings 'emacs'
+
+# Enable all the editor extensions.
+zstyle ':zsh_custom:plugin:editor:*' 'enabled' 'yes'
+
+#
+# ZSH_CUSTOM features
+#
+
+# zshrc.d location
+zstyle ':zsh_custom:plugin:zshrcd' directory $ZDOTDIR/conf.d
+
+# zfunctions location
+zstyle ':zsh_custom:plugin:zfunctions' directory $ZDOTDIR/functions
