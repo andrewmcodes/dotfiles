@@ -90,9 +90,9 @@ This will start a new Zsh session with profiling enabled and display the results
 
 Since this is managed by [chezmoi](https://www.chezmoi.io/), files are prefixed with `dot_` in the repository:
 
-- `dot_zshenv` → `~/.config/zsh/.zshenv`
-- `dot_zshrc` → `~/.config/zsh/.zshrc`
-- `dot_zstyles` → `~/.config/zsh/.zstyles`
+- `dot_config/zsh/dot_zshenv` → `~/.config/zsh/.zshenv`
+- `dot_config/zsh/dot_zshrc` → `~/.config/zsh/.zshrc`
+- `dot_config/zsh/dot_zstyles` → `~/.config/zsh/.zstyles`
 - etc.
 
 To edit and apply changes:
@@ -103,6 +103,6 @@ chezmoi edit --apply ~/.config/zsh/.zshrc
 
 ## Resources
 
-- [Antidote Documentation](https://getantidote.github.io/)
+- [Antidote GitHub](https://github.com/mattmc3/antidote) - Plugin manager documentation
 - [mattmc3/zdotdir](https://github.com/mattmc3/zdotdir) - Reference implementation
 - [Zsh Documentation](http://zsh.sourceforge.net/Doc/)
