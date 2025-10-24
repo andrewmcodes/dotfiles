@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": ["Read(~/.zshrc)"],
+    "deny": ["Read(./.env)", "Read(./.env.*)"]
+  },
+  "env": {
+    "DISABLE_AUTOUPDATER": "1",
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1"
+  }
+}
