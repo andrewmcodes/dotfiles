@@ -1,0 +1,188 @@
+name: E2E Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    # Run weekly on Sundays at 00:00 UTC
+    - cron: '0 0 * * 0'
+
+jobs:
+  e2e-setup:
+    name: E2E Setup Tests (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install bats (macOS)
+        if: runner.os == 'macOS'
+        run: brew install bats-core bats-support bats-assert
+
+      - name: Install bats (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y bats
+
+          # Install bats helper libraries
+          sudo mkdir -p /opt/homebrew/lib
+          sudo git clone https://github.com/bats-core/bats-support.git /opt/homebrew/lib/bats-support
+          sudo git clone https://github.com/bats-core/bats-assert.git /opt/homebrew/lib/bats-assert
+
+      - name: Run E2E setup tests
+        run: |
+          echo "Running E2E setup tests..."
+          bats tests/e2e/setup.bats
+
+      - name: Run E2E config validation tests
+        run: |
+          echo "Running E2E config validation tests..."
+          bats tests/e2e/config-validation.bats
+
+  e2e-integration:
+    name: E2E Integration Test (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install bats
+        run: |
+          if [[ "$RUNNER_OS" == "macOS" ]]; then
+            brew install bats-core
+          else
+            sudo apt-get update
+            sudo apt-get install -y bats
+          fi
+
+      - name: Test Homebrew installer (dry-run)
+        run: |
+          # Source the script and test functions
+          source install/homebrew.sh
+
+          # Test detection functions
+          echo "Testing Homebrew detection..."
+          if is_homebrew_installed; then
+            echo "Homebrew is already installed"
+          else
+            echo "Homebrew not detected"
+          fi
+
+          # Test prefix detection
+          echo "Testing Homebrew prefix detection..."
+          prefix=$(get_homebrew_prefix)
+          echo "Detected prefix: $prefix"
+
+      - name: Test mise installer (dry-run)
+        run: |
+          source install/mise.sh
+
+          echo "Testing mise detection..."
+          if is_mise_installed; then
+            echo "Mise is already installed"
+            echo "Version: $(get_mise_version)"
+          else
+            echo "Mise not detected"
+          fi
+
+      - name: Test chezmoi installer (dry-run)
+        run: |
+          source install/chezmoi.sh
+
+          echo "Testing chezmoi detection..."
+          if is_chezmoi_installed; then
+            echo "Chezmoi is already installed"
+            echo "Version: $(get_chezmoi_version)"
+          else
+            echo "Chezmoi not detected"
+          fi
+
+      - name: Test Brewfile validation
+        run: |
+          source install/brewfile.sh
+
+          echo "Testing Brewfile validation..."
+          validate_brewfile Brewfile
+
+      - name: Test library functions
+        run: |
+          source scripts/lib/common.sh
+          source scripts/lib/detect.sh
+
+          echo "Testing OS detection..."
+          echo "OS Type: $(get_os_type)"
+          echo "Architecture: $(get_arch)"
+
+          if is_macos; then
+            echo "Running on macOS"
+          elif is_linux; then
+            echo "Running on Linux"
+          fi
+
+          if is_ci; then
+            echo "Running in CI environment"
+          fi
+
+      - name: Test validation functions
+        run: |
+          source scripts/lib/validation.sh
+
+          echo "Testing config validation..."
+
+          # Validate mise config
+          if [[ -f "dot_config/mise/config.toml" ]]; then
+            validate_mise_config "dot_config/mise/config.toml"
+          fi
+
+          # Validate tool-versions
+          if [[ -f "dot_tool-versions" ]]; then
+            validate_tool_versions "dot_tool-versions"
+          fi
+
+          # Validate git config
+          if [[ -f "dot_config/git/config" ]]; then
+            validate_git_config "dot_config/git/config"
+          fi
+
+          # Validate Brewfile
+          validate_brewfile "Brewfile"
+
+  e2e-shellcheck:
+    name: ShellCheck All Scripts
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install shellcheck
+        run: sudo apt-get update && sudo apt-get install -y shellcheck
+
+      - name: Run shellcheck on all scripts
+        run: |
+          echo "Checking installation scripts..."
+          shellcheck install/*.sh
+
+          echo "Checking library scripts..."
+          shellcheck scripts/lib/*.sh
+
+          echo "Checking bootstrap and coverage scripts..."
+          shellcheck scripts/bootstrap.sh scripts/coverage.sh
+
+          echo "All shellcheck tests passed!"
