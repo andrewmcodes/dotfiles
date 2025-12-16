@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies (macOS)
         if: runner.os == 'macOS'
         run: |
-          brew install bats-core bats-support bats-assert shellcheck shfmt
+          brew install bats-core shellcheck shfmt
 
       - name: Install dependencies (Linux)
         if: runner.os == 'Linux'
@@ -35,11 +35,6 @@ jobs:
           # Install shfmt manually on Linux
           curl -fsSL https://github.com/mvdan/sh/releases/download/v3.7.0/shfmt_v3.7.0_linux_amd64 -o /tmp/shfmt
           sudo install /tmp/shfmt /usr/local/bin/shfmt
-
-          # Install bats helper libraries
-          sudo mkdir -p /opt/homebrew/lib
-          sudo git clone https://github.com/bats-core/bats-support.git /opt/homebrew/lib/bats-support
-          sudo git clone https://github.com/bats-core/bats-assert.git /opt/homebrew/lib/bats-assert
 
       - name: Run shellcheck
         run: |

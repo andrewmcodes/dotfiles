@@ -26,18 +26,13 @@ jobs:
 
       - name: Install bats (macOS)
         if: runner.os == 'macOS'
-        run: brew install bats-core bats-support bats-assert
+        run: brew install bats-core
 
       - name: Install bats (Linux)
         if: runner.os == 'Linux'
         run: |
           sudo apt-get update
           sudo apt-get install -y bats
-
-          # Install bats helper libraries
-          sudo mkdir -p /opt/homebrew/lib
-          sudo git clone https://github.com/bats-core/bats-support.git /opt/homebrew/lib/bats-support
-          sudo git clone https://github.com/bats-core/bats-assert.git /opt/homebrew/lib/bats-assert
 
       - name: Run E2E setup tests
         run: |
