@@ -3,6 +3,12 @@
 # Common utility functions for dotfiles installation
 # Provides logging, error handling, and common utilities
 
+# Prevent double-sourcing
+if [[ -n "${_COMMON_SH_LOADED:-}" ]]; then
+  return 0
+fi
+readonly _COMMON_SH_LOADED=1
+
 # Color codes for logging
 readonly COLOR_RED='\033[0;31m'
 readonly COLOR_GREEN='\033[0;32m'

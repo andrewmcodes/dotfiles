@@ -2,6 +2,12 @@
 # shellcheck disable=SC1091,SC2119,SC2120
 # OS and environment detection utilities
 
+# Prevent double-sourcing
+if [[ -n "${_DETECT_SH_LOADED:-}" ]]; then
+  return 0
+fi
+readonly _DETECT_SH_LOADED=1
+
 # Source common functions for logging
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # shellcheck source=./common.sh
