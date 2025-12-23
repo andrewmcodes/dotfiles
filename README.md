@@ -7,6 +7,7 @@ Managed with [chezmoi](https://www.chezmoi.io/), these dotfiles keep shell, edit
 | Tool | Role |
 | ---- | ---- |
 | [chezmoi](https://www.chezmoi.io/) | Apply and template the repository contents. |
+| [Antidote](https://github.com/mattmc3/antidote) | Fast Zsh plugin manager. |
 | [mise](https://mise.jdx.dev/) | Install pinned runtimes via `.tool-versions`. |
 | [Homebrew](https://brew.sh/) | Provision CLI tools and apps. |
 | [Warp](https://www.warp.dev/) | Terminal profile stored in `dot_warp/`. |
@@ -14,6 +15,22 @@ Managed with [chezmoi](https://www.chezmoi.io/), these dotfiles keep shell, edit
 | [Prettier](https://prettier.io/) | Formatter defaults from `dot_prettierrc`. |
 
 Executable helpers live in `bin/`. Archived or inactive configs reside in `archive/`.
+
+## Zsh Configuration
+
+The Zsh configuration follows a modular structure inspired by [zdotdir](https://github.com/mattmc3/zdotdir):
+
+- **`dot_config/zsh/`** — The `$ZDOTDIR` with modular Zsh configuration
+  - `.zshrc` — Interactive shell configuration
+  - `.zshenv` — Environment setup and XDG directories
+  - `.zstyles` — Zstyle settings for plugins
+  - `.zsh_plugins.txt` — Antidote plugin definitions
+  - `lib/antidote.zsh` — Antidote plugin manager loader
+  - `conf.d/` — Modular configuration files loaded automatically
+  - `functions/` — Custom Zsh functions
+  - `completions/` — Custom completion scripts
+
+See [dot_config/zsh/README.md](dot_config/zsh/README.md) for details on the Zsh configuration.
 
 ## Setup
 
