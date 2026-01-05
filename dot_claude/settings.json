@@ -5,7 +5,7 @@
   },
   "permissions": {
     "allow": [
-      "Read(~/.zshrc)"
+      "Read(~/config/zsh/.zshrc)"
     ],
     "deny": [
       "Read(./.env)",
