@@ -4,15 +4,12 @@ README.md
 archive/
 **/.git.backup.*/
 tmp/
-
+.github/
 # Test infrastructure (not deployed to $HOME)
 tests/
 install/
 scripts/
 Brewfile
-PLAN.md
-CONTRIBUTING.md
-coverage/
 *.bats
 mise.toml
 

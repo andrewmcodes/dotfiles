@@ -44,52 +44,26 @@ Executable helpers live in `bin/`. Archived or inactive configs reside in `archi
 - `dot_*` files map to configuration files in `$HOME`.
 - `bin/` contains executables linked into `~/bin`.
 - `archive/` holds legacy configuration kept for reference.
-- `install/` contains installation scripts for Homebrew, mise, chezmoi, and Brewfile management.
-- `scripts/` contains the bootstrap orchestrator and utility scripts.
-- `tests/` contains comprehensive unit and E2E tests for all installation scripts.
+- `install/` contains idempotent installation scripts.
+- `scripts/` contains the bootstrap script and shared library functions.
+- `tests/` contains basic smoke tests to validate scripts.
 
 ## Testing
 
-This repository includes comprehensive test coverage for all installation scripts using [bats-core](https://github.com/bats-core/bats-core).
-
-### Running Tests Locally
+Basic smoke tests ensure installation scripts are valid and properly formatted:
 
 ```bash
 # Install test dependencies
-brew install bats-core bats-support bats-assert shellcheck shfmt
+brew install bats-core shellcheck shfmt
 
-# Run all unit tests
-bats tests/unit/
+# Run smoke tests
+bats tests/smoke.bats
 
-# Run specific test file
-bats tests/unit/install/homebrew.bats
-
-# Check shell script formatting
+# Check formatting
 shfmt -d install/ scripts/
 
-# Run shellcheck linter
+# Lint scripts
 shellcheck install/*.sh scripts/**/*.sh
-
-# Generate coverage report (requires kcov)
-./scripts/coverage.sh
-```
-
-### CI/CD
-
-- **Unit Tests**: Run on every push/PR for both macOS and Ubuntu
-- **Linting**: Automatic shellcheck and shfmt validation
-- **Coverage**: Code coverage tracked (target: 70%+)
-
-### Test Structure
-
-```
-tests/
-├── unit/          # Unit tests for individual functions
-│   ├── install/   # Tests for installation scripts
-│   └── scripts/   # Tests for library functions
-├── e2e/           # End-to-end workflow tests
-├── fixtures/      # Test fixtures and mocks
-└── helpers/       # Test helper functions
 ```
 
 ## Bootstrap Script
