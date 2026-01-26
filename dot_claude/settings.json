@@ -1,10 +1,29 @@
 {
-  "permissions": {
-    "allow": ["Read(~/.zshrc)"],
-    "deny": ["Read(./.env)", "Read(./.env.*)"]
-  },
   "env": {
     "DISABLE_AUTOUPDATER": "1",
     "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1"
+  },
+  "permissions": {
+    "allow": [
+      "Read(~/.config/zsh/.zshrc)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)"
+    ]
+  },
+  "alwaysThinkingEnabled": true,
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "idle_prompt",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "osascript -e 'display notification \\\"Claude is waiting for your input\\\" with title \\\"Claude Code\\\" sound name \\\"Submarine\\\"'"
+          }
+        ]
+      }
+    ]
   }
 }
