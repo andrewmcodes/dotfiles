@@ -50,17 +50,14 @@ Executable helpers live in `bin/`. Archived or inactive configs reside in `archi
 
 ## Testing
 
-Basic smoke tests ensure installation scripts are valid and properly formatted:
+Basic smoke tests ensure installation scripts are valid:
 
 ```bash
 # Install test dependencies
-brew install bats-core shellcheck shfmt
+brew install bats-core shellcheck
 
 # Run smoke tests
 bats tests/smoke.bats
-
-# Check formatting
-shfmt -d install/ scripts/
 
 # Lint scripts
 shellcheck install/*.sh scripts/**/*.sh

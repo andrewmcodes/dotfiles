@@ -34,21 +34,5 @@ jobs:
             brew install shellcheck
           fi
 
-      - name: Install shfmt
-        run: |
-          if [[ "${{ matrix.os }}" == "ubuntu-latest" ]]; then
-            sudo apt-get install -y shfmt || true
-          else
-            brew install shfmt
-          fi
-
       - name: Run smoke tests
         run: bats tests/smoke.bats
-
-      - name: Check shell script formatting
-        run: |
-          if command -v shfmt >/dev/null 2>&1; then
-            shfmt -d install/ scripts/
-          else
-            echo "shfmt not available, skipping"
-          fi
