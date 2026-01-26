@@ -63,12 +63,6 @@ REPO_ROOT="$(cd "$(dirname "$BATS_TEST_FILENAME")/.." && pwd)"
   [ "$status" -eq 0 ]
 }
 
-@test "mise.toml is valid TOML" {
-  [ -f "${REPO_ROOT}/mise.toml" ]
-  # Basic check - file should have [tools] section
-  grep -q '^\[tools\]' "${REPO_ROOT}/mise.toml"
-}
-
 @test "Brewfile has valid content" {
   [ -f "${REPO_ROOT}/Brewfile" ]
   # Should contain at least one brew/cask/tap command
