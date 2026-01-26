@@ -7,7 +7,7 @@ This is a **chezmoi-managed dotfiles repository** that synchronizes shell, edito
 ## Tool Ecosystem
 
 - **chezmoi**: Configuration management - apply changes with `chezmoi apply`, edit with `chezmoi edit --apply <path>`
-- **mise**: Runtime and tool version manager - configured in [dot_config/mise/config.toml](dot_config/mise/config.toml) and [dot_tool-versions](dot_tool-versions)
+- **mise**: Runtime and tool version manager - configured in [dot_config/mise/config.toml](dot_config/mise/config.toml)
 - **Warp**: Terminal emulator - workflows and themes in [dot_warp/](dot_warp/)
 - **Homebrew**: macOS package manager
 - **Starship**: Cross-shell prompt configured in [dot_config/starship.toml](dot_config/starship.toml)
@@ -88,8 +88,7 @@ chezmoi chattr +x bin/my_script
 
 **Tool version management:**
 
-- Primary config: [dot_config/mise/config.toml](dot_config/mise/config.toml)
-- Fallback: [dot_tool-versions](dot_tool-versions) (asdf-compatible format)
+- Config: [dot_config/mise/config.toml](dot_config/mise/config.toml)
 - Install tools: `mise install`
 - Update tools: `mise upgrade`
 
@@ -104,9 +103,7 @@ chezmoi chattr +x bin/my_script
 
 2. **Private files in Warp**: All Warp workflows use `private_` prefix for local-only configurations
 
-3. **Git ignores `.tool-versions`**: Global ignore in [dot_config/git/ignore](dot_config/git/ignore) prevents committing per-project tool versions
-
-4. **Archive directory**: [archive/](archive/) holds inactive configurations kept for reference (e.g., old aerospace config)
+3. **Archive directory**: [archive/](archive/) holds inactive configurations kept for reference (e.g., old aerospace config)
 
 5. **Temporary files**: [tmp/](tmp/) for transient content (not deployed by chezmoi)
 

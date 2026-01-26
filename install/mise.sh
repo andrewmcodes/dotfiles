@@ -15,7 +15,6 @@ source "${SCRIPT_DIR}/../scripts/lib/detect.sh"
 # Constants
 MISE_INSTALL_URL="https://mise.run"
 MISE_CONFIG_PATH="${HOME}/.config/mise/config.toml"
-TOOL_VERSIONS_PATH="${HOME}/.tool-versions"
 
 # Check if mise is installed
 is_mise_installed() {
@@ -108,16 +107,8 @@ install_mise_tools() {
 	log_info "Installing mise tools from config..."
 
 	if [[ ! -f "$config_path" ]]; then
-		log_warning "Mise config not found at: $config_path"
-		log_info "Checking for .tool-versions..."
-
-		if [[ -f "$TOOL_VERSIONS_PATH" ]]; then
-			config_path="$TOOL_VERSIONS_PATH"
-			log_info "Using .tool-versions instead"
-		else
-			log_error "No mise config or .tool-versions found"
-			return 1
-		fi
+		log_error "Mise config not found at: $config_path"
+		return 1
 	fi
 
 	log_info "Installing tools from: $config_path"

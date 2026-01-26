@@ -7,7 +7,7 @@ Managed with [chezmoi](https://www.chezmoi.io/), these dotfiles keep shell, edit
 | Tool | Role |
 | ---- | ---- |
 | [chezmoi](https://www.chezmoi.io/) | Apply and template the repository contents. |
-| [mise](https://mise.jdx.dev/) | Install pinned runtimes via `.tool-versions`. |
+| [mise](https://mise.jdx.dev/) | Install pinned runtimes and development tools. |
 | [Homebrew](https://brew.sh/) | Provision CLI tools and apps. |
 | [Warp](https://www.warp.dev/) | Terminal profile stored in `dot_warp/`. |
 | [Docker](https://www.docker.com/) | CLI settings in `dot_docker/`. |

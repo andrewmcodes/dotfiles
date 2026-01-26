@@ -31,35 +31,6 @@ validate_mise_config() {
 	log_success "Mise config validation passed"
 }
 
-validate_tool_versions() {
-	local tool_versions_file="$1"
-
-	if [[ ! -f "$tool_versions_file" ]]; then
-		log_error ".tool-versions not found: $tool_versions_file"
-		return 1
-	fi
-
-	# Check if file is not empty
-	if [[ ! -s "$tool_versions_file" ]]; then
-		log_error ".tool-versions is empty"
-		return 1
-	fi
-
-	# Validate format: tool version
-	local line_num=0
-	while IFS= read -r line; do
-		((line_num++))
-		# Skip empty lines and comments
-		[[ -z "$line" ]] || [[ "$line" =~ ^# ]] && continue
-
-		if ! [[ "$line" =~ ^[a-zA-Z0-9_-]+[[:space:]]+[a-zA-Z0-9._-]+$ ]]; then
-			log_error "Invalid format at line $line_num: $line"
-			return 1
-		fi
-	done <"$tool_versions_file"
-
-	log_success ".tool-versions validation passed"
-}
 
 # Git config validation
 validate_git_config() {
@@ -144,11 +115,6 @@ validate_all_configs() {
 	# Mise config
 	if [[ -f "$chezmoi_dir/dot_config/mise/config.toml" ]]; then
 		validate_mise_config "$chezmoi_dir/dot_config/mise/config.toml" || ((errors++))
-	fi
-
-	# Tool versions
-	if [[ -f "$chezmoi_dir/dot_tool-versions" ]]; then
-		validate_tool_versions "$chezmoi_dir/dot_tool-versions" || ((errors++))
 	fi
 
 	# Git config

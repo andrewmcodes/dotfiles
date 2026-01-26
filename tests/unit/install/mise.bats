@@ -68,24 +68,6 @@ fi
     [[ "$output" =~ "not found" ]]
 }
 
-@test "install_mise_tools uses tool-versions as fallback" {
-    # Create mock .tool-versions
-    echo "ruby 3.2.2" > "${TEST_TEMP_DIR}/.tool-versions"
-    export TOOL_VERSIONS_PATH="${TEST_TEMP_DIR}/.tool-versions"
-
-    # Mock mise command
-    mock_command_with_script "mise" '
-if [[ "$1" == "install" ]]; then
-    echo "Installing tools..."
-    exit 0
-fi
-'
-
-    run install_mise_tools "${TEST_TEMP_DIR}/nonexistent.toml"
-    [ "$status" -eq 0 ]
-    [[ "$output" =~ "Using .tool-versions" ]]
-}
-
 @test "install_mise_tools succeeds with valid config" {
     # Create mock config
     mkdir -p "${TEST_TEMP_DIR}/.config/mise"

@@ -128,10 +128,6 @@ if [[ -f "dot_config/mise/config.toml" ]]; then
     validate_mise_config "dot_config/mise/config.toml"
 fi
 
-# Validate tool-versions
-if [[ -f "dot_tool-versions" ]]; then
-    validate_tool_versions "dot_tool-versions"
-fi
 
 # Validate git config
 if [[ -f "dot_config/git/config" ]]; then

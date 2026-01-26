@@ -24,21 +24,6 @@ setup() {
     [ "$status" -eq 0 ]
 }
 
-@test "tool-versions file exists and is valid" {
-    local tool_versions="${REPO_ROOT}/dot_tool-versions"
-
-    if [[ ! -f "$tool_versions" ]]; then
-        skip ".tool-versions not present in repository"
-    fi
-
-    # Should not be empty
-    [ -s "$tool_versions" ]
-
-    # Validate using validation library
-    run validate_tool_versions "$tool_versions"
-    [ "$status" -eq 0 ]
-}
-
 @test "git config exists and is valid" {
     local git_config="${REPO_ROOT}/dot_config/git/config"
 
