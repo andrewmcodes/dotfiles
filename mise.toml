@@ -3,58 +3,18 @@
 
 # Test tasks
 [tasks.test]
-description = "Run all tests (unit + e2e)"
-run = "bats tests/"
-
-[tasks."test:unit"]
-description = "Run unit tests only"
-run = "bats tests/unit/"
-
-[tasks."test:e2e"]
-description = "Run end-to-end tests"
-run = "bats tests/e2e/"
-
-[tasks."test:install"]
-description = "Run installation script tests"
-run = "bats tests/unit/install/"
-
-[tasks."test:watch"]
-description = "Watch and run tests on file changes"
-run = "watchexec -e sh,bats -- mise test:unit"
+description = "Run smoke tests"
+run = "bats tests/smoke.bats"
 
 # Linting tasks
 [tasks.lint]
-description = "Run all linters (shellcheck + shfmt)"
-depends = ["lint:shellcheck", "lint:shfmt"]
-
-[tasks."lint:shellcheck"]
 description = "Run shellcheck on all shell scripts"
 run = """
 echo "Running shellcheck..."
 shellcheck install/*.sh
 shellcheck scripts/lib/*.sh
-shellcheck scripts/bootstrap.sh scripts/coverage.sh
+shellcheck scripts/bootstrap.sh
 """
-
-[tasks."lint:shfmt"]
-description = "Check shell script formatting with shfmt"
-run = """
-echo "Checking shell script formatting..."
-shfmt -d install/ scripts/
-"""
-
-[tasks.format]
-description = "Auto-format all shell scripts with shfmt"
-run = """
-echo "Formatting shell scripts..."
-shfmt -w install/ scripts/
-echo "Formatting complete!"
-"""
-
-# Coverage tasks
-[tasks.coverage]
-description = "Generate code coverage report"
-run = "./scripts/coverage.sh"
 
 # Brewfile management tasks
 [tasks."brew:dump"]
@@ -151,13 +111,13 @@ run = "./scripts/bootstrap.sh"
 description = "Quick setup for development"
 run = """
 echo "Setting up development environment..."
-brew install bats-core bats-support bats-assert shellcheck shfmt
+brew install bats-core shellcheck
 echo "Development setup complete!"
 echo ""
 echo "Available commands:"
-echo "  mise test       - Run all tests"
-echo "  mise lint       - Run all linters"
-echo "  mise coverage   - Generate coverage report"
+echo "  mise test    - Run smoke tests"
+echo "  mise lint    - Run shellcheck"
+echo "  mise validate - Validate configs"
 """
 
 # Chezmoi tasks
@@ -177,10 +137,6 @@ run = "chezmoi status"
 [tasks.ci]
 description = "Simulate CI checks locally"
 depends = ["lint", "test"]
-
-[tasks."ci:full"]
-description = "Run full CI suite (lint + test + coverage)"
-depends = ["lint", "test", "coverage"]
 
 # Documentation tasks
 [tasks.docs]

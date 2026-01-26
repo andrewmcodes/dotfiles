@@ -43,7 +43,6 @@ brew "tailspin"          # Log file highlighter
 # Testing Tools
 brew "bats-core"         # Bash Automated Testing System
 brew "shellcheck"        # Shell script linter
-brew "shfmt"             # Shell script formatter
 
 # Casks (Applications)
 cask "1password"         # Password manager
