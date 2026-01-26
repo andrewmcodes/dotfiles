@@ -3,3 +3,18 @@
 README.md
 archive/
 **/.git.backup.*/
+tmp/
+.github/
+# Test infrastructure (not deployed to $HOME)
+tests/
+install/
+scripts/
+Brewfile
+*.bats
+mise.toml
+
+# CI/CD files
+.github/workflows/
+
+# Broken/legacy scripts
+broken-*

@@ -1,0 +1,157 @@
+# mise.toml - Task definitions for dotfiles repository
+# Run tasks with: mise run <task-name> or mise <task-name>
+
+# Test tasks
+[tasks.test]
+description = "Run smoke tests"
+run = "bats tests/smoke.bats"
+
+# Linting tasks
+[tasks.lint]
+description = "Run shellcheck on all shell scripts"
+run = """
+echo "Running shellcheck..."
+shellcheck install/*.sh
+shellcheck scripts/lib/*.sh
+shellcheck scripts/bootstrap.sh
+"""
+
+# Brewfile management tasks
+[tasks."brew:dump"]
+description = "Export current Homebrew packages to Brewfile at ~/.config/homebrew"
+run = """
+#!/usr/bin/env bash
+set -euo pipefail
+
+echo "Dumping Brewfile to ~/.config/homebrew/Brewfile..."
+
+# Create directory if it doesn't exist
+mkdir -p ~/.config/homebrew
+
+# Export Brewfile
+brew bundle dump --force --file="$HOME/.config/homebrew/Brewfile"
+
+echo "Brewfile exported successfully!"
+echo ""
+echo "Next steps:"
+echo "  1. Review: cat ~/.config/homebrew/Brewfile"
+echo "  2. Add to chezmoi: chezmoi add ~/.config/homebrew/Brewfile"
+"""
+
+[tasks."brew:add"]
+description = "Add Brewfile from ~/.config/homebrew to chezmoi"
+run = """
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [[ ! -f "$HOME/.config/homebrew/Brewfile" ]]; then
+    echo "Error: No Brewfile found at ~/.config/homebrew/Brewfile"
+    echo "Run 'mise brew:dump' first to create it"
+    exit 1
+fi
+
+echo "Adding Brewfile to chezmoi..."
+chezmoi add ~/.config/homebrew/Brewfile
+
+echo "Brewfile added to chezmoi successfully!"
+echo ""
+echo "To apply on other machines:"
+echo "  1. Run: chezmoi apply"
+echo "  2. Run: brew bundle --file=~/.config/homebrew/Brewfile"
+"""
+
+[tasks."brew:sync"]
+description = "Export Brewfile and add to chezmoi (combines dump + add)"
+depends = ["brew:dump", "brew:add"]
+
+[tasks."brew:install"]
+description = "Install packages from Brewfile"
+run = "./install/brewfile.sh install"
+
+[tasks."brew:cleanup"]
+description = "Remove packages not in Brewfile"
+run = "./install/brewfile.sh cleanup"
+
+# Validation tasks
+[tasks.validate]
+description = "Validate all configuration files"
+run = """
+#!/usr/bin/env bash
+set -euo pipefail
+
+source scripts/lib/validation.sh
+
+echo "Validating configurations..."
+
+# Validate mise config
+if [[ -f "dot_config/mise/config.toml" ]]; then
+    validate_mise_config "dot_config/mise/config.toml"
+fi
+
+
+# Validate git config
+if [[ -f "dot_config/git/config" ]]; then
+    validate_git_config "dot_config/git/config"
+fi
+
+# Validate Brewfile
+if [[ -f "Brewfile" ]]; then
+    validate_brewfile "Brewfile"
+fi
+
+echo "All validations passed!"
+"""
+
+# Bootstrap and setup tasks
+[tasks.bootstrap]
+description = "Run full bootstrap setup"
+run = "./scripts/bootstrap.sh"
+
+[tasks.setup]
+description = "Quick setup for development"
+run = """
+echo "Setting up development environment..."
+brew install bats-core shellcheck
+echo "Development setup complete!"
+echo ""
+echo "Available commands:"
+echo "  mise test    - Run smoke tests"
+echo "  mise lint    - Run shellcheck"
+echo "  mise validate - Validate configs"
+"""
+
+# Chezmoi tasks
+[tasks."chezmoi:diff"]
+description = "Show pending chezmoi changes"
+run = "chezmoi diff"
+
+[tasks."chezmoi:apply"]
+description = "Apply chezmoi dotfiles"
+run = "chezmoi apply"
+
+[tasks."chezmoi:status"]
+description = "Show chezmoi status"
+run = "chezmoi status"
+
+# CI simulation
+[tasks.ci]
+description = "Simulate CI checks locally"
+depends = ["lint", "test"]
+
+# Documentation tasks
+[tasks.docs]
+description = "Open documentation in browser"
+run = """
+echo "Opening documentation..."
+open README.md 2>/dev/null || cat README.md
+"""
+
+# Cleanup tasks
+[tasks.clean]
+description = "Clean up temporary files and coverage reports"
+run = """
+echo "Cleaning up..."
+rm -rf coverage/
+rm -rf tmp/
+echo "Cleanup complete!"
+"""
