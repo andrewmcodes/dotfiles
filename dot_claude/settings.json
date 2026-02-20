@@ -1,26 +1,50 @@
 {
   "env": {
     "DISABLE_AUTOUPDATER": "1",
-    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1"
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
   },
   "permissions": {
-    "allow": [
-      "Read(~/.config/zsh/.zshrc)"
-    ],
-    "deny": [
-      "Read(./.env)",
-      "Read(./.env.*)"
-    ]
+    "allow": ["Read(~/.config/zsh/.zshrc)"],
+    "deny": ["Read(./.env)", "Read(./.env.*)"]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash /Users/andrew.mason/.claude/statusline-command.sh"
+  },
+  "enabledPlugins": {
+    "plugin-dev@claude-plugins-official": true
   },
   "alwaysThinkingEnabled": true,
+  "skipDangerousModePermissionPrompt": true,
   "hooks": {
     "Notification": [
+      {
+        "matcher": "permission_prompt",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/permission-alert.sh"
+          }
+        ]
+      },
       {
         "matcher": "idle_prompt",
         "hooks": [
           {
             "type": "command",
-            "command": "osascript -e 'display notification \\\"Claude is waiting for your input\\\" with title \\\"Claude Code\\\" sound name \\\"Submarine\\\"'"
+            "command": "~/.claude/hooks/idle-notification.sh"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/bash-modernizer.sh"
           }
         ]
       }

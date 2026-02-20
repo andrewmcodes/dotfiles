@@ -107,3 +107,5 @@ Procfile.andrew
 # AI #
 ######################
 .ai
+
+**/.claude/settings.local.json

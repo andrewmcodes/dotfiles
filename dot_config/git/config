@@ -16,6 +16,8 @@ branches = branch -a
 remotes = remote -v
 hist = log --graph --pretty=format:'%Cred%h%Creset %s%C(yellow)%d%Creset %Cgreen(%cr)%Creset [%an]'
 s = status -sb
+cleanup = "!git fetch --prune && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -n 1 git branch -D"
+delete-branches = "!git branch --format='%(refname:short)' | grep -v '^main$\\|^master$' | fzf --multi --preview 'git log --oneline --graph --date=short --pretty=\"format:%C(auto)%cd %h%d %s\" $(git merge-base main {}) | head -n 50' --bind 'ctrl-a:select-all,ctrl-d:deselect-all' --header 'Select branches to delete (TAB to select, ENTER to confirm, CTRL-A select all)' | xargs -r git branch -D"
 
 [push]
 default = simple
