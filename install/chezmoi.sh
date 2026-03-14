@@ -15,6 +15,7 @@ source "${SCRIPT_DIR}/../scripts/lib/detect.sh"
 # Constants
 CHEZMOI_INSTALL_URL="https://get.chezmoi.io"
 DOTFILES_REPO="${DOTFILES_REPO:-andrewmcodes/dotfiles}"
+SKIP_CHEZMOI_APPLY="${SKIP_CHEZMOI_APPLY:-0}"
 
 # Check if chezmoi is installed
 is_chezmoi_installed() {
@@ -52,7 +53,7 @@ install_chezmoi_via_homebrew() {
 install_chezmoi_via_curl() {
 	log_info "Installing chezmoi via curl installer..."
 
-	if sh -c "$(curl -fsLS ${CHEZMOI_INSTALL_URL})"; then
+	if sh -c "$(curl -fsLS "${CHEZMOI_INSTALL_URL}")"; then
 		# Add to PATH for current session
 		export PATH="${HOME}/.local/bin:${PATH}"
 		log_success "Chezmoi installed via curl"
@@ -114,7 +115,7 @@ apply_chezmoi() {
 	chezmoi diff || log_info "Chezmoi diff completed"
 
 	log_info "Applying changes..."
-	if chezmoi apply; then
+	if chezmoi apply --force; then
 		log_success "Chezmoi dotfiles applied"
 		return 0
 	else
@@ -146,7 +147,11 @@ main() {
 
 	install_chezmoi
 	init_chezmoi "$repo"
-	apply_chezmoi
+	if [[ "$SKIP_CHEZMOI_APPLY" == "1" ]]; then
+		log_info "Skipping chezmoi apply (SKIP_CHEZMOI_APPLY=1)"
+	else
+		apply_chezmoi
+	fi
 	verify_chezmoi
 
 	log_success "Chezmoi setup complete"

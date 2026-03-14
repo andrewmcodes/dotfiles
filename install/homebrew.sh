@@ -75,11 +75,15 @@ verify_homebrew() {
 	log_info "Running: brew --version"
 	brew --version
 
-	log_info "Running: brew doctor"
-	if brew doctor; then
-		log_success "brew doctor passed"
+	if [[ "${SKIP_BREW_DOCTOR:-0}" == "1" ]]; then
+		log_info "Skipping brew doctor (SKIP_BREW_DOCTOR=1)"
 	else
-		log_warning "brew doctor reported issues (may be non-critical)"
+		log_info "Running: brew doctor"
+		if brew doctor; then
+			log_success "brew doctor passed"
+		else
+			log_warning "brew doctor reported issues (may be non-critical)"
+		fi
 	fi
 
 	log_success "Homebrew verification complete"

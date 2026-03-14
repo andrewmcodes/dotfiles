@@ -14,9 +14,13 @@ source "${SCRIPT_DIR}/lib/common.sh"
 # shellcheck source=lib/detect.sh
 source "${SCRIPT_DIR}/lib/detect.sh"
 
+DRY_RUN=0
+SKIP_INSTALL=0
+SKIP_APPLY=0
+
 # Show help message
 show_help() {
-	cat <<EOF
+	cat <<EOF2
 Dotfiles Bootstrap Script
 
 Usage: $0 [OPTIONS]
@@ -31,13 +35,16 @@ Options:
   -h, --help          Show this help message
   -d, --debug         Enable debug mode
   -r, --repo REPO     Specify dotfiles repository (default: andrewmcodes/dotfiles)
+      --dry-run       Print planned steps without applying changes
+      --install-only  Install dependencies but skip chezmoi apply
+      --apply-only    Apply dotfiles only (skip Homebrew/mise/Brewfile install)
 
 Environment Variables:
   DOTFILES_REPO       GitHub repo to clone (default: andrewmcodes/dotfiles)
   BREWFILE_PATH       Path to Brewfile (default: ./Brewfile)
   DEBUG               Enable debug output
 
-EOF
+EOF2
 }
 
 # Parse command-line arguments
@@ -57,6 +64,18 @@ parse_args() {
 			export DOTFILES_REPO="$2"
 			shift 2
 			;;
+		--dry-run)
+			DRY_RUN=1
+			shift
+			;;
+		--install-only)
+			SKIP_APPLY=1
+			shift
+			;;
+		--apply-only)
+			SKIP_INSTALL=1
+			shift
+			;;
 		*)
 			log_error "Unknown option: $1"
 			show_help
@@ -64,6 +83,20 @@ parse_args() {
 			;;
 		esac
 	done
+
+	if [[ "$SKIP_INSTALL" -eq 1 && "$SKIP_APPLY" -eq 1 ]]; then
+		die "--install-only and --apply-only cannot be used together"
+	fi
+}
+
+run_step() {
+	local desc="$1"
+	shift
+	if [[ "$DRY_RUN" -eq 1 ]]; then
+		log_info "[dry-run] ${desc}"
+		return 0
+	fi
+	"$@"
 }
 
 # Main bootstrap function
@@ -81,39 +114,49 @@ bootstrap() {
 
 	log_info "Starting bootstrap process..."
 
-	# Step 1: Install Homebrew
-	log_header "Step 1: Homebrew"
-	if "${REPO_ROOT}/install/homebrew.sh"; then
-		log_success "Homebrew step complete"
-	else
-		die "Homebrew installation failed"
-	fi
+	if [[ "$SKIP_INSTALL" -eq 0 ]]; then
+		# Step 1: Install Homebrew
+		log_header "Step 1: Homebrew"
+		if run_step "Run install/homebrew.sh" "${REPO_ROOT}/install/homebrew.sh"; then
+			log_success "Homebrew step complete"
+		else
+			die "Homebrew installation failed"
+		fi
 
-	# Step 2: Install mise
-	log_header "Step 2: Mise"
-	if "${REPO_ROOT}/install/mise.sh"; then
-		log_success "Mise step complete"
-	else
-		die "Mise installation failed"
+		# Step 2: Install mise
+		log_header "Step 2: Mise"
+		if run_step "Run install/mise.sh" "${REPO_ROOT}/install/mise.sh"; then
+			log_success "Mise step complete"
+		else
+			die "Mise installation failed"
+		fi
 	fi
 
 	# Step 3: Install chezmoi and apply dotfiles
 	log_header "Step 3: Chezmoi"
-	if "${REPO_ROOT}/install/chezmoi.sh"; then
+	if [[ "$DRY_RUN" -eq 1 ]]; then
+		log_info "[dry-run] Run install/chezmoi.sh"
+	elif [[ "$SKIP_APPLY" -eq 1 ]]; then
+		if SKIP_CHEZMOI_APPLY=1 "${REPO_ROOT}/install/chezmoi.sh"; then
+			log_success "Chezmoi install complete (apply skipped)"
+		else
+			die "Chezmoi installation failed"
+		fi
+	elif "${REPO_ROOT}/install/chezmoi.sh"; then
 		log_success "Chezmoi step complete"
 	else
 		die "Chezmoi installation failed"
 	fi
 
 	# Step 4: Install from Brewfile (if present)
-	if [[ -f "${REPO_ROOT}/Brewfile" ]]; then
+	if [[ "$SKIP_INSTALL" -eq 0 && -f "${REPO_ROOT}/Brewfile" ]]; then
 		log_header "Step 4: Brewfile"
-		if "${REPO_ROOT}/install/brewfile.sh" install; then
+		if run_step "Run install/brewfile.sh install" "${REPO_ROOT}/install/brewfile.sh" install; then
 			log_success "Brewfile step complete"
 		else
 			log_warning "Brewfile installation had issues (continuing)"
 		fi
-	else
+	elif [[ "$SKIP_INSTALL" -eq 0 ]]; then
 		log_info "No Brewfile found, skipping Homebrew bundle installation"
 	fi
 

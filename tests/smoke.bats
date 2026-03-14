@@ -68,3 +68,17 @@ REPO_ROOT="$(cd "$(dirname "$BATS_TEST_FILENAME")/.." && pwd)"
   # Should contain at least one brew/cask/tap command
   grep -qE "^(tap|brew|cask)" "${REPO_ROOT}/Brewfile"
 }
+
+@test "bootstrap help includes mode flags" {
+  run "${REPO_ROOT}/scripts/bootstrap.sh" --help
+  [ "$status" -eq 0 ]
+  [[ "$output" == *"--dry-run"* ]]
+  [[ "$output" == *"--install-only"* ]]
+  [[ "$output" == *"--apply-only"* ]]
+}
+
+@test "brewfile installer defaults to repository Brewfile" {
+  run bash -c "source ${REPO_ROOT}/install/brewfile.sh; printf '%s' \"$BREWFILE_PATH\""
+  [ "$status" -eq 0 ]
+  [ "$output" = "${REPO_ROOT}/install/../Brewfile" ]
+}
