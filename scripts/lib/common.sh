@@ -89,10 +89,28 @@ backup_file() {
 
 # Network utilities
 check_internet() {
-	if ! ping -c 1 -W 2 8.8.8.8 >/dev/null 2>&1; then
-		return 1
+	# Prefer HTTPS checks over ICMP: ping can be blocked while internet still works.
+	local endpoints=(
+		"https://www.google.com/generate_204"
+		"https://1.1.1.1"
+		"https://github.com"
+	)
+
+	if command -v curl >/dev/null 2>&1; then
+		local endpoint
+		for endpoint in "${endpoints[@]}"; do
+			if curl --silent --show-error --fail --head --max-time 5 "$endpoint" >/dev/null 2>&1; then
+				return 0
+			fi
+		done
 	fi
-	return 0
+
+	# Fallback for minimal systems where curl is not yet available.
+	if ping -c 1 -W 2 8.8.8.8 >/dev/null 2>&1; then
+		return 0
+	fi
+
+	return 1
 }
 
 # Temporary directory management

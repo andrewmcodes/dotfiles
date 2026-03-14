@@ -18,46 +18,39 @@ shellcheck scripts/bootstrap.sh
 
 # Brewfile management tasks
 [tasks."brew:dump"]
-description = "Export current Homebrew packages to Brewfile at ~/.config/homebrew"
+description = "Export current Homebrew packages to repository Brewfile"
 run = """
 #!/usr/bin/env bash
 set -euo pipefail
 
-echo "Dumping Brewfile to ~/.config/homebrew/Brewfile..."
+TARGET_BREWFILE="$(pwd)/Brewfile"
 
-# Create directory if it doesn't exist
-mkdir -p ~/.config/homebrew
+echo "Dumping Brewfile to ${TARGET_BREWFILE}..."
 
-# Export Brewfile
-brew bundle dump --force --file="$HOME/.config/homebrew/Brewfile"
+# Export Brewfile directly to repo source-of-truth
+brew bundle dump --force --file="$TARGET_BREWFILE"
 
 echo "Brewfile exported successfully!"
-echo ""
-echo "Next steps:"
-echo "  1. Review: cat ~/.config/homebrew/Brewfile"
-echo "  2. Add to chezmoi: chezmoi add ~/.config/homebrew/Brewfile"
+echo "Review changes: git diff -- Brewfile"
 """
 
 [tasks."brew:add"]
-description = "Add Brewfile from ~/.config/homebrew to chezmoi"
+description = "Confirm repository Brewfile is tracked by chezmoi source"
 run = """
 #!/usr/bin/env bash
 set -euo pipefail
 
-if [[ ! -f "$HOME/.config/homebrew/Brewfile" ]]; then
-    echo "Error: No Brewfile found at ~/.config/homebrew/Brewfile"
-    echo "Run 'mise brew:dump' first to create it"
+if [[ ! -f "Brewfile" ]]; then
+    echo "Error: Brewfile not found in repository root"
     exit 1
 fi
 
-echo "Adding Brewfile to chezmoi..."
-chezmoi add ~/.config/homebrew/Brewfile
-
-echo "Brewfile added to chezmoi successfully!"
+echo "Brewfile is managed in-repo at ./Brewfile"
+echo "No additional chezmoi add step is required."
 echo ""
 echo "To apply on other machines:"
 echo "  1. Run: chezmoi apply"
-echo "  2. Run: brew bundle --file=~/.config/homebrew/Brewfile"
+echo "  2. Run: ./install/brewfile.sh install"
 """
 
 [tasks."brew:sync"]

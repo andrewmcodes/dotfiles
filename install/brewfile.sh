@@ -13,7 +13,7 @@ source "${SCRIPT_DIR}/../scripts/lib/common.sh"
 source "${SCRIPT_DIR}/../scripts/lib/detect.sh"
 
 # Constants
-BREWFILE_PATH="${BREWFILE_PATH:-${HOME}/.local/share/chezmoi/Brewfile}"
+BREWFILE_PATH="${BREWFILE_PATH:-${SCRIPT_DIR}/../Brewfile}"
 
 # Check if Brewfile exists
 is_brewfile_present() {

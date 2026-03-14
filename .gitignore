@@ -1,2 +1,6 @@
 **/.git.backup.*/
 tmp
+.env
+.env.*
+*.local
+secrets.*
