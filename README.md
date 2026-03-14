@@ -30,7 +30,7 @@ Executable helpers live in `bin/`. Archived or inactive configs reside in `archi
    ```shell
    mise install
    ```
-   Run `brew bundle` if a Brewfile is present.
+   Run `./install/brewfile.sh install` to install from the repository Brewfile.
 
 ## Common chezmoi Commands
 
@@ -78,6 +78,9 @@ cd ~/.local/share/chezmoi
 # With options
 ./scripts/bootstrap.sh --help
 ./scripts/bootstrap.sh --debug
+./scripts/bootstrap.sh --dry-run
+./scripts/bootstrap.sh --install-only
+./scripts/bootstrap.sh --apply-only
 ```
 
 The bootstrap script will:
