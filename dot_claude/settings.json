@@ -5,18 +5,14 @@
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
   },
   "permissions": {
-    "allow": ["Read(~/.config/zsh/.zshrc)"],
-    "deny": ["Read(./.env)", "Read(./.env.*)"]
+    "allow": [
+      "Read(~/.config/zsh/.zshrc)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)"
+    ]
   },
-  "statusLine": {
-    "type": "command",
-    "command": "bash /Users/andrew.mason/.claude/statusline-command.sh"
-  },
-  "enabledPlugins": {
-    "plugin-dev@claude-plugins-official": true
-  },
-  "alwaysThinkingEnabled": true,
-  "skipDangerousModePermissionPrompt": true,
   "hooks": {
     "Notification": [
       {
@@ -49,5 +45,15 @@
         ]
       }
     ]
-  }
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash /Users/andrew.mason/.claude/statusline-command.sh"
+  },
+  "enabledPlugins": {
+    "plugin-dev@claude-plugins-official": true,
+    "ruby-lsp@claude-plugins-official": true
+  },
+  "alwaysThinkingEnabled": true,
+  "skipDangerousModePermissionPrompt": true
 }
