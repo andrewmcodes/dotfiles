@@ -2,7 +2,7 @@
 
 Managed with [chezmoi](https://www.chezmoi.io/), these dotfiles keep shell, editor, and CLI configuration synchronized across machines. Files prefixed with `dot_` map directly to paths in `$HOME` (for example `dot_zshenv` → `~/.zshenv`).
 
-## Tooling Overview
+## Tooling overview
 
 | Tool | Role |
 | ---- | ---- |
@@ -32,14 +32,14 @@ Executable helpers live in `bin/`. Archived or inactive configs reside in `archi
    ```
    Run `brew bundle` if a Brewfile is present.
 
-## Common chezmoi Commands
+## Common chezmoi commands
 
 - Edit and apply a file in one step: `chezmoi edit --apply <path>`
 - Review pending changes: `chezmoi diff`
 - Re-apply everything: `chezmoi apply`
 - Adjust attributes (e.g., remove private flag): `chezmoi chattr -- -p <path>`
 
-## Repository Layout
+## Repository layout
 
 - `dot_*` files map to configuration files in `$HOME`.
 - `bin/` contains executables linked into `~/bin`.
@@ -47,6 +47,10 @@ Executable helpers live in `bin/`. Archived or inactive configs reside in `archi
 - `install/` contains idempotent installation scripts.
 - `scripts/` contains the bootstrap script and shared library functions.
 - `tests/` contains basic smoke tests to validate scripts.
+
+## Documentation
+
+For writing conventions used in this repository, see `docs/documentation-style-guide.md`.
 
 ## Testing
 
@@ -63,7 +67,7 @@ bats tests/smoke.bats
 shellcheck install/*.sh scripts/**/*.sh
 ```
 
-## Bootstrap Script
+## Bootstrap script
 
 For a fresh machine setup, use the bootstrap script:
 
