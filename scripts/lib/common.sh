@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC1091,SC2119,SC2120
-# Common utility functions for dotfiles installation
-# Provides logging, error handling, and common utilities
+# Common utility functions for the dotfiles repository
+# Provides logging and error handling
 
 # Prevent double-sourcing
 if [[ -n "${_COMMON_SH_LOADED:-}" ]]; then
@@ -57,45 +57,4 @@ require_command() {
 	if ! command -v "$cmd" >/dev/null 2>&1; then
 		die "$cmd is required. $install_msg"
 	fi
-}
-
-# Confirmation prompts
-confirm() {
-	local prompt="${1:-Are you sure?}"
-	local default="${2:-n}"
-
-	local yn
-	while true; do
-		read -rp "$prompt [y/N] " yn
-		yn="${yn:-$default}"
-		case "$yn" in
-		[Yy]*) return 0 ;;
-		[Nn]*) return 1 ;;
-		*) echo "Please answer yes or no." ;;
-		esac
-	done
-}
-
-# File operations
-backup_file() {
-	local file="$1"
-	if [[ -f "$file" ]]; then
-		local backup
-		backup="${file}.backup.$(date +%Y%m%d-%H%M%S)"
-		cp "$file" "$backup"
-		log_info "Backed up: $file -> $backup"
-	fi
-}
-
-# Network utilities
-check_internet() {
-	if ! ping -c 1 -W 2 8.8.8.8 >/dev/null 2>&1; then
-		return 1
-	fi
-	return 0
-}
-
-# Temporary directory management
-create_temp_dir() {
-	mktemp -d -t dotfiles.XXXXXX
 }

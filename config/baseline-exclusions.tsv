@@ -1,0 +1,1 @@
+docs/documentation-style-guide.md	repo-doc	Repo documentation, not a dotfile. chezmoi claimed it only because docs/ was absent from .chezmoiignore, and it is not present in $HOME on this Mac.

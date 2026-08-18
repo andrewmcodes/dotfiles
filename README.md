@@ -1,92 +1,119 @@
 # Dotfiles
 
-Managed with [chezmoi](https://www.chezmoi.io/), these dotfiles keep shell, editor, and CLI configuration synchronized across machines. Files prefixed with `dot_` map directly to paths in `$HOME` (for example `dot_zshenv` → `~/.zshenv`).
+Managed with [mise](https://mise.jdx.dev/), these dotfiles keep shell, editor, and CLI configuration synchronized across machines. The `home/` directory mirrors `$HOME` exactly: `home/.zshenv` is `~/.zshenv`, and `home/.config/git/config` is `~/.config/git/config`.
+
+Every dotfile is managed in mise's `copy` mode, so restored files are real files rather than symlinks into this repository.
 
 ## Tooling overview
 
 | Tool | Role |
 | ---- | ---- |
-| [chezmoi](https://www.chezmoi.io/) | Apply and template the repository contents. |
-| [mise](https://mise.jdx.dev/) | Install pinned runtimes and development tools. |
-| [Homebrew](https://brew.sh/) | Provision CLI tools and apps. |
-| [Warp](https://www.warp.dev/) | Terminal profile stored in `dot_warp/`. |
-| [Docker](https://www.docker.com/) | CLI settings in `dot_docker/`. |
-| [Prettier](https://prettier.io/) | Formatter defaults from `dot_prettierrc`. |
+| [mise](https://mise.jdx.dev/) | Manage dotfiles, install pinned runtimes, and provision packages. |
+| [Homebrew](https://brew.sh/) | Package backend for `[bootstrap.packages]`. |
+| [Warp](https://www.warp.dev/) | Terminal profile stored in `home/.warp/`. |
+| [Prettier](https://prettier.io/) | Formatter defaults from `home/.prettierrc`. |
 
-Executable helpers live in `bin/`. Archived or inactive configs reside in `archive/`.
+Executable helpers live in `home/bin/`, which maps to `~/bin`. Archived or inactive configs reside in `archive/`.
 
 ## Setup
 
-1. **Install prerequisites**
-   ```shell
-   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-   brew install chezmoi jdx/mise/mise
-   ```
-2. **Apply the dotfiles**
-   ```shell
-   chezmoi init --apply <github-username>/dotfiles
-   ```
-3. **Install toolchains**
-   ```shell
-   mise install
-   ```
-   Run `brew bundle` if a Brewfile is present.
+On a new machine:
 
-## Common chezmoi commands
+```shell
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install mise
+git clone https://github.com/<github-username>/dotfiles.git ~/git/<github-username>/dotfiles
+cd ~/git/<github-username>/dotfiles
+mise trust
+mise bootstrap
+```
 
-- Edit and apply a file in one step: `chezmoi edit --apply <path>`
-- Review pending changes: `chezmoi diff`
-- Re-apply everything: `chezmoi apply`
-- Adjust attributes (e.g., remove private flag): `chezmoi chattr -- -p <path>`
+`mise trust` is required once per clone. A fresh checkout is not in mise's trust store, and mise refuses to load an untrusted `mise.toml`, so every `mise` command against this repository fails until it is trusted.
+
+`mise bootstrap` installs the declared packages, applies the dotfiles, and installs the pinned toolchains in one pass.
+
+After a restore, replay the recorded file modes. Git records only whether a file is executable, so modes such as `0600` come from the manifest rather than from the checkout:
+
+```shell
+mise run dotfiles:modes
+```
+
+## Daily workflow
+
+Edit the real file in `$HOME`, then capture it:
+
+```shell
+cd ~/git/<github-username>/dotfiles
+git pull --ff-only
+
+mise run dotfiles:backup
+
+git diff
+git add home config/dotfiles-manifest.tsv
+git commit -m "Back up dotfiles"
+git push
+```
+
+Back up selected files only:
+
+```shell
+./scripts/backup-dotfiles.sh ~/.zshenv ~/.config/git/config
+```
+
+The backup direction is always live to repository. It never writes to `$HOME`, never deletes a live file, and never commits.
+
+## Restoring
+
+Preview first; the preview writes nothing:
+
+```shell
+./scripts/restore-dotfiles.sh
+```
+
+Apply for real, which copies files into `$HOME`, replays recorded modes, then verifies:
+
+```shell
+./scripts/restore-dotfiles.sh --apply
+```
+
+## Verifying
+
+```shell
+mise run dotfiles:verify
+```
+
+The verifier's primary invariant is coverage: every path in `config/chezmoi-baseline.txt` must have a row in `config/dotfiles-manifest.tsv`. It also checks checksums, modes, symlink absence, and the configuration safety rules.
 
 ## Repository layout
 
-- `dot_*` files map to configuration files in `$HOME`.
-- `bin/` contains executables linked into `~/bin`.
+- `home/` mirrors `$HOME`; the path under `home/` is the path under `$HOME`.
+- `mise.toml` declares dotfile entries, bootstrap packages, and repository tasks.
+- `config/dotfiles-manifest.tsv` records the checksum, mode, and size of every managed file.
+- `config/chezmoi-baseline.txt` is the frozen coverage baseline captured at migration time.
+- `config/baseline-exclusions.tsv` records deliberate exclusions from that baseline.
+- `scripts/` contains the backup, restore, verification, and mode-replay scripts.
+- `tests/` contains the Bats suites.
 - `archive/` holds legacy configuration kept for reference.
-- `install/` contains idempotent installation scripts.
-- `scripts/` contains the bootstrap script and shared library functions.
-- `tests/` contains basic smoke tests to validate scripts.
+
+## Adding a new dotfile
+
+Adding files is deliberately explicit, so nothing lands in a public repository by accident:
+
+1. Add an entry to the `[dotfiles]` table in `mise.toml` with `mode = "copy"` stated explicitly.
+2. Add the path to `config/chezmoi-baseline.txt`.
+3. Run `mise run dotfiles:backup`.
+
+The backup script refuses any target that is not already configured.
 
 ## Documentation
 
-For writing conventions used in this repository, see `docs/documentation-style-guide.md`.
+See `docs/dotfiles.md` for how backup, restore, and mode preservation work. For writing conventions used in this repository, see `docs/documentation-style-guide.md`.
 
 ## Testing
 
-Basic smoke tests ensure installation scripts are valid:
-
-```bash
-# Install test dependencies
+```shell
 brew install bats-core shellcheck
-
-# Run smoke tests
-bats tests/smoke.bats
-
-# Lint scripts
-shellcheck install/*.sh scripts/**/*.sh
+mise run ci
 ```
 
-## Bootstrap script
-
-For a fresh machine setup, use the bootstrap script:
-
-```bash
-# Clone the repository
-git clone https://github.com/<username>/dotfiles.git ~/.local/share/chezmoi
-cd ~/.local/share/chezmoi
-
-# Run bootstrap (installs Homebrew, mise, chezmoi, and applies dotfiles)
-./scripts/bootstrap.sh
-
-# With options
-./scripts/bootstrap.sh --help
-./scripts/bootstrap.sh --debug
-```
-
-The bootstrap script will:
-1. Install Homebrew (if not present)
-2. Install mise for runtime management
-3. Install and configure chezmoi
-4. Apply dotfiles from this repository
-5. Install packages from Brewfile (if present)
+`mise run ci` runs ShellCheck and both Bats suites. The dotfile tests build an isolated `$HOME` inside the Bats temp directory and abort if that isolation fails, so they never touch real dotfiles.

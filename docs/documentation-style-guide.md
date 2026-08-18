@@ -49,8 +49,8 @@ Use predictable sections so readers can scan quickly.
   - Include exact commands.
   - Keep placeholders explicit, e.g. `<github-username>`.
 - Use inline code for:
-  - file paths (`scripts/bootstrap.sh`)
-  - commands (`chezmoi apply`)
+  - file paths (`scripts/backup-dotfiles.sh`)
+  - commands (`mise run dotfiles:backup`)
   - flags (`--debug`)
   - directory names (`bin/`, `tests/`)
 
@@ -81,11 +81,11 @@ Therefore:
 
 ## Terminology and naming
 
-- Use canonical tool names consistently: **chezmoi**, **mise**, **Homebrew**, **Warp**.
+- Use canonical tool names consistently: **mise**, **Homebrew**, **Warp**.
 - Use “dotfiles” for the repository contents.
-- Use “bootstrap script” for `scripts/bootstrap.sh`.
+- Use “bootstrap” for `mise bootstrap`, which provisions a machine.
 - Use “smoke tests” for lightweight validation checks.
-- Prefer “apply” for synchronizing changes via chezmoi.
+- Use “backup” for capturing live files into the repository, and “restore” for writing them back into `$HOME`.
 
 ## What to avoid
 
