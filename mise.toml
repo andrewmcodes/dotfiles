@@ -1,7 +1,13 @@
 # mise.toml - Dotfile management, machine bootstrap, and repository tasks.
 #
-# Setup on a new machine: git clone, then `mise bootstrap`.
+# Setup on a new machine: git clone, then `mise trust && mise bootstrap`.
 # Day-to-day dotfile capture: `mise run dotfiles:backup`.
+
+# Reverse capture (`mise bootstrap dotfiles add <target> --no-apply`) does not
+# behave correctly on 2026.7.15, which is what homebrew-core shipped at the time
+# of writing: the backup workflow depends on it, so fail loudly rather than
+# silently mis-capturing. 2026.8.8 is the oldest version verified to work.
+min_version = "2026.8.8"
 
 [settings]
 dotfiles.default_mode = "copy"

@@ -240,7 +240,12 @@ setup() {
 	before_sha="$(shasum -a 256 "$live" | cut -d' ' -f1)"
 
 	run mise_with "${repo}/mise.toml" bootstrap dotfiles add "$live" --no-apply -y
-	[ "$status" -eq 0 ]
+	if [ "$status" -ne 0 ]; then
+		echo "capture failed (status=${status}) on mise $(mise --version)"
+		echo "target: ${target}"
+		echo "output: ${output}"
+		false
+	fi
 
 	# The repo source now holds the live edit.
 	run cat "${repo}/home/${target}"

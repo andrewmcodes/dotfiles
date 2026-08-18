@@ -21,12 +21,14 @@ On a new machine:
 
 ```shell
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew install mise
+curl https://mise.run | sh
 git clone https://github.com/<github-username>/dotfiles.git ~/git/<github-username>/dotfiles
 cd ~/git/<github-username>/dotfiles
 mise trust
 mise bootstrap
 ```
+
+Install mise with its own installer rather than `brew install mise`. Reverse capture is broken on 2026.7.15, which is what homebrew-core shipped at the time of writing, so `mise.toml` sets `min_version = "2026.8.8"` and a Homebrew-installed mise may refuse to run until it catches up.
 
 `mise trust` is required once per clone. A fresh checkout is not in mise's trust store, and mise refuses to load an untrusted `mise.toml`, so every `mise` command against this repository fails until it is trusted.
 

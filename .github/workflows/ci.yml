@@ -33,7 +33,21 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Install test dependencies
-        run: brew install mise bats-core shellcheck
+        run: brew install bats-core shellcheck
+
+      # Deliberately NOT `brew install mise`: homebrew-core lagged at 2026.7.15,
+      # on which reverse capture misbehaves, while mise.toml requires 2026.8.8.
+      # The official installer tracks the current release.
+      - name: Install mise
+        run: |
+          curl -fsSL https://mise.run | sh
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Report tool versions
+        run: |
+          mise --version
+          bats --version
+          shellcheck --version | head -2
 
       # HOME is deliberately not overridden at job level: Homebrew needs the
       # real one. tests/test_helper.bash builds its own sandbox per test and
