@@ -4,7 +4,3 @@
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 export ZDOTDIR="${ZDOTDIR:-$XDG_CONFIG_HOME/zsh}"
 [ -r "$ZDOTDIR/.zshenv" ] && . "$ZDOTDIR/.zshenv"
-
-# export ZDOTDIR=${ZDOTDIR:-$HOME/.config/zsh}
-
-# source "$ZDOTDIR/.zshenv"

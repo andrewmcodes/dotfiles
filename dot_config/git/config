@@ -4,10 +4,18 @@ email = andrewmcodes@protonmail.com
 signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPHiAEZ+l5KoTBi3n4uX9k4/rmqdPqC5cGC4aZE8yVNZ
 
 [core]
-ui = auto
 excludesfile = ~/.config/git/ignore
 editor = code-insiders --wait
-pager = diff-so-fancy | less --tabs=4 -RFXS
+pager = delta
+
+[interactive]
+diffFilter = delta --color-only
+
+[delta]
+navigate = true
+line-numbers = true
+side-by-side = false
+syntax-theme = OneHalfDark
 
 [alias]
 tree = log --graph --decorate --oneline --all
@@ -23,6 +31,7 @@ delete-branches = "!git branch --format='%(refname:short)' | grep -v '^main$\\|^
 default = simple
 followTags = true
 autoSetupRemote = true
+useForceIfIncludes = true
 
 [init]
 defaultBranch = main
@@ -35,6 +44,7 @@ helper = cache --timeout=86400
 
 [fetch]
 prune = true
+fsckObjects = true
 
 [gpg]
 format = ssh
@@ -44,3 +54,53 @@ program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
 
 [commit]
 gpgsign = true
+
+[rerere]
+enabled = true
+autoupdate = true
+
+[rebase]
+autoStash = true
+autoSquash = true
+updateRefs = true
+
+[merge]
+conflictStyle = zdiff3
+
+[diff]
+algorithm = histogram
+colorMoved = zebra
+colorMovedWS = allow-indentation-change
+renames = copies
+mnemonicPrefix = true
+
+[branch]
+sort = -committerdate
+
+[tag]
+sort = version:refname
+
+[column]
+ui = auto
+
+[status]
+showStash = true
+
+[help]
+autocorrect = prompt
+
+[transfer]
+fsckObjects = true
+
+[receive]
+fsckObjects = true
+[fetch "fsck"]
+	zeroPaddedFilemode = ignore
+[credential "https://github.com"]
+	helper =
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://git.heroku.com"]
+	helper = !heroku git:credentials

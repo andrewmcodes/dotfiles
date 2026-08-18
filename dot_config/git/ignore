@@ -109,3 +109,5 @@ Procfile.andrew
 .ai
 **/.claude/settings.local.json
 /.claude/worktrees/
+
+**/.claude/.cc-writes/

@@ -3,8 +3,11 @@
 
 # Inserts a blank line between shell prompts
 add_newline = true
-# Rimeout in milliseconds
-command_timeout = 750
+# Per-module timeout in milliseconds. A safety net, not a budget: with
+# core.untrackedCache + core.fsmonitor enabled on large repos, git_status
+# lands around 80ms, so 200 caps worst-case prompt latency without
+# truncating normal operation.
+command_timeout = 200
 
 # Replace the '❯' symbol in the prompt with '➜'
 [character] # The name of the module we are configuring is 'character'
