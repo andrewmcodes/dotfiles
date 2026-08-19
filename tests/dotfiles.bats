@@ -1,9 +1,12 @@
 #!/usr/bin/env bats
 # Dotfile backup and restore suite.
 #
-# Tests A-C are repository-internal and run anywhere. Tests D-I exercise mise
+# Tests A-C are repository-internal and run anywhere. Tests D-J exercise mise
 # against an isolated fake HOME inside $BATS_TEST_TMPDIR. Nothing in this file
 # may write to the real $HOME; tests/test_helper.bash aborts if isolation fails.
+#
+# Tests J cover the safety guards: the failure modes that would otherwise let a
+# backup look healthy while silently covering less than it claims.
 
 setup() {
 	load 'test_helper'
@@ -332,4 +335,141 @@ setup() {
 	isolate_home
 	run assert_no_real_config_leak "${REPO_ROOT}/mise.toml"
 	[ "$status" -eq 0 ]
+}
+
+# --- Test J: safety guards -----------------------------------------------------
+#
+# These cover the failure modes that make a backup look healthy while it is not.
+# Each runs against a throwaway copy of the repository.
+
+@test "J: an unmanaged file in home/ fails verification" {
+	isolate_home
+	local repo
+	repo="$(copy_repo)"
+
+	run "${repo}/scripts/verify-dotfiles.sh" --no-live
+	[ "$status" -eq 0 ]
+
+	# A directory entry re-imports whatever the live tree holds, so an untracked
+	# local file can reach home/ without ever getting a manifest row.
+	printf 'leaked\n' > "${repo}/home/.warp/workflows/leaked.yaml"
+
+	run "${repo}/scripts/verify-dotfiles.sh" --no-live
+	[ "$status" -eq 1 ]
+	[[ "$output" == *"unmanaged-source"* ]]
+	[[ "$output" == *"leaked.yaml"* ]]
+}
+
+@test "J: a missing baseline never truncates the manifest" {
+	isolate_home
+	local repo
+	repo="$(copy_repo)"
+
+	local before rows_before
+	before="$(shasum -a 256 "${repo}/config/dotfiles-manifest.tsv" | cut -d' ' -f1)"
+	rows_before="$(wc -l < "${repo}/config/dotfiles-manifest.tsv" | tr -d ' ')"
+
+	rm -f "${repo}/config/chezmoi-baseline.txt"
+
+	run "${repo}/scripts/backup-dotfiles.sh"
+	[ "$status" -ne 0 ]
+
+	# The committed manifest must survive intact.
+	[ "$(shasum -a 256 "${repo}/config/dotfiles-manifest.tsv" | cut -d' ' -f1)" = "$before" ]
+	[ "$(wc -l < "${repo}/config/dotfiles-manifest.tsv" | tr -d ' ')" = "$rows_before" ]
+}
+
+@test "J: an empty dotfiles table fails verification instead of passing vacuously" {
+	isolate_home
+	local repo
+	repo="$(copy_repo)"
+
+	printf '[settings]\ndotfiles.default_mode = "copy"\ndotfiles.root = "home"\n\n[dotfiles]\n' \
+		> "${repo}/mise.toml"
+
+	run "${repo}/scripts/verify-dotfiles.sh" --no-live
+	[ "$status" -eq 1 ]
+	[[ "$output" == *"no-dotfile-entries"* ]]
+}
+
+@test "J: a manifest path with no configured entry fails verification" {
+	isolate_home
+	local repo
+	repo="$(copy_repo)"
+
+	# Drop one entry from the config but leave its manifest row in place.
+	grep -v '^"~/.editorconfig"' "${repo}/mise.toml" > "${repo}/mise.toml.tmp"
+	mv "${repo}/mise.toml.tmp" "${repo}/mise.toml"
+
+	run "${repo}/scripts/verify-dotfiles.sh" --no-live
+	[ "$status" -eq 1 ]
+	[[ "$output" == *".editorconfig"* ]]
+}
+
+@test "J: a malformed manifest mode is refused and the live file is left alone" {
+	isolate_home
+	local repo
+	repo="$(copy_repo)"
+
+	mise_with "${repo}/mise.toml" bootstrap dotfiles apply --yes
+
+	awk -F'\t' 'BEGIN { OFS = "\t" } $1 == ".editorconfig" { $4 = "XYZ" } { print }' \
+		"${repo}/config/dotfiles-manifest.tsv" > "${repo}/config/m.tmp"
+	mv "${repo}/config/m.tmp" "${repo}/config/dotfiles-manifest.tsv"
+
+	local before
+	before="$(stat -f '%Lp' "${HOME}/.editorconfig")"
+
+	run "${repo}/scripts/apply-dotfile-modes.sh"
+	[ "$status" -ne 0 ]
+	[[ "$output" == *"bad recorded mode"* ]]
+
+	# chmod never ran on the live file.
+	[ "$(stat -f '%Lp' "${HOME}/.editorconfig")" = "$before" ]
+}
+
+@test "J: restore refuses contradictory flags rather than writing" {
+	isolate_home
+	local repo
+	repo="$(copy_repo)"
+
+	# --apply --dry-run must not be read as --apply.
+	run "${repo}/scripts/restore-dotfiles.sh" --apply --dry-run
+	[ "$status" -eq 2 ]
+	[ ! -e "${HOME}/.editorconfig" ]
+
+	run "${repo}/scripts/restore-dotfiles.sh" --bogus
+	[ "$status" -eq 2 ]
+}
+
+@test "J: the fingerprint refuses to write inside \$HOME" {
+	isolate_home
+	local repo
+	repo="$(copy_repo)"
+
+	run "${repo}/scripts/fingerprint-home.sh" "${HOME}/fingerprint.tsv"
+	[ "$status" -eq 2 ]
+	[ ! -e "${HOME}/fingerprint.tsv" ]
+
+	# A symlink pointing back into $HOME must not slip past the guard.
+	mkdir -p "${BATS_TEST_TMPDIR}/link"
+	ln -s "$HOME" "${BATS_TEST_TMPDIR}/link/home"
+	run "${repo}/scripts/fingerprint-home.sh" "${BATS_TEST_TMPDIR}/link/home/fp.tsv"
+	[ "$status" -eq 2 ]
+}
+
+@test "J: a partial fingerprint is never written" {
+	isolate_home
+	local repo
+	repo="$(copy_repo)"
+
+	mise_with "${repo}/mise.toml" bootstrap dotfiles apply --yes
+	rm -f "${HOME}/.editorconfig"
+
+	local out="${BATS_TEST_TMPDIR}/partial.tsv"
+	run "${repo}/scripts/fingerprint-home.sh" "$out"
+	[ "$status" -ne 0 ]
+
+	# Diffing a truncated fingerprint would report spurious $HOME changes.
+	[ ! -e "$out" ]
 }
