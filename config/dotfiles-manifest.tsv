@@ -1,4 +1,4 @@
-.claude/settings.json	home/.claude/settings.json	5bab2a65a628798ab910dd9505697cbe8090fc6f83821293356dac51ab2a1769	600	3632
+.claude/settings.json	home/.claude/settings.json	a6d7c5a12033f69f20a4de0ed8196b5879831ecfc5bdacb190c7c979a3e31580	600	3697
 .config/asciinema/install-id	home/.config/asciinema/install-id	ab1ae6ea993abaafced3e7797a5bf1b29fdd158ac8558e9d5ca7dcf19d5babe9	600	36
 .config/bundle/config	home/.config/bundle/config	6e5acbb1c403c691912144d7eb559805f10e8bb30c505e368fd7f7152feaa2a0	644	208
 .config/duti/default.duti	home/.config/duti/default.duti	e4bdec069f60140e5388b408869b9dcafbf0f57fbcc6efcae288f8b1c7be3dfe	644	59862
@@ -39,5 +39,5 @@
 .warp/workflows/gh_repo_info.yaml	home/.warp/workflows/gh_repo_info.yaml	32029da47b3599cc2bea8e5b22e927b566e4ef4f353b53bd736fe439ea101e9b	600	433
 .warp/workflows/prettier_format.yaml	home/.warp/workflows/prettier_format.yaml	4f8efce91174ff9bfe33e1e41fef5e8faedf475ab9f4c5795aed80c42c7a02d4	600	361
 .zshenv	home/.zshenv	7487c101b1031936128f3b23f1f187fb97ef9001b7861b7c28a6b8164230dae0	644	270
-bin/defaults_diff	home/bin/defaults_diff	273d2de770f2a277ce8292927b0333b91cc5f8407f32ed50a6c44821c9e55272	644	1204
-bin/fzf_prs	home/bin/fzf_prs	bb05cdb36c5acf38b96880c1144e0e6f6b91cba04114a9da69d9677c5c8b6b49	644	1470
+bin/defaults_diff	home/bin/defaults_diff	273d2de770f2a277ce8292927b0333b91cc5f8407f32ed50a6c44821c9e55272	755	1204
+bin/fzf_prs	home/bin/fzf_prs	bb05cdb36c5acf38b96880c1144e0e6f6b91cba04114a9da69d9677c5c8b6b49	755	1470

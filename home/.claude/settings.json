@@ -24,7 +24,9 @@
   },
   "model": "opus",
   "skillOverrides": {
-    "linear-cli": "off"
+    "linear-cli": "off",
+    "pr-review-doc": "off",
+    "agent-memory-search": "off"
   },
   "hooks": {
     "Notification": [
@@ -104,15 +106,15 @@
     "ruby-lsp@claude-plugins-official": false,
     "ruby-lsp@podia-plugins": false,
     "swift-lsp@claude-plugins-official": false,
-    "warp@claude-code-warp": true,
     "deslop@podia-plugins": false,
     "skill-creator@podia-plugins": false,
     "claude-code-setup@claude-plugins-official": false,
     "stripe@claude-plugins-official": false,
-    "review-companion@podia-plugins": true,
+    "review-companion@podia-plugins": false,
     "gopls-lsp@claude-plugins-official": false,
     "i-have-adhd@i-have-adhd": true,
-    "figma@claude-plugins-official": true
+    "figma@claude-plugins-official": true,
+    "warp@claude-code-warp": true
   },
   "extraKnownMarketplaces": {
     "podia-plugins": {
@@ -127,12 +129,6 @@
         "repo": "khendzel/skills-janitor"
       }
     },
-    "claude-code-warp": {
-      "source": {
-        "source": "github",
-        "repo": "warpdotdev/claude-code-warp"
-      }
-    },
     "i-have-adhd": {
       "source": {
         "source": "github",
@@ -144,10 +140,16 @@
         "source": "git",
         "url": "https://github.com/ombulabs/claude-skills.git"
       }
+    },
+    "claude-code-warp": {
+      "source": {
+        "source": "github",
+        "repo": "warpdotdev/claude-code-warp"
+      }
     }
   },
   "alwaysThinkingEnabled": true,
-  "effortLevel": "high",
+  "effortLevel": "medium",
   "skipDangerousModePermissionPrompt": true,
   "skipWorkflowUsageWarning": true,
   "theme": "dark",
