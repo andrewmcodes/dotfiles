@@ -32,9 +32,18 @@ Install mise with its own installer rather than `brew install mise`. Reverse cap
 
 `mise trust` is required once per clone. A fresh checkout is not in mise's trust store, and mise refuses to load an untrusted `mise.toml`, so every `mise` command against this repository fails until it is trusted.
 
-`mise bootstrap` installs the declared packages, clones the companion repositories in `[bootstrap.repos]` (`~/.config/zsh`, the real `ZDOTDIR`, and `~/.config/nvim`), applies the dotfiles, and installs the pinned toolchains in one pass.
+`mise bootstrap` does the whole machine in one pass:
 
-After a restore, replay the recorded file modes. Git records only whether a file is executable, so modes such as `0600` come from the manifest rather than from the checkout:
+1. Installs the Homebrew formulae, casks, and Mac App Store apps in `[bootstrap.packages]`. App Store installs need a signed-in Apple Account.
+2. Clones the companion repositories in `[bootstrap.repos]` (`~/.config/zsh`, the real `ZDOTDIR`, and `~/.config/nvim`). An existing clone with uncommitted changes stops the run.
+3. Applies the dotfiles.
+4. Writes the Dock, Finder, and keyboard settings in `[bootstrap.macos.defaults]`, then restarts Dock and Finder.
+5. Installs the pinned toolchains.
+6. Runs the `bootstrap` task, which replays the recorded file modes.
+
+Preview it first with `mise bootstrap --dry-run`.
+
+After a restore outside `mise bootstrap` (for example `mise run dotfiles:restore --apply`), replay the recorded file modes yourself. Git records only whether a file is executable, so modes such as `0600` come from the manifest rather than from the checkout:
 
 ```shell
 mise run dotfiles:modes
@@ -89,7 +98,7 @@ The verifier's primary invariant is coverage: every path in `config/chezmoi-base
 ## Repository layout
 
 - `home/` mirrors `$HOME`; the path under `home/` is the path under `$HOME`.
-- `mise.toml` declares dotfile entries, bootstrap packages, and repository tasks.
+- `mise.toml` declares dotfile entries, bootstrap packages, repos, macOS defaults, and repository tasks.
 - `config/dotfiles-manifest.tsv` records the checksum, mode, and size of every managed file.
 - `config/chezmoi-baseline.txt` is the frozen coverage baseline captured at migration time.
 - `config/baseline-exclusions.tsv` records deliberate exclusions from that baseline.

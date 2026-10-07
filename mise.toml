@@ -19,37 +19,134 @@ dotfiles.default_mode = "copy"
 # root before invoking mise, and asserts the resolved root stays inside the repo.
 dotfiles.root = "home"
 
-# Homebrew formulae and casks, migrated from the former Brewfile.
-# `mise` itself is omitted: it is the tool running this bootstrap.
-# `chezmoi` is omitted: this repository no longer uses it.
+# Homebrew formulae, casks, and Mac App Store apps installed on request on the
+# primary Mac. `mise` and `chezmoi` are omitted: mise runs this bootstrap and
+# chezmoi is retired. App Store installs need a signed-in Apple Account.
 [bootstrap.packages]
+"brew:actionlint" = "latest"
+"brew:agent-browser" = "latest"
+"brew:anomalyco/tap/opencode" = "latest"
+"brew:antidote" = "latest"
+"brew:asciinema" = "latest"
+"brew:aspell" = "latest"
+"brew:atuin" = "latest"
+"brew:aubio" = "latest"
+"brew:bash" = "latest"
 "brew:bat" = "latest"
 "brew:bats-core" = "latest"
+"brew:blueutil" = "latest"
+"brew:browsh-org/browsh/browsh" = "latest"
+"brew:cloudflare-wrangler" = "latest"
+"brew:cloudflared" = "latest"
+"brew:cmake" = "latest"
+"brew:colordiff" = "latest"
 "brew:coreutils" = "latest"
+"brew:csvkit" = "latest"
 "brew:curl" = "latest"
-"brew:diff-so-fancy" = "latest"
+"brew:datasette" = "latest"
+"brew:duti" = "latest"
 "brew:eza" = "latest"
 "brew:fd" = "latest"
-"brew:findutils" = "latest"
+"brew:ffmpeg" = "latest"
+"brew:fswatch" = "latest"
 "brew:fzf" = "latest"
 "brew:gh" = "latest"
 "brew:git" = "latest"
-"brew:gnu-sed" = "latest"
-"brew:grep" = "latest"
+"brew:git-delta" = "latest"
+"brew:gonzo" = "latest"
+"brew:gum" = "latest"
+"brew:herdr" = "latest"
+"brew:heroku/brew/heroku" = "latest"
+"brew:hyperfine" = "latest"
 "brew:jq" = "latest"
+"brew:lazygit" = "latest"
+"brew:make" = "latest"
+"brew:mas" = "latest"
+"brew:mosh" = "latest"
+"brew:neovim" = "latest"
+"brew:overmind" = "latest"
+"brew:php" = "latest"
+"brew:pi-coding-agent" = "latest"
 "brew:reattach-to-user-namespace" = "latest"
 "brew:ripgrep" = "latest"
+"brew:rjyo/moshi/moshi-hook" = "latest"
+"brew:sass/sass/sass" = "latest"
+"brew:schpet/tap/linear" = "latest"
+"brew:sd" = "latest"
 "brew:shellcheck" = "latest"
+"brew:shfmt" = "latest"
+"brew:skylighting" = "latest"
+"brew:sqlite-utils" = "latest"
 "brew:starship" = "latest"
+"brew:tag" = "latest"
 "brew:tailspin" = "latest"
 "brew:tealdeer" = "latest"
+"brew:terminal-notifier" = "latest"
+"brew:tesseract" = "latest"
+"brew:tesslio/tap/tessl" = "latest"
 "brew:tmux" = "latest"
+"brew:tree-sitter-cli" = "latest"
+"brew:unbound" = "latest"
+"brew:vips" = "latest"
 "brew:wget" = "latest"
-"brew:yq" = "latest"
+"brew:xclip" = "latest"
+"brew:xdg-ninja" = "latest"
+"brew:zellij" = "latest"
+"brew:zoxide" = "latest"
 "brew:zsh" = "latest"
+"brew:zunit-zsh/zunit/zunit" = "latest"
 "brew-cask:1password" = "latest"
+"brew-cask:1password-cli" = "latest"
+"brew-cask:chatgpt" = "latest"
+"brew-cask:claude" = "latest"
+"brew-cask:claude-code@latest" = "latest"
+"brew-cask:cloudflare-warp" = "latest"
+"brew-cask:codex" = "latest"
+"brew-cask:copilot-cli@prerelease" = "latest"
+"brew-cask:discord" = "latest"
+"brew-cask:elgato-camera-hub" = "latest"
+"brew-cask:elgato-control-center" = "latest"
+"brew-cask:figma" = "latest"
+"brew-cask:font-ia-writer-quattro" = "latest"
+"brew-cask:font-inter" = "latest"
+"brew-cask:font-jetbrains-mono" = "latest"
+"brew-cask:font-jetbrains-mono-nerd-font" = "latest"
+"brew-cask:ghostty" = "latest"
+"brew-cask:google-chrome" = "latest"
+"brew-cask:homebrew-app" = "latest"
+"brew-cask:kitty" = "latest"
+"brew-cask:linear" = "latest"
+"brew-cask:logi-options+" = "latest"
+"brew-cask:obsidian" = "latest"
+"brew-cask:proton-mail-bridge" = "latest"
+"brew-cask:protonvpn" = "latest"
+"brew-cask:raindropio" = "latest"
+"brew-cask:raycast" = "latest"
+"brew-cask:raycast-glaze" = "latest"
+"brew-cask:setapp" = "latest"
+"brew-cask:shureplus-motiv" = "latest"
+"brew-cask:slack" = "latest"
+"brew-cask:tailscale-app" = "latest"
+"brew-cask:uhk-agent" = "latest"
 "brew-cask:visual-studio-code@insiders" = "latest"
 "brew-cask:warp" = "latest"
+"brew-cask:zoom" = "latest"
+"mas:1569813296" = "latest"  # 1Password for Safari
+"mas:1586435171" = "latest"  # Actions
+"mas:1659667937" = "latest"  # Actions For Obsidian
+"mas:1453273600" = "latest"  # Data Jar
+"mas:6698876601" = "latest"  # Folder Preview
+"mas:6503706225" = "latest"  # HotwireDevTools
+"mas:361285480" = "latest"  # Keynote
+"mas:1611554653" = "latest"  # Logger
+"mas:6720708363" = "latest"  # Obsidian Web Clipper
+"mas:1596506190" = "latest"  # Play
+"mas:6738274497" = "latest"  # Raycast Companion
+"mas:1549370672" = "latest"  # Save to Raindrop.io
+"mas:1640236961" = "latest"  # Save to Reader
+"mas:1594183810" = "latest"  # Shortery
+"mas:899247664" = "latest"  # TestFlight
+"mas:6745342698" = "latest"  # uBlock Origin Lite
 
 # Config trees that live in their own repositories. `mise bootstrap` clones a
 # missing one and only fast-forwards an existing clone when its worktree is
@@ -58,6 +155,33 @@ dotfiles.root = "home"
 [bootstrap.repos]
 "~/.config/zsh"  = { url = "git@github.com:andrewmcodes/zdotdir.git" }
 "~/.config/nvim" = { url = "git@github.com:andrewmcodes/dotfiles-nvim.git" }
+
+# Values copied from the primary Mac. tilesize and KeyRepeat are floats there,
+# and a TOML float keeps them `real` rather than rewriting them as integers.
+[bootstrap.macos.defaults."com.apple.dock"]
+autohide = true
+magnification = false
+mru-spaces = false
+orientation = "right"
+show-recents = true
+tilesize = 42.0
+
+[bootstrap.macos.defaults."com.apple.finder"]
+AppleShowAllFiles = true
+FXDefaultSearchScope = "SCcf"
+FXPreferredViewStyle = "Nlsv"
+ShowPathbar = true
+ShowStatusBar = true
+_FXShowPosixPathInTitle = false
+
+[bootstrap.macos.defaults.NSGlobalDomain]
+AppleShowAllExtensions = true
+ApplePressAndHoldEnabled = false
+InitialKeyRepeat = 15
+KeyRepeat = 2.0
+
+[bootstrap.hooks.post-defaults]
+run = "killall Dock Finder || true"
 
 # Dotfiles, all in copy mode so restored files are real files, never symlinks.
 #
@@ -127,6 +251,12 @@ dotfiles.root = "home"
 "~/.zshenv"                              = { source = "home/.zshenv", mode = "copy" }
 "~/bin/defaults_diff"                    = { source = "home/bin/defaults_diff", mode = "copy" }
 "~/bin/fzf_prs"                          = { source = "home/bin/fzf_prs", mode = "copy" }
+
+# Runs at the end of `mise bootstrap`. Git cannot carry 0600, so a fresh clone
+# restores dotfiles as 0644 until the manifest's recorded modes are replayed.
+[tasks.bootstrap]
+description = "Replay recorded dotfile modes after bootstrap applies the dotfiles"
+run = "./scripts/apply-dotfile-modes.sh"
 
 [tasks."dotfiles:verify"]
 description = "Verify the committed backup covers and matches the live dotfiles"
