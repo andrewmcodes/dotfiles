@@ -1,5 +1,11 @@
+.claude/hooks/block-force-push.sh
+.claude/hooks/block-pr-merge.sh
 .claude/hooks/herdr-agent-state.sh
+.claude/hooks/idle-notification.sh
+.claude/hooks/permission-alert.sh
+.claude/hooks/tool-usage-logger.sh
 .claude/settings.json
+.claude/statusline-command.sh
 .config/act/actrc
 .config/asciinema/install-id
 .config/atuin/config.toml

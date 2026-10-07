@@ -1,5 +1,11 @@
+.claude/hooks/block-force-push.sh	home/.claude/hooks/block-force-push.sh	d428493a2dfdef1b21a05769a7bfa7f0a293b880b6a515af88df220001041c25	755	2969
+.claude/hooks/block-pr-merge.sh	home/.claude/hooks/block-pr-merge.sh	25374adc61b510db4544a5e9de28f840836027c051f0a8365872a1038742cff1	755	4398
 .claude/hooks/herdr-agent-state.sh	home/.claude/hooks/herdr-agent-state.sh	7f117c303ffc1a66975b76dda8189d70b718fc04af4cf7cb11449e4ee5b4ae86	755	3070
+.claude/hooks/idle-notification.sh	home/.claude/hooks/idle-notification.sh	ca793c9cd6fe0fb94ee10111d6a757b93c83749304337f13998f50d93af197fa	755	254
+.claude/hooks/permission-alert.sh	home/.claude/hooks/permission-alert.sh	16244a8ead08f43015642a585ecfdc951aa923499e2a53ae532301536549a8e5	755	241
+.claude/hooks/tool-usage-logger.sh	home/.claude/hooks/tool-usage-logger.sh	d729e3cbba8bea4c5cad9c657b4dd3ea933930c448626e29ddbe83288c00c19a	755	672
 .claude/settings.json	home/.claude/settings.json	f40c551fc0c9298d4b524ebdaa8e31bffa083664c4025fabb8fe2c4d2c0f8328	600	4804
+.claude/statusline-command.sh	home/.claude/statusline-command.sh	7f183c9035c79ff77dc899e44c1dc990d6820a8e94cae2efdb9508a653eac3e6	755	10577
 .config/act/actrc	home/.config/act/actrc	2c62fdb481cb300c18193e6018c5e61201656e4e6a80e3b2b7feb31f7dd7f64f	644	186
 .config/asciinema/install-id	home/.config/asciinema/install-id	ab1ae6ea993abaafced3e7797a5bf1b29fdd158ac8558e9d5ca7dcf19d5babe9	600	36
 .config/atuin/config.toml	home/.config/atuin/config.toml	142599068dcaffd0ebd37784a17da4d40e97873e1cd85a899f387f514ff506e3	600	14120

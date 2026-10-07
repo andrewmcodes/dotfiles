@@ -105,10 +105,10 @@ setup() {
 
 	[ -n "$entries" ]
 
-	# 54 entries covering the 58 managed files.
+	# 60 entries covering the 64 managed files.
 	local count
 	count="$(printf '%s\n' "$entries" | wc -l | tr -d ' ')"
-	[ "$count" -eq 54 ]
+	[ "$count" -eq 60 ]
 
 	# Every entry states mode = "copy".
 	run bash -c "printf '%s\n' \"\$1\" | grep -vc 'mode = \"copy\"'" _ "$entries"

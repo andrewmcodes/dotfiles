@@ -197,8 +197,14 @@ run = "killall Dock Finder || true"
 #     scope. ~/.warp/themes and ~/bin are listed per-file for that reason:
 #     both hold live files this repository deliberately does not manage.
 [dotfiles]
+"~/.claude/hooks/block-force-push.sh"    = { source = "home/.claude/hooks/block-force-push.sh", mode = "copy" }
+"~/.claude/hooks/block-pr-merge.sh"      = { source = "home/.claude/hooks/block-pr-merge.sh", mode = "copy" }
 "~/.claude/hooks/herdr-agent-state.sh"   = { source = "home/.claude/hooks/herdr-agent-state.sh", mode = "copy" }
+"~/.claude/hooks/idle-notification.sh"   = { source = "home/.claude/hooks/idle-notification.sh", mode = "copy" }
+"~/.claude/hooks/permission-alert.sh"    = { source = "home/.claude/hooks/permission-alert.sh", mode = "copy" }
+"~/.claude/hooks/tool-usage-logger.sh"   = { source = "home/.claude/hooks/tool-usage-logger.sh", mode = "copy" }
 "~/.claude/settings.json"                = { source = "home/.claude/settings.json", mode = "copy" }
+"~/.claude/statusline-command.sh"        = { source = "home/.claude/statusline-command.sh", mode = "copy" }
 "~/.config/act/actrc"                    = { source = "home/.config/act/actrc", mode = "copy" }
 "~/.config/asciinema/install-id"         = { source = "home/.config/asciinema/install-id", mode = "copy" }
 "~/.config/atuin/config.toml"            = { source = "home/.config/atuin/config.toml", mode = "copy" }
