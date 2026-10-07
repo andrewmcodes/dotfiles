@@ -1,0 +1,14 @@
+# https://mise.jdx.dev/configuration.html
+[tools]
+ruby = "latest"
+"npm:prettier" = "latest"
+usage = "latest"
+fnox = "latest"
+go = "latest"
+
+[env]
+
+[settings]
+idiomatic_version_file_enable_tools = ["ruby"]
+python.uv_venv_auto = true
+experimental = true

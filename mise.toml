@@ -1,152 +1,421 @@
-# mise.toml - Task definitions for dotfiles repository
-# Run tasks with: mise run <task-name> or mise <task-name>
+# mise.toml - Dotfile management, machine bootstrap, and repository tasks.
+#
+# Setup on a new machine: git clone, then `mise trust && mise bootstrap`.
+# Day-to-day dotfile capture: `mise run dotfiles:backup`.
 
-# Test tasks
-[tasks.test]
-description = "Run smoke tests"
-run = "bats tests/smoke.bats"
+# Reverse capture (`mise bootstrap dotfiles add <target> --no-apply`) does not
+# behave correctly on 2026.7.15, which is what homebrew-core shipped at the time
+# of writing: the backup workflow depends on it, so fail loudly rather than
+# silently mis-capturing. 2026.8.8 is the oldest version verified to work.
+min_version = "2026.8.8"
 
-# Linting tasks
+[settings]
+dotfiles.default_mode = "copy"
+
+# Seed location for `mise bootstrap dotfiles add` on a target that is not yet
+# configured. This value is resolved against the PROCESS WORKING DIRECTORY, not
+# against this file, and mise's default is "~/.dotfiles" -- which would create a
+# directory in $HOME. Every script in scripts/ therefore cds to the repository
+# root before invoking mise, and asserts the resolved root stays inside the repo.
+dotfiles.root = "home"
+
+# Homebrew formulae, casks, and Mac App Store apps installed on request on the
+# primary Mac. `mise` and `chezmoi` are omitted: mise runs this bootstrap and
+# chezmoi is retired. App Store installs need a signed-in Apple Account.
+[bootstrap.packages]
+"brew:actionlint" = "latest"
+"brew:agent-browser" = "latest"
+"brew:anomalyco/tap/opencode" = "latest"
+"brew:antidote" = "latest"
+"brew:asciinema" = "latest"
+"brew:aspell" = "latest"
+"brew:atuin" = "latest"
+"brew:aubio" = "latest"
+"brew:bash" = "latest"
+"brew:bat" = "latest"
+"brew:bats-core" = "latest"
+"brew:blueutil" = "latest"
+"brew:browsh-org/browsh/browsh" = "latest"
+"brew:cloudflare-wrangler" = "latest"
+"brew:cloudflared" = "latest"
+"brew:cmake" = "latest"
+"brew:colordiff" = "latest"
+"brew:coreutils" = "latest"
+"brew:csvkit" = "latest"
+"brew:curl" = "latest"
+"brew:datasette" = "latest"
+"brew:duti" = "latest"
+"brew:eza" = "latest"
+"brew:fd" = "latest"
+"brew:ffmpeg" = "latest"
+"brew:fswatch" = "latest"
+"brew:fzf" = "latest"
+"brew:gh" = "latest"
+"brew:git" = "latest"
+"brew:git-delta" = "latest"
+"brew:gonzo" = "latest"
+"brew:gum" = "latest"
+"brew:herdr" = "latest"
+"brew:heroku/brew/heroku" = "latest"
+"brew:hyperfine" = "latest"
+"brew:jq" = "latest"
+"brew:lazygit" = "latest"
+"brew:make" = "latest"
+"brew:mas" = "latest"
+"brew:mosh" = "latest"
+"brew:neovim" = "latest"
+"brew:overmind" = "latest"
+"brew:php" = "latest"
+"brew:pi-coding-agent" = "latest"
+"brew:reattach-to-user-namespace" = "latest"
+"brew:ripgrep" = "latest"
+"brew:rjyo/moshi/moshi-hook" = "latest"
+"brew:sass/sass/sass" = "latest"
+"brew:schpet/tap/linear" = "latest"
+"brew:sd" = "latest"
+"brew:shellcheck" = "latest"
+"brew:shfmt" = "latest"
+"brew:skylighting" = "latest"
+"brew:sqlite-utils" = "latest"
+"brew:starship" = "latest"
+"brew:tag" = "latest"
+"brew:tailspin" = "latest"
+"brew:tealdeer" = "latest"
+"brew:terminal-notifier" = "latest"
+"brew:tesseract" = "latest"
+"brew:tesslio/tap/tessl" = "latest"
+"brew:tmux" = "latest"
+"brew:tree-sitter-cli" = "latest"
+"brew:unbound" = "latest"
+"brew:vips" = "latest"
+"brew:wget" = "latest"
+"brew:xclip" = "latest"
+"brew:xdg-ninja" = "latest"
+"brew:zellij" = "latest"
+"brew:zoxide" = "latest"
+"brew:zsh" = "latest"
+"brew:zunit-zsh/zunit/zunit" = "latest"
+"brew-cask:1password" = "latest"
+"brew-cask:1password-cli" = "latest"
+"brew-cask:chatgpt" = "latest"
+"brew-cask:claude" = "latest"
+"brew-cask:claude-code@latest" = "latest"
+"brew-cask:cloudflare-warp" = "latest"
+"brew-cask:codex" = "latest"
+"brew-cask:copilot-cli@prerelease" = "latest"
+"brew-cask:discord" = "latest"
+"brew-cask:elgato-camera-hub" = "latest"
+"brew-cask:elgato-control-center" = "latest"
+"brew-cask:figma" = "latest"
+"brew-cask:font-ia-writer-quattro" = "latest"
+"brew-cask:font-inter" = "latest"
+"brew-cask:font-jetbrains-mono" = "latest"
+"brew-cask:font-jetbrains-mono-nerd-font" = "latest"
+"brew-cask:ghostty" = "latest"
+"brew-cask:google-chrome" = "latest"
+"brew-cask:homebrew-app" = "latest"
+"brew-cask:kitty" = "latest"
+"brew-cask:linear" = "latest"
+"brew-cask:logi-options+" = "latest"
+"brew-cask:obsidian" = "latest"
+"brew-cask:proton-mail-bridge" = "latest"
+"brew-cask:protonvpn" = "latest"
+"brew-cask:raindropio" = "latest"
+"brew-cask:raycast" = "latest"
+"brew-cask:raycast-glaze" = "latest"
+"brew-cask:setapp" = "latest"
+"brew-cask:shureplus-motiv" = "latest"
+"brew-cask:slack" = "latest"
+"brew-cask:tailscale-app" = "latest"
+"brew-cask:uhk-agent" = "latest"
+"brew-cask:visual-studio-code@insiders" = "latest"
+"brew-cask:warp" = "latest"
+"brew-cask:zoom" = "latest"
+"mas:1569813296" = "latest"  # 1Password for Safari
+"mas:1586435171" = "latest"  # Actions
+"mas:1659667937" = "latest"  # Actions For Obsidian
+"mas:1453273600" = "latest"  # Data Jar
+"mas:6698876601" = "latest"  # Folder Preview
+"mas:6503706225" = "latest"  # HotwireDevTools
+"mas:361285480" = "latest"  # Keynote
+"mas:1611554653" = "latest"  # Logger
+"mas:6720708363" = "latest"  # Obsidian Web Clipper
+"mas:1596506190" = "latest"  # Play
+"mas:6738274497" = "latest"  # Raycast Companion
+"mas:1549370672" = "latest"  # Save to Raindrop.io
+"mas:1640236961" = "latest"  # Save to Reader
+"mas:1594183810" = "latest"  # Shortery
+"mas:899247664" = "latest"  # TestFlight
+"mas:6745342698" = "latest"  # uBlock Origin Lite
+
+# Config trees that live in their own repositories. `mise bootstrap` clones a
+# missing one and only fast-forwards an existing clone when its worktree is
+# clean and its origin matches. ~/.config/zsh is the real ZDOTDIR that
+# home/.zshenv points at; without it a fresh machine gets a bare shell.
+[bootstrap.repos]
+"~/.config/zsh"  = { url = "git@github.com:andrewmcodes/zdotdir.git" }
+"~/.config/nvim" = { url = "git@github.com:andrewmcodes/dotfiles-nvim.git" }
+
+# Values copied from the primary Mac. tilesize and KeyRepeat are floats there,
+# and a TOML float keeps them `real` rather than rewriting them as integers.
+[bootstrap.macos.defaults."com.apple.dock"]
+autohide = true
+magnification = false
+mru-spaces = false
+orientation = "right"
+show-recents = true
+tilesize = 42.0
+
+[bootstrap.macos.defaults."com.apple.finder"]
+AppleShowAllFiles = true
+FXDefaultSearchScope = "SCcf"
+FXPreferredViewStyle = "Nlsv"
+ShowPathbar = true
+ShowStatusBar = true
+_FXShowPosixPathInTitle = false
+
+[bootstrap.macos.defaults.NSGlobalDomain]
+AppleShowAllExtensions = true
+ApplePressAndHoldEnabled = false
+InitialKeyRepeat = 15
+KeyRepeat = 2.0
+
+[bootstrap.hooks.post-defaults]
+run = "killall Dock Finder || true"
+
+# Dotfiles, all in copy mode so restored files are real files, never symlinks.
+#
+# Rules enforced by scripts/verify-dotfiles.sh and tests/dotfiles.bats:
+#   - every entry states mode = "copy" explicitly; never rely on default_mode,
+#     because an entry mise writes itself omits mode and falls back to symlink
+#   - no symlink or symlink-each entry, ever
+#   - no directory entry on ~/.config, ~/.config/mise, or ~/.claude: those trees
+#     hold untracked local files (config.local.toml carries a token,
+#     settings.local.json is gitignored) that must not reach a public repo
+#   - directory entries are used only where the live tree contains exactly the
+#     files in config/chezmoi-baseline.txt, so a backup cannot silently widen
+#     scope. ~/.warp/themes and ~/bin are listed per-file for that reason:
+#     both hold live files this repository deliberately does not manage.
+#     ~/.agents/skills is per-file too: it holds __pycache__ and .DS_Store junk,
+#     and mise's per-entry exclude list is not honored on capture.
+[dotfiles]
+"~/.agents/skills/agent-md-refactor/SKILL.md" = { source = "home/.agents/skills/agent-md-refactor/SKILL.md", mode = "copy" }
+"~/.agents/skills/daily-log-updater/SKILL.md" = { source = "home/.agents/skills/daily-log-updater/SKILL.md", mode = "copy" }
+"~/.agents/skills/daily-log-updater/assets/log_template.md" = { source = "home/.agents/skills/daily-log-updater/assets/log_template.md", mode = "copy" }
+"~/.agents/skills/daily-log-updater/evals/evals.json" = { source = "home/.agents/skills/daily-log-updater/evals/evals.json", mode = "copy" }
+"~/.agents/skills/daily-log-updater/scripts/ensure_project_notes.py" = { source = "home/.agents/skills/daily-log-updater/scripts/ensure_project_notes.py", mode = "copy" }
+"~/.agents/skills/daily-log-updater/scripts/ensure_task_notes.py" = { source = "home/.agents/skills/daily-log-updater/scripts/ensure_task_notes.py", mode = "copy" }
+"~/.agents/skills/daily-log-updater/scripts/git_activity.py" = { source = "home/.agents/skills/daily-log-updater/scripts/git_activity.py", mode = "copy" }
+"~/.agents/skills/daily-log-updater/scripts/github_activity.py" = { source = "home/.agents/skills/daily-log-updater/scripts/github_activity.py", mode = "copy" }
+"~/.agents/skills/daily-log-updater/scripts/linear_activity.py" = { source = "home/.agents/skills/daily-log-updater/scripts/linear_activity.py", mode = "copy" }
+"~/.agents/skills/file-organizer/SKILL.md" = { source = "home/.agents/skills/file-organizer/SKILL.md", mode = "copy" }
+"~/.agents/skills/find-skills/SKILL.md"  = { source = "home/.agents/skills/find-skills/SKILL.md", mode = "copy" }
+"~/.agents/skills/good-readme/SKILL.md"  = { source = "home/.agents/skills/good-readme/SKILL.md", mode = "copy" }
+"~/.agents/skills/linear-cli/SKILL.md"   = { source = "home/.agents/skills/linear-cli/SKILL.md", mode = "copy" }
+"~/.agents/skills/linear-cli/SKILL.template.md" = { source = "home/.agents/skills/linear-cli/SKILL.template.md", mode = "copy" }
+"~/.agents/skills/linear-cli/references/api.md" = { source = "home/.agents/skills/linear-cli/references/api.md", mode = "copy" }
+"~/.agents/skills/linear-cli/references/auth.md" = { source = "home/.agents/skills/linear-cli/references/auth.md", mode = "copy" }
+"~/.agents/skills/linear-cli/references/commands.md" = { source = "home/.agents/skills/linear-cli/references/commands.md", mode = "copy" }
+"~/.agents/skills/linear-cli/references/config.md" = { source = "home/.agents/skills/linear-cli/references/config.md", mode = "copy" }
+"~/.agents/skills/linear-cli/references/cycle.md" = { source = "home/.agents/skills/linear-cli/references/cycle.md", mode = "copy" }
+"~/.agents/skills/linear-cli/references/document.md" = { source = "home/.agents/skills/linear-cli/references/document.md", mode = "copy" }
+"~/.agents/skills/linear-cli/references/initiative-update.md" = { source = "home/.agents/skills/linear-cli/references/initiative-update.md", mode = "copy" }
+"~/.agents/skills/linear-cli/references/initiative.md" = { source = "home/.agents/skills/linear-cli/references/initiative.md", mode = "copy" }
+"~/.agents/skills/linear-cli/references/issue.md" = { source = "home/.agents/skills/linear-cli/references/issue.md", mode = "copy" }
+"~/.agents/skills/linear-cli/references/label.md" = { source = "home/.agents/skills/linear-cli/references/label.md", mode = "copy" }
+"~/.agents/skills/linear-cli/references/milestone.md" = { source = "home/.agents/skills/linear-cli/references/milestone.md", mode = "copy" }
+"~/.agents/skills/linear-cli/references/organization-features.md" = { source = "home/.agents/skills/linear-cli/references/organization-features.md", mode = "copy" }
+"~/.agents/skills/linear-cli/references/project-update.md" = { source = "home/.agents/skills/linear-cli/references/project-update.md", mode = "copy" }
+"~/.agents/skills/linear-cli/references/project.md" = { source = "home/.agents/skills/linear-cli/references/project.md", mode = "copy" }
+"~/.agents/skills/linear-cli/references/schema.md" = { source = "home/.agents/skills/linear-cli/references/schema.md", mode = "copy" }
+"~/.agents/skills/linear-cli/references/team.md" = { source = "home/.agents/skills/linear-cli/references/team.md", mode = "copy" }
+"~/.agents/skills/linear-cli/scripts/generate-docs.ts" = { source = "home/.agents/skills/linear-cli/scripts/generate-docs.ts", mode = "copy" }
+"~/.agents/skills/plannotator-annotate/SKILL.md" = { source = "home/.agents/skills/plannotator-annotate/SKILL.md", mode = "copy" }
+"~/.agents/skills/plannotator-annotate/agents/openai.yaml" = { source = "home/.agents/skills/plannotator-annotate/agents/openai.yaml", mode = "copy" }
+"~/.agents/skills/plannotator-last/SKILL.md" = { source = "home/.agents/skills/plannotator-last/SKILL.md", mode = "copy" }
+"~/.agents/skills/plannotator-last/agents/openai.yaml" = { source = "home/.agents/skills/plannotator-last/agents/openai.yaml", mode = "copy" }
+"~/.agents/skills/plannotator-review/SKILL.md" = { source = "home/.agents/skills/plannotator-review/SKILL.md", mode = "copy" }
+"~/.agents/skills/plannotator-review/agents/openai.yaml" = { source = "home/.agents/skills/plannotator-review/agents/openai.yaml", mode = "copy" }
+"~/.agents/skills/plannotator-setup-goal/SKILL.md" = { source = "home/.agents/skills/plannotator-setup-goal/SKILL.md", mode = "copy" }
+"~/.agents/skills/plannotator-setup-goal/SKILL.test.ts" = { source = "home/.agents/skills/plannotator-setup-goal/SKILL.test.ts", mode = "copy" }
+"~/.agents/skills/plannotator-setup-goal/agents/openai.yaml" = { source = "home/.agents/skills/plannotator-setup-goal/agents/openai.yaml", mode = "copy" }
+"~/.agents/skills/plannotator-visual-explainer/SKILL.md" = { source = "home/.agents/skills/plannotator-visual-explainer/SKILL.md", mode = "copy" }
+"~/.agents/skills/plannotator-visual-explainer/SKILL.test.ts" = { source = "home/.agents/skills/plannotator-visual-explainer/SKILL.test.ts", mode = "copy" }
+"~/.agents/skills/plannotator-visual-explainer/references/design-system.md" = { source = "home/.agents/skills/plannotator-visual-explainer/references/design-system.md", mode = "copy" }
+"~/.agents/skills/plannotator-visual-explainer/references/pr-components.md" = { source = "home/.agents/skills/plannotator-visual-explainer/references/pr-components.md", mode = "copy" }
+"~/.agents/skills/plannotator-visual-explainer/references/svg-patterns.md" = { source = "home/.agents/skills/plannotator-visual-explainer/references/svg-patterns.md", mode = "copy" }
+"~/.agents/skills/plannotator-visual-explainer/references/theme-override.md" = { source = "home/.agents/skills/plannotator-visual-explainer/references/theme-override.md", mode = "copy" }
+"~/.agents/skills/plannotator/SKILL.md"  = { source = "home/.agents/skills/plannotator/SKILL.md", mode = "copy" }
+"~/.agents/skills/plannotator/agents/openai.yaml" = { source = "home/.agents/skills/plannotator/agents/openai.yaml", mode = "copy" }
+"~/.agents/skills/plugin-structure/README.md" = { source = "home/.agents/skills/plugin-structure/README.md", mode = "copy" }
+"~/.agents/skills/plugin-structure/SKILL.md" = { source = "home/.agents/skills/plugin-structure/SKILL.md", mode = "copy" }
+"~/.agents/skills/plugin-structure/examples/advanced-plugin.md" = { source = "home/.agents/skills/plugin-structure/examples/advanced-plugin.md", mode = "copy" }
+"~/.agents/skills/plugin-structure/examples/minimal-plugin.md" = { source = "home/.agents/skills/plugin-structure/examples/minimal-plugin.md", mode = "copy" }
+"~/.agents/skills/plugin-structure/examples/standard-plugin.md" = { source = "home/.agents/skills/plugin-structure/examples/standard-plugin.md", mode = "copy" }
+"~/.agents/skills/plugin-structure/references/component-patterns.md" = { source = "home/.agents/skills/plugin-structure/references/component-patterns.md", mode = "copy" }
+"~/.agents/skills/plugin-structure/references/manifest-reference.md" = { source = "home/.agents/skills/plugin-structure/references/manifest-reference.md", mode = "copy" }
+"~/.agents/skills/skill-installer/LICENSE.txt" = { source = "home/.agents/skills/skill-installer/LICENSE.txt", mode = "copy" }
+"~/.agents/skills/skill-installer/SKILL.md" = { source = "home/.agents/skills/skill-installer/SKILL.md", mode = "copy" }
+"~/.agents/skills/skill-installer/scripts/github_utils.py" = { source = "home/.agents/skills/skill-installer/scripts/github_utils.py", mode = "copy" }
+"~/.agents/skills/skill-installer/scripts/install-skill-from-github.py" = { source = "home/.agents/skills/skill-installer/scripts/install-skill-from-github.py", mode = "copy" }
+"~/.agents/skills/skill-installer/scripts/list-curated-skills.py" = { source = "home/.agents/skills/skill-installer/scripts/list-curated-skills.py", mode = "copy" }
+"~/.agents/skills/visual-explainer/.claude-plugin/plugin.json" = { source = "home/.agents/skills/visual-explainer/.claude-plugin/plugin.json", mode = "copy" }
+"~/.agents/skills/visual-explainer/SKILL.md" = { source = "home/.agents/skills/visual-explainer/SKILL.md", mode = "copy" }
+"~/.agents/skills/visual-explainer/commands/diff-review.md" = { source = "home/.agents/skills/visual-explainer/commands/diff-review.md", mode = "copy" }
+"~/.agents/skills/visual-explainer/commands/fact-check.md" = { source = "home/.agents/skills/visual-explainer/commands/fact-check.md", mode = "copy" }
+"~/.agents/skills/visual-explainer/commands/generate-slides.md" = { source = "home/.agents/skills/visual-explainer/commands/generate-slides.md", mode = "copy" }
+"~/.agents/skills/visual-explainer/commands/generate-visual-plan.md" = { source = "home/.agents/skills/visual-explainer/commands/generate-visual-plan.md", mode = "copy" }
+"~/.agents/skills/visual-explainer/commands/generate-web-diagram.md" = { source = "home/.agents/skills/visual-explainer/commands/generate-web-diagram.md", mode = "copy" }
+"~/.agents/skills/visual-explainer/commands/plan-review.md" = { source = "home/.agents/skills/visual-explainer/commands/plan-review.md", mode = "copy" }
+"~/.agents/skills/visual-explainer/commands/project-recap.md" = { source = "home/.agents/skills/visual-explainer/commands/project-recap.md", mode = "copy" }
+"~/.agents/skills/visual-explainer/extension.ts" = { source = "home/.agents/skills/visual-explainer/extension.ts", mode = "copy" }
+"~/.agents/skills/visual-explainer/mcp/README.md" = { source = "home/.agents/skills/visual-explainer/mcp/README.md", mode = "copy" }
+"~/.agents/skills/visual-explainer/mcp/server.mjs" = { source = "home/.agents/skills/visual-explainer/mcp/server.mjs", mode = "copy" }
+"~/.agents/skills/visual-explainer/pptx/README.md" = { source = "home/.agents/skills/visual-explainer/pptx/README.md", mode = "copy" }
+"~/.agents/skills/visual-explainer/pptx/export.mjs" = { source = "home/.agents/skills/visual-explainer/pptx/export.mjs", mode = "copy" }
+"~/.agents/skills/visual-explainer/quick/README.md" = { source = "home/.agents/skills/visual-explainer/quick/README.md", mode = "copy" }
+"~/.agents/skills/visual-explainer/quick/base.css" = { source = "home/.agents/skills/visual-explainer/quick/base.css", mode = "copy" }
+"~/.agents/skills/visual-explainer/quick/render.mjs" = { source = "home/.agents/skills/visual-explainer/quick/render.mjs", mode = "copy" }
+"~/.agents/skills/visual-explainer/quick/schema.json" = { source = "home/.agents/skills/visual-explainer/quick/schema.json", mode = "copy" }
+"~/.agents/skills/visual-explainer/references/css-patterns.md" = { source = "home/.agents/skills/visual-explainer/references/css-patterns.md", mode = "copy" }
+"~/.agents/skills/visual-explainer/references/libraries.md" = { source = "home/.agents/skills/visual-explainer/references/libraries.md", mode = "copy" }
+"~/.agents/skills/visual-explainer/references/responsive-nav.md" = { source = "home/.agents/skills/visual-explainer/references/responsive-nav.md", mode = "copy" }
+"~/.agents/skills/visual-explainer/references/slide-patterns.md" = { source = "home/.agents/skills/visual-explainer/references/slide-patterns.md", mode = "copy" }
+"~/.agents/skills/visual-explainer/references/themes.md" = { source = "home/.agents/skills/visual-explainer/references/themes.md", mode = "copy" }
+"~/.agents/skills/visual-explainer/templates/architecture.html" = { source = "home/.agents/skills/visual-explainer/templates/architecture.html", mode = "copy" }
+"~/.agents/skills/visual-explainer/templates/data-table.html" = { source = "home/.agents/skills/visual-explainer/templates/data-table.html", mode = "copy" }
+"~/.agents/skills/visual-explainer/templates/mermaid-flowchart.html" = { source = "home/.agents/skills/visual-explainer/templates/mermaid-flowchart.html", mode = "copy" }
+"~/.agents/skills/visual-explainer/templates/slide-deck.html" = { source = "home/.agents/skills/visual-explainer/templates/slide-deck.html", mode = "copy" }
+"~/.agents/skills/weekly-project-update/SKILL.md" = { source = "home/.agents/skills/weekly-project-update/SKILL.md", mode = "copy" }
+"~/.agents/skills/weekly-project-update/references/synthesis.md" = { source = "home/.agents/skills/weekly-project-update/references/synthesis.md", mode = "copy" }
+"~/.agents/skills/weekly-project-update/scripts/github_week.py" = { source = "home/.agents/skills/weekly-project-update/scripts/github_week.py", mode = "copy" }
+"~/.agents/skills/weekly-project-update/scripts/weekly_activity.py" = { source = "home/.agents/skills/weekly-project-update/scripts/weekly_activity.py", mode = "copy" }
+"~/.claude/CLAUDE.md"                    = { source = "home/.claude/CLAUDE.md", mode = "copy" }
+"~/.claude/agents/deep-research.md"      = { source = "home/.claude/agents/deep-research.md", mode = "copy" }
+"~/.claude/hooks/block-force-push.sh"    = { source = "home/.claude/hooks/block-force-push.sh", mode = "copy" }
+"~/.claude/hooks/block-pr-merge.sh"      = { source = "home/.claude/hooks/block-pr-merge.sh", mode = "copy" }
+"~/.claude/hooks/herdr-agent-state.sh"   = { source = "home/.claude/hooks/herdr-agent-state.sh", mode = "copy" }
+"~/.claude/hooks/idle-notification.sh"   = { source = "home/.claude/hooks/idle-notification.sh", mode = "copy" }
+"~/.claude/hooks/permission-alert.sh"    = { source = "home/.claude/hooks/permission-alert.sh", mode = "copy" }
+"~/.claude/hooks/tool-usage-logger.sh"   = { source = "home/.claude/hooks/tool-usage-logger.sh", mode = "copy" }
+"~/.claude/settings.json"                = { source = "home/.claude/settings.json", mode = "copy" }
+"~/.claude/statusline-command.sh"        = { source = "home/.claude/statusline-command.sh", mode = "copy" }
+"~/.config/act/actrc"                    = { source = "home/.config/act/actrc", mode = "copy" }
+"~/.config/asciinema/install-id"         = { source = "home/.config/asciinema/install-id", mode = "copy" }
+"~/.config/atuin/config.toml"            = { source = "home/.config/atuin/config.toml", mode = "copy" }
+"~/.config/bundle/config"                = { source = "home/.config/bundle/config", mode = "copy" }
+"~/.config/direnv/direnvrc"              = { source = "home/.config/direnv/direnvrc", mode = "copy" }
+"~/.config/direnv/lib/use_mise.sh"       = { source = "home/.config/direnv/lib/use_mise.sh", mode = "copy" }
+"~/.config/duti/default.duti"            = { source = "home/.config/duti/default.duti", mode = "copy" }
+"~/.config/gh-dash/config.yml"           = { source = "home/.config/gh-dash/config.yml", mode = "copy" }
+"~/.config/gh/config.yml"                = { source = "home/.config/gh/config.yml", mode = "copy" }
+"~/.config/git/config"                   = { source = "home/.config/git/config", mode = "copy" }
+"~/.config/git/ignore"                   = { source = "home/.config/git/ignore", mode = "copy" }
+"~/.config/glow/glow.yml"                = { source = "home/.config/glow/glow.yml", mode = "copy" }
+"~/.config/herdr/config.toml"            = { source = "home/.config/herdr/config.toml", mode = "copy" }
+"~/.config/kitty/kitty.conf"             = { source = "home/.config/kitty/kitty.conf", mode = "copy" }
+"~/.config/lazygit/config.yml"           = { source = "home/.config/lazygit/config.yml", mode = "copy" }
+"~/.config/mise/config.toml"             = { source = "home/.config/mise/config.toml", mode = "copy" }
+"~/.config/mise/tasks"                   = { source = "home/.config/mise/tasks", mode = "copy" }
+"~/.config/pry/pryrc"                    = { source = "home/.config/pry/pryrc", mode = "copy" }
+"~/.config/starship.toml"                = { source = "home/.config/starship.toml", mode = "copy" }
+"~/.config/tailspin/config.toml"         = { source = "home/.config/tailspin/config.toml", mode = "copy" }
+"~/.config/tape/config.yaml"             = { source = "home/.config/tape/config.yaml", mode = "copy" }
+"~/.config/tealdeer/config.toml"         = { source = "home/.config/tealdeer/config.toml", mode = "copy" }
+"~/.config/tmux/tmux.conf"               = { source = "home/.config/tmux/tmux.conf", mode = "copy" }
+"~/.config/zed/settings.json"            = { source = "home/.config/zed/settings.json", mode = "copy" }
+"~/.default-gems"                        = { source = "home/.default-gems", mode = "copy" }
+"~/.default-npm-packages"                = { source = "home/.default-npm-packages", mode = "copy" }
+"~/.editorconfig"                        = { source = "home/.editorconfig", mode = "copy" }
+"~/.fzf.zsh"                             = { source = "home/.fzf.zsh", mode = "copy" }
+"~/.gemrc"                               = { source = "home/.gemrc", mode = "copy" }
+"~/.mackup.cfg"                          = { source = "home/.mackup.cfg", mode = "copy" }
+"~/.prettierrc"                          = { source = "home/.prettierrc", mode = "copy" }
+"~/.searchlink"                          = { source = "home/.searchlink", mode = "copy" }
+"~/.warp/keybindings.yaml"               = { source = "home/.warp/keybindings.yaml", mode = "copy" }
+"~/.warp/launch_configurations"          = { source = "home/.warp/launch_configurations", mode = "copy" }
+"~/.warp/themes/One_Dark_Darker.yaml"    = { source = "home/.warp/themes/One_Dark_Darker.yaml", mode = "copy" }
+"~/.warp/themes/Radix.yaml"              = { source = "home/.warp/themes/Radix.yaml", mode = "copy" }
+"~/.warp/themes/andrewmcodes_slate.yaml" = { source = "home/.warp/themes/andrewmcodes_slate.yaml", mode = "copy" }
+"~/.warp/themes/blue-dark-waves.jpg"     = { source = "home/.warp/themes/blue-dark-waves.jpg", mode = "copy" }
+"~/.warp/themes/blue-dark-waves.yaml"    = { source = "home/.warp/themes/blue-dark-waves.yaml", mode = "copy" }
+"~/.warp/themes/foo.md"                  = { source = "home/.warp/themes/foo.md", mode = "copy" }
+"~/.warp/themes/nightshade.yaml"         = { source = "home/.warp/themes/nightshade.yaml", mode = "copy" }
+"~/.warp/themes/one_dark_darker_2.yaml"  = { source = "home/.warp/themes/one_dark_darker_2.yaml", mode = "copy" }
+"~/.warp/themes/onedark.yaml"            = { source = "home/.warp/themes/onedark.yaml", mode = "copy" }
+"~/.warp/themes/vibrancy_4.png"          = { source = "home/.warp/themes/vibrancy_4.png", mode = "copy" }
+"~/.warp/themes/vibrancy_4.yaml"         = { source = "home/.warp/themes/vibrancy_4.yaml", mode = "copy" }
+"~/.warp/themes/vibrancy_8.png"          = { source = "home/.warp/themes/vibrancy_8.png", mode = "copy" }
+"~/.warp/themes/vibrancy_8.yaml"         = { source = "home/.warp/themes/vibrancy_8.yaml", mode = "copy" }
+"~/.warp/themes/vs_code.yaml"            = { source = "home/.warp/themes/vs_code.yaml", mode = "copy" }
+"~/.warp/workflows"                      = { source = "home/.warp/workflows", mode = "copy" }  # dir, 5 files
+"~/.zshenv"                              = { source = "home/.zshenv", mode = "copy" }
+"~/Library/Application Support/Code - Insiders/User/keybindings.json" = { source = "home/Library/Application Support/Code - Insiders/User/keybindings.json", mode = "copy" }
+"~/bin/defaults_diff"                    = { source = "home/bin/defaults_diff", mode = "copy" }
+"~/bin/fzf_prs"                          = { source = "home/bin/fzf_prs", mode = "copy" }
+
+# Runs at the end of `mise bootstrap`. Git cannot carry 0600, so a fresh clone
+# restores dotfiles as 0644 until the manifest's recorded modes are replayed.
+# Claude Code reads skills from ~/.claude/skills, a link to ~/.agents/skills.
+# [dotfiles] forbids symlink entries, so the link is made here, between two
+# $HOME paths, never into this repository.
+[tasks.bootstrap]
+description = "Replay recorded dotfile modes and link Claude Code to the shared skills"
+run = [
+  "./scripts/apply-dotfile-modes.sh",
+  '''
+link="$HOME/.claude/skills"
+if [ -L "$link" ] || [ -e "$link" ]; then
+  [ "$(readlink "$link")" = "$HOME/.agents/skills" ] || echo "warning: $link exists and is not a link to ~/.agents/skills; left alone" >&2
+else
+  mkdir -p "$HOME/.claude" && ln -s "$HOME/.agents/skills" "$link"
+fi
+''',
+]
+
+[tasks."dotfiles:verify"]
+description = "Verify the committed backup covers and matches the live dotfiles"
+run = "./scripts/verify-dotfiles.sh"
+
+[tasks."dotfiles:backup"]
+description = "Capture live dotfiles from $HOME into the repository"
+run = "./scripts/backup-dotfiles.sh"
+
+[tasks."dotfiles:restore"]
+description = "Preview restoring dotfiles from the repository into $HOME"
+run = "./scripts/restore-dotfiles.sh"
+
+[tasks."dotfiles:modes"]
+description = "Reapply recorded file modes from the manifest"
+run = "./scripts/apply-dotfile-modes.sh"
+
+[tasks."dotfiles:fingerprint"]
+description = "Print a read-only fingerprint of every managed live dotfile"
+run = "./scripts/fingerprint-home.sh -"
+
 [tasks.lint]
 description = "Run shellcheck on all shell scripts"
 run = """
 echo "Running shellcheck..."
-shellcheck install/*.sh
+shellcheck scripts/*.sh
 shellcheck scripts/lib/*.sh
-shellcheck scripts/bootstrap.sh
 """
 
-# Brewfile management tasks
-[tasks."brew:dump"]
-description = "Export current Homebrew packages to Brewfile at ~/.config/homebrew"
-run = """
-#!/usr/bin/env bash
-set -euo pipefail
+[tasks.test]
+description = "Run the test suite"
+run = "bats tests/dotfiles.bats tests/config.bats"
 
-echo "Dumping Brewfile to ~/.config/homebrew/Brewfile..."
-
-# Create directory if it doesn't exist
-mkdir -p ~/.config/homebrew
-
-# Export Brewfile
-brew bundle dump --force --file="$HOME/.config/homebrew/Brewfile"
-
-echo "Brewfile exported successfully!"
-echo ""
-echo "Next steps:"
-echo "  1. Review: cat ~/.config/homebrew/Brewfile"
-echo "  2. Add to chezmoi: chezmoi add ~/.config/homebrew/Brewfile"
-"""
-
-[tasks."brew:add"]
-description = "Add Brewfile from ~/.config/homebrew to chezmoi"
-run = """
-#!/usr/bin/env bash
-set -euo pipefail
-
-if [[ ! -f "$HOME/.config/homebrew/Brewfile" ]]; then
-    echo "Error: No Brewfile found at ~/.config/homebrew/Brewfile"
-    echo "Run 'mise brew:dump' first to create it"
-    exit 1
-fi
-
-echo "Adding Brewfile to chezmoi..."
-chezmoi add ~/.config/homebrew/Brewfile
-
-echo "Brewfile added to chezmoi successfully!"
-echo ""
-echo "To apply on other machines:"
-echo "  1. Run: chezmoi apply"
-echo "  2. Run: brew bundle --file=~/.config/homebrew/Brewfile"
-"""
-
-[tasks."brew:sync"]
-description = "Export Brewfile and add to chezmoi (combines dump + add)"
-depends = ["brew:dump", "brew:add"]
-
-[tasks."brew:install"]
-description = "Install packages from Brewfile"
-run = "./install/brewfile.sh install"
-
-[tasks."brew:cleanup"]
-description = "Remove packages not in Brewfile"
-run = "./install/brewfile.sh cleanup"
-
-# Validation tasks
-[tasks.validate]
-description = "Validate all configuration files"
-run = """
-#!/usr/bin/env bash
-set -euo pipefail
-
-source scripts/lib/validation.sh
-
-echo "Validating configurations..."
-
-# Validate mise config
-if [[ -f "dot_config/mise/config.toml" ]]; then
-    validate_mise_config "dot_config/mise/config.toml"
-fi
-
-
-# Validate git config
-if [[ -f "dot_config/git/config" ]]; then
-    validate_git_config "dot_config/git/config"
-fi
-
-# Validate Brewfile
-if [[ -f "Brewfile" ]]; then
-    validate_brewfile "Brewfile"
-fi
-
-echo "All validations passed!"
-"""
-
-# Bootstrap and setup tasks
-[tasks.bootstrap]
-description = "Run full bootstrap setup"
-run = "./scripts/bootstrap.sh"
-
-[tasks.setup]
-description = "Quick setup for development"
-run = """
-echo "Setting up development environment..."
-brew install bats-core shellcheck
-echo "Development setup complete!"
-echo ""
-echo "Available commands:"
-echo "  mise test    - Run smoke tests"
-echo "  mise lint    - Run shellcheck"
-echo "  mise validate - Validate configs"
-"""
-
-# Chezmoi tasks
-[tasks."chezmoi:diff"]
-description = "Show pending chezmoi changes"
-run = "chezmoi diff"
-
-[tasks."chezmoi:apply"]
-description = "Apply chezmoi dotfiles"
-run = "chezmoi apply"
-
-[tasks."chezmoi:status"]
-description = "Show chezmoi status"
-run = "chezmoi status"
-
-# CI simulation
 [tasks.ci]
 description = "Simulate CI checks locally"
 depends = ["lint", "test"]
 
-# Documentation tasks
 [tasks.docs]
-description = "Open documentation in browser"
+description = "Open documentation"
 run = """
 echo "Opening documentation..."
 open README.md 2>/dev/null || cat README.md
 """
 
-# Cleanup tasks
 [tasks.clean]
 description = "Clean up temporary files and coverage reports"
 run = """

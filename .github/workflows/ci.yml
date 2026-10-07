@@ -2,37 +2,58 @@ name: CI
 
 on:
   push:
-    branches: [main, add-tests]
+    branches: [main]
   pull_request:
     branches: [main]
 
 jobs:
-  test:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest]
-      fail-fast: false
+  lint:
+    name: ShellCheck
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      - name: Install bats
-        run: |
-          if [[ "${{ matrix.os }}" == "ubuntu-latest" ]]; then
-            sudo apt-get update && sudo apt-get install -y bats
-          else
-            brew install bats-core
-          fi
-
       - name: Install shellcheck
-        run: |
-          if [[ "${{ matrix.os }}" == "ubuntu-latest" ]]; then
-            sudo apt-get install -y shellcheck
-          else
-            brew install shellcheck
-          fi
+        run: sudo apt-get update && sudo apt-get install -y shellcheck
 
-      - name: Run smoke tests
-        run: bats tests/smoke.bats
+      - name: Lint shell scripts
+        run: shellcheck scripts/*.sh scripts/lib/*.sh
+
+  dotfiles:
+    name: Dotfiles backup / restore
+    # macos-latest is a stable GitHub image, not the macOS 27 beta the physical
+    # Mac runs. The split is deliberate: the Mac proves capture works on macOS 27,
+    # and this job proves the committed tree restores onto a clean macOS $HOME.
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Install test dependencies
+        run: brew install bats-core shellcheck
+
+      # Deliberately NOT `brew install mise`: homebrew-core lagged at 2026.7.15,
+      # on which reverse capture misbehaves, while mise.toml requires 2026.8.8.
+      # The official installer tracks the current release.
+      - name: Install mise
+        run: |
+          curl -fsSL https://mise.run | sh
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Report tool versions
+        run: |
+          mise --version
+          bats --version
+          shellcheck --version | head -2
+
+      # HOME is deliberately not overridden at job level: Homebrew needs the
+      # real one. tests/test_helper.bash builds its own sandbox per test and
+      # aborts if that sandbox fails to take effect.
+      - name: Verify committed backup
+        run: ./scripts/verify-dotfiles.sh --no-live
+
+      - name: Run dotfile tests
+        run: bats tests/dotfiles.bats tests/config.bats

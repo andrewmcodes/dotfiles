@@ -1,0 +1,202 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "env": {
+    "DISABLE_AUTOUPDATER": "1",
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
+    "DISABLE_TELEMETRY": "1",
+    "USE_BUILTIN_RIPGREP": "0"
+  },
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "permissions": {
+    "allow": [
+      "Read(~/.config/zsh/.zshrc)",
+      "Bash(gh search *)",
+      "Bash(python3 *)"
+    ],
+    "defaultMode": "auto"
+  },
+  "model": "opus",
+  "skillOverrides": {
+    "linear-cli": "off",
+    "pr-review-doc": "off",
+    "agent-md-refactor": "off",
+    "create-plan": "off",
+    "file-organizer": "off",
+    "meeting-insights-analyzer": "off",
+    "meeting-notes-and-actions": "off",
+    "web-perf": "off",
+    "ai-humanizer": "off",
+    "find-skills": "off",
+    "writing-skills": "off"
+  },
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "permission_prompt",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/permission-alert.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "idle_prompt",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/idle-notification.sh"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/block-force-push.sh",
+            "statusMessage": "Checking for force push..."
+          },
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/block-pr-merge.sh",
+            "statusMessage": "Checking for PR merge..."
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Skill|mcp__.*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/tool-usage-logger.sh"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "^(startup|resume|clear|compact|fork)$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '/Users/andrew.mason/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash /Users/andrew.mason/.claude/statusline-command.sh"
+  },
+  "enabledPlugins": {
+    "plugin-dev@claude-plugins-official": true,
+    "ruby-lsp@claude-plugins-official": false,
+    "swift-lsp@claude-plugins-official": false,
+    "stripe@claude-plugins-official": false,
+    "gopls-lsp@claude-plugins-official": false,
+    "i-have-adhd@i-have-adhd": true,
+    "figma@claude-plugins-official": false,
+    "ruby-lsp@podia-plugins": false,
+    "plannotator@plannotator": true,
+    "claude-md-management@claude-plugins-official": true,
+    "codex@openai-codex": true,
+    "skill-creator@podia-plugins": true,
+    "skills-janitor@skills-janitor": true,
+    "warp@claude-code-warp": true
+  },
+  "extraKnownMarketplaces": {
+    "skills-janitor": {
+      "source": {
+        "source": "github",
+        "repo": "khendzel/skills-janitor"
+      }
+    },
+    "i-have-adhd": {
+      "source": {
+        "source": "github",
+        "repo": "ayghri/i-have-adhd"
+      }
+    },
+    "ombulabs-ai": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/ombulabs/claude-skills.git"
+      }
+    },
+    "podia-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "podia/claude-plugins"
+      }
+    },
+    "plannotator": {
+      "source": {
+        "source": "github",
+        "repo": "backnotprop/plannotator"
+      }
+    },
+    "impeccable": {
+      "source": {
+        "source": "github",
+        "repo": "pbakaus/impeccable"
+      }
+    },
+    "fable-advisor": {
+      "source": {
+        "source": "github",
+        "repo": "DannyMac180/fable-advisor"
+      }
+    },
+    "openai-codex": {
+      "source": {
+        "source": "github",
+        "repo": "openai/codex-plugin-cc"
+      }
+    },
+    "podia-workflow": {
+      "source": {
+        "source": "github",
+        "repo": "podia/podia-workflow"
+      }
+    },
+    "claude-code-warp": {
+      "source": {
+        "source": "github",
+        "repo": "warpdotdev/claude-code-warp"
+      }
+    }
+  },
+  "alwaysThinkingEnabled": true,
+  "effortLevel": "high",
+  "modelSettings": {
+    "claude-fable-5-1": {
+      "effortLevel": "medium"
+    },
+    "claude-opus-4-8": {
+      "effortLevel": "high"
+    },
+    "claude-opus-5": {
+      "effortLevel": "high"
+    },
+    "claude-opus-5-5": {
+      "effortLevel": "high"
+    },
+    "claude-sonnet": {}
+  },
+  "tui": "fullscreen",
+  "skipDangerousModePermissionPrompt": true,
+  "skipWorkflowUsageWarning": true,
+  "theme": "dark",
+  "editorMode": "vim",
+  "teammateMode": "auto"
+}
