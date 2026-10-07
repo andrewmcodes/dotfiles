@@ -4,4 +4,4 @@ tmp
 # Local working directory only. Everything this repository manages lives under
 # home/; a .config/ at the repository root is incidental local state (an old
 # nvim clone, stray .DS_Store files) and must never be committed.
-.config/
+/.config/
