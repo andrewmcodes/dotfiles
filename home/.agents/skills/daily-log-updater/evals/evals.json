@@ -1,0 +1,33 @@
+{
+  "skill_name": "daily-log-updater",
+  "evals": [
+    {
+      "id": 1,
+      "name": "default-today-busy-day",
+      "prompt": "Update my daily log",
+      "expected_output": "Log file at /Users/andrew.mason/git/andrewmcodes/digital-brain/logs/days/2026-05-05.md updated with today's activity: merged PR #19030 (PODIA-9016), opened PR #19041 (PODIA-9028), in-progress work on PODIA-9017, code review on PR #19038 with 4 inline comments, 4 new tickets filed (PODIA-9041/9042/9043/9046), and substantive Linear comments on PODIA-9046 and PODIA-9041. Existing 'Notes' section preserved.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "explicit-past-date",
+      "prompt": "Fill in my log for 2026-05-04",
+      "expected_output": "Log file at /Users/andrew.mason/git/andrewmcodes/digital-brain/logs/days/2026-05-04.md updated with 2026-05-04 PT activity (PODIA-9019, 9021, 8836 merged work). No 2026-05-05 entries should leak in.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "natural-phrasing",
+      "prompt": "what did I do today? add it to my daybook",
+      "expected_output": "Same outcome as eval 1 — skill should trigger from informal phrasing without 'log' keyword.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "name": "project-wikilink-resolves",
+      "prompt": "Update my daily log",
+      "expected_output": "For any Podia Linear project referenced that day (e.g. Shop), a project note exists at /Users/andrew.mason/git/andrewmcodes/digital-brain/projects/<Name> Project.md — created via ensure_project_notes.py from the DKS project template with type: project and linear_id/project_url/start_on/status populated from Linear. The log's `[[Shop Project]]` wikilink resolves to that note rather than dangling. Existing project notes are not overwritten.",
+      "files": []
+    }
+  ]
+}

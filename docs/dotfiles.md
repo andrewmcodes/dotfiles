@@ -36,7 +36,7 @@ The explicit `mode` matters. When mise adds an entry itself it writes no `mode` 
 
 Git records exactly one permission bit: whether a regular file is executable. It cannot represent `0600`, `0640`, or `0700`.
 
-That matters here because 27 of the 64 managed files are `0600`, including everything under `home/.warp/` and `home/.claude/settings.json`. A fresh clone materializes those as `0644`, and a restore faithfully reproduces `0644`.
+That matters here because 27 of the 158 managed files are `0600`, including everything under `home/.warp/` and `home/.claude/settings.json`. A fresh clone materializes those as `0644`, and a restore faithfully reproduces `0644`.
 
 `config/dotfiles-manifest.tsv` is the authoritative record instead:
 
