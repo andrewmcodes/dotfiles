@@ -51,6 +51,14 @@ dotfiles.root = "home"
 "brew-cask:visual-studio-code@insiders" = "latest"
 "brew-cask:warp" = "latest"
 
+# Config trees that live in their own repositories. `mise bootstrap` clones a
+# missing one and only fast-forwards an existing clone when its worktree is
+# clean and its origin matches. ~/.config/zsh is the real ZDOTDIR that
+# home/.zshenv points at; without it a fresh machine gets a bare shell.
+[bootstrap.repos]
+"~/.config/zsh"  = { url = "git@github.com:andrewmcodes/zdotdir.git" }
+"~/.config/nvim" = { url = "git@github.com:andrewmcodes/dotfiles-nvim.git" }
+
 # Dotfiles, all in copy mode so restored files are real files, never symlinks.
 #
 # Rules enforced by scripts/verify-dotfiles.sh and tests/dotfiles.bats:

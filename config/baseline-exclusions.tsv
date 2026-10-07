@@ -1,1 +1,3 @@
 docs/documentation-style-guide.md	repo-doc	Repo documentation, not a dotfile. chezmoi claimed it only because docs/ was absent from .chezmoiignore, and it is not present in $HOME on this Mac.
+.warp/themes/2025-10-24_test.yaml	live-only	Live scratch theme deliberately left unmanaged; ~/.warp/themes is per-file for exactly this reason.
+.warp/themes/dark_rdx.yaml	live-only	Live experimental theme deliberately left unmanaged; ~/.warp/themes is per-file for exactly this reason.

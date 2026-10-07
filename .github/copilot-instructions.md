@@ -64,7 +64,7 @@ Add a new dotfile. This is intentionally explicit, so nothing reaches a public r
 2. Add the path to `config/chezmoi-baseline.txt`.
 3. Run `mise run dotfiles:backup`.
 
-The backup script refuses any target that is not already configured.
+The backup iterates the baseline, so the new path is captured on that run. The script refuses any target missing from the baseline or lacking a configured entry.
 
 ## File modes and the manifest
 
@@ -82,7 +82,7 @@ Run `mise run dotfiles:modes` after a restore to replay them. Never assume a che
 
 Deployed user tasks live in [home/.config/mise/tasks/](../home/.config/mise/tasks/) and must have the executable bit set in git (mode `100755`). There is no filename prefix that conveys executability any more.
 
-Repository tasks are defined in [mise.toml](../mise.toml): `dotfiles:backup`, `dotfiles:restore`, `dotfiles:verify`, `dotfiles:modes`, `dotfiles:fingerprint`, `lint`, `test`, `ci`.
+Repository tasks are defined in [mise.toml](../mise.toml): `dotfiles:backup`, `dotfiles:restore`, `dotfiles:verify`, `dotfiles:modes`, `dotfiles:fingerprint`, `lint`, `test`, `ci`, `docs`, `clean`.
 
 ## Shell script conventions
 
@@ -102,8 +102,11 @@ Shared helpers are in [scripts/lib/common.sh](../scripts/lib/common.sh) (logging
 
 ```shell
 brew install bats-core shellcheck
+mise trust
 mise run ci
 ```
+
+Install mise with its own installer (`curl https://mise.run | sh`), not `brew install mise` — `mise.toml` requires `min_version = "2026.8.8"` and homebrew-core has lagged behind it. `mise trust` is required once per fresh clone; until then every `mise` command against this repository fails.
 
 The dotfile tests build an isolated `$HOME` inside `$BATS_TEST_TMPDIR` and **abort** if that isolation fails. Overriding `HOME` alone does not isolate mise, so `XDG_CONFIG_HOME`, `XDG_CACHE_HOME`, `XDG_DATA_HOME`, and `XDG_STATE_HOME` must be overridden too. Never write a test that could touch the real `$HOME`.
 

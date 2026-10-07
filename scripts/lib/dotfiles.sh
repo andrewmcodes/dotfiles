@@ -116,6 +116,11 @@ dotfiles_manifest_has() {
 	dotfiles_manifest_paths | grep -qxF "$relative"
 }
 
+dotfiles_baseline_has() {
+	local relative="$1"
+	dotfiles_baseline | grep -qxF "$relative"
+}
+
 # Rebuild config/dotfiles-manifest.tsv from the baseline.
 #
 # Checksums come from the committed repo source; mode and size come from the

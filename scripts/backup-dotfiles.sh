@@ -6,10 +6,11 @@
 # mise invocation passes --no-apply, which is verified to leave the live file's
 # content, mode, size, and mtime untouched.
 #
-# With no arguments, every path in the manifest is captured. With arguments,
-# only those targets are captured, and only if they are already configured --
-# an unconfigured target would make mise invent a new entry with no explicit
-# mode, which falls back to symlink.
+# With no arguments, every path in the coverage baseline is captured. With
+# arguments, only those targets are captured. Either way a target must be in
+# the baseline and already configured in mise.toml -- an unconfigured target
+# would make mise invent a new entry with no explicit mode, which falls back
+# to symlink.
 
 set -euo pipefail
 
@@ -25,8 +26,9 @@ usage() {
 	cat <<-EOF
 		Usage: ${0##*/} [target ...]
 
-		With no arguments, captures every path in config/dotfiles-manifest.tsv.
-		Targets must already be configured in mise.toml; new files are refused.
+		With no arguments, captures every path in config/chezmoi-baseline.txt.
+		Targets must be in that baseline and configured in mise.toml; anything
+		else is refused.
 
 		  ${0##*/}
 		  ${0##*/} ~/.zshenv ~/.config/git/config
@@ -110,23 +112,17 @@ main() {
 	local arg relative failures=0
 
 	if [[ $# -eq 0 ]]; then
-		# On the first run the manifest does not exist yet, so seed the path
-		# list from the frozen baseline instead. Both hold the same 43 paths.
-		if [[ -f "$MANIFEST_FILE" ]]; then
-			while IFS= read -r relative; do
-				relatives+=("$relative")
-			done < <(dotfiles_manifest_paths)
-		else
-			log_warning "no manifest yet; seeding from ${BASELINE_FILE#"${REPO_ROOT}/"}"
-			while IFS= read -r relative; do
-				relatives+=("$relative")
-			done < <(dotfiles_baseline)
-		fi
+		# The baseline is the authoritative coverage list. Iterating it (rather
+		# than the manifest) means a path added there, with its [dotfiles]
+		# entry, is captured on the next run even before it has a manifest row.
+		while IFS= read -r relative; do
+			relatives+=("$relative")
+		done < <(dotfiles_baseline)
 	else
 		for arg in "$@"; do
 			relative="$(dotfiles_to_relative "$arg")" || die "invalid target: $arg"
-			if [[ -f "$MANIFEST_FILE" ]] && ! dotfiles_manifest_has "$relative"; then
-				die "not in the manifest: ${relative} (adding new files is a separate, explicit workflow)"
+			if ! dotfiles_baseline_has "$relative"; then
+				die "not in the baseline: ${relative} (add it to ${BASELINE_FILE#"${REPO_ROOT}/"} and mise.toml first)"
 			fi
 			relatives+=("$relative")
 		done
@@ -159,8 +155,14 @@ main() {
 	"${SCRIPT_DIR}/verify-dotfiles.sh"
 
 	log_header "Review before committing"
-	git -C "$REPO_ROOT" status --short
-	git -C "$REPO_ROOT" diff --stat
+	# The summary is informational only; a repo copy in the test suite has no
+	# .git, and that must not fail an otherwise successful backup.
+	if git -C "$REPO_ROOT" rev-parse --git-dir >/dev/null 2>&1; then
+		git -C "$REPO_ROOT" status --short
+		git -C "$REPO_ROOT" diff --stat
+	else
+		log_warning "${REPO_ROOT} is not a git checkout; skipping the diff summary"
+	fi
 	log_success "Backup complete. Nothing was written to \$HOME and nothing was committed."
 }
 

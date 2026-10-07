@@ -68,7 +68,7 @@ check_coverage() {
 check_manifest_rows() {
 	local check_live="$1"
 	local relative source sha mode size
-	local abs_source live actual
+	local abs_source live actual src_mode
 
 	while IFS=$'\t' read -r relative source sha mode size; do
 		[[ -n "$relative" ]] || continue
@@ -96,6 +96,20 @@ check_manifest_rows() {
 		actual="$(shasum -a 256 "$abs_source" | cut -d' ' -f1)"
 		if [[ "$actual" != "$sha" ]]; then
 			bad source-checksum "$relative"
+			continue
+		fi
+
+		if [[ ! "$mode" =~ ^[0-7]{3,4}$ ]]; then
+			bad malformed-mode "${relative} (${mode})"
+			continue
+		fi
+		# Git preserves exactly one permission bit -- owner-execute -- so that
+		# bit is the one part of the mode column the repository can vouch for
+		# without a live $HOME. This is the only repo-internal mode defense;
+		# the full mode comparison needs the live file below.
+		src_mode="$(stat -f '%Lp' "$abs_source")"
+		if [[ $(( ${mode: -3:1} % 2 )) -ne $(( ${src_mode: -3:1} % 2 )) ]]; then
+			bad mode-exec-mismatch "${relative} (manifest=${mode} source=${src_mode})"
 			continue
 		fi
 		ok content "$relative"

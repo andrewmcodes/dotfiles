@@ -1,7 +1,7 @@
 #!/usr/bin/env bats
 # Dotfile backup and restore suite.
 #
-# Tests A-C are repository-internal and run anywhere. Tests D-J exercise mise
+# Tests A-C are repository-internal and run anywhere. Tests D-K exercise mise
 # against an isolated fake HOME inside $BATS_TEST_TMPDIR. Nothing in this file
 # may write to the real $HOME; tests/test_helper.bash aborts if isolation fails.
 #
@@ -456,6 +456,66 @@ setup() {
 	ln -s "$HOME" "${BATS_TEST_TMPDIR}/link/home"
 	run "${repo}/scripts/fingerprint-home.sh" "${BATS_TEST_TMPDIR}/link/home/fp.tsv"
 	[ "$status" -eq 2 ]
+}
+
+@test "J: a manifest mode whose executable bit contradicts the repo source fails verification" {
+	isolate_home
+	local repo
+	repo="$(copy_repo)"
+
+	run "${repo}/scripts/verify-dotfiles.sh" --no-live
+	[ "$status" -eq 0 ]
+
+	# Git carries the executable bit, so it is the one mode bit the verifier
+	# can defend without a live $HOME. .editorconfig's source is not
+	# executable; a 755 manifest row for it is corruption.
+	awk -F'\t' 'BEGIN { OFS = "\t" } $1 == ".editorconfig" { $4 = "755" } { print }' \
+		"${repo}/config/dotfiles-manifest.tsv" > "${repo}/config/m.tmp"
+	mv "${repo}/config/m.tmp" "${repo}/config/dotfiles-manifest.tsv"
+
+	run "${repo}/scripts/verify-dotfiles.sh" --no-live
+	[ "$status" -eq 1 ]
+	[[ "$output" == *"mode-exec-mismatch"* ]]
+}
+
+# --- Test K: adding a new dotfile ------------------------------------------------
+
+@test "K: the documented add-a-dotfile steps capture a brand-new file" {
+	isolate_home
+	local repo
+	repo="$(copy_repo)"
+
+	mise_with "${repo}/mise.toml" bootstrap dotfiles apply --yes
+	# Backup ends with a live-mode verify, so the sandbox needs real modes.
+	run "${repo}/scripts/apply-dotfile-modes.sh"
+	[ "$status" -eq 0 ]
+
+	printf 'brand new managed file\n' > "${HOME}/.newdotfile"
+	chmod 0600 "${HOME}/.newdotfile"
+
+	# Step 1: the [dotfiles] entry with explicit copy mode.
+	awk '{ print } /^\[dotfiles\]$/ {
+		print "\"~/.newdotfile\" = { source = \"home/.newdotfile\", mode = \"copy\" }"
+	}' "${repo}/mise.toml" > "${repo}/mise.toml.tmp"
+	mv "${repo}/mise.toml.tmp" "${repo}/mise.toml"
+
+	# Step 2: the baseline row.
+	printf '.newdotfile\n' >> "${repo}/config/chezmoi-baseline.txt"
+
+	# Step 3: a plain backup run must capture it.
+	run "${repo}/scripts/backup-dotfiles.sh"
+	[ "$status" -eq 0 ]
+
+	[ -f "${repo}/home/.newdotfile" ]
+	run cat "${repo}/home/.newdotfile"
+	[[ "$output" == *"brand new managed file"* ]]
+
+	run bash -c "cut -f1,4 '${repo}/config/dotfiles-manifest.tsv' | grep -x '.newdotfile	600'"
+	[ "$status" -eq 0 ]
+
+	# The live file was not touched and nothing became a symlink.
+	[ ! -L "${HOME}/.newdotfile" ]
+	[ "$(stat -f '%Lp' "${HOME}/.newdotfile")" = "600" ]
 }
 
 @test "J: a partial fingerprint is never written" {

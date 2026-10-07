@@ -32,7 +32,7 @@ Install mise with its own installer rather than `brew install mise`. Reverse cap
 
 `mise trust` is required once per clone. A fresh checkout is not in mise's trust store, and mise refuses to load an untrusted `mise.toml`, so every `mise` command against this repository fails until it is trusted.
 
-`mise bootstrap` installs the declared packages, applies the dotfiles, and installs the pinned toolchains in one pass.
+`mise bootstrap` installs the declared packages, clones the companion repositories in `[bootstrap.repos]` (`~/.config/zsh`, the real `ZDOTDIR`, and `~/.config/nvim`), applies the dotfiles, and installs the pinned toolchains in one pass.
 
 After a restore, replay the recorded file modes. Git records only whether a file is executable, so modes such as `0600` come from the manifest rather than from the checkout:
 
@@ -105,7 +105,7 @@ Adding files is deliberately explicit, so nothing lands in a public repository b
 2. Add the path to `config/chezmoi-baseline.txt`.
 3. Run `mise run dotfiles:backup`.
 
-The backup script refuses any target that is not already configured.
+The backup iterates the baseline, so the new path is captured on that run: mise seeds `home/<path>` from the live file and the regenerated manifest picks up its checksum and mode. The script refuses any target that is missing from the baseline or has no configured entry, so both edits are required before the capture succeeds. A new file inside an already-managed directory entry (for example `~/.warp/workflows/`) still needs step 2, but its directory's existing entry covers step 1.
 
 ## Documentation
 

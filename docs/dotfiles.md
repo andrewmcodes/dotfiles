@@ -72,7 +72,7 @@ Note one limitation: because a directory copy does not delete extra files in the
 
 The primary invariant is that every baseline path has a manifest row. If that ever fails, the backup no longer covers everything it used to, and verification fails.
 
-`scripts/backup-dotfiles.sh` builds the manifest *from* this file, so adding a dotfile means editing it. A new `[dotfiles]` entry whose path is absent here never reaches the manifest, and is therefore never verified. See "Adding a new dotfile" in the README for the full sequence.
+`scripts/backup-dotfiles.sh` both captures *and* generates the manifest from this file: a no-argument run iterates the baseline, so a newly listed path (with its `[dotfiles]` entry) is seeded into `home/` and given a manifest row on the next backup. A new `[dotfiles]` entry whose path is absent here never reaches the manifest, and is therefore never verified. See "Adding a new dotfile" in the README for the full sequence.
 
 `config/baseline-exclusions.tsv` records deliberate departures from that baseline, with a reason for each.
 

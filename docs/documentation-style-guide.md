@@ -75,7 +75,7 @@ Assume the reader:
 
 Therefore:
 
-- Briefly define repo-specific conventions (for example `dot_*` file mapping).
+- Briefly define repo-specific conventions (for example the `home/` directory mirroring `$HOME`).
 - Link tools on first mention.
 - Do not over-explain general shell fundamentals.
 
