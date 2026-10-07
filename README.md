@@ -39,7 +39,7 @@ Install mise with its own installer rather than `brew install mise`. Reverse cap
 3. Applies the dotfiles.
 4. Writes the Dock, Finder, and keyboard settings in `[bootstrap.macos.defaults]`, then restarts Dock and Finder.
 5. Installs the pinned toolchains.
-6. Runs the `bootstrap` task, which replays the recorded file modes.
+6. Runs the `bootstrap` task, which replays the recorded file modes and links `~/.claude/skills` to `~/.agents/skills` so Claude Code finds the shared skills.
 
 Preview it first with `mise bootstrap --dry-run`.
 

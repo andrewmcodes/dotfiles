@@ -356,9 +356,22 @@ run = "killall Dock Finder || true"
 
 # Runs at the end of `mise bootstrap`. Git cannot carry 0600, so a fresh clone
 # restores dotfiles as 0644 until the manifest's recorded modes are replayed.
+# Claude Code reads skills from ~/.claude/skills, a link to ~/.agents/skills.
+# [dotfiles] forbids symlink entries, so the link is made here, between two
+# $HOME paths, never into this repository.
 [tasks.bootstrap]
-description = "Replay recorded dotfile modes after bootstrap applies the dotfiles"
-run = "./scripts/apply-dotfile-modes.sh"
+description = "Replay recorded dotfile modes and link Claude Code to the shared skills"
+run = [
+  "./scripts/apply-dotfile-modes.sh",
+  '''
+link="$HOME/.claude/skills"
+if [ -L "$link" ] || [ -e "$link" ]; then
+  [ "$(readlink "$link")" = "$HOME/.agents/skills" ] || echo "warning: $link exists and is not a link to ~/.agents/skills; left alone" >&2
+else
+  mkdir -p "$HOME/.claude" && ln -s "$HOME/.agents/skills" "$link"
+fi
+''',
+]
 
 [tasks."dotfiles:verify"]
 description = "Verify the committed backup covers and matches the live dotfiles"
