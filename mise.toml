@@ -73,12 +73,21 @@ dotfiles.root = "home"
 #     scope. ~/.warp/themes and ~/bin are listed per-file for that reason:
 #     both hold live files this repository deliberately does not manage.
 [dotfiles]
+"~/.claude/hooks/herdr-agent-state.sh"   = { source = "home/.claude/hooks/herdr-agent-state.sh", mode = "copy" }
 "~/.claude/settings.json"                = { source = "home/.claude/settings.json", mode = "copy" }
+"~/.config/act/actrc"                    = { source = "home/.config/act/actrc", mode = "copy" }
 "~/.config/asciinema/install-id"         = { source = "home/.config/asciinema/install-id", mode = "copy" }
+"~/.config/atuin/config.toml"            = { source = "home/.config/atuin/config.toml", mode = "copy" }
 "~/.config/bundle/config"                = { source = "home/.config/bundle/config", mode = "copy" }
+"~/.config/direnv/direnvrc"              = { source = "home/.config/direnv/direnvrc", mode = "copy" }
+"~/.config/direnv/lib/use_mise.sh"       = { source = "home/.config/direnv/lib/use_mise.sh", mode = "copy" }
 "~/.config/duti/default.duti"            = { source = "home/.config/duti/default.duti", mode = "copy" }
+"~/.config/gh-dash/config.yml"           = { source = "home/.config/gh-dash/config.yml", mode = "copy" }
+"~/.config/gh/config.yml"                = { source = "home/.config/gh/config.yml", mode = "copy" }
 "~/.config/git/config"                   = { source = "home/.config/git/config", mode = "copy" }
 "~/.config/git/ignore"                   = { source = "home/.config/git/ignore", mode = "copy" }
+"~/.config/glow/glow.yml"                = { source = "home/.config/glow/glow.yml", mode = "copy" }
+"~/.config/herdr/config.toml"            = { source = "home/.config/herdr/config.toml", mode = "copy" }
 "~/.config/kitty/kitty.conf"             = { source = "home/.config/kitty/kitty.conf", mode = "copy" }
 "~/.config/lazygit/config.yml"           = { source = "home/.config/lazygit/config.yml", mode = "copy" }
 "~/.config/mise/config.toml"             = { source = "home/.config/mise/config.toml", mode = "copy" }
@@ -86,12 +95,18 @@ dotfiles.root = "home"
 "~/.config/pry/pryrc"                    = { source = "home/.config/pry/pryrc", mode = "copy" }
 "~/.config/starship.toml"                = { source = "home/.config/starship.toml", mode = "copy" }
 "~/.config/tailspin/config.toml"         = { source = "home/.config/tailspin/config.toml", mode = "copy" }
+"~/.config/tape/config.yaml"             = { source = "home/.config/tape/config.yaml", mode = "copy" }
 "~/.config/tealdeer/config.toml"         = { source = "home/.config/tealdeer/config.toml", mode = "copy" }
 "~/.config/tmux/tmux.conf"               = { source = "home/.config/tmux/tmux.conf", mode = "copy" }
+"~/.config/zed/settings.json"            = { source = "home/.config/zed/settings.json", mode = "copy" }
 "~/.default-gems"                        = { source = "home/.default-gems", mode = "copy" }
 "~/.default-npm-packages"                = { source = "home/.default-npm-packages", mode = "copy" }
 "~/.editorconfig"                        = { source = "home/.editorconfig", mode = "copy" }
+"~/.fzf.zsh"                             = { source = "home/.fzf.zsh", mode = "copy" }
+"~/.gemrc"                               = { source = "home/.gemrc", mode = "copy" }
+"~/.mackup.cfg"                          = { source = "home/.mackup.cfg", mode = "copy" }
 "~/.prettierrc"                          = { source = "home/.prettierrc", mode = "copy" }
+"~/.searchlink"                          = { source = "home/.searchlink", mode = "copy" }
 "~/.warp/keybindings.yaml"               = { source = "home/.warp/keybindings.yaml", mode = "copy" }
 "~/.warp/launch_configurations"          = { source = "home/.warp/launch_configurations", mode = "copy" }
 "~/.warp/themes/One_Dark_Darker.yaml"    = { source = "home/.warp/themes/One_Dark_Darker.yaml", mode = "copy" }

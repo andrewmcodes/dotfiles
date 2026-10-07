@@ -68,7 +68,7 @@ The backup iterates the baseline, so the new path is captured on that run. The s
 
 ## File modes and the manifest
 
-Git records only whether a file is executable. It cannot carry `0600`, and 23 of the 43 managed files are `0600`.
+Git records only whether a file is executable. It cannot carry `0600`, and 27 of the 58 managed files are `0600`.
 
 `config/dotfiles-manifest.tsv` is therefore the authoritative mode record:
 

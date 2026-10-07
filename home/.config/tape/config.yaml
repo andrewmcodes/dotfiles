@@ -1,0 +1,6 @@
+---
+backup_to: "/Users/andrew.mason/.config/tape/Backups"
+keep: 5
+exclude:
+- ssh
+include:

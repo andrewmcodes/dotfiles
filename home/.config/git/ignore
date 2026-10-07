@@ -111,3 +111,4 @@ Procfile.andrew
 /.claude/worktrees/
 
 **/.claude/.cc-writes/
+*.local.*

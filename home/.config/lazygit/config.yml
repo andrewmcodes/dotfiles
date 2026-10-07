@@ -7,3 +7,6 @@ customCommands:
     command: "gh pr view -w"
     context: "commits"
     description: "Open Github PR in browser"
+git:
+  diffRenderers:
+    - command: delta --dark --paging=never --line-numbers

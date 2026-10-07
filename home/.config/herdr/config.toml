@@ -1,0 +1,67 @@
+onboarding = false
+
+[theme]
+# "terminal" draws Herdr from the host terminal ANSI palette this theme
+# also installs; the [theme.custom] block below overrides the rest.
+name = "terminal"
+
+auto_switch = false
+[theme.custom]
+# Surfaces — the neutral ramp.
+panel_bg = "#111113"      # panel and content background
+sidebar_bg = "#18191b"    # desktop sidebar background
+surface_dim = "#18191b"   # dimmed recessed surface
+surface0 = "#212225"      # component background
+surface1 = "#2e3135"      # raised / hovered surface
+active_row_bg = "#2e3135" # active Space / focused Agent row
+selection_bg = "#3c2e69"  # Navigate-mode cursor row
+overlay0 = "#43484e"      # separators, scrollbar track
+overlay1 = "#5a6169"      # stronger border / overlay
+text = "#edeef0"          # primary text
+subtext0 = "#b0b4ba"      # muted secondary text
+
+# Accents.
+accent = "#6e56cf" # primary accent
+mauve = "#6e56cf"  # accent hue (Catppuccin's mauve)
+red = "#e5484d"    # errors, destructive
+green = "#46a758"  # success, additions
+yellow = "#ffca16" # warnings — ANSI yellow, matches the terminal
+peach = "#ffc53d"  # warm accent / warning
+blue = "#00a2c7"   # info, links
+teal = "#4ccce6"   # cool accent — ANSI cyan, matches the terminal
+
+[ui]
+accent = "#6e56cf"
+tab_bar_position = "bottom"
+agent_panel_sort = "spaces"
+
+status_indicators = "symbols"
+[ui.sidebar.agents]
+row_gap = 1
+rows = [
+  [
+    { token = "state_icon" },
+    { token = "agent", fg = "#edeef0", bold = true },
+    { token = "state_text", fg = "#b6ecf7", bold = true },
+  ],
+  [
+    { token = "workspace", fg = "#c2f0c2", bold = true },
+    { token = "tab", fg = "#b0b4ba" },
+  ],
+]
+
+[ui.sidebar.spaces]
+row_gap = 1
+rows = [
+  [
+    { token = "state_icon" },
+    { token = "workspace", fg = "#edeef0", bold = true },
+  ],
+  [
+    { token = "branch", fg = "#b6ecf7" },
+    { token = "git_status", fg = "#ffe7b3", bold = true },
+  ],
+]
+
+[ui.toast]
+delivery = "herdr"
